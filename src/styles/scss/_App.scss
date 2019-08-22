@@ -1,0 +1,104 @@
+.App {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  min-height: 100vh;
+  background: #ddd;
+  font-family: Oswald, sans-serif;
+}
+
+.main {
+  section {
+    position: relative;
+  }
+}
+
+.main-header {
+  $color: #fff;
+  $bg: #333;
+
+  background: $bg;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+
+  .brand {
+    text-decoration: none;
+    color: $color;
+    margin: 10px 20px;
+  }
+
+  .navbar {
+    list-style: none;
+    color: $color;
+    padding: 0;
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: nowrap;
+
+    li {
+      margin: 10px 20px;
+    }
+  }
+}
+
+.hero {
+  $color: #fff;
+  $highlighted: yellow;
+  $bg: #555;
+
+  background: $bg;
+  height: 90vh;
+  overflow: hidden;
+
+  &__title {
+    text-transform: uppercase;
+    position: absolute;
+    width: 100%;
+    margin: 0;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+
+    span {
+      font-size: 6.25vmax;
+      line-height: 1.25em;
+      color: $color;
+    }
+
+    .block {
+      display: block;
+    }
+
+    .small {
+      font-size: 0.75em;
+    }
+
+    .left {
+      text-align: left;
+
+      &--overflow {
+        margin-left: -18vmax;
+      }
+    }
+
+    .right {
+      text-align: right;
+
+      &--overflow {
+        margin-right: -15.25vmax;
+      }
+    }
+
+    &__block {
+      width: 49vmax;
+    }
+
+    .hero__title--highlight {
+      font-size: inherit;
+      color: $highlighted;
+    }
+  }
+}
+

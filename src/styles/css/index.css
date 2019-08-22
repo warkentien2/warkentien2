@@ -1,0 +1,497 @@
+.App {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  min-height: 100vh;
+  background: #ddd;
+  font-family: Oswald, sans-serif;
+}
+
+.main section {
+  position: relative;
+}
+
+.main-header {
+  background: #333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+}
+.main-header .brand {
+  text-decoration: none;
+  color: #fff;
+  margin: 10px 20px;
+}
+.main-header .navbar {
+  list-style: none;
+  color: #fff;
+  padding: 0;
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: nowrap;
+}
+.main-header .navbar li {
+  margin: 10px 20px;
+}
+
+.hero {
+  background: #555;
+  height: 90vh;
+  overflow: hidden;
+}
+.hero__title {
+  text-transform: uppercase;
+  position: absolute;
+  width: 100%;
+  margin: 0;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.hero__title span {
+  font-size: 6.25vmax;
+  line-height: 1.25em;
+  color: #fff;
+}
+.hero__title .block {
+  display: block;
+}
+.hero__title .small {
+  font-size: 0.75em;
+}
+.hero__title .left {
+  text-align: left;
+}
+.hero__title .left--overflow {
+  margin-left: -18vmax;
+}
+.hero__title .right {
+  text-align: right;
+}
+.hero__title .right--overflow {
+  margin-right: -15.25vmax;
+}
+.hero__title__block {
+  width: 49vmax;
+}
+.hero__title .hero__title--highlight {
+  font-size: inherit;
+  color: yellow;
+}
+
+.x-body {
+  width: 53.52vmax;
+  height: 40vmax;
+  position: absolute;
+  left: 27.5vmax;
+  top: -7.5vmax;
+  font-size: 0.39vmax;
+}
+
+.x-leg {
+  height: 3.73em;
+  left: 53.33em;
+  position: absolute;
+  top: 40em;
+  width: 17.33em;
+}
+.x-leg > .x-leg-parts {
+  left: 0;
+  top: 0;
+}
+
+.x-leg-parts {
+  background: linear-gradient(0, #131313 0%, #1d1d1d 50%, #2e2e2e 100%);
+  border: 1px solid rgba(20, 25, 20, 0.75);
+  border-radius: 50% 60% 45% 25%;
+  box-shadow: none;
+  height: 97.5%;
+  left: 95%;
+  position: absolute;
+  top: 10%;
+  transform-origin: 5% 50%;
+}
+
+.x-trochanter {
+  width: 30%;
+  transform: rotate(10deg);
+}
+
+.x-femur {
+  height: 100%;
+  left: 50%;
+  top: 0;
+  transform: rotate(-80deg);
+  transform-origin: 5% 25%;
+  width: 350%;
+}
+
+.x-patella {
+  background: linear-gradient(7deg, #1d1d1d 0%, #2e2e2e 40%, #454545 65%, #454545 75%, #2e2e2e 90%, #1d1d1d 100%);
+  transform: rotate(100deg);
+  width: 45%;
+}
+
+.x-tibia {
+  background: linear-gradient(3deg, #1d1d1d 0%, #454545 55%, #2e2e2e 70%, #2e2e2e 80%, #454545 95%);
+  height: 100%;
+  top: 2.5%;
+  left: 80%;
+  transform: rotate(15deg);
+  width: 150%;
+}
+
+.x-metatarsus {
+  background: linear-gradient(95deg, #454545 0%, #1d1d1d 100%);
+  left: 92.5%;
+  height: 80%;
+  transform: rotate(25deg);
+  width: 95%;
+}
+
+.x-tarsus {
+  border-radius: 50% 50% 100% 50%;
+  height: 65%;
+  left: 95%;
+  top: 20%;
+  transform: rotate(-10deg);
+  width: 60%;
+}
+
+.x-dot {
+  border-radius: 50%;
+  height: 0.53em;
+  left: 5%;
+  opacity: 0.5;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 0.53em;
+}
+
+.x-leg.leg-2 .x-trochanter {
+  transform: rotate(20deg);
+}
+.x-leg.leg-2 .x-femur {
+  transform: rotate(-70deg);
+}
+.x-leg.leg-2 .x-patella {
+  transform: rotate(60deg);
+}
+.x-leg.leg-2 .x-metatarsus {
+  transform: rotate(50deg);
+}
+
+.x-leg.leg-3 {
+  left: 49.33em;
+}
+
+.x-leg-small {
+  transform: rotateY(180deg);
+  left: 23%;
+}
+.x-leg-small .x-trochanter {
+  transform: rotate(20deg);
+}
+.x-leg-small .x-femur {
+  width: 310%;
+  transform: rotate(-67.5deg);
+}
+.x-leg-small .x-patella {
+  transform: rotate(67.5deg);
+}
+.x-leg-small .x-metatarsus {
+  transform: rotate(30deg);
+}
+
+.x-leg.leg-4 {
+  left: 25%;
+}
+.x-leg.leg-4 .x-trochanter {
+  transform: rotate(30deg);
+}
+.x-leg.leg-4 .x-femur {
+  left: 30%;
+  top: 30%;
+  transform: rotate(-115deg);
+}
+.x-leg.leg-4 .x-patella {
+  transform: rotate(120deg);
+}
+.x-leg.leg-4 .x-metatarsus {
+  transform: rotate(60deg);
+}
+.x-leg.leg-4 .x-tarsus {
+  transform: rotate(-35deg);
+}
+
+.x-body-parts {
+  background: linear-gradient(0, #131313 0%, #1d1d1d 50%, #2e2e2e 100%);
+  border: 1px solid rgba(20, 25, 20, 0.75);
+  box-shadow: none;
+  height: 92.5%;
+  left: 95%;
+  position: absolute;
+  top: 10%;
+  transform-origin: 5% 50%;
+}
+
+.x-abdomen {
+  left: 16.75%;
+  top: 38.5%;
+  width: 22.67em;
+  height: 16em;
+  border-radius: 60% 50% 35% 50%;
+  transform: rotate(-20deg);
+}
+
+.x-cephalothorax {
+  background: linear-gradient(-30deg, #2e2e2e 30%, #2e2e2e 60%, #1d1d1d 100%);
+  left: 32.75%;
+  top: 37.5%;
+  width: 16em;
+  height: 9.33em;
+  border-radius: 10%;
+  border-top-left-radius: 100%;
+  border-bottom-right-radius: 30%;
+  transform: rotate(-10deg);
+}
+.x-cephalothorax .x-eye {
+  position: absolute;
+  right: -17.5%;
+  top: 4%;
+  width: 1.33em;
+  height: 1.07em;
+  border-radius: 50% 50% 45% 45%;
+  background: #ccc;
+  box-shadow: inset -0.27em 0 0.13em -0.13em #ccc, inset -0.13em -0.27em 0.13em 0.27em black;
+  border: 0.13em solid #000;
+  transform: rotate(45deg);
+}
+.x-cephalothorax .x-eye2 {
+  position: absolute;
+  right: -14%;
+  top: 10%;
+  width: 1.07em;
+  height: 1.07em;
+  border-radius: 50%;
+  background: #ccc;
+  box-shadow: inset -0.27em 0 0.13em -0.13em #ccc, inset -0.13em -0.27em 0.13em 0.27em black;
+  border: 0.13em solid #000;
+  transform: rotate(60deg);
+}
+.x-cephalothorax .x-eye3 {
+  position: absolute;
+  right: -22.5%;
+  top: 16%;
+  width: 0.53em;
+  height: 0.4em;
+  border-radius: 50%;
+  background: #ccc;
+  box-shadow: inset -0.27em 0 0.13em -0.13em #ccc, inset -0.13em -0.27em 0.13em 0.27em black;
+  border: 0.13em solid #000;
+  transform: rotate(60deg);
+}
+.x-cephalothorax .x-eye4 {
+  position: absolute;
+  right: -28%;
+  top: 14%;
+  width: 0.67em;
+  height: 0.4em;
+  border-radius: 50%;
+  background: #ccc;
+  box-shadow: inset -0.27em 0 0.13em -0.13em #ccc, inset -0.13em -0.27em 0.13em 0.27em black;
+  border: 0.13em solid #000;
+  transform: rotate(60deg);
+}
+.x-cephalothorax .x-coxa-pattern,
+.x-cephalothorax .x-chelicera-pattern {
+  background: linear-gradient(-30deg, #2e2e2e 30%, #2e2e2e 60%, #1d1d1d 100%);
+  display: inline-block;
+  left: 48%;
+  top: 0;
+  width: 24%;
+  height: 80%;
+  position: absolute;
+  transform-origin: 50% 0;
+  box-shadow: inset 0 -2em 1.33em 0.67em rgba(20, 20, 10, 0.25);
+  border-radius: 80% 80% 20% 20%;
+}
+.x-cephalothorax .x-cp1 {
+  transform: translate(-90%, 35%) rotate(30deg);
+}
+.x-cephalothorax .x-cp2 {
+  transform: translate(-35%, 20%) rotate(15deg);
+}
+.x-cephalothorax .x-cp3 {
+  transform: translate(7%, 15%) rotate(7deg);
+}
+.x-cephalothorax .x-cp4 {
+  transform: translate(40%, 12.5%) rotate(-10deg);
+}
+.x-cephalothorax .x-chelicera-pattern {
+  width: 37.5%;
+  height: 70%;
+  border: 0.13em solid #1f180e;
+  box-shadow: none;
+  border-top: none;
+  border-radius: 20% 85% 15% 0%;
+  transform: translate(25%, 0) rotate(-55deg);
+}
+
+.x-pedipalp {
+  left: 44%;
+  top: 42.5%;
+  position: absolute;
+  transform: rotate(10deg);
+  width: 10.67em;
+  height: 2.93em;
+}
+.x-pedipalp .x-leg-parts {
+  border-radius: 40% 50% 35% 25%;
+}
+.x-pedipalp .x-trochanter {
+  transform: rotate(10deg);
+}
+.x-pedipalp .x-femur {
+  transform: rotate(-40deg);
+}
+.x-pedipalp .x-patella {
+  transform: rotate(70deg);
+}
+.x-pedipalp .x-tibia {
+  top: -5%;
+}
+.x-pedipalp .x-metatarsus {
+  transform: rotate(50deg);
+  width: 80%;
+  height: 75%;
+}
+
+.x-chelicerae {
+  width: 11.33em;
+  height: 6em;
+  left: 45.75%;
+  top: 33.5%;
+  transform: rotate(60deg);
+  border-radius: 30% 70% 10% 0%;
+}
+.x-chelicerae .x-fang {
+  position: absolute;
+  background: linear-gradient(-2deg, #222 0%, #444 50%, #222 100%);
+  border-radius: 20% 0 100% 0;
+  width: 20%;
+  height: 20%;
+  right: -10%;
+  bottom: -25%;
+  transform: rotate(60deg);
+  transform-origin: 45% 20%;
+}
+
+.spider {
+  background: rgba(0, 0, 0, 0.1);
+  height: 102px;
+  left: 50px;
+  position: relative;
+  top: 600px;
+  width: 400px;
+}
+.spider .x-leg {
+  left: 0;
+  top: 0;
+}
+.spider .x-leg * {
+  transition: all 0.5s ease;
+}
+
+.x-leg.leg-raise-1 .x-trochanter {
+  transform: rotate(0);
+}
+.x-leg.leg-raise-1 .x-femur {
+  transform: rotate(-80deg);
+}
+.x-leg.leg-raise-1 .x-patella {
+  transform: rotate(80deg);
+  transform-origin: 7.5% 35%;
+  width: 40%;
+}
+.x-leg.leg-raise-1 .x-tibia {
+  width: 150%;
+}
+.x-leg.leg-raise-1 .x-metatarsus {
+  transform: rotate(75deg);
+  width: 105%;
+}
+.x-leg.leg-raise-1 .x-tarsus {
+  transform: rotate(-10deg);
+}
+
+.x-leg.leg-raise-2 .x-trochanter {
+  transform: rotate(0);
+}
+.x-leg.leg-raise-2 .x-femur {
+  transform: rotate(-65deg);
+}
+.x-leg.leg-raise-2 .x-patella {
+  transform: rotate(50deg);
+}
+.x-leg.leg-raise-2 .x-tibia {
+  transform: rotate(5deg);
+}
+.x-leg.leg-raise-2 .x-metatarsus {
+  transform: rotate(30deg);
+}
+.x-leg.leg-raise-2 .x-tarsus {
+  transform: rotate(-20deg);
+}
+
+.x-leg.leg-pull .x-trochanter {
+  transform: rotate(70deg);
+  width: 25%;
+}
+.x-leg.leg-pull .x-femur {
+  transform: rotate(-140deg);
+  transform-origin: 5% 45%;
+  width: 400%;
+}
+.x-leg.leg-pull .x-patella {
+  transform: rotate(110deg);
+  transform-origin: 7.5% 35%;
+  width: 30%;
+}
+.x-leg.leg-pull .x-tibia {
+  transform: rotate(30deg);
+  transform-origin: 5% 10%;
+  width: 160%;
+}
+.x-leg.leg-pull .x-metatarsus {
+  transform: rotate(30deg);
+  width: 120%;
+}
+.x-leg.leg-pull .x-tarsus {
+  transform: rotate(-40deg);
+}
+
+.x-leg.leg-defensive .x-trochanter {
+  transform: rotate(-30deg);
+}
+.x-leg.leg-defensive .x-femur {
+  transform: rotate(-70deg);
+}
+.x-leg.leg-defensive .x-patella {
+  transform: rotate(90deg);
+}
+.x-leg.leg-defensive .x-metatarsus {
+  transform: rotate(20deg);
+}
+.x-leg.leg-defensive .x-tarsus {
+  transform: rotate(-10deg);
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+/*# sourceMappingURL=index.css.map */
