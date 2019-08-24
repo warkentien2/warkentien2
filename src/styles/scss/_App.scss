@@ -65,6 +65,10 @@
       font-size: 6.25vmax;
       line-height: 1.25em;
       color: $color;
+
+      @media screen and (max-width: 700px) {
+        font-size: 1.75em;
+      }
     }
 
     .block {
@@ -80,6 +84,10 @@
 
       &--overflow {
         margin-left: -18vmax;
+
+        @media screen and (max-width: 700px) {
+          margin-left: -15vmax;
+        }
       }
     }
 
@@ -88,11 +96,24 @@
 
       &--overflow {
         margin-right: -15.25vmax;
+
+        @media screen and (max-width: 700px) {
+          margin-right: -12.5vmax;
+        }
       }
     }
 
     &__block {
       width: 49vmax;
+
+      @media screen and (max-width: 700px) {
+        display: block;
+        width: 87%;
+        max-width: 100%;
+        text-align: right;
+        margin: 0;
+        padding: 0;
+      }
     }
 
     .hero__title--highlight {

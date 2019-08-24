@@ -49,11 +49,11 @@ $steel-c8: #131210;
 
 .tarantula {
   position: absolute;
-  width: 53.52vmax; // 950px;
-  height: 40vmax; // 710px;
-  left: 20vmax; // 27.5vmax;
-  top: 30vmax;
-  font-size: 0.78vmax; // 0.39vmax;
+  width: 66.9vw; // 53.52vw; // 950px;
+  height: 50vw; // 40vw; // 710px;
+  left: 14.5vw; // 27.5vw;
+  top: 30vw;
+  font-size: 0.975vw; // 0.78vw; // 0.39vw;
   box-sizing: border-box;
   // overflow: hidden;
 
@@ -65,7 +65,7 @@ $steel-c8: #131210;
 
 .x-body {
   left: 42.75%;
-  top: 50%;
+  top: -40%;
   width: 100%;
   height: 100%;
   transform: rotate(-10deg);
@@ -241,7 +241,7 @@ $steel-c8: #131210;
       height: calc(12.5% + 2px);
       right: -31%;
       bottom: -2.5%;
-      transform: rotate(120deg);
+      transform: rotate(105deg);
       transform-origin: 5% 50%;
       background: radial-gradient(circle at 20% -5%, $steel-c1 25%, $steel-c2 29%, $steel-c3 35%, $steel-c3 42.5%, $steel-c6 85%, $steel-c7 100%) !important;
       box-shadow: inset -3em -4.5em 0.175em -5.125em $steel-c1, inset -4.625em -2.75em 0.175em -5.125em $steel-c1, inset -4.625em -2.75em 0.125em -5em $steel-c2, inset -3em -4.5em 0.125em -5em $steel-c2, inset 2em -2.5em 0.125em -3em $steel-c2, inset -0.125em -0.175em 0.125em -0.125em $steel-c2, inset 0 -0.0525em 0.1em -0.0125em $steel-c2, inset -2em -5.25em 0.25em -5em $steel-c8, inset -3.8em -2.75em 0.25em -4em $steel-c8, inset 1.875em -2.375em 0.175em -2.5em $steel-c8, inset 3.625em 2.625em 0.125em -4em $steel-c8, inset 1.875em 3em 0.125em -3em $steel-c8, inset 0.5em 0.375em 0.125em -0.375em $steel-c8, inset -2em 2.25em 0.25em -2.75em $steel-c8, inset 3.625em 2.625em 0.25em -3.9em $steel-c6, inset 1.875em 3em 0.25em -2.95em $steel-c6, inset -1.125em 2.125em 0.375em -2em $steel-c6, 0.075em 0.175em 0.2em 0.0125em rgba(0, 0, 0, 0.75), 0.125em 0.1em 0.75em 0.175em rgba(0, 0, 0, 0.35), 0.5em 0.5em 1em 0.25em rgba(0, 0, 0, 0.25), -0.25em 0.5em 1.5em 0.5em rgba(0, 0, 0, 0.1), 0 0 3.5em rgba(238,162,66, 0.125), 0.125em 0.125em 0.25em -0.05em rgba(238,162,66, 0.75), 0.125em 0.125em 0.75em 0.125em rgba(0, 0, 0, 0.25), 0.125em 0.125em 0.5em -0.05em rgba(238,162,66, 0.25) !important;
@@ -387,7 +387,7 @@ $steel-c8: #131210;
     }
 
     .x-patella {
-      transform: rotate(60deg);
+      transform: rotate(61deg);
     }
 
     .x-metatarsus {
@@ -396,29 +396,41 @@ $steel-c8: #131210;
   }
 
   .x-leg.leg-5 {
-    transform: rotate(31deg);
+    transform: rotate(31.5deg);
+
+    .x-femur {
+      transform: rotate(-80deg);
+    }
+
+    .x-patella {
+      transform: rotate(71.5deg);
+    }
   }
 
   .x-leg.leg-2,
   .x-leg.leg-6 {
     top: 67.5%;
     left: 45%;
-    transform: rotate(16deg);
+    transform: rotate(17deg);
   }
 
   .x-leg.leg-6 {
-    transform: rotate(16deg);
+    transform: rotate(15deg);
 
     .x-femur {
-      transform: rotate(-67.5deg);
+      transform: rotate(-65.5deg);
     }
 
     .x-patella {
-      transform: rotate(62.5deg);
+      transform: rotate(67.5deg);
     }
 
     .x-metatarsus {
-      transform: rotate(85deg);
+      transform: rotate(65deg);
+    }
+
+    .x-tarsus {
+      transform: rotate(35deg);
     }
   }
 
@@ -446,18 +458,18 @@ $steel-c8: #131210;
   }
 
   .x-leg.leg-7 {
-    transform: rotateY(180deg) rotateZ(5deg);
+    transform: rotateY(180deg) rotateZ(20deg);
 
     .x-femur {
-      transform: rotate(-120deg);
+      transform: rotate(-104deg);
     }
 
     .x-patella {
-      transform: rotate(118deg);
+      transform: rotate(85deg);
     }
 
     .x-metatarsus {
-      transform: rotate(40deg);
+      transform: rotate(65deg);
     }
   }
 
@@ -469,22 +481,20 @@ $steel-c8: #131210;
   }
 
   .x-leg.leg-8 {
-    transform: rotateY(180deg) rotateZ(4deg);
-  
     .x-femur {
-      transform: rotate(-85deg);
+      transform: rotate(-75deg);
     }
 
     .x-patella {
-      transform: rotate(92deg);
+      transform: rotate(67.5deg);
     }
 
     .x-metatarsus {
-      transform: rotate(15deg);
+      transform: rotate(60.5deg);
     }
 
     .x-tarsus {
-      transform: rotate(-20deg);
+      transform: rotate(-15deg);
     }
   }
 
@@ -500,11 +510,11 @@ $steel-c8: #131210;
     }
 
     .x-femur {
-      transform: rotate(-90deg);
+      transform: rotate(-85deg);
     }
 
     .x-patella {
-      transform: rotate(87.5deg);
+      transform: rotate(95.5deg);
       height: 95%;
     }
 
@@ -524,7 +534,7 @@ $steel-c8: #131210;
     transform: rotate(48deg);
 
     .x-femur {
-      transform: rotate(-70deg);
+      transform: rotate(-60deg);
     }
 
     .x-patella {

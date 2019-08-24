@@ -54,6 +54,11 @@
   line-height: 1.25em;
   color: #fff;
 }
+@media screen and (max-width: 700px) {
+  .hero__title span {
+    font-size: 1.75em;
+  }
+}
 .hero__title .block {
   display: block;
 }
@@ -66,14 +71,34 @@
 .hero__title .left--overflow {
   margin-left: -18vmax;
 }
+@media screen and (max-width: 700px) {
+  .hero__title .left--overflow {
+    margin-left: -15vmax;
+  }
+}
 .hero__title .right {
   text-align: right;
 }
 .hero__title .right--overflow {
   margin-right: -15.25vmax;
 }
+@media screen and (max-width: 700px) {
+  .hero__title .right--overflow {
+    margin-right: -12.5vmax;
+  }
+}
 .hero__title__block {
   width: 49vmax;
+}
+@media screen and (max-width: 700px) {
+  .hero__title__block {
+    display: block;
+    width: 87%;
+    max-width: 100%;
+    text-align: right;
+    margin: 0;
+    padding: 0;
+  }
 }
 .hero__title .hero__title--highlight {
   font-size: inherit;
@@ -82,11 +107,11 @@
 
 .tarantula {
   position: absolute;
-  width: 53.52vmax;
-  height: 40vmax;
-  left: 20vmax;
-  top: 30vmax;
-  font-size: 0.78vmax;
+  width: 66.9vw;
+  height: 50vw;
+  left: 14.5vw;
+  top: 30vw;
+  font-size: 0.975vw;
   box-sizing: border-box;
 }
 .tarantula * {
@@ -96,7 +121,7 @@
 
 .x-body {
   left: 42.75%;
-  top: 50%;
+  top: -40%;
   width: 100%;
   height: 100%;
   transform: rotate(-10deg);
@@ -253,7 +278,7 @@
   height: calc(12.5% + 2px);
   right: -31%;
   bottom: -2.5%;
-  transform: rotate(120deg);
+  transform: rotate(105deg);
   transform-origin: 5% 50%;
   background: radial-gradient(circle at 20% -5%, #FFF 25%, #D8D0CD 29%, #8A847E 35%, #8A847E 42.5%, #4D4945 85%, #3F3F47 100%) !important;
   box-shadow: inset -3em -4.5em 0.175em -5.125em #FFF, inset -4.625em -2.75em 0.175em -5.125em #FFF, inset -4.625em -2.75em 0.125em -5em #D8D0CD, inset -3em -4.5em 0.125em -5em #D8D0CD, inset 2em -2.5em 0.125em -3em #D8D0CD, inset -0.125em -0.175em 0.125em -0.125em #D8D0CD, inset 0 -0.0525em 0.1em -0.0125em #D8D0CD, inset -2em -5.25em 0.25em -5em #131210, inset -3.8em -2.75em 0.25em -4em #131210, inset 1.875em -2.375em 0.175em -2.5em #131210, inset 3.625em 2.625em 0.125em -4em #131210, inset 1.875em 3em 0.125em -3em #131210, inset 0.5em 0.375em 0.125em -0.375em #131210, inset -2em 2.25em 0.25em -2.75em #131210, inset 3.625em 2.625em 0.25em -3.9em #4D4945, inset 1.875em 3em 0.25em -2.95em #4D4945, inset -1.125em 2.125em 0.375em -2em #4D4945, 0.075em 0.175em 0.2em 0.0125em rgba(0, 0, 0, 0.75), 0.125em 0.1em 0.75em 0.175em rgba(0, 0, 0, 0.35), 0.5em 0.5em 1em 0.25em rgba(0, 0, 0, 0.25), -0.25em 0.5em 1.5em 0.5em rgba(0, 0, 0, 0.1), 0 0 3.5em rgba(238, 162, 66, 0.125), 0.125em 0.125em 0.25em -0.05em rgba(238, 162, 66, 0.75), 0.125em 0.125em 0.75em 0.125em rgba(0, 0, 0, 0.25), 0.125em 0.125em 0.5em -0.05em rgba(238, 162, 66, 0.25) !important;
@@ -372,32 +397,41 @@
 }
 .x-body-part .x-leg.leg-1 .x-patella,
 .x-body-part .x-leg.leg-5 .x-patella {
-  transform: rotate(60deg);
+  transform: rotate(61deg);
 }
 .x-body-part .x-leg.leg-1 .x-metatarsus,
 .x-body-part .x-leg.leg-5 .x-metatarsus {
   transform: rotate(50deg);
 }
 .x-body-part .x-leg.leg-5 {
-  transform: rotate(31deg);
+  transform: rotate(31.5deg);
+}
+.x-body-part .x-leg.leg-5 .x-femur {
+  transform: rotate(-80deg);
+}
+.x-body-part .x-leg.leg-5 .x-patella {
+  transform: rotate(71.5deg);
 }
 .x-body-part .x-leg.leg-2,
 .x-body-part .x-leg.leg-6 {
   top: 67.5%;
   left: 45%;
-  transform: rotate(16deg);
+  transform: rotate(17deg);
 }
 .x-body-part .x-leg.leg-6 {
-  transform: rotate(16deg);
+  transform: rotate(15deg);
 }
 .x-body-part .x-leg.leg-6 .x-femur {
-  transform: rotate(-67.5deg);
+  transform: rotate(-65.5deg);
 }
 .x-body-part .x-leg.leg-6 .x-patella {
-  transform: rotate(62.5deg);
+  transform: rotate(67.5deg);
 }
 .x-body-part .x-leg.leg-6 .x-metatarsus {
-  transform: rotate(85deg);
+  transform: rotate(65deg);
+}
+.x-body-part .x-leg.leg-6 .x-tarsus {
+  transform: rotate(35deg);
 }
 .x-body-part .x-leg.leg-3,
 .x-body-part .x-leg.leg-7 {
@@ -422,16 +456,16 @@
   transform: rotate(-35deg);
 }
 .x-body-part .x-leg.leg-7 {
-  transform: rotateY(180deg) rotateZ(5deg);
+  transform: rotateY(180deg) rotateZ(20deg);
 }
 .x-body-part .x-leg.leg-7 .x-femur {
-  transform: rotate(-120deg);
+  transform: rotate(-104deg);
 }
 .x-body-part .x-leg.leg-7 .x-patella {
-  transform: rotate(118deg);
+  transform: rotate(85deg);
 }
 .x-body-part .x-leg.leg-7 .x-metatarsus {
-  transform: rotate(40deg);
+  transform: rotate(65deg);
 }
 .x-body-part .x-leg.leg-4,
 .x-body-part .x-leg.leg-8 {
@@ -439,20 +473,17 @@
   left: 5%;
   transform: rotateY(180deg) rotateZ(4deg);
 }
-.x-body-part .x-leg.leg-8 {
-  transform: rotateY(180deg) rotateZ(4deg);
-}
 .x-body-part .x-leg.leg-8 .x-femur {
-  transform: rotate(-85deg);
+  transform: rotate(-75deg);
 }
 .x-body-part .x-leg.leg-8 .x-patella {
-  transform: rotate(92deg);
+  transform: rotate(67.5deg);
 }
 .x-body-part .x-leg.leg-8 .x-metatarsus {
-  transform: rotate(15deg);
+  transform: rotate(60.5deg);
 }
 .x-body-part .x-leg.leg-8 .x-tarsus {
-  transform: rotate(-20deg);
+  transform: rotate(-15deg);
 }
 .x-body-part .x-pedipalp {
   left: 95%;
@@ -465,10 +496,10 @@
   border-radius: 40% 50% 35% 25%;
 }
 .x-body-part .x-pedipalp .x-femur {
-  transform: rotate(-90deg);
+  transform: rotate(-85deg);
 }
 .x-body-part .x-pedipalp .x-patella {
-  transform: rotate(87.5deg);
+  transform: rotate(95.5deg);
   height: 95%;
 }
 .x-body-part .x-pedipalp .x-tibia {
@@ -484,7 +515,7 @@
   transform: rotate(48deg);
 }
 .x-body-part .pedipalp-2 .x-femur {
-  transform: rotate(-70deg);
+  transform: rotate(-60deg);
 }
 .x-body-part .pedipalp-2 .x-patella {
   transform: rotate(110deg);

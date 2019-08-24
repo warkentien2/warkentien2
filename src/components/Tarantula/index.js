@@ -54,7 +54,7 @@ function Tarantula() {
       <div class="x-body">
         <div class="x-body-part x-cephalothorax">
 
-          <div id="leg-5" class="x-leg x-leg--background x-leg--small leg-5">
+          <div id="leg-6" class="x-leg x-leg--background leg-6">
             <div class="x-leg-parts x-coxa">
               <div class="x-leg-parts x-femur">
                 <div class="x-leg-parts x-patella">
@@ -67,7 +67,7 @@ function Tarantula() {
               </div>
             </div>
           </div>
-          <div id="leg-6" class="x-leg x-leg--background x-leg--small leg-6">
+          <div id="leg-5" class="x-leg x-leg--background leg-5">
             <div class="x-leg-parts x-coxa">
               <div class="x-leg-parts x-femur">
                 <div class="x-leg-parts x-patella">
@@ -80,7 +80,7 @@ function Tarantula() {
               </div>
             </div>
           </div>
-          <div id="leg-8" class="x-leg x-leg--background leg-8">
+          <div id="leg-7" class="x-leg x-leg--background x-leg--small leg-7">
             <div class="x-leg-parts x-coxa">
               <div class="x-leg-parts x-femur">
                 <div class="x-leg-parts x-patella">
@@ -93,7 +93,7 @@ function Tarantula() {
               </div>
             </div>
           </div>
-          <div id="leg-7" class="x-leg x-leg--background leg-7">
+          <div id="leg-8" class="x-leg x-leg--background x-leg--small leg-8">
             <div class="x-leg-parts x-coxa">
               <div class="x-leg-parts x-femur">
                 <div class="x-leg-parts x-patella">
