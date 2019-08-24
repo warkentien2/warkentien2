@@ -16,7 +16,10 @@ function App() {
       </header>
       <main className="main">
         <section id="home" className="hero">
-          <h1 className="hero__title">
+          <h1
+            className="hero__title"
+            // style={{opacity: '0.125'}}
+          >
             <span tabindex="-1" className="block right right--overflow">Complex UI &</span>
             <span className="block left left--overflow">Complex UI &</span>
             <span className="block left hero__title__block">

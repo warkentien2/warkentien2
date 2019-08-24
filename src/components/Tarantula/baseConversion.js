@@ -84,7 +84,7 @@ let str = `
   width: 4px;
 }
 
-.x-leg.leg-2 {
+.x-leg.leg-1 {
 
   .x-trochanter {
     transform: rotate(20deg);
@@ -103,7 +103,7 @@ let str = `
   }
 }
 
-.x-leg.leg-3 {
+.x-leg.leg-2 {
   left: 370px;
 }
 

@@ -1,153 +1,136 @@
-.spider {
-  background: rgba(0, 0, 0, 0.1);
-  height: 102px;
-  left: 50px;
-  position: relative;
-  top: 600px;
-  width: 400px;
-
-  .x-leg {
-    left: 0;
-    top: 0;
-  }
-
-  .x-leg * {
-    transition: all 0.5s ease;
-  }
-}
-
-.x-leg.leg-raise-1 {
-  // margin-left: 0;
-
-  .x-trochanter {
-    transform: rotate(0);
-  }
-
-  .x-femur {
-    transform: rotate(-80deg);
-  }
-
-  .x-patella {
-    transform: rotate(80deg);
-    transform-origin: 7.5% 35%;
-    width: 40%;
-  }
-
-  .x-tibia {
-    width: 150%;
-  }
-
-  .x-metatarsus {
-    transform: rotate(75deg);
-    width: 105%;
-  }
-
-  .x-tarsus {
-    transform: rotate(-10deg);
-  }
-}
-
-.x-leg.leg-raise-2 {
-  // margin-left: 0;
-
-  .x-trochanter {
-    transform: rotate(0);
-  }
-
-  .x-femur {
-    transform: rotate(-65deg);
-  }
-
-  .x-patella {
-    transform: rotate(50deg);
-  }
-
-  .x-tibia {
-    transform: rotate(5deg);
-  }
-
-  .x-metatarsus {
-    transform: rotate(30deg);
-  }
-
-  .x-tarsus {
-    transform: rotate(-20deg);
-  }
-}
-
-.x-leg.leg-pull {
-  // margin-left: 100px;
-
-  .x-trochanter {
-    transform: rotate(70deg);
-    width: 25%;
-  }
-
-  .x-femur {
-    transform: rotate(-140deg);
-    transform-origin: 5% 45%;
-    width: 400%;
-  }
-
-  .x-patella {
-    transform: rotate(110deg);
-    transform-origin: 7.5% 35%;
-    width: 30%;
-  }
-
-  .x-tibia {
-    transform: rotate(30deg);
-    transform-origin: 5% 10%;
-    width: 160%;
-  }
-
-  .x-metatarsus {
-    transform: rotate(30deg);
-    width: 120%;
-  }
-
-  .x-tarsus {
-    transform: rotate(-40deg);
-  }
-}
-
-.x-leg.leg-step {
-  // margin-left: 200px;
-}
-
-.x-leg.leg-defensive {
-  // margin-left: 300px;
-
-  .x-trochanter {
-    transform: rotate(-30deg);
-  }
-
-  .x-femur {
-    transform: rotate(-70deg);
-  }
-
-  .x-patella {
-    transform: rotate(90deg);
-  }
-
-  .x-tibia {
-    // transform: rotate(-20deg);
-  }
-
-  .x-metatarsus {
-    transform: rotate(20deg);
-  }
-
-  .x-tarsus {
-    transform: rotate(-10deg);
-  }
-}
-
-// .x-trochanter,
-// .x-femur,
-// .x-patella,
-// .x-tibia,
-// .x-metatarsus,
-// .x-tarsus {
-//   background: green;
+// .tarantula {
+//   .x-leg * {
+//     transition: all 0.5s ease;
+//   }
 // }
+
+// .x-leg.leg-raise-1 {
+//   // margin-left: 0;
+
+//   .x-coxa {
+//     transform: rotate(0);
+//   }
+
+//   .x-femur {
+//     transform: rotate(-80deg);
+//   }
+
+//   .x-patella {
+//     transform: rotate(80deg);
+//     transform-origin: 7.5% 35%;
+//     width: 40%;
+//   }
+
+//   .x-tibia {
+//     width: 150%;
+//   }
+
+//   .x-metatarsus {
+//     transform: rotate(75deg);
+//     width: 105%;
+//   }
+
+//   .x-tarsus {
+//     transform: rotate(-10deg);
+//   }
+// }
+
+// .x-leg.leg-raise-2 {
+//   // margin-left: 0;
+
+//   .x-femur {
+//     transform: rotate(-65deg);
+//   }
+
+//   .x-patella {
+//     transform: rotate(50deg);
+//   }
+
+//   .x-tibia {
+//     transform: rotate(5deg);
+//   }
+
+//   .x-metatarsus {
+//     transform: rotate(30deg);
+//   }
+
+//   .x-tarsus {
+//     transform: rotate(-20deg);
+//   }
+// }
+
+// .x-leg.leg-pull {
+//   // margin-left: 100px;
+
+//   .x-coxa {
+//     width: 25%;
+//   }
+
+//   .x-femur {
+//     transform: rotate(-140deg);
+//     transform-origin: 5% 45%;
+//     width: 400%;
+//   }
+
+//   .x-patella {
+//     transform: rotate(110deg);
+//     transform-origin: 7.5% 35%;
+//     width: 30%;
+//   }
+
+//   .x-tibia {
+//     transform: rotate(30deg);
+//     transform-origin: 5% 10%;
+//     width: 160%;
+//   }
+
+//   .x-metatarsus {
+//     transform: rotate(30deg);
+//     width: 120%;
+//   }
+
+//   .x-tarsus {
+//     transform: rotate(-40deg);
+//   }
+// }
+
+// .x-leg.leg-step {
+//   // margin-left: 200px;
+// }
+
+// .x-leg.leg-defensive {
+//   // margin-left: 300px;
+
+//   .x-coxa {
+//     transform: rotate(-30deg);
+//   }
+
+//   .x-femur {
+//     transform: rotate(-70deg);
+//   }
+
+//   .x-patella {
+//     transform: rotate(90deg);
+//   }
+
+//   .x-tibia {
+//     // transform: rotate(-20deg);
+//   }
+
+//   .x-metatarsus {
+//     transform: rotate(20deg);
+//   }
+
+//   .x-tarsus {
+//     transform: rotate(-10deg);
+//   }
+// }
+
+// // .x-coxa,
+// // .x-femur,
+// // .x-patella,
+// // .x-tibia,
+// // .x-metatarsus,
+// // .x-tarsus {
+// //   background: green;
+// // }
