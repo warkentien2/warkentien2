@@ -1,3 +1,7 @@
+## Instructions:
+Open terminal and run `npm run start`
+Open a second terminal and run `npm run sass`
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
