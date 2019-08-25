@@ -118,6 +118,9 @@ function Tarantula() {
             </div>
           </div>
 
+          <div class="x-body-part x-chelicerae x-chelicerae--background">
+            <div class="x-fang"></div>
+          </div>
           <div class="x-body-part x-chelicerae">
             <div class="x-fang"></div>
           </div>
