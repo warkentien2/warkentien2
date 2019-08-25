@@ -289,16 +289,16 @@
   transform: scale(0.95) rotate(65deg);
 }
 .x-body-part.x-chelicerae.x-chelicerae--background .x-fang {
-  transform: rotate(115deg);
+  transform: rotate(112deg);
 }
 .x-body-part.x-chelicerae .x-fang {
-  background: linear-gradient(-2deg, #151515 0%, #252825 50%, #151515 100%);
+  background: linear-gradient(3deg, #050505 0%, #151815 30%, #050505 80%);
   border-radius: 20% 200% 0 2em;
   width: calc(35.5% + 2px);
   height: calc(12.5% + 2px);
   right: -31%;
   bottom: -2.5%;
-  transform: rotate(107.5deg);
+  transform: rotate(108.5deg);
   transform-origin: 5% 50%;
 }
 .x-body-part.x-chelicerae .x-fang::after {
@@ -427,10 +427,13 @@
   transform: rotate(21.5deg);
 }
 .x-body-part .x-leg.leg-5 .x-femur {
-  transform: rotate(-87.5deg);
+  transform: rotate(-77.5deg);
 }
 .x-body-part .x-leg.leg-5 .x-patella {
-  transform: rotate(77.5deg);
+  transform: rotate(65deg);
+}
+.x-body-part .x-leg.leg-5 .x-metatarsus {
+  transform: rotate(55deg);
 }
 .x-body-part .x-leg.leg-5 .x-tarsus {
   transform: rotate(-25deg);
@@ -461,16 +464,16 @@
   transform: rotate(5deg);
 }
 .x-body-part .x-leg.leg-6 .x-femur {
-  transform: rotate(-65.5deg);
+  transform: rotate(-75.5deg);
 }
 .x-body-part .x-leg.leg-6 .x-patella {
-  transform: rotate(67.5deg);
+  transform: rotate(80.5deg);
 }
 .x-body-part .x-leg.leg-6 .x-metatarsus {
   transform: rotate(65deg);
 }
 .x-body-part .x-leg.leg-6 .x-tarsus {
-  transform: rotate(35deg);
+  transform: rotate(-25deg);
 }
 .x-body-part .x-leg.leg-3,
 .x-body-part .x-leg.leg-7 {
@@ -501,10 +504,13 @@
   transform: rotate(-124deg);
 }
 .x-body-part .x-leg.leg-7 .x-patella {
-  transform: rotate(125deg);
+  transform: rotate(122deg);
 }
 .x-body-part .x-leg.leg-7 .x-metatarsus {
   transform: rotate(75deg);
+}
+.x-body-part .x-leg.leg-7 .x-tarsus {
+  transform: rotate(-40deg);
 }
 .x-body-part .x-leg.leg-4,
 .x-body-part .x-leg.leg-8 {
@@ -528,13 +534,13 @@
   transform: rotate(-75deg);
 }
 .x-body-part .x-leg.leg-8 .x-patella {
-  transform: rotate(67.5deg);
+  transform: rotate(87.5deg);
 }
 .x-body-part .x-leg.leg-8 .x-metatarsus {
-  transform: rotate(60.5deg);
+  transform: rotate(70.5deg);
 }
 .x-body-part .x-leg.leg-8 .x-tarsus {
-  transform: rotate(-15deg);
+  transform: rotate(-25deg);
 }
 .x-body-part .x-pedipalp {
   left: 95%;
