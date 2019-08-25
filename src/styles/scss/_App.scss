@@ -49,24 +49,24 @@
   $bg: #555;
 
   &::before {
-    content: '';
+    // content: '';
     position: absolute;
     left: 0;
     top: 0;
     background: linear-gradient(90deg,
                   transparent 25%,
-                  rgba(100, 100, 255, 0.33) 25%,
-                  rgba(100, 100, 255, 0.33) 42.5%,
+                  rgba(255, 100, 100, 0.33) 25%,
+                  rgba(255, 100, 100, 0.33) 42.5%,
                   transparent 42.5%,
-                  transparent 62.5%,
-                  rgba(255, 100, 100, 0.33) 62.5%,
-                  rgba(255, 100, 100, 0.33) 87%,
-                  transparent 87%
+                  transparent 63.5%,
+                  rgba(255, 100, 100, 0.33) 63.5%,
+                  rgba(255, 100, 100, 0.33) 81%,
+                  transparent 81%
                 ), 
                 linear-gradient(90deg,
-                  transparent 0.5%,
-                  rgba(255, 100, 100, 0.33) 0.5%,
-                  rgba(255, 100, 100, 0.33) 25%,
+                  transparent 7.5%,
+                  rgba(100, 100, 255, 0.33) 7.5%,
+                  rgba(100, 100, 255, 0.33) 25%,
                   transparent 25%,
                   transparent 50%,
                   rgba(100, 100, 255, 0.33) 50%,
@@ -78,13 +78,13 @@
   }
 
   background: $bg;
-  background: repeating-linear-gradient(
-    0deg,
-    #606dbc,
-    #606dbc 7px,
-    #465298 7px,
-    #465298 14px
-  );
+  // background: repeating-linear-gradient(
+  //   0deg,
+  //   #606dbc,
+  //   #606dbc 7px,
+  //   #465298 7px,
+  //   #465298 14px
+  // );
   height: 90vh;
   overflow: hidden;
 
