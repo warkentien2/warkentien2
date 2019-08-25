@@ -109,9 +109,6 @@ $steel-c8: #131210;
     transform-origin: 97.5% 60.5%;
     transform: rotate(10deg);
     z-index: -1;
-    background: radial-gradient(circle at 20% -5%, $steel-c1 25%, $steel-c2 29%, $steel-c3 35%, $steel-c3 42.5%, $steel-c6 85%, $steel-c7 100%) !important;
-    box-shadow: inset -3em -4.5em 0.175em -5.125em $steel-c1, inset -4.625em -2.75em 0.175em -5.125em $steel-c1, inset -4.625em -2.75em 0.125em -5em $steel-c2, inset -3em -4.5em 0.125em -5em $steel-c2, inset 2em -2.5em 0.125em -3em $steel-c2, inset -0.125em -0.175em 0.125em -0.125em $steel-c2, inset 0 -0.0525em 0.1em -0.0125em $steel-c2, inset -2em -5.25em 0.25em -5em $steel-c8, inset -3.8em -2.75em 0.25em -4em $steel-c8, inset 1.875em -2.375em 0.175em -2.5em $steel-c8, inset 3.625em 2.625em 0.125em -4em $steel-c8, inset 1.875em 3em 0.125em -3em $steel-c8, inset 0.5em 0.375em 0.125em -0.375em $steel-c8, inset -2em 2.25em 0.25em -2.75em $steel-c8, inset 3.625em 2.625em 0.25em -3.9em $steel-c6, inset 1.875em 3em 0.25em -2.95em $steel-c6, inset -1.125em 2.125em 0.375em -2em $steel-c6, 0.075em 0.175em 0.2em 0.0125em rgba(0, 0, 0, 0.75), 0.125em 0.1em 0.75em 0.175em rgba(0, 0, 0, 0.35), 0.5em 0.5em 1em 0.25em rgba(0, 0, 0, 0.25), -0.25em 0.5em 1.5em 0.5em rgba(0, 0, 0, 0.1), 0 0 3.5em rgba(238,162,66, 0.125), 0.125em 0.125em 0.25em -0.05em rgba(238,162,66, 0.75), 0.125em 0.125em 0.75em 0.125em rgba(0, 0, 0, 0.25), 0.125em 0.125em 0.5em -0.05em rgba(238,162,66, 0.25) !important;
-
 
     &::before {
       content: '';
@@ -120,8 +117,8 @@ $steel-c8: #131210;
       left: 0;
       width: 100%;
       height: 100%;
-      border-radius: 60% 50% 35% 50%;
-      background-color: #605b3977; // rgba(255, 143, 20, 0.075);
+      border-radius: inherit;
+      background-color: #8b302955; // rgba(255, 143, 20, 0.075);
     }
 
     &::after {
@@ -318,9 +315,22 @@ $steel-c8: #131210;
       }
 
       * {
-        background: black !important;
+        background: none !important;
         position: absolute !important;
-        // box-shadow: none !important;
+        box-shadow: none !important;
+
+        &::before {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          background: $patella-color;
+          box-sizing: border-box;
+          border-radius: inherit;
+          z-index: 1;
+        }
       }
     }
   }
@@ -335,6 +345,12 @@ $steel-c8: #131210;
     left: 95%;
     top: 10%;
     transform-origin: 5% 50%;
+
+    &::before {
+      background: $leg-color;
+      border: $border;
+      box-shadow: $body-shadow;
+    }
     // background: radial-gradient(circle at 20% -5%, $steel-c1 25%, $steel-c2 29%, $steel-c3 35%, $steel-c3 42.5%, $steel-c6 85%, $steel-c7 100%) !important;
     // box-shadow: inset -3em -4.5em 0.175em -5.125em $steel-c1, inset -4.625em -2.75em 0.175em -5.125em $steel-c1, inset -4.625em -2.75em 0.125em -5em $steel-c2, inset -3em -4.5em 0.125em -5em $steel-c2, inset 2em -2.5em 0.125em -3em $steel-c2, inset -0.125em -0.175em 0.125em -0.125em $steel-c2, inset 0 -0.0525em 0.1em -0.0125em $steel-c2, inset -2em -5.25em 0.25em -5em $steel-c8, inset -3.8em -2.75em 0.25em -4em $steel-c8, inset 1.875em -2.375em 0.175em -2.5em $steel-c8, inset 3.625em 2.625em 0.125em -4em $steel-c8, inset 1.875em 3em 0.125em -3em $steel-c8, inset 0.5em 0.375em 0.125em -0.375em $steel-c8, inset -2em 2.25em 0.25em -2.75em $steel-c8, inset 3.625em 2.625em 0.25em -3.9em $steel-c6, inset 1.875em 3em 0.25em -2.95em $steel-c6, inset -1.125em 2.125em 0.375em -2em $steel-c6, 0.075em 0.175em 0.2em 0.0125em rgba(0, 0, 0, 0.75), 0.125em 0.1em 0.75em 0.175em rgba(0, 0, 0, 0.35), 0.5em 0.5em 1em 0.25em rgba(0, 0, 0, 0.25), -0.25em 0.5em 1.5em 0.5em rgba(0, 0, 0, 0.1), 0 0 3.5em rgba(238,162,66, 0.125), 0.125em 0.125em 0.25em -0.05em rgba(238,162,66, 0.75), 0.125em 0.125em 0.75em 0.125em rgba(0, 0, 0, 0.25), 0.125em 0.125em 0.5em -0.05em rgba(238,162,66, 0.25) !important;
   }
@@ -461,6 +477,37 @@ $steel-c8: #131210;
     }
   }
 
+  // leg-2 retracted
+  
+  // .x-leg.leg-2 {
+  //   top: 67.5%;
+  //   left: 45%;
+  //   transform: rotate(90deg);
+
+  //   .x-femur {
+  //     transform: rotate(-170deg);
+  //   }
+
+  //   .x-patella {
+  //     transform: rotate(140deg);
+  //     width: 25%;
+  //   }
+
+  //   .x-tibia {
+  //     width: 150%;
+  //   }
+
+  //   .x-metatarsus {
+  //     transform: rotate(30deg);
+  //     width: 190%;
+  //   }
+
+  //   .x-tarsus {
+  //     transform: rotate(-32deg);
+  //     width: 50%;
+  //   }
+  // }
+
   .x-leg.leg-6 {
     transform: rotate(5deg);
 
@@ -577,12 +624,12 @@ $steel-c8: #131210;
     }
 
     .x-patella {
-      transform: rotate(135.5deg);
+      transform: rotate(120.5deg);
       height: 95%;
     }
 
     .x-tibia {
-      transform: rotate(7.5deg);
+      transform: rotate(11.5deg);
       top: -5%;
     }
 
@@ -602,7 +649,7 @@ $steel-c8: #131210;
     }
 
     .x-patella {
-      transform: rotate(115deg);
+      transform: rotate(110deg);
     }
 
     .x-metatarsus {
