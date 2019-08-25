@@ -49,7 +49,7 @@
   $bg: #555;
 
   &::before {
-    // content: '';
+    content: '';
     position: absolute;
     left: 0;
     top: 0;
@@ -78,13 +78,13 @@
   }
 
   background: $bg;
-  // background: repeating-linear-gradient(
-  //   0deg,
-  //   #606dbc,
-  //   #606dbc 7px,
-  //   #465298 7px,
-  //   #465298 14px
-  // );
+  background: repeating-linear-gradient(
+    0deg,
+    #606dbc,
+    #606dbc 7px,
+    #465298 7px,
+    #465298 14px
+  );
   height: 90vh;
   overflow: hidden;
 

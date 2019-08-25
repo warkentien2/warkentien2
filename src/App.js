@@ -4,7 +4,7 @@ import Tarantula from './components/Tarantula'
 function App() {
   return (
     <div className="App">
-      <header className="main-header">
+      {/* <header className="main-header">
         <a className="brand" href="#home">Philip Daniel Warkentien II</a>
         <nav className="navbar">
           <li>Animation</li>
@@ -13,9 +13,9 @@ function App() {
           <li>Projects</li>
           <li>Contact</li>
         </nav>
-      </header>
+      </header> */}
       <main className="main">
-        <section id="home" className="hero">
+        <section id="home" className="hero" style={{ height: '100vh' }}>
           <h1
             className="hero__title"
             style={{opacity: '0.125'}}
@@ -29,6 +29,8 @@ function App() {
             </span>
           </h1>
           <Tarantula />
+          <Tarantula hideFrontLegs={true} hideBackLegs={true} />
+          <Tarantula hideFrontLegs={true} />
         </section>
       </main>
     </div>
