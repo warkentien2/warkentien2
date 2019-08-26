@@ -3,7 +3,7 @@ $border-color-light: rgba(20, 25, 20, 0.75);
 $body-shadow: none; // inset 10px -5px 15px rgba(0, 0, 0, 0.35), 0 0 8px 2px $border-color;
 $body-shadow: inset -4px -5px 10px rgba(0, 0, 0, 1), inset 3px 2px 7px rgba(255, 143, 20, 0.25), 0 0 4px rgba(255, 143, 20, 0.5);
 $border: 1px solid $border-color-light; // dotted $border-color-light;
-$border: 1px dashed rgba(255, 143, 20, 0.25); // $border-color-light;
+$border: 1px dashed rgb(192, 128, 9); // $border-color-light;
 // $body-color: linear-gradient(0, #1f1a14 0%, #2f281e 50%, #403d26 100%);
 // $patella-color: linear-gradient(7deg, #2f281e 0%, #403d26 40%, #605b39 65%, #605b39 75%, #403d26 90%, #2f281e 100%);
 // $tibia-color: linear-gradient(3deg, #2f281e 0%, #605b39 55%, #403d26 70%, #403d26 80%, #605b39 95%);
@@ -12,7 +12,7 @@ $border: 1px dashed rgba(255, 143, 20, 0.25); // $border-color-light;
 $fang-color: linear-gradient(3deg, #050505 0%, #151815 30%, #050505 80%);
 
 // $body-color: linear-gradient(0, #040206 0%, #281B0B 35%, #281B0B 50%, #100428 100%);
-$leg-color: radial-gradient(circle at 0 0, #040206 0%, #281B0B 65%, #100428 100%);
+// $leg-color: radial-gradient(circle at 0 0, #040206 0%, #281B0B 65%, #100428 100%);
 // $patella-color: linear-gradient(7deg, #281B0B 0%, #100428 40%, #150437 65%, #150437 75%, #100428 90%, #281B0B 100%);
 // $tibia-color: linear-gradient(3deg, #281B0B 0%, #150437 55%, #100428 70%, #100428 80%, #150437 95%);
 // $meta-color: linear-gradient(95deg, #150437 0%, #281B0B 100%);
@@ -20,7 +20,6 @@ $leg-color: radial-gradient(circle at 0 0, #040206 0%, #281B0B 65%, #100428 100%
 // $chelicerae-color: linear-gradient(20deg, #040206 0%, #281B0B 40%, #100428 100%);
 
 $body-color: linear-gradient(0, #150f10 0%, #1e101e 35%, #1e101e 50%, #201520 100%);
-$leg-color: radial-gradient(circle at 0 0, #150f10 0%, #1e101e 65%, #201520 100%);
 $patella-color: linear-gradient(7deg, #1e101e 0%, #201520 40%, #393039 65%, #393039 75%, #201520 90%, #1e101e 100%);
 $tibia-color: linear-gradient(3deg, #1e101e 0%, #393039 55%, #201520 70%, #201520 80%, #393039 95%);
 $meta-color: linear-gradient(95deg, #393039 0%, #1e101e 100%);
@@ -31,23 +30,35 @@ $cephalo-color: linear-gradient(20deg, #8084a8 30%, #8084a8 60%, #a89B8B 100%);
 
 $body-angle: 0deg;
 
-$gold-c1: #EEEEF0;
-$gold-c2: #E8C375;
-$gold-c3: #EEA242;
-$gold-c4: #D2A665;
-$gold-c5: #B0752F;
-$gold-c6: #8D5021;
-$gold-c7: #82611C;
-$gold-c8: #231806;
+$primary-c1: rgb(98, 98, 100);
+$primary-c2: rgb(17, 34, 102);
+$primary-c3: rgb(26, 76, 168);
+$primary-c4: rgb(61, 83, 140);
+$primary-c5: rgb(7, 31, 96);
+$primary-c6: rgb(0, 21, 61);
+$primary-c7: rgb(0, 12, 40);
+$primary-c8: #061623;
 
-$steel-c1: #FFF;
-$steel-c2: #D8D0CD;
-$steel-c3: #8A847E;
-$steel-c4: #9F9895;
-$steel-c5: #6C635A;
-$steel-c6: #4D4945;
-$steel-c7: #3F3F47;
-$steel-c8: #131210;
+$secondary-c1: rgb(140, 138, 138);
+$secondary-c2: rgb(241, 92, 33);
+$secondary-c3: rgb(219, 96, 25);
+$secondary-c4: rgb(201, 83, 15);
+$secondary-c5: rgb(167, 65, 6);
+$secondary-c6: rgb(101, 32, 0);
+$secondary-c7: rgb(90, 41, 0);
+$secondary-c8: #231106;
+
+$metalBgPrimary: radial-gradient(circle at 25% -10%, $primary-c1 10%, $primary-c2 35%, $primary-c3 45%, $primary-c3 62.5%, $primary-c6 85%, $primary-c7 100%) !important;
+$metalShadowPrimary: inset -3em -4.5em 0.75em -5.125em $primary-c1, inset -4.625em -2.75em 1.5em -5.125em $primary-c1, inset -4.625em -2.75em 0.5em -5em $primary-c2, inset -3em -4.5em 2.5em -5em $primary-c2, inset 2em -2.5em 0.75em -3em $primary-c2, inset -0.125em -0.175em 0.125em -0.125em $primary-c2, inset 0 -0.0525em 0.25em -0.0125em $primary-c2, inset -2em -5.25em 2.25em -5em $primary-c8, inset -3.8em -2.75em 1.5em -4em $primary-c8, inset 1.875em -2.375em 1em -2.5em $primary-c8, inset -2em 2.25em 1.25em -2.875em $primary-c8, inset 1.875em 3em 1.25em -3.25em $primary-c6, inset -1.125em 2.125em 0.75em -2.5em $primary-c6,
+0.075em 0.175em 0.2em 0.0125em rgba(0, 0, 0, 0.75), 0.125em 0.1em 0.75em 0.175em rgba(0, 0, 0, 0.35), 0.5em 0.5em 1em 0.25em rgba(0, 0, 0, 0.25), -0.25em 0.5em 1.5em 0.5em rgba(0, 0, 0, 0.1), 0 0 3.5em rgba(238,162,66, 0.125), 0.125em 0.125em 0.25em -0.05em rgba(238,162,66, 0.75), 0.125em 0.125em 0.75em 0.125em rgba(0, 0, 0, 0.25), 0.125em 0.125em 0.5em -0.05em rgba(238,162,66, 0.25) !important;
+$metalBgSecondary: radial-gradient(circle at 25% -10%, $secondary-c1 10%, $secondary-c2 35%, $secondary-c3 45%, $secondary-c3 62.5%, $secondary-c6 85%, $secondary-c7 100%) !important;
+$metalShadowSecondary: inset -3em -4.5em 0.75em -5.125em $secondary-c1, inset -4.625em -2.75em 1.5em -5.125em $secondary-c1, inset -4.625em -2.75em 0.5em -5em $secondary-c2, inset -3em -4.5em 2.5em -5em $secondary-c2, inset 2em -2.5em 0.75em -3em $secondary-c2, inset -0.125em -0.175em 0.125em -0.125em $secondary-c2, inset 0 -0.0525em 0.25em -0.0125em $secondary-c2, inset -2em -5.25em 2.25em -5em $secondary-c8, inset -3.8em -2.75em 1.5em -4em $secondary-c8, inset 1.875em -2.375em 1em -2.5em $secondary-c8, inset -2em 2.25em 1.25em -2.875em $secondary-c8, inset 1.875em 3em 1.25em -3.25em $secondary-c6, inset -1.125em 2.125em 0.75em -2.5em $secondary-c6,
+0.075em 0.175em 0.2em 0.0125em rgba(0, 0, 0, 0.75), 0.125em 0.1em 0.75em 0.175em rgba(0, 0, 0, 0.35), 0.5em 0.5em 1em 0.25em rgba(0, 0, 0, 0.25), -0.25em 0.5em 1.5em 0.5em rgba(0, 0, 0, 0.1), 0 0 3.5em rgba(238,162,66, 0.125), 0.125em 0.125em 0.25em -0.05em rgba(238,162,66, 0.75), 0.125em 0.125em 0.75em 0.125em rgba(0, 0, 0, 0.25), 0.125em 0.125em 0.5em -0.05em rgba(238,162,66, 0.25) !important;
+
+$leg-color: radial-gradient(circle at 0 0, $primary-c8 0%, $primary-c5 65%, $primary-c1 100%);
+$patella-color: $leg-color; // linear-gradient(7deg, $primary-c2 0%, $primary-c3 40%, $primary-c5 65%, $primary-c7 75%, $primary-c4 90%, $primary-c1 100%);
+$tibia-color: $patella-color;
+$body-shadow: inset 4px 3px 7px -1px rgba(255, 116, 24, 0.625), inset -4px -3px 11px 3px rgba(0, 0, 0, 0.75), inset 3px 2px 7px rgba(33, 71, 141, 0.25), 0 0 4px rgba(101, 143, 210, 0.5);
 
 .tarantula {
   position: relative;
@@ -101,8 +112,9 @@ $steel-c8: #131210;
     border: $border;
     box-shadow: $body-shadow;
     transform-origin: 5% 50%;
-    background: radial-gradient(circle at 20% -5%, $gold-c1 25%, $gold-c2 29%, $gold-c3 35%, $gold-c3 42.5%, $gold-c6 85%, $gold-c7 100%) !important;
-    box-shadow: inset -3em -4.5em 0.175em -5.125em $gold-c1, inset -4.625em -2.75em 0.175em -5.125em $gold-c1, inset -4.625em -2.75em 0.125em -5em $gold-c2, inset -3em -4.5em 0.125em -5em $gold-c2, inset 2em -2.5em 0.125em -3em $gold-c2, inset -0.125em -0.175em 0.125em -0.125em $gold-c2, inset 0 -0.0525em 0.1em -0.0125em $gold-c2, inset -2em -5.25em 0.25em -5em $gold-c8, inset -3.8em -2.75em 0.25em -4em $gold-c8, inset 1.875em -2.375em 0.175em -2.5em $gold-c8, inset 3.625em 2.625em 0.125em -4em $gold-c8, inset 1.875em 3em 0.125em -3em $gold-c8, inset 0.5em 0.375em 0.125em -0.375em $gold-c8, inset -2em 2.25em 0.25em -2.75em $gold-c8, inset 3.625em 2.625em 0.25em -3.9em $gold-c6, inset 1.875em 3em 0.25em -2.95em $gold-c6, inset -1.125em 2.125em 0.375em -2em $gold-c6, 0.075em 0.175em 0.2em 0.0125em rgba(0, 0, 0, 0.75), 0.125em 0.1em 0.75em 0.175em rgba(0, 0, 0, 0.35), 0.5em 0.5em 1em 0.25em rgba(0, 0, 0, 0.25), -0.25em 0.5em 1.5em 0.5em rgba(0, 0, 0, 0.1), 0 0 3.5em rgba(238,162,66, 0.125), 0.125em 0.125em 0.25em -0.05em rgba(238,162,66, 0.75), 0.125em 0.125em 0.75em 0.125em rgba(0, 0, 0, 0.25), 0.125em 0.125em 0.5em -0.05em rgba(238,162,66, 0.25) !important;
+    background: $metalBgPrimary;
+    box-shadow: $metalShadowPrimary;
+    // box-shadow: 2px -3px 7px -1px rgba(255, 116, 24, 0.75), inset 2px -3px 7px 3px rgba(255, 116, 24, 1), $body-shadow, $metalShadowPrimary;
 
   &.x-abdomen {
     left: -123.75%;
@@ -114,6 +126,9 @@ $steel-c8: #131210;
     transform: rotate(10deg);
     z-index: 1 !important;
 
+    // background: $metalBgSecondary;
+    // box-shadow: $metalShadowSecondary;
+
     &::before {
       content: '';
       position: absolute;
@@ -122,21 +137,82 @@ $steel-c8: #131210;
       width: 100%;
       height: 100%;
       border-radius: inherit;
-      // background-color: #8b3029aa;
-      background-image: radial-gradient(circle at 100% 75%,
+      background-image: radial-gradient(circle at 45% 135%,
         transparent 5%,
-        #a0520040 10%,
+        #a0520060 7.5%,
+        transparent 10%,
+        transparent 15%,
+        #a0520060 17.5%,
         transparent 20%,
-        #a0520040 25%,
+        transparent 25%,
+        #a0520060 27.5%,
+        transparent 30%,
         transparent 35%,
-        #a0520040 40%,
+        #a0520060 37.5%,
+        transparent 40%,
+        transparent 45%,
+        #a0520060 47.5%,
         transparent 50%,
-        #a0520040 55%,
+        transparent 55%,
+        #a0520060 57.5%,
+        transparent 60%,
         transparent 65%,
-        #a0520040 70%,
+        #a0520060 67.5%,
+        transparent 70%,
+        transparent 75%,
+        #a0520060 77.5%,
         transparent 80%,
-        #a0520040 85%
-      ); // #8b302955; // rgba(255, 143, 20, 0.075);
+        transparent 85%,
+        #a0520060 87.5%,
+        transparent 90%,
+        transparent 95%,
+        #a0520060 97.5%,
+        transparent 100%
+      ), radial-gradient(ellipse at 52.5% 57.5%,
+        transparent 5%,
+        #20009290 7.5%,
+        transparent 15%,
+        #20009290 17.5%,
+        transparent 25%,
+        #20009290 27.5%,
+        transparent 35%,
+        #20009290 37.5%,
+        transparent 45%,
+        #20009290 47.5%,
+        transparent 55%,
+        #20009290 57.5%,
+        transparent 65%,
+        #20009290 67.5%,
+        transparent 75%,
+        #20009290 77.5%,
+        transparent 85%,
+        #20009290 87.5%,
+        transparent 95%,
+        #20009290 97.5%,
+        transparent 100%
+    ), radial-gradient(circle at 115% 65%,
+        transparent 5%,
+        #a05200 7.5%,
+        transparent 15%,
+        #a05200 17.5%,
+        transparent 25%,
+        #a05200 27.5%,
+        transparent 35%,
+        #a05200 37.5%,
+        transparent 45%,
+        #a05200 47.5%,
+        transparent 55%,
+        #a05200 57.5%,
+        transparent 65%,
+        #a05200 67.5%,
+        transparent 75%,
+        #a05200 77.5%,
+        transparent 85%,
+        #a05200 87.5%,
+        transparent 95%,
+        #a05200 97.5%,
+        transparent 100%
+      );
     }
 
     &::after {
@@ -168,8 +244,8 @@ $steel-c8: #131210;
       box-shadow: $body-shadow;
       border-radius: inherit;
       z-index: 2;
-      background: radial-gradient(circle at 20% -5%, $gold-c1 25%, $gold-c2 29%, $gold-c3 35%, $gold-c3 42.5%, $gold-c6 85%, $gold-c7 100%) !important;
-      box-shadow: inset -3em -4.5em 0.175em -5.125em $gold-c1, inset -4.625em -2.75em 0.175em -5.125em $gold-c1, inset -4.625em -2.75em 0.125em -5em $gold-c2, inset -3em -4.5em 0.125em -5em $gold-c2, inset 2em -2.5em 0.125em -3em $gold-c2, inset -0.125em -0.175em 0.125em -0.125em $gold-c2, inset 0 -0.0525em 0.1em -0.0125em $gold-c2, inset -2em -5.25em 0.25em -5em $gold-c8, inset -3.8em -2.75em 0.25em -4em $gold-c8, inset 1.875em -2.375em 0.175em -2.5em $gold-c8, inset 3.625em 2.625em 0.125em -4em $gold-c8, inset 1.875em 3em 0.125em -3em $gold-c8, inset 0.5em 0.375em 0.125em -0.375em $gold-c8, inset -2em 2.25em 0.25em -2.75em $gold-c8, inset 3.625em 2.625em 0.25em -3.9em $gold-c6, inset 1.875em 3em 0.25em -2.95em $gold-c6, inset -1.125em 2.125em 0.375em -2em $gold-c6, 0.075em 0.175em 0.2em 0.0125em rgba(0, 0, 0, 0.75), 0.125em 0.1em 0.75em 0.175em rgba(0, 0, 0, 0.35), 0.5em 0.5em 1em 0.25em rgba(0, 0, 0, 0.25), -0.25em 0.5em 1.5em 0.5em rgba(0, 0, 0, 0.1), 0 0 3.5em rgba(238,162,66, 0.125), 0.125em 0.125em 0.25em -0.05em rgba(238,162,66, 0.75), 0.125em 0.125em 0.75em 0.125em rgba(0, 0, 0, 0.25), 0.125em 0.125em 0.5em -0.05em rgba(238,162,66, 0.25) !important;
+      background: $metalBgPrimary;
+      box-shadow: $metalShadowPrimary;
     }
 
     * {
@@ -181,49 +257,48 @@ $steel-c8: #131210;
     }
 
     .x-eye {
-      right: -6.5%;
+      right: -7.5%;
       top: -7%;
       width: calc(1.33em + 2px);
       height: calc(1.07em + 2px);
       border-radius: 50% 50% 45% 45%;
-      transform: rotate(215deg);
-      background-color: #000;
-      background-image:
-        radial-gradient(circle at 55% 80%, #bbbbdd77 0%, #aaaacc77 10%, #00001177 25%, #33337777 50%, rgba(100, 100, 120, 0.5) 70%),
-        radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 20%, rgba(0, 0, 0, 0.5) 35%, rgba(0, 0, 0, 0.125) 50%),
-        radial-gradient(circle at 30% 70%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 20%, rgba(0, 0, 0, 0.5) 35%, rgba(0, 0, 0, 0.125) 50%);
-      box-shadow: inset 0 0 3px 1px rgba(0, 0, 0, 0.75), inset 2px -1px 2px rgba(0, 0, 0, 0.5), 0 -1px 3px rgba(0, 0, 0, 0.5);
-
+      transform: rotate(30deg);
+      background-image: radial-gradient(
+        circle at 68% 45%, #fff 2%, #899ac0 5%, rgba(101, 70, 145, 0.25) 15%, transparent 20%
+      ), radial-gradient(
+        circle at 60% 30%, #fff 4%, #8799c0 10%, #434b96 20%, #332c68 30%, #000 50%
+      );
+      box-shadow: inset 1px -1px 4px 0 #002, inset 1px -1px 2px -1px rgba(220,200,255,0.5), -1px 2px 5px 2px rgba(0, 0, 0, 0.5), 0 0 2px #332f5a;
+          
       &::after {
         content: none;
       }
     }
 
     .x-eye2 {
-      right: 3%;
+      right: 0;
       top: 2%;
       width: calc(1.07em + 2px);
       height: calc(1.07em + 2px);
       border-radius: 50%;
-      transform: rotate(270deg);
     }
 
     .x-eye3 {
-      right: -5.5%;
+      right: -6.5%;
       top: 11%;
       width: calc(0.6em + 2px);
       height: calc(0.55em + 2px);
       border-radius: 50%;
-      transform: rotate(280deg);
+      transform: rotate(35deg);
     }
 
     .x-eye4 {
       right: -11%;
-      top: 5%;
+      top: 6.5%;
       width: calc(0.55em + 2px);
       height: calc(0.5em + 2px);
       border-radius: 50%;
-      transform: rotate(270deg);
+      transform: rotate(25deg);
     }
 
     .x-coxa-pattern,
@@ -237,8 +312,9 @@ $steel-c8: #131210;
       transform-origin: 50% 0;
       box-shadow: inset 0 -2.00em 1.33em 0.67em rgba(20, 20, 10, 0.25);
       border-radius: 80% 80% 20% 20%;
-      background: radial-gradient(circle at 20% -5%, $gold-c1 25%, $gold-c2 29%, $gold-c3 35%, $gold-c3 42.5%, $gold-c6 85%, $gold-c7 100%) !important;
-      box-shadow: inset -3em -4.5em 0.175em -5.125em $gold-c1, inset -4.625em -2.75em 0.175em -5.125em $gold-c1, inset -4.625em -2.75em 0.125em -5em $gold-c2, inset -3em -4.5em 0.125em -5em $gold-c2, inset 2em -2.5em 0.125em -3em $gold-c2, inset -0.125em -0.175em 0.125em -0.125em $gold-c2, inset 0 -0.0525em 0.1em -0.0125em $gold-c2, inset -2em -5.25em 0.25em -5em $gold-c8, inset -3.8em -2.75em 0.25em -4em $gold-c8, inset 1.875em -2.375em 0.175em -2.5em $gold-c8, inset 3.625em 2.625em 0.125em -4em $gold-c8, inset 1.875em 3em 0.125em -3em $gold-c8, inset 0.5em 0.375em 0.125em -0.375em $gold-c8, inset -2em 2.25em 0.25em -2.75em $gold-c8, inset 3.625em 2.625em 0.25em -3.9em $gold-c6, inset 1.875em 3em 0.25em -2.95em $gold-c6, inset -1.125em 2.125em 0.375em -2em $gold-c6, 0.075em 0.175em 0.2em 0.0125em rgba(0, 0, 0, 0.75), 0.125em 0.1em 0.75em 0.175em rgba(0, 0, 0, 0.35), 0.5em 0.5em 1em 0.25em rgba(0, 0, 0, 0.25), -0.25em 0.5em 1.5em 0.5em rgba(0, 0, 0, 0.1), 0 0 3.5em rgba(238,162,66, 0.125), 0.125em 0.125em 0.25em -0.05em rgba(238,162,66, 0.75), 0.125em 0.125em 0.75em 0.125em rgba(0, 0, 0, 0.25), 0.125em 0.125em 0.5em -0.05em rgba(238,162,66, 0.25) !important;
+      background: $patella-color;
+      box-shadow: $metalShadowPrimary;
+      z-index: 3;
 
       &::after {
         content: none;
@@ -267,13 +343,12 @@ $steel-c8: #131210;
       height: calc(120% + 2px);
       left: 12.5%;
       top: 18%;
-      border: 0.13em solid $border-color;
       box-shadow: inset 6px -2px 8px rgba(0, 0, 0, 0.75), inset -4px 0 7px rgba(255, 143, 20, 0.25), 4px -1px 4px -3px rgba(255, 143, 20, 0.5);
-      border: 0;
+      border: none !important;
       border-radius: 0 155% 35% 30%;
       transform: rotate(-80deg);
-      background: radial-gradient(circle at 20% -5%, $gold-c1 25%, $gold-c2 29%, $gold-c3 35%, $gold-c3 42.5%, $gold-c6 85%, $gold-c7 100%) !important;
-      box-shadow: inset -3em -4.5em 0.175em -5.125em $gold-c1, inset -4.625em -2.75em 0.175em -5.125em $gold-c1, inset -4.625em -2.75em 0.125em -5em $gold-c2, inset -3em -4.5em 0.125em -5em $gold-c2, inset 2em -2.5em 0.125em -3em $gold-c2, inset -0.125em -0.175em 0.125em -0.125em $gold-c2, inset 0 -0.0525em 0.1em -0.0125em $gold-c2, inset -2em -5.25em 0.25em -5em $gold-c8, inset -3.8em -2.75em 0.25em -4em $gold-c8, inset 1.875em -2.375em 0.175em -2.5em $gold-c8, inset 3.625em 2.625em 0.125em -4em $gold-c8, inset 1.875em 3em 0.125em -3em $gold-c8, inset 0.5em 0.375em 0.125em -0.375em $gold-c8, inset -2em 2.25em 0.25em -2.75em $gold-c8, inset 3.625em 2.625em 0.25em -3.9em $gold-c6, inset 1.875em 3em 0.25em -2.95em $gold-c6, inset -1.125em 2.125em 0.375em -2em $gold-c6, 0.075em 0.175em 0.2em 0.0125em rgba(0, 0, 0, 0.75), 0.125em 0.1em 0.75em 0.175em rgba(0, 0, 0, 0.35), 0.5em 0.5em 1em 0.25em rgba(0, 0, 0, 0.25), -0.25em 0.5em 1.5em 0.5em rgba(0, 0, 0, 0.1), 0 0 3.5em rgba(238,162,66, 0.125), 0.125em 0.125em 0.25em -0.05em rgba(238,162,66, 0.75), 0.125em 0.125em 0.75em 0.125em rgba(0, 0, 0, 0.25), 0.125em 0.125em 0.5em -0.05em rgba(238,162,66, 0.25) !important;
+      background: $metalBgPrimary;
+      box-shadow: $metalShadowPrimary;
     
       background: none !important;
       position: absolute !important;
@@ -289,10 +364,11 @@ $steel-c8: #131210;
         box-sizing: border-box;
         border-radius: inherit;
         z-index: 1;
+        border: none;
 
         opacity: 1;
-        background: radial-gradient(circle at 20% -5%, $gold-c1 25%, $gold-c2 29%, $gold-c3 35%, $gold-c3 42.5%, $gold-c6 85%, $gold-c7 100%) !important;
-        box-shadow: inset -3em -4.5em 0.175em -5.125em $gold-c1, inset -4.625em -2.75em 0.175em -5.125em $gold-c1, inset -4.625em -2.75em 0.125em -5em $gold-c2, inset -3em -4.5em 0.125em -5em $gold-c2, inset 2em -2.5em 0.125em -3em $gold-c2, inset -0.125em -0.175em 0.125em -0.125em $gold-c2, inset 0 -0.0525em 0.1em -0.0125em $gold-c2, inset -2em -5.25em 0.25em -5em $gold-c8, inset -3.8em -2.75em 0.25em -4em $gold-c8, inset 1.875em -2.375em 0.175em -2.5em $gold-c8, inset 3.625em 2.625em 0.125em -4em $gold-c8, inset 1.875em 3em 0.125em -3em $gold-c8, inset 0.5em 0.375em 0.125em -0.375em $gold-c8, inset -2em 2.25em 0.25em -2.75em $gold-c8, inset 3.625em 2.625em 0.25em -3.9em $gold-c6, inset 1.875em 3em 0.25em -2.95em $gold-c6, inset -1.125em 2.125em 0.375em -2em $gold-c6, 0.075em 0.175em 0.2em 0.0125em rgba(0, 0, 0, 0.75), 0.125em 0.1em 0.75em 0.175em rgba(0, 0, 0, 0.35), 0.5em 0.5em 1em 0.25em rgba(0, 0, 0, 0.25), -0.25em 0.5em 1.5em 0.5em rgba(0, 0, 0, 0.1), 0 0 3.5em rgba(238,162,66, 0.125), 0.125em 0.125em 0.25em -0.05em rgba(238,162,66, 0.75), 0.125em 0.125em 0.75em 0.125em rgba(0, 0, 0, 0.25), 0.125em 0.125em 0.5em -0.05em rgba(238,162,66, 0.25) !important;
+        background: $metalBgPrimary;
+        box-shadow: $metalShadowPrimary;
       }
 
       &::before {
@@ -307,8 +383,8 @@ $steel-c8: #131210;
         border-radius: 0 0 1em 100%;
         transform: rotate(7deg);
 
-        background: radial-gradient(circle at 20% -5%, $gold-c1 25%, $gold-c2 29%, $gold-c3 35%, $gold-c3 42.5%, $gold-c6 85%, $gold-c7 100%) !important;
-        box-shadow: inset -3em -4.5em 0.175em -5.125em $gold-c1, inset -4.625em -2.75em 0.175em -5.125em $gold-c1, inset -4.625em -2.75em 0.125em -5em $gold-c2, inset -3em -4.5em 0.125em -5em $gold-c2, inset 2em -2.5em 0.125em -3em $gold-c2, inset -0.125em -0.175em 0.125em -0.125em $gold-c2, inset 0 -0.0525em 0.1em -0.0125em $gold-c2, inset -2em -5.25em 0.25em -5em $gold-c8, inset -3.8em -2.75em 0.25em -4em $gold-c8, inset 1.875em -2.375em 0.175em -2.5em $gold-c8, inset 3.625em 2.625em 0.125em -4em $gold-c8, inset 1.875em 3em 0.125em -3em $gold-c8, inset 0.5em 0.375em 0.125em -0.375em $gold-c8, inset -2em 2.25em 0.25em -2.75em $gold-c8, inset 3.625em 2.625em 0.25em -3.9em $gold-c6, inset 1.875em 3em 0.25em -2.95em $gold-c6, inset -1.125em 2.125em 0.375em -2em $gold-c6, 0.075em 0.175em 0.2em 0.0125em rgba(0, 0, 0, 0.75), 0.125em 0.1em 0.75em 0.175em rgba(0, 0, 0, 0.35), 0.5em 0.5em 1em 0.25em rgba(0, 0, 0, 0.25), -0.25em 0.5em 1.5em 0.5em rgba(0, 0, 0, 0.1), 0 0 3.5em rgba(238,162,66, 0.125), 0.125em 0.125em 0.25em -0.05em rgba(238,162,66, 0.75), 0.125em 0.125em 0.75em 0.125em rgba(0, 0, 0, 0.25), 0.125em 0.125em 0.5em -0.05em rgba(238,162,66, 0.25) !important;
+        background: $metalBgPrimary;
+        box-shadow: $metalShadowPrimary;
       }
     }
   }
@@ -343,8 +419,8 @@ $steel-c8: #131210;
       bottom: -3.5%;
       transform: rotate(118.5deg);
       transform-origin: 5% 50%;
-      // background: radial-gradient(circle at 20% -5%, $gold-c1 25%, $gold-c2 29%, $gold-c3 35%, $gold-c3 42.5%, $gold-c6 85%, $gold-c7 100%) !important;
-      // box-shadow: inset -3em -4.5em 0.175em -5.125em $gold-c1, inset -4.625em -2.75em 0.175em -5.125em $gold-c1, inset -4.625em -2.75em 0.125em -5em $gold-c2, inset -3em -4.5em 0.125em -5em $gold-c2, inset 2em -2.5em 0.125em -3em $gold-c2, inset -0.125em -0.175em 0.125em -0.125em $gold-c2, inset 0 -0.0525em 0.1em -0.0125em $gold-c2, inset -2em -5.25em 0.25em -5em $gold-c8, inset -3.8em -2.75em 0.25em -4em $gold-c8, inset 1.875em -2.375em 0.175em -2.5em $gold-c8, inset 3.625em 2.625em 0.125em -4em $gold-c8, inset 1.875em 3em 0.125em -3em $gold-c8, inset 0.5em 0.375em 0.125em -0.375em $gold-c8, inset -2em 2.25em 0.25em -2.75em $gold-c8, inset 3.625em 2.625em 0.25em -3.9em $gold-c6, inset 1.875em 3em 0.25em -2.95em $gold-c6, inset -1.125em 2.125em 0.375em -2em $gold-c6, 0.075em 0.175em 0.2em 0.0125em rgba(0, 0, 0, 0.75), 0.125em 0.1em 0.75em 0.175em rgba(0, 0, 0, 0.35), 0.5em 0.5em 1em 0.25em rgba(0, 0, 0, 0.25), -0.25em 0.5em 1.5em 0.5em rgba(0, 0, 0, 0.1), 0 0 3.5em rgba(238,162,66, 0.125), 0.125em 0.125em 0.25em -0.05em rgba(238,162,66, 0.75), 0.125em 0.125em 0.75em 0.125em rgba(0, 0, 0, 0.25), 0.125em 0.125em 0.5em -0.05em rgba(238,162,66, 0.25) !important;
+      // background: $metalBgPrimary;
+      // box-shadow: $metalShadowPrimary;
 
       &::after {
         left: 5%;
@@ -364,6 +440,7 @@ $steel-c8: #131210;
     left: 70%;
     top: 60%;
     transform-origin: 10% 55%;
+    
     // opacity: 0;
 
     // stretch legs for fun
@@ -402,6 +479,7 @@ $steel-c8: #131210;
         background: none !important;
         position: absolute !important;
         box-shadow: none !important;
+        z-index: -1;
 
         &::before {
           content: '';
@@ -410,10 +488,55 @@ $steel-c8: #131210;
           top: 0;
           width: 100%;
           height: 100%;
-          background: $patella-color;
+          background: #103; // $patella-color;
           box-sizing: border-box;
           border-radius: inherit;
-          z-index: 1;
+        }
+
+        *::after {
+          // content: '';
+          position: absolute;
+          opacity: 0.25;
+          // z-index: 1;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          transform: none;
+          border-radius: inherit;
+          border: none;
+          background: transparent;
+          background-image: radial-gradient(circle at 100% 50%,
+            transparent 5%,
+            #a0520070 10%,
+            transparent 20%,
+            #a0520070 25%,
+            transparent 35%,
+            #a0520070 40%,
+            transparent 50%,
+            #a0520070 55%,
+            transparent 65%,
+            #a0520070 70%,
+            transparent 80%,
+            #a0520070 85%,
+            transparent 95%,
+            #a0520070 100%
+          ), linear-gradient(2.5deg,
+            transparent 5%,
+            #a0520070 10%,
+            transparent 20%,
+            #a0520070 25%,
+            transparent 35%,
+            #a0520070 40%,
+            transparent 50%,
+            #a0520070 55%,
+            transparent 65%,
+            #a0520070 70%,
+            transparent 80%,
+            #a0520070 85%,
+            transparent 95%,
+            #a0520070 100%
+          );
         }
       }
     }
@@ -423,7 +546,7 @@ $steel-c8: #131210;
     background: $leg-color;
     border: $border;
     border-radius: 50% 60% 45% 1.75em;
-    box-shadow: $body-shadow;
+    box-shadow: -2px -1px 7px rgba(255, 148, 8, 0.75), 0 0 5px black, $body-shadow;
     height: calc(97.5% + 2px);
     width: calc(100% + 2px);
     left: 95%;
@@ -433,10 +556,56 @@ $steel-c8: #131210;
     &::before {
       background: $leg-color;
       border: $border;
-      box-shadow: $body-shadow;
+      box-shadow: $body-shadow !important;
+
+      box-sizing: content-box;
+      width: calc(100% - 2px);
+      height: calc(100% - 2px);
     }
-    // background: radial-gradient(circle at 20% -5%, $gold-c1 25%, $gold-c2 29%, $gold-c3 35%, $gold-c3 42.5%, $gold-c6 85%, $gold-c7 100%) !important;
-    // box-shadow: inset -3em -4.5em 0.175em -5.125em $gold-c1, inset -4.625em -2.75em 0.175em -5.125em $gold-c1, inset -4.625em -2.75em 0.125em -5em $gold-c2, inset -3em -4.5em 0.125em -5em $gold-c2, inset 2em -2.5em 0.125em -3em $gold-c2, inset -0.125em -0.175em 0.125em -0.125em $gold-c2, inset 0 -0.0525em 0.1em -0.0125em $gold-c2, inset -2em -5.25em 0.25em -5em $gold-c8, inset -3.8em -2.75em 0.25em -4em $gold-c8, inset 1.875em -2.375em 0.175em -2.5em $gold-c8, inset 3.625em 2.625em 0.125em -4em $gold-c8, inset 1.875em 3em 0.125em -3em $gold-c8, inset 0.5em 0.375em 0.125em -0.375em $gold-c8, inset -2em 2.25em 0.25em -2.75em $gold-c8, inset 3.625em 2.625em 0.25em -3.9em $gold-c6, inset 1.875em 3em 0.25em -2.95em $gold-c6, inset -1.125em 2.125em 0.375em -2em $gold-c6, 0.075em 0.175em 0.2em 0.0125em rgba(0, 0, 0, 0.75), 0.125em 0.1em 0.75em 0.175em rgba(0, 0, 0, 0.35), 0.5em 0.5em 1em 0.25em rgba(0, 0, 0, 0.25), -0.25em 0.5em 1.5em 0.5em rgba(0, 0, 0, 0.1), 0 0 3.5em rgba(238,162,66, 0.125), 0.125em 0.125em 0.25em -0.05em rgba(238,162,66, 0.75), 0.125em 0.125em 0.75em 0.125em rgba(0, 0, 0, 0.25), 0.125em 0.125em 0.5em -0.05em rgba(238,162,66, 0.25) !important;
+
+    *::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      transform: none;
+      border-radius: inherit;
+      border: none;
+      background: transparent;
+      background-image: radial-gradient(circle at 100% 50%,
+        transparent 5%,
+        #a0520070 10%,
+        transparent 20%,
+        #a0520070 25%,
+        transparent 35%,
+        #a0520070 40%,
+        transparent 50%,
+        #a0520070 55%,
+        transparent 65%,
+        #a0520070 70%,
+        transparent 80%,
+        #a0520070 85%,
+        transparent 95%,
+        #a0520070 100%
+      ), linear-gradient(2deg,
+        transparent 5%,
+        #a0520070 10%,
+        transparent 20%,
+        #a0520070 25%,
+        transparent 35%,
+        #a0520070 40%,
+        transparent 50%,
+        #a0520070 55%,
+        transparent 65%,
+        #a0520070 70%,
+        transparent 80%,
+        #a0520070 85%,
+        transparent 95%,
+        #a0520070 100%
+      );
+    }
   }
 
   .x-coxa {
@@ -460,16 +629,19 @@ $steel-c8: #131210;
     width: calc(350% + 2px);
     border-radius: 50% 60% 2em 3em;
 
-    &::after {
-      left: 5%;
-      top: 50%;
-    }
+    // &::after {
+    //   left: 5%;
+    //   top: 50%;
+    // }
   }
 
   .x-patella {
-    background: $patella-color !important;
+    // background: $patella-color !important;
     transform: rotate(100deg);
     width: calc(45% + 2px);
+
+    // background: $metalBgPrimary !important;
+    // box-shadow: $metalShadowPrimary !important;
   }
 
   .x-tibia {
@@ -482,11 +654,14 @@ $steel-c8: #131210;
   }
 
   .x-metatarsus {
-    background: $meta-color !important;
+    // background: $meta-color !important;
     left: 92.5%;
     height: calc(80% + 2px);
     transform: rotate(25deg);
     width: calc(95% + 2px);
+
+    // background: $metalBgPrimary !important;
+    // box-shadow: $metalShadowPrimary !important;
   }
 
   .x-tarsus {
