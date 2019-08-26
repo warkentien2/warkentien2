@@ -29,7 +29,7 @@ $chelicerae-color: linear-gradient(20deg, #150f10 0%, #1e101e 40%, #201520 100%)
 
 $cephalo-color: linear-gradient(20deg, #8084a8 30%, #8084a8 60%, #a89B8B 100%);
 
-$body-angle: 0;
+$body-angle: 0deg;
 
 $gold-c1: #EEEEF0;
 $gold-c2: #E8C375;
@@ -54,7 +54,7 @@ $steel-c8: #131210;
   width: 66.9vw; // 53.52vw; // 950px;
   height: 24.5vw; // 40vw; // 710px;
   left: 7.5vw; // 27.5vw;
-  top: 20.5vw;
+  top: 20vw;
   font-size: 0.975vw; // 0.78vw; // 0.39vw;
   box-sizing: border-box;
   // overflow: hidden;
@@ -71,6 +71,8 @@ $steel-c8: #131210;
   width: 100%;
   height: 100%;
   transform: rotate(0);
+  transform: rotate($body-angle);
+  transform-origin: 7.5% 8%;
 
   &::after,
   *::after {
@@ -89,8 +91,8 @@ $steel-c8: #131210;
   }
 
   &::after {
-    top: 7.5%;
-    left: 8%;
+    top: 32%;
+    left: 10.5%;
   }
 }
 
@@ -144,7 +146,7 @@ $steel-c8: #131210;
   }
 
   &.x-cephalothorax {
-    transform: rotate(-$body-angle);
+    transform: rotate(0);
     width: calc(16em + 2px);
     height: calc(9.33em + 2px);
     border-radius: 20%;
@@ -179,13 +181,14 @@ $steel-c8: #131210;
     }
 
     .x-eye {
-      right: -14.5%;
-      top: -2%;
+      right: -6.5%;
+      top: -7%;
       width: calc(1.33em + 2px);
       height: calc(1.07em + 2px);
       border-radius: 50% 50% 45% 45%;
       transform: rotate(215deg);
-      background:
+      background-color: #000;
+      background-image:
         radial-gradient(circle at 55% 80%, #bbbbdd77 0%, #aaaacc77 10%, #00001177 25%, #33337777 50%, rgba(100, 100, 120, 0.5) 70%),
         radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 20%, rgba(0, 0, 0, 0.5) 35%, rgba(0, 0, 0, 0.125) 50%),
         radial-gradient(circle at 30% 70%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 20%, rgba(0, 0, 0, 0.5) 35%, rgba(0, 0, 0, 0.125) 50%);
@@ -197,28 +200,28 @@ $steel-c8: #131210;
     }
 
     .x-eye2 {
-      right: -6%;
-      top: 8%;
+      right: 3%;
+      top: 2%;
       width: calc(1.07em + 2px);
       height: calc(1.07em + 2px);
       border-radius: 50%;
-      transform: rotate(230deg);
+      transform: rotate(270deg);
     }
 
     .x-eye3 {
-      right: -13.5%;
-      top: 16%;
-      width: calc(0.73em + 2px);
-      height: calc(0.6em + 2px);
+      right: -5.5%;
+      top: 11%;
+      width: calc(0.6em + 2px);
+      height: calc(0.55em + 2px);
       border-radius: 50%;
       transform: rotate(280deg);
     }
 
     .x-eye4 {
-      right: -19.5%;
-      top: 10%;
-      width: calc(0.77em + 2px);
-      height: calc(0.6em + 2px);
+      right: -11%;
+      top: 5%;
+      width: calc(0.55em + 2px);
+      height: calc(0.5em + 2px);
       border-radius: 50%;
       transform: rotate(270deg);
     }
@@ -260,17 +263,53 @@ $steel-c8: #131210;
     }
 
     .x-chelicera-pattern {
-      width: calc(47.5% + 2px);
-      height: calc(70% + 2px);
-      left: 51%;
-      top: 3%;
+      width: calc(52.5% + 2px);
+      height: calc(120% + 2px);
+      left: 12.5%;
+      top: 18%;
       border: 0.13em solid $border-color;
       box-shadow: inset 6px -2px 8px rgba(0, 0, 0, 0.75), inset -4px 0 7px rgba(255, 143, 20, 0.25), 4px -1px 4px -3px rgba(255, 143, 20, 0.5);
       border: 0;
-      border-radius: 20% 105% 1.5em 0%;
-      transform: rotate(-50deg);
+      border-radius: 0 155% 35% 30%;
+      transform: rotate(-80deg);
       background: radial-gradient(circle at 20% -5%, $gold-c1 25%, $gold-c2 29%, $gold-c3 35%, $gold-c3 42.5%, $gold-c6 85%, $gold-c7 100%) !important;
       box-shadow: inset -3em -4.5em 0.175em -5.125em $gold-c1, inset -4.625em -2.75em 0.175em -5.125em $gold-c1, inset -4.625em -2.75em 0.125em -5em $gold-c2, inset -3em -4.5em 0.125em -5em $gold-c2, inset 2em -2.5em 0.125em -3em $gold-c2, inset -0.125em -0.175em 0.125em -0.125em $gold-c2, inset 0 -0.0525em 0.1em -0.0125em $gold-c2, inset -2em -5.25em 0.25em -5em $gold-c8, inset -3.8em -2.75em 0.25em -4em $gold-c8, inset 1.875em -2.375em 0.175em -2.5em $gold-c8, inset 3.625em 2.625em 0.125em -4em $gold-c8, inset 1.875em 3em 0.125em -3em $gold-c8, inset 0.5em 0.375em 0.125em -0.375em $gold-c8, inset -2em 2.25em 0.25em -2.75em $gold-c8, inset 3.625em 2.625em 0.25em -3.9em $gold-c6, inset 1.875em 3em 0.25em -2.95em $gold-c6, inset -1.125em 2.125em 0.375em -2em $gold-c6, 0.075em 0.175em 0.2em 0.0125em rgba(0, 0, 0, 0.75), 0.125em 0.1em 0.75em 0.175em rgba(0, 0, 0, 0.35), 0.5em 0.5em 1em 0.25em rgba(0, 0, 0, 0.25), -0.25em 0.5em 1.5em 0.5em rgba(0, 0, 0, 0.1), 0 0 3.5em rgba(238,162,66, 0.125), 0.125em 0.125em 0.25em -0.05em rgba(238,162,66, 0.75), 0.125em 0.125em 0.75em 0.125em rgba(0, 0, 0, 0.25), 0.125em 0.125em 0.5em -0.05em rgba(238,162,66, 0.25) !important;
+    
+      background: none !important;
+      position: absolute !important;
+      box-shadow: none !important;
+
+      &::after {
+        content: '';
+        position: absolute;
+        left: 47%;
+        top: 48%;
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        border-radius: inherit;
+        z-index: 1;
+
+        opacity: 1;
+        background: radial-gradient(circle at 20% -5%, $gold-c1 25%, $gold-c2 29%, $gold-c3 35%, $gold-c3 42.5%, $gold-c6 85%, $gold-c7 100%) !important;
+        box-shadow: inset -3em -4.5em 0.175em -5.125em $gold-c1, inset -4.625em -2.75em 0.175em -5.125em $gold-c1, inset -4.625em -2.75em 0.125em -5em $gold-c2, inset -3em -4.5em 0.125em -5em $gold-c2, inset 2em -2.5em 0.125em -3em $gold-c2, inset -0.125em -0.175em 0.125em -0.125em $gold-c2, inset 0 -0.0525em 0.1em -0.0125em $gold-c2, inset -2em -5.25em 0.25em -5em $gold-c8, inset -3.8em -2.75em 0.25em -4em $gold-c8, inset 1.875em -2.375em 0.175em -2.5em $gold-c8, inset 3.625em 2.625em 0.125em -4em $gold-c8, inset 1.875em 3em 0.125em -3em $gold-c8, inset 0.5em 0.375em 0.125em -0.375em $gold-c8, inset -2em 2.25em 0.25em -2.75em $gold-c8, inset 3.625em 2.625em 0.25em -3.9em $gold-c6, inset 1.875em 3em 0.25em -2.95em $gold-c6, inset -1.125em 2.125em 0.375em -2em $gold-c6, 0.075em 0.175em 0.2em 0.0125em rgba(0, 0, 0, 0.75), 0.125em 0.1em 0.75em 0.175em rgba(0, 0, 0, 0.35), 0.5em 0.5em 1em 0.25em rgba(0, 0, 0, 0.25), -0.25em 0.5em 1.5em 0.5em rgba(0, 0, 0, 0.1), 0 0 3.5em rgba(238,162,66, 0.125), 0.125em 0.125em 0.25em -0.05em rgba(238,162,66, 0.75), 0.125em 0.125em 0.75em 0.125em rgba(0, 0, 0, 0.25), 0.125em 0.125em 0.5em -0.05em rgba(238,162,66, 0.25) !important;
+      }
+
+      &::before {
+        content: '';
+        z-index: -1;
+        position: absolute;
+        top: 86.5%;
+        left: -18%;
+        width: 100%;
+        height: 20%;
+        background: blue;
+        border-radius: 0 0 1em 100%;
+        transform: rotate(7deg);
+
+        background: radial-gradient(circle at 20% -5%, $gold-c1 25%, $gold-c2 29%, $gold-c3 35%, $gold-c3 42.5%, $gold-c6 85%, $gold-c7 100%) !important;
+        box-shadow: inset -3em -4.5em 0.175em -5.125em $gold-c1, inset -4.625em -2.75em 0.175em -5.125em $gold-c1, inset -4.625em -2.75em 0.125em -5em $gold-c2, inset -3em -4.5em 0.125em -5em $gold-c2, inset 2em -2.5em 0.125em -3em $gold-c2, inset -0.125em -0.175em 0.125em -0.125em $gold-c2, inset 0 -0.0525em 0.1em -0.0125em $gold-c2, inset -2em -5.25em 0.25em -5em $gold-c8, inset -3.8em -2.75em 0.25em -4em $gold-c8, inset 1.875em -2.375em 0.175em -2.5em $gold-c8, inset 3.625em 2.625em 0.125em -4em $gold-c8, inset 1.875em 3em 0.125em -3em $gold-c8, inset 0.5em 0.375em 0.125em -0.375em $gold-c8, inset -2em 2.25em 0.25em -2.75em $gold-c8, inset 3.625em 2.625em 0.25em -3.9em $gold-c6, inset 1.875em 3em 0.25em -2.95em $gold-c6, inset -1.125em 2.125em 0.375em -2em $gold-c6, 0.075em 0.175em 0.2em 0.0125em rgba(0, 0, 0, 0.75), 0.125em 0.1em 0.75em 0.175em rgba(0, 0, 0, 0.35), 0.5em 0.5em 1em 0.25em rgba(0, 0, 0, 0.25), -0.25em 0.5em 1.5em 0.5em rgba(0, 0, 0, 0.1), 0 0 3.5em rgba(238,162,66, 0.125), 0.125em 0.125em 0.25em -0.05em rgba(238,162,66, 0.75), 0.125em 0.125em 0.75em 0.125em rgba(0, 0, 0, 0.25), 0.125em 0.125em 0.5em -0.05em rgba(238,162,66, 0.25) !important;
+      }
     }
   }
 
@@ -290,19 +329,19 @@ $steel-c8: #131210;
       transform: scale(0.95) rotate(65deg);
 
       .x-fang {
-        transform: rotate(125deg);
+        transform: rotate(115deg);
         bottom: -7%;
       }
     }
 
     .x-fang {
       background: $fang-color;
-      border-radius: 20% 200% 0 2em;
+      border-radius: 20% 250% 0 2em;
       width: calc(35.5% + 2px);
       height: calc(10.5% + 2px);
       right: -32%;
       bottom: -3.5%;
-      transform: rotate(128.5deg);
+      transform: rotate(118.5deg);
       transform-origin: 5% 50%;
       // background: radial-gradient(circle at 20% -5%, $gold-c1 25%, $gold-c2 29%, $gold-c3 35%, $gold-c3 42.5%, $gold-c6 85%, $gold-c7 100%) !important;
       // box-shadow: inset -3em -4.5em 0.175em -5.125em $gold-c1, inset -4.625em -2.75em 0.175em -5.125em $gold-c1, inset -4.625em -2.75em 0.125em -5em $gold-c2, inset -3em -4.5em 0.125em -5em $gold-c2, inset 2em -2.5em 0.125em -3em $gold-c2, inset -0.125em -0.175em 0.125em -0.125em $gold-c2, inset 0 -0.0525em 0.1em -0.0125em $gold-c2, inset -2em -5.25em 0.25em -5em $gold-c8, inset -3.8em -2.75em 0.25em -4em $gold-c8, inset 1.875em -2.375em 0.175em -2.5em $gold-c8, inset 3.625em 2.625em 0.125em -4em $gold-c8, inset 1.875em 3em 0.125em -3em $gold-c8, inset 0.5em 0.375em 0.125em -0.375em $gold-c8, inset -2em 2.25em 0.25em -2.75em $gold-c8, inset 3.625em 2.625em 0.25em -3.9em $gold-c6, inset 1.875em 3em 0.25em -2.95em $gold-c6, inset -1.125em 2.125em 0.375em -2em $gold-c6, 0.075em 0.175em 0.2em 0.0125em rgba(0, 0, 0, 0.75), 0.125em 0.1em 0.75em 0.175em rgba(0, 0, 0, 0.35), 0.5em 0.5em 1em 0.25em rgba(0, 0, 0, 0.25), -0.25em 0.5em 1.5em 0.5em rgba(0, 0, 0, 0.1), 0 0 3.5em rgba(238,162,66, 0.125), 0.125em 0.125em 0.25em -0.05em rgba(238,162,66, 0.75), 0.125em 0.125em 0.75em 0.125em rgba(0, 0, 0, 0.25), 0.125em 0.125em 0.5em -0.05em rgba(238,162,66, 0.25) !important;
@@ -461,7 +500,7 @@ $steel-c8: #131210;
 
   .x-leg.leg-1,
   .x-leg.leg-5 {
-    transform: rotate(20deg + $body-angle);
+    transform: rotate(20deg - $body-angle);
 
     .x-femur {
       transform: rotate(-80deg);
@@ -481,7 +520,7 @@ $steel-c8: #131210;
   }
 
   .x-leg.leg-5 {
-    transform: rotate(21.5deg + $body-angle);
+    transform: rotate(21.5deg - $body-angle);
 
     .x-femur {
       transform: rotate(-77.5deg);
@@ -504,7 +543,7 @@ $steel-c8: #131210;
   .x-leg.leg-6 {
     top: 67.5%;
     left: 45%;
-    transform: rotate(5deg + $body-angle);
+    transform: rotate(5deg - $body-angle);
 
     .x-femur {
       transform: rotate(-80deg);
@@ -528,7 +567,7 @@ $steel-c8: #131210;
   // .x-leg.leg-2 {
   //   top: 67.5%;
   //   left: 45%;
-  //   transform: rotate(90deg + $body-angle);
+  //   transform: rotate(90deg - $body-angle);
 
   //   .x-femur {
   //     transform: rotate(-170deg);
@@ -555,7 +594,7 @@ $steel-c8: #131210;
   // }
 
   .x-leg.leg-6 {
-    transform: rotate(5deg + $body-angle);
+    transform: rotate(5deg - $body-angle);
 
     .x-femur {
       transform: rotate(-75.5deg);
@@ -578,7 +617,7 @@ $steel-c8: #131210;
   .x-leg.leg-7 {
     top: 70%;
     left: 22.5%;
-    transform: rotateY(180deg) rotateZ(20deg - $body-angle);
+    transform: rotateY(180deg) rotateZ(20deg + $body-angle);
 
     .x-femur {
       transform: rotate(-115deg);
@@ -598,7 +637,7 @@ $steel-c8: #131210;
   }
 
   .x-leg.leg-7 {
-    transform: rotateY(180deg) rotateZ(15deg - $body-angle);
+    transform: rotateY(180deg) rotateZ(15deg + $body-angle);
 
     .x-femur {
       transform: rotate(-124deg);
@@ -621,7 +660,7 @@ $steel-c8: #131210;
   .x-leg.leg-8 {
     top: 75%;
     left: 5%;
-    transform: rotateY(180deg) rotateZ(2deg - $body-angle);
+    transform: rotateY(180deg) rotateZ(2deg + $body-angle);
 
     .x-patella {
       transform: rotate(82.5deg);
@@ -638,7 +677,7 @@ $steel-c8: #131210;
 
   .x-leg.leg-8 {
     .x-femur {
-      transform: rotate(-75deg - $body-angle);
+      transform: rotate(-75deg + $body-angle);
     }
 
     .x-patella {
@@ -650,14 +689,14 @@ $steel-c8: #131210;
     }
 
     .x-tarsus {
-      transform: rotate(-25deg);
+      transform: rotate(-30deg);
     }
   }
 
   .x-pedipalp {
     left: 95%;
     top: 60%;
-    transform: rotate(60deg + $body-angle);
+    transform: rotate(60deg - $body-angle);
     width: calc(10.14em + 2px);
     height: calc(2.78em + 2px);
 
@@ -687,7 +726,7 @@ $steel-c8: #131210;
     }
 
     &.pedipalp-2 {
-      transform: rotate(57.5deg + $body-angle);
+      transform: rotate(57.5deg - $body-angle);
       width: calc(9.63em + 2px) !important;
       height: calc(2.64em + 2px) !important;
       left: 100%;

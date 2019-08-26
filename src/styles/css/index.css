@@ -120,7 +120,7 @@
   width: 66.9vw;
   height: 24.5vw;
   left: 7.5vw;
-  top: 20.5vw;
+  top: 20vw;
   font-size: 0.975vw;
   box-sizing: border-box;
 }
@@ -135,6 +135,8 @@
   width: 100%;
   height: 100%;
   transform: rotate(0);
+  transform: rotate(0deg);
+  transform-origin: 7.5% 8%;
 }
 .x-body::after,
 .x-body *::after {
@@ -150,8 +152,8 @@
   transform: translate(-50%, -50%);
 }
 .x-body::after {
-  top: 7.5%;
-  left: 8%;
+  top: 32%;
+  left: 10.5%;
 }
 
 .x-body-part {
@@ -219,39 +221,40 @@
   content: none;
 }
 .x-body-part.x-cephalothorax .x-eye {
-  right: -14.5%;
-  top: -2%;
+  right: -6.5%;
+  top: -7%;
   width: calc(1.33em + 2px);
   height: calc(1.07em + 2px);
   border-radius: 50% 50% 45% 45%;
   transform: rotate(215deg);
-  background: radial-gradient(circle at 55% 80%, #bbbbdd77 0%, #aaaacc77 10%, #00001177 25%, #33337777 50%, rgba(100, 100, 120, 0.5) 70%), radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 20%, rgba(0, 0, 0, 0.5) 35%, rgba(0, 0, 0, 0.125) 50%), radial-gradient(circle at 30% 70%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 20%, rgba(0, 0, 0, 0.5) 35%, rgba(0, 0, 0, 0.125) 50%);
+  background-color: #000;
+  background-image: radial-gradient(circle at 55% 80%, #bbbbdd77 0%, #aaaacc77 10%, #00001177 25%, #33337777 50%, rgba(100, 100, 120, 0.5) 70%), radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 20%, rgba(0, 0, 0, 0.5) 35%, rgba(0, 0, 0, 0.125) 50%), radial-gradient(circle at 30% 70%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 20%, rgba(0, 0, 0, 0.5) 35%, rgba(0, 0, 0, 0.125) 50%);
   box-shadow: inset 0 0 3px 1px rgba(0, 0, 0, 0.75), inset 2px -1px 2px rgba(0, 0, 0, 0.5), 0 -1px 3px rgba(0, 0, 0, 0.5);
 }
 .x-body-part.x-cephalothorax .x-eye::after {
   content: none;
 }
 .x-body-part.x-cephalothorax .x-eye2 {
-  right: -6%;
-  top: 8%;
+  right: 3%;
+  top: 2%;
   width: calc(1.07em + 2px);
   height: calc(1.07em + 2px);
   border-radius: 50%;
-  transform: rotate(230deg);
+  transform: rotate(270deg);
 }
 .x-body-part.x-cephalothorax .x-eye3 {
-  right: -13.5%;
-  top: 16%;
-  width: calc(0.73em + 2px);
-  height: calc(0.6em + 2px);
+  right: -5.5%;
+  top: 11%;
+  width: calc(0.6em + 2px);
+  height: calc(0.55em + 2px);
   border-radius: 50%;
   transform: rotate(280deg);
 }
 .x-body-part.x-cephalothorax .x-eye4 {
-  right: -19.5%;
-  top: 10%;
-  width: calc(0.77em + 2px);
-  height: calc(0.6em + 2px);
+  right: -11%;
+  top: 5%;
+  width: calc(0.55em + 2px);
+  height: calc(0.5em + 2px);
   border-radius: 50%;
   transform: rotate(270deg);
 }
@@ -287,15 +290,46 @@
   transform: translate(40%, 12.5%) rotate(-10deg);
 }
 .x-body-part.x-cephalothorax .x-chelicera-pattern {
-  width: calc(47.5% + 2px);
-  height: calc(70% + 2px);
-  left: 51%;
-  top: 3%;
+  width: calc(52.5% + 2px);
+  height: calc(120% + 2px);
+  left: 12.5%;
+  top: 18%;
   border: 0.13em solid #1f180e;
   box-shadow: inset 6px -2px 8px rgba(0, 0, 0, 0.75), inset -4px 0 7px rgba(255, 143, 20, 0.25), 4px -1px 4px -3px rgba(255, 143, 20, 0.5);
   border: 0;
-  border-radius: 20% 105% 1.5em 0%;
-  transform: rotate(-50deg);
+  border-radius: 0 155% 35% 30%;
+  transform: rotate(-80deg);
+  background: radial-gradient(circle at 20% -5%, #EEEEF0 25%, #E8C375 29%, #EEA242 35%, #EEA242 42.5%, #8D5021 85%, #82611C 100%) !important;
+  box-shadow: inset -3em -4.5em 0.175em -5.125em #EEEEF0, inset -4.625em -2.75em 0.175em -5.125em #EEEEF0, inset -4.625em -2.75em 0.125em -5em #E8C375, inset -3em -4.5em 0.125em -5em #E8C375, inset 2em -2.5em 0.125em -3em #E8C375, inset -0.125em -0.175em 0.125em -0.125em #E8C375, inset 0 -0.0525em 0.1em -0.0125em #E8C375, inset -2em -5.25em 0.25em -5em #231806, inset -3.8em -2.75em 0.25em -4em #231806, inset 1.875em -2.375em 0.175em -2.5em #231806, inset 3.625em 2.625em 0.125em -4em #231806, inset 1.875em 3em 0.125em -3em #231806, inset 0.5em 0.375em 0.125em -0.375em #231806, inset -2em 2.25em 0.25em -2.75em #231806, inset 3.625em 2.625em 0.25em -3.9em #8D5021, inset 1.875em 3em 0.25em -2.95em #8D5021, inset -1.125em 2.125em 0.375em -2em #8D5021, 0.075em 0.175em 0.2em 0.0125em rgba(0, 0, 0, 0.75), 0.125em 0.1em 0.75em 0.175em rgba(0, 0, 0, 0.35), 0.5em 0.5em 1em 0.25em rgba(0, 0, 0, 0.25), -0.25em 0.5em 1.5em 0.5em rgba(0, 0, 0, 0.1), 0 0 3.5em rgba(238, 162, 66, 0.125), 0.125em 0.125em 0.25em -0.05em rgba(238, 162, 66, 0.75), 0.125em 0.125em 0.75em 0.125em rgba(0, 0, 0, 0.25), 0.125em 0.125em 0.5em -0.05em rgba(238, 162, 66, 0.25) !important;
+  background: none !important;
+  position: absolute !important;
+  box-shadow: none !important;
+}
+.x-body-part.x-cephalothorax .x-chelicera-pattern::after {
+  content: "";
+  position: absolute;
+  left: 47%;
+  top: 48%;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  border-radius: inherit;
+  z-index: 1;
+  opacity: 1;
+  background: radial-gradient(circle at 20% -5%, #EEEEF0 25%, #E8C375 29%, #EEA242 35%, #EEA242 42.5%, #8D5021 85%, #82611C 100%) !important;
+  box-shadow: inset -3em -4.5em 0.175em -5.125em #EEEEF0, inset -4.625em -2.75em 0.175em -5.125em #EEEEF0, inset -4.625em -2.75em 0.125em -5em #E8C375, inset -3em -4.5em 0.125em -5em #E8C375, inset 2em -2.5em 0.125em -3em #E8C375, inset -0.125em -0.175em 0.125em -0.125em #E8C375, inset 0 -0.0525em 0.1em -0.0125em #E8C375, inset -2em -5.25em 0.25em -5em #231806, inset -3.8em -2.75em 0.25em -4em #231806, inset 1.875em -2.375em 0.175em -2.5em #231806, inset 3.625em 2.625em 0.125em -4em #231806, inset 1.875em 3em 0.125em -3em #231806, inset 0.5em 0.375em 0.125em -0.375em #231806, inset -2em 2.25em 0.25em -2.75em #231806, inset 3.625em 2.625em 0.25em -3.9em #8D5021, inset 1.875em 3em 0.25em -2.95em #8D5021, inset -1.125em 2.125em 0.375em -2em #8D5021, 0.075em 0.175em 0.2em 0.0125em rgba(0, 0, 0, 0.75), 0.125em 0.1em 0.75em 0.175em rgba(0, 0, 0, 0.35), 0.5em 0.5em 1em 0.25em rgba(0, 0, 0, 0.25), -0.25em 0.5em 1.5em 0.5em rgba(0, 0, 0, 0.1), 0 0 3.5em rgba(238, 162, 66, 0.125), 0.125em 0.125em 0.25em -0.05em rgba(238, 162, 66, 0.75), 0.125em 0.125em 0.75em 0.125em rgba(0, 0, 0, 0.25), 0.125em 0.125em 0.5em -0.05em rgba(238, 162, 66, 0.25) !important;
+}
+.x-body-part.x-cephalothorax .x-chelicera-pattern::before {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  top: 86.5%;
+  left: -18%;
+  width: 100%;
+  height: 20%;
+  background: blue;
+  border-radius: 0 0 1em 100%;
+  transform: rotate(7deg);
   background: radial-gradient(circle at 20% -5%, #EEEEF0 25%, #E8C375 29%, #EEA242 35%, #EEA242 42.5%, #8D5021 85%, #82611C 100%) !important;
   box-shadow: inset -3em -4.5em 0.175em -5.125em #EEEEF0, inset -4.625em -2.75em 0.175em -5.125em #EEEEF0, inset -4.625em -2.75em 0.125em -5em #E8C375, inset -3em -4.5em 0.125em -5em #E8C375, inset 2em -2.5em 0.125em -3em #E8C375, inset -0.125em -0.175em 0.125em -0.125em #E8C375, inset 0 -0.0525em 0.1em -0.0125em #E8C375, inset -2em -5.25em 0.25em -5em #231806, inset -3.8em -2.75em 0.25em -4em #231806, inset 1.875em -2.375em 0.175em -2.5em #231806, inset 3.625em 2.625em 0.125em -4em #231806, inset 1.875em 3em 0.125em -3em #231806, inset 0.5em 0.375em 0.125em -0.375em #231806, inset -2em 2.25em 0.25em -2.75em #231806, inset 3.625em 2.625em 0.25em -3.9em #8D5021, inset 1.875em 3em 0.25em -2.95em #8D5021, inset -1.125em 2.125em 0.375em -2em #8D5021, 0.075em 0.175em 0.2em 0.0125em rgba(0, 0, 0, 0.75), 0.125em 0.1em 0.75em 0.175em rgba(0, 0, 0, 0.35), 0.5em 0.5em 1em 0.25em rgba(0, 0, 0, 0.25), -0.25em 0.5em 1.5em 0.5em rgba(0, 0, 0, 0.1), 0 0 3.5em rgba(238, 162, 66, 0.125), 0.125em 0.125em 0.25em -0.05em rgba(238, 162, 66, 0.75), 0.125em 0.125em 0.75em 0.125em rgba(0, 0, 0, 0.25), 0.125em 0.125em 0.5em -0.05em rgba(238, 162, 66, 0.25) !important;
 }
@@ -315,17 +349,17 @@
   transform: scale(0.95) rotate(65deg);
 }
 .x-body-part.x-chelicerae.x-chelicerae--background .x-fang {
-  transform: rotate(125deg);
+  transform: rotate(115deg);
   bottom: -7%;
 }
 .x-body-part.x-chelicerae .x-fang {
   background: linear-gradient(3deg, #050505 0%, #151815 30%, #050505 80%);
-  border-radius: 20% 200% 0 2em;
+  border-radius: 20% 250% 0 2em;
   width: calc(35.5% + 2px);
   height: calc(10.5% + 2px);
   right: -32%;
   bottom: -3.5%;
-  transform: rotate(128.5deg);
+  transform: rotate(118.5deg);
   transform-origin: 5% 50%;
 }
 .x-body-part.x-chelicerae .x-fang::after {
@@ -586,7 +620,7 @@
   transform: rotate(70.5deg);
 }
 .x-body-part .x-leg.leg-8 .x-tarsus {
-  transform: rotate(-25deg);
+  transform: rotate(-30deg);
 }
 .x-body-part .x-pedipalp {
   left: 95%;
