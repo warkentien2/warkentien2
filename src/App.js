@@ -29,7 +29,6 @@ function App() {
             </span>
           </h1>
           <Tarantula />
-          <Tarantula hideFrontLegs={true} hideBackLegs={true} />
           <Tarantula hideFrontLegs={true} />
         </section>
       </main>
