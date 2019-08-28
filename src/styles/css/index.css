@@ -120,7 +120,7 @@
   width: 66.9vw;
   height: 24.5vw;
   left: 7.5vw;
-  top: 20vw;
+  top: 36.5vw;
   font-size: 0.975vw;
   box-sizing: border-box;
 }
@@ -714,8 +714,7 @@
   transform: rotate(-12deg);
   width: calc(10.14em + 2px);
   height: calc(2.78em + 2px);
-  opacity: 1;
-  z-index: 3;
+  z-index: 4;
 }
 .x-body-part .x-pedipalp .x-leg-parts {
   border-radius: 40% 50% 35% 25%;

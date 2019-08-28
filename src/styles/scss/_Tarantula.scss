@@ -59,7 +59,7 @@ $body-shadow: inset 4px 3px 7px -1px rgba(255, 116, 24, 0.625), inset -4px -3px 
   width: 66.9vw; // 53.52vw; // 950px; // 66.9vw; // 
   height: 24.5vw; // 40vw; // 710px; // 24.5vw; // 
   left: 7.5vw; // 27.5vw;
-  top: 20vw;
+  top: 36.5vw;
   font-size: 0.975vw; // 0.78vw; // 0.39vw; // 0.975vw; // 
   box-sizing: border-box;
   // overflow: hidden;
@@ -990,8 +990,7 @@ $body-shadow: inset 4px 3px 7px -1px rgba(255, 116, 24, 0.625), inset -4px -3px 
     transform: rotate(-12deg - $body-angle);
     width: calc(10.14em + 2px);
     height: calc(2.78em + 2px);
-    opacity: 1;
-    z-index: 3;
+    z-index: 4;
 
     .x-leg-parts {
       border-radius: 40% 50% 35% 25%;

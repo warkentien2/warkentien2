@@ -10,3 +10,8 @@ function legCounterAngle(bodyAngle, distanceFromAxisToLeg, distanceFromLegToFloo
   const beta = radiansToDegrees(Math.asin(distanceFromAxisToLeg * Math.sin(degreesToRadians(bodyAngle)) / distanceFromLegToFloor))
   return -1 * (bodyAngle + beta)
 }
+
+export default {
+  degreesToRadians,
+  radiansToDegrees
+}
