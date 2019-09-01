@@ -115,6 +115,62 @@ const animatePedipalpB = {
   stretch: (el, time) => animateLeg(el, time, [0, -25, 52, 20, -25, false])
 }
 
+function legCycle(leg, ...options) {
+  const legId = leg.current.id
+  const animateObjects = {
+    'legA1': animateLegA1,
+    'legA2': animateLegA2,
+    'legA3': animateLegA3,
+    'legA4': animateLegA4,
+    'legB1': animateLegB1,
+    'legB2': animateLegB2,
+    'legB3': animateLegB3,
+    'legB4': animateLegB4,
+    'pedipalpA': animatePedipalpA,
+    'pedipalpB': animatePedipalpB
+  }
+  const moveFirst = options.includes('moveFirst') // or raiseFirst
+  const raiseLate = options.includes('raiseLate')
+
+  console.log(moveFirst, raiseLate)
+
+  if (moveFirst && raiseLate) {
+    return new TimelineMax({ repeat: 7 })
+      .addLabel('cycle')
+      .add(animateObjects[legId].move(leg, 0.5), 'cycle')
+      .add(animateObjects[legId].raise(leg, 0.25), 'cycle+=0.5')
+      .add(animateObjects[legId].stretch(leg, 0.25), 'cycle+=0.75')
+      .add(animateObjects[legId].step(leg, 0.25), 'cycle+=1')
+      .addLabel('wait', 'cycle+=1.25')
+      .to([], 0.25, {}, 'wait')
+    ;
+  } else if (moveFirst) {
+    return new TimelineMax({ repeat: 7 })
+      .addLabel('cycle')
+      .add(animateObjects[legId].move(leg, 0.5), 'cycle')
+      .add(animateObjects[legId].raise(leg, 0.25), 'cycle+=0.75')
+      .add(animateObjects[legId].stretch(leg, 0.25), 'cycle+=1')
+      .add(animateObjects[legId].step(leg, 0.25), 'cycle+=1.25')
+    ;
+  } else if (raiseLate) {
+    return new TimelineMax({ repeat: 7 })
+      .addLabel('cycle')
+      .add(animateObjects[legId].raise(leg, 0.25), 'cycle+=0.25')
+      .add(animateObjects[legId].stretch(leg, 0.25), 'cycle+=0.5')
+      .add(animateObjects[legId].step(leg, 0.25), 'cycle+=0.75')
+      .add(animateObjects[legId].move(leg, 0.5), 'cycle+=1')
+      ;
+  } else {
+    return new TimelineMax({ repeat: 7 })
+      .addLabel('cycle')
+      .add(animateObjects[legId].raise(leg, 0.25), 'cycle')
+      .add(animateObjects[legId].stretch(leg, 0.25), 'cycle+=0.25')
+      .add(animateObjects[legId].step(leg, 0.25), 'cycle+=0.5')
+      .add(animateObjects[legId].move(leg, 0.5), 'cycle+=1')
+    ;
+  }
+}
+
 function Tarantula({hideFrontLegs = false, hideBackLegs = false}) {
   const tarantula = useRef(null)
   const legA1 = useRef(null)
@@ -135,20 +191,31 @@ function Tarantula({hideFrontLegs = false, hideBackLegs = false}) {
 
   useEffect(() => {
     walk
-      // .timeScale(0.25)
+      // .timeScale(0.5)
       .addLabel('setup')
+      .set(tarantula.current, { xPercent: (-7 * 26) }, 'setup')
       .addLabel('motion-1', 'setup+=0.01')
-      .to(tarantula.current, 0.5, { xPercent: (1 * 26), ease: Linear.easeNone }, 'motion-1+=0.375')
-      .to(tarantula.current, 0.5, { xPercent: (2 * 26), ease: Linear.easeNone }, 'motion-1+=1.125')
-      .addLabel('motion-2', 'motion-1+=1.5')
-      .to(tarantula.current, 0.5, { xPercent: (3 * 26), ease: Linear.easeNone }, 'motion-2+=0.375')
-      .to(tarantula.current, 0.5, { xPercent: (4 * 26), ease: Linear.easeNone }, 'motion-2+=1.125')
+      .to(tarantula.current, 0.475, { xPercent: (-6 * 26), ease: Linear.easeNone }, 'motion-1+=0.375')
+      .to(tarantula.current, 0.475, { xPercent: (-5 * 26), ease: Linear.easeNone }, 'motion-1+=1.125')
+      .to(tarantula.current, 0.475, { xPercent: (-4 * 26), ease: Linear.easeNone }, 'motion-1+=1.875')
+      .to(tarantula.current, 0.475, { xPercent: (-3 * 26), ease: Linear.easeNone }, 'motion-1+=2.625')
+      .to(tarantula.current, 0.475, { xPercent: (-2 * 26), ease: Linear.easeNone }, 'motion-1+=3.375')
+      .to(tarantula.current, 0.475, { xPercent: (-1 * 26), ease: Linear.easeNone }, 'motion-1+=4.125')
+      .to(tarantula.current, 0.475, { xPercent: (0 * 26), ease: Linear.easeNone }, 'motion-1+=4.875')
+      .to(tarantula.current, 0.475, { xPercent: (1 * 26), ease: Linear.easeNone }, 'motion-1+=5.625')
+      .to(tarantula.current, 0.475, { xPercent: (2 * 26), ease: Linear.easeNone }, 'motion-1+=6.375')
+      .to(tarantula.current, 0.475, { xPercent: (3 * 26), ease: Linear.easeNone }, 'motion-1+=7.125')
+      .to(tarantula.current, 0.475, { xPercent: (4 * 26), ease: Linear.easeNone }, 'motion-1+=7.875')
+      .to(tarantula.current, 0.475, { xPercent: (5 * 26), ease: Linear.easeNone }, 'motion-1+=8.625')
+      .to(tarantula.current, 0.475, { xPercent: (6 * 26), ease: Linear.easeNone }, 'motion-1+=9.375')
+      .to(tarantula.current, 0.475, { xPercent: (7 * 26), ease: Linear.easeNone }, 'motion-1+=10.125')
+      .to(tarantula.current, 0.475, { xPercent: (8 * 26), ease: Linear.easeNone }, 'motion-1+=10.875')
     ;
 
+    // Main Timeline
+
     timeline.addLabel('setup')
-    timeline.addLabel('motion-1', 'setup+=0.01')
-    timeline.addLabel('motion-2', 'motion-1+=1.5')
-    // timeline.timeScale(0.25)
+    // timeline.timeScale(0.5)
 
     timeline.add(animateLegA1.step(legA1, 0), 'setup')
     timeline.add(animateLegA2.move(legA2, 0.01), 'setup')
@@ -162,127 +229,19 @@ function Tarantula({hideFrontLegs = false, hideBackLegs = false}) {
     timeline.add(animateLegB4.step(legB4, 0), 'setup')
     timeline.add(animatePedipalpB.move(pedipalpB, 0), 'setup')
 
-    // A2, B3, PB
-    timeline.add(animateLegA2.raise(legA2, 0.25), 'motion-1')
-    timeline.add(animateLegB3.raise(legB3, 0.25), 'motion-1')
-    timeline.add(animatePedipalpB.raise(pedipalpB, 0.25), 'motion-1')
-    
-    timeline.add(animateLegA2.stretch(legA2, 0.25), 'motion-1+=0.25')
-    timeline.add(animateLegB3.stretch(legB3, 0.25), 'motion-1+=0.25')
-    timeline.add(animatePedipalpB.stretch(pedipalpB, 0.25), 'motion-1+=0.25')
-    
-    timeline.add(animateLegA2.step(legA2, 0.25), 'motion-1+=0.5')
-    timeline.add(animateLegB3.step(legB3, 0.25), 'motion-1+=0.5')
-    timeline.add(animatePedipalpB.step(pedipalpB, 0.25), 'motion-1+=0.5')
+    timeline.addLabel('motion-1', 'setup+=0.01')
+      .add(legCycle(legA2), 'motion-1')
+      .add(legCycle(legB3), 'motion-1')
+      .add(legCycle(pedipalpB), 'motion-1')
+      .add(legCycle(legA4, "raiseLate"), 'motion-1')
+      .add(legCycle(legB1, "raiseLate"), 'motion-1')
+      .add(legCycle(legA3, "moveFirst"), 'motion-1+=0.25')
+      .add(legCycle(legB2, "moveFirst"), 'motion-1+=0.25')
+      .add(legCycle(pedipalpA, "moveFirst"), 'motion-1+=0.25')
+      .add(legCycle(legA1, "raiseLate", "moveFirst"), 'motion-1+=0.25')
+      .add(legCycle(legB4, "raiseLate", "moveFirst"), 'motion-1+=0.25')
+    ;
 
-    timeline.add(animateLegA2.move(legA2, 0.5), 'motion-1+=1')
-    timeline.add(animateLegB3.move(legB3, 0.5), 'motion-1+=1')
-    timeline.add(animatePedipalpB.move(pedipalpB, 0.5), 'motion-1+=1')
-    
-    // raise B1, A4
-    timeline.add(animateLegB1.raise(legB1, 0.25), 'motion-1+=0.25')
-    timeline.add(animateLegA4.raise(legA4, 0.25), 'motion-1+=0.25')
-
-    timeline.add(animateLegA4.stretch(legA4, 0.25), 'motion-1+=0.5')
-    timeline.add(animateLegB1.stretch(legB1, 0.25), 'motion-1+=0.5') 
-
-    timeline.add(animateLegA4.step(legA4, 0.25), 'motion-1+=0.75')
-    timeline.add(animateLegB1.step(legB1, 0.25), 'motion-1+=0.75')
-
-    timeline.add(animateLegA4.move(legA4, 0.5), 'motion-1+=1')
-    timeline.add(animateLegB1.move(legB1, 0.5), 'motion-1+=1')
-    
-    // move A3, B2, PA
-    timeline.add(animateLegA3.move(legA3, 0.5), 'motion-1+=0.25')
-    timeline.add(animateLegB2.move(legB2, 0.5), 'motion-1+=0.25')
-    timeline.add(animatePedipalpA.move(pedipalpA, 0.5), 'motion-1+=0.25')
-
-    timeline.add(animateLegA3.raise(legA3, 0.25), 'motion-1+=0.75')
-    timeline.add(animateLegB2.raise(legB2, 0.25), 'motion-1+=0.75')
-    timeline.add(animatePedipalpA.raise(pedipalpA, 0.25), 'motion-1+=0.75')
-    
-    timeline.add(animateLegA3.stretch(legA3, 0.25), 'motion-1+=1')
-    timeline.add(animateLegB2.stretch(legB2, 0.25), 'motion-1+=1')
-    timeline.add(animatePedipalpA.stretch(pedipalpA, 0.25), 'motion-1+=1')
-    
-    timeline.add(animateLegA3.step(legA3, 0.25), 'motion-1+=1.25')
-    timeline.add(animateLegB2.step(legB2, 0.25), 'motion-1+=1.25')
-    timeline.add(animatePedipalpA.step(pedipalpA, 0.25), 'motion-1+=1.25')
-
-    // move A1, B4
-    timeline.add(animateLegA1.move(legA1, 0.5), 'motion-1+=0.25')
-    timeline.add(animateLegB4.move(legB4, 0.5), 'motion-1+=0.25')
-
-    timeline.add(animateLegA1.raise(legA1, 0.25), 'motion-1+=1')
-    timeline.add(animateLegB4.raise(legB4, 0.25), 'motion-1+=1')
-
-    timeline.add(animateLegB4.stretch(legB4, 0.25), 'motion-1+=1.25')
-    timeline.add(animateLegA1.stretch(legA1, 0.25), 'motion-1+=1.25') 
-
-    timeline.add(animateLegB4.step(legB4, 0.25), 'motion-1+=1.5')
-    timeline.add(animateLegA1.step(legA1, 0.25), 'motion-1+=1.5')
-
-    // Again
-
-    // A2, B3, PB
-    timeline.add(animateLegA2.raise(legA2, 0.25), 'motion-2')
-    timeline.add(animateLegB3.raise(legB3, 0.25), 'motion-2')
-    timeline.add(animatePedipalpB.raise(pedipalpB, 0.25), 'motion-2')
-    
-    timeline.add(animateLegA2.stretch(legA2, 0.25), 'motion-2+=0.25')
-    timeline.add(animateLegB3.stretch(legB3, 0.25), 'motion-2+=0.25')
-    timeline.add(animatePedipalpB.stretch(pedipalpB, 0.25), 'motion-2+=0.25')
-    
-    timeline.add(animateLegA2.step(legA2, 0.25), 'motion-2+=0.5')
-    timeline.add(animateLegB3.step(legB3, 0.25), 'motion-2+=0.5')
-    timeline.add(animatePedipalpB.step(pedipalpB, 0.25), 'motion-2+=0.5')
-
-    timeline.add(animateLegA2.move(legA2, 0.5), 'motion-2+=1')
-    timeline.add(animateLegB3.move(legB3, 0.5), 'motion-2+=1')
-    timeline.add(animatePedipalpB.move(pedipalpB, 0.5), 'motion-2+=1')
-    
-    // raise B1, A4
-    timeline.add(animateLegB1.raise(legB1, 0.25), 'motion-2+=0.25')
-    timeline.add(animateLegA4.raise(legA4, 0.25), 'motion-2+=0.25')
-
-    timeline.add(animateLegA4.stretch(legA4, 0.25), 'motion-2+=0.5')
-    timeline.add(animateLegB1.stretch(legB1, 0.25), 'motion-2+=0.5') 
-
-    timeline.add(animateLegA4.step(legA4, 0.25), 'motion-2+=0.75')
-    timeline.add(animateLegB1.step(legB1, 0.25), 'motion-2+=0.75')
-
-    timeline.add(animateLegA4.move(legA4, 0.5), 'motion-2+=1')
-    timeline.add(animateLegB1.move(legB1, 0.5), 'motion-2+=1')
-    
-    // move A3, B2, PA
-    timeline.add(animateLegA3.move(legA3, 0.5), 'motion-2+=0.25')
-    timeline.add(animateLegB2.move(legB2, 0.5), 'motion-2+=0.25')
-    timeline.add(animatePedipalpA.move(pedipalpA, 0.5), 'motion-2+=0.25')
-
-    timeline.add(animateLegA3.raise(legA3, 0.25), 'motion-2+=0.75')
-    timeline.add(animateLegB2.raise(legB2, 0.25), 'motion-2+=0.75')
-    timeline.add(animatePedipalpA.raise(pedipalpA, 0.25), 'motion-2+=0.75')
-    
-    timeline.add(animateLegA3.stretch(legA3, 0.25), 'motion-2+=1')
-    timeline.add(animateLegB2.stretch(legB2, 0.25), 'motion-2+=1')
-    timeline.add(animatePedipalpA.stretch(pedipalpA, 0.25), 'motion-2+=1')
-    
-    timeline.add(animateLegA3.step(legA3, 0.25), 'motion-2+=1.25')
-    timeline.add(animateLegB2.step(legB2, 0.25), 'motion-2+=1.25')
-    timeline.add(animatePedipalpA.step(pedipalpA, 0.25), 'motion-2+=1.25')
-
-    // move A1, B4
-    timeline.add(animateLegA1.move(legA1, 0.5), 'motion-2+=0.25')
-    timeline.add(animateLegB4.move(legB4, 0.5), 'motion-2+=0.25')
-
-    timeline.add(animateLegA1.raise(legA1, 0.25), 'motion-2+=1')
-    timeline.add(animateLegB4.raise(legB4, 0.25), 'motion-2+=1')
-
-    timeline.add(animateLegB4.stretch(legB4, 0.25), 'motion-2+=1.25')
-    timeline.add(animateLegA1.stretch(legA1, 0.25), 'motion-2+=1.25') 
-
-    timeline.add(animateLegB4.step(legB4, 0.25), 'motion-2+=1.5')
-    timeline.add(animateLegA1.step(legA1, 0.25), 'motion-2+=1.5')
   }, [])
 
   return (
@@ -292,7 +251,7 @@ function Tarantula({hideFrontLegs = false, hideBackLegs = false}) {
 
           { !hideBackLegs && (
             <React.Fragment>
-              <div ref={legB2} id="leg-6" className="x-leg x-leg--background leg-6">
+              <div ref={legB2} id="legB2" className="x-leg x-leg--background leg-6">
                 <div className="x-leg-parts x-coxa">
                   <div className="x-leg-parts x-femur">
                     <div className="x-leg-parts x-patella">
@@ -305,7 +264,7 @@ function Tarantula({hideFrontLegs = false, hideBackLegs = false}) {
                   </div>
                 </div>
               </div>
-              <div ref={legB1} id="leg-5" className="x-leg x-leg--background leg-5">
+              <div ref={legB1} id="legB1" className="x-leg x-leg--background leg-5">
                 <div className="x-leg-parts x-coxa">
                   <div className="x-leg-parts x-femur">
                     <div className="x-leg-parts x-patella">
@@ -318,7 +277,7 @@ function Tarantula({hideFrontLegs = false, hideBackLegs = false}) {
                   </div>
                 </div>
               </div>
-              <div ref={legB3} id="leg-7" className="x-leg x-leg--background x-leg--small leg-7">
+              <div ref={legB3} id="legB3" className="x-leg x-leg--background x-leg--small leg-7">
                 <div className="x-leg-parts x-coxa">
                   <div className="x-leg-parts x-femur">
                     <div className="x-leg-parts x-patella">
@@ -331,7 +290,7 @@ function Tarantula({hideFrontLegs = false, hideBackLegs = false}) {
                   </div>
                 </div>
               </div>
-              <div ref={legB4} id="leg-8" className="x-leg x-leg--background x-leg--small leg-8">
+              <div ref={legB4} id="legB4" className="x-leg x-leg--background x-leg--small leg-8">
                 <div className="x-leg-parts x-coxa">
                   <div className="x-leg-parts x-femur">
                     <div className="x-leg-parts x-patella">
@@ -344,7 +303,7 @@ function Tarantula({hideFrontLegs = false, hideBackLegs = false}) {
                   </div>
                 </div>
               </div>
-              <div ref={pedipalpB} id="pedipalp-2" className="x-leg x-leg--background x-pedipalp pedipalp-2">
+              <div ref={pedipalpB} id="pedipalpB" className="x-leg x-leg--background x-pedipalp pedipalp-2">
                 <div className="x-leg-parts x-coxa">
                   <div className="x-leg-parts x-femur">
                     <div className="x-leg-parts x-patella">
@@ -398,7 +357,7 @@ function Tarantula({hideFrontLegs = false, hideBackLegs = false}) {
 
           {!hideFrontLegs && (
             <React.Fragment>
-              <div ref={pedipalpA} id="pedipalp-1" className="x-leg x-pedipalp pedipalp-1">
+              <div ref={pedipalpA} id="pedipalpA" className="x-leg x-pedipalp pedipalp-1">
                 <div className="x-leg-parts x-coxa">
                   <div className="x-leg-parts x-femur">
                     <div className="x-leg-parts x-patella">
@@ -409,7 +368,7 @@ function Tarantula({hideFrontLegs = false, hideBackLegs = false}) {
                   </div>
                 </div>
               </div>
-              <div ref={legA4} id="leg-4" className="x-leg x-leg--small leg-4">
+              <div ref={legA4} id="legA4" className="x-leg x-leg--small leg-4">
                 <div className="x-leg-parts x-coxa">
                   <div className="x-leg-parts x-femur">
                     <div className="x-leg-parts x-patella">
@@ -422,7 +381,7 @@ function Tarantula({hideFrontLegs = false, hideBackLegs = false}) {
                   </div>
                 </div>
               </div>
-              <div ref={legA3} id="leg-3" className="x-leg x-leg--small leg-3">
+              <div ref={legA3} id="legA3" className="x-leg x-leg--small leg-3">
                 <div className="x-leg-parts x-coxa">
                   <div className="x-leg-parts x-femur">
                     <div className="x-leg-parts x-patella">
@@ -435,7 +394,7 @@ function Tarantula({hideFrontLegs = false, hideBackLegs = false}) {
                   </div>
                 </div>
               </div>
-              <div ref={legA1} id="leg-1" className="x-leg leg-1">
+              <div ref={legA1} id="legA1" className="x-leg leg-1">
                 <div className="x-leg-parts x-coxa">
                   <div className="x-leg-parts x-femur">
                     <div className="x-leg-parts x-patella">
@@ -448,7 +407,7 @@ function Tarantula({hideFrontLegs = false, hideBackLegs = false}) {
                   </div>
                 </div>
               </div>
-              <div ref={legA2} id="leg-2" className="x-leg leg-2">
+              <div ref={legA2} id="legA2" className="x-leg leg-2">
                 <div className="x-leg-parts x-coxa">
                   <div className="x-leg-parts x-femur">
                     <div className="x-leg-parts x-patella">
