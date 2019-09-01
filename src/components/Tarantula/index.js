@@ -45,6 +45,76 @@ function animateLeg(leg, speed, angles = [false, false, false, false, false, fal
   return tl
 }
 
+const animateLegA1 = {
+  step: (el, time) => animateLeg(el, time, [0, -80, 75, false, 40, -10]),
+  move: (el, time) => animateLeg(el, time, [40, -145, 102, false, 86, -40]),
+  raise: (el, time) => animateLeg(el, time, [26, -142, 72, false, 96, -10]),
+  stretch: (el, time) => animateLeg(el, time, [13, -82, 42, false, 22, -25])
+}
+
+const animateLegB1 = {
+  step: (el, time) => animateLeg(el, time, [-10, -68, 70, false, 40, -10]),
+  move: (el, time) => animateLeg(el, time, [30, -140, 102, false, 80, -30]),
+  raise: (el, time) => animateLeg(el, time, [16, -130, 72, false, 90, -5]),
+  stretch: (el, time) => animateLeg(el, time, [3, -70, 42, false, 20, -25])
+}
+
+const animateLegA2 = {
+  step: (el, time) => animateLeg(el, time, [-3, -78, 92, false, 66, -25], 100),
+  move: (el, time) => animateLeg(el, time, [30, -123, 130, false, 58, -35], 59),
+  raise: (el, time) => animateLeg(el, time, [20, -127, 70, false, 88, 5], 80),
+  stretch: (el, time) => animateLeg(el, time, [10, -87, 60, false, 45, -30], 100)  
+}
+
+const animateLegB2 = {
+  step: (el, time) => animateLeg(el, time, [-13, -68, 86, false, 66, -25], 100),
+  move: (el, time) => animateLeg(el, time, [20, -120, 120, false, 68, -35], 59),
+  raise: (el, time) => animateLeg(el, time, [10, -110, 67, false, 98, 5], 80),
+  stretch: (el, time) => animateLeg(el, time, [0, -79, 57, false, 47, -30], 100)
+}
+
+const animateLegA3 = {
+  step: (el, time) => animateLeg(el, time, [20, -140, 160, 20, 15, 0], 48),
+  move: (el, time) => animateLeg(el, time, [15, -113, 94, 15, 88, -30], 100),
+  raise: (el, time) => animateLeg(el, time, [18, -128, 94, 15, 48, -10], 58),
+  stretch: (el, time) => animateLeg(el, time, [19, -138, 165, 15, 15, -10], 38)
+}
+
+const animateLegB3 = {
+  step: (el, time) => animateLeg(el, time, [10, -135, 165, 20, 15, 10], 33),
+  move: (el, time) => animateLeg(el, time, [5, -104, 95, 15, 88, -30], 100),
+  raise: (el, time) => animateLeg(el, time, [8, -120, 95, 15, 48, -10], 45),
+  stretch: (el, time) => animateLeg(el, time, [9, -130, 170, 15, 15, 0], 25)
+}
+
+const animateLegA4 = {
+  step: (el, time) => animateLeg(el, time, [30, -115, 100, false, 87, -33]),
+  move: (el, time) => animateLeg(el, time, [10, -65, 62, false, 50, -20]),
+  raise: (el, time) => animateLeg(el, time, [20, -95, 72, false, 70, -10]),
+  stretch: (el, time) => animateLeg(el, time, [30, -125, 82, false, 100, -10])
+}
+
+const animateLegB4 = {
+  step: (el, time) => animateLeg(el, time, [20, -109, 105, false, 87, -33]),
+  move: (el, time) => animateLeg(el, time, [0, -56, 62, false, 55, -22]),
+  raise: (el, time) => animateLeg(el, time, [10, -89, 72, false, 75, -12]),
+  stretch: (el, time) => animateLeg(el, time, [20, -119, 82, false, 105, -12])
+}
+
+const animatePedipalpA = {
+  step: (el, time) => animateLeg(el, time, [1, -5, 53, 35, -15, false]),
+  move: (el, time) => animateLeg(el, time, [1, -20, 122, 20, -30, false]),
+  raise: (el, time) => animateLeg(el, time, [1, -40, 82, 30, 20, false]),
+  stretch: (el, time) => animateLeg(el, time, [1, -25, 52, 20, -25, false])
+}
+
+const animatePedipalpB = {
+  step: (el, time) => animateLeg(el, time, [0, -5, 53, 35, -15, false]),
+  move: (el, time) => animateLeg(el, time, [0, -20, 122, 20, -30, false]),
+  raise: (el, time) => animateLeg(el, time, [0, -40, 82, 30, 20, false]),
+  stretch: (el, time) => animateLeg(el, time, [0, -25, 52, 20, -25, false])
+}
+
 function Tarantula({hideFrontLegs = false, hideBackLegs = false}) {
   const legA1 = useRef(null)
   const legA2 = useRef(null)
@@ -59,7 +129,7 @@ function Tarantula({hideFrontLegs = false, hideBackLegs = false}) {
   const cheliceraeA = useRef(null)
   const cheliceraeB = useRef(null)
   const abdomen = useRef(null)
-  const timeline = new TimelineMax({ repeat: 5 })
+  const timeline = new TimelineMax() // { repeat: 5 })
 
   useEffect(() => {
     timeline.addLabel('setup')
@@ -68,65 +138,125 @@ function Tarantula({hideFrontLegs = false, hideBackLegs = false}) {
     timeline.addLabel('stretch-1', 'raise-1+=0.25')
     timeline.addLabel('step-1', 'stretch-1+=0.25')
 
-    timeline.add(animateLeg(legA1, 0, [0, -80, 75, false, 40, -10]), 'setup')
-    timeline.add(animateLeg(legA2, 0.01, [-3, -78, 93, false, 61, -25], 100), 'setup')
-    timeline.add(animateLeg(legA3, 0.01, [20, -140, 160, 20, 15, 0], 48), 'setup')
-    timeline.add(animateLeg(legA4, 0, [30, -115, 100, false, 87, -33]), 'setup')
-    timeline.add(animateLeg(pedipalpA, 0, [1, -5, 53, 35, -15, false]), 'setup')
+    timeline.add(animateLegA1.step(legA1, 0), 'setup')
+    timeline.add(animateLegA2.step(legA2, 0.01), 'setup')
+    timeline.add(animateLegA3.step(legA3, 0.01), 'setup')
+    timeline.add(animateLegA4.step(legA4, 0), 'setup')
+    timeline.add(animatePedipalpA.step(pedipalpA, 0), 'setup')
 
-    timeline.add(animateLeg(legB1, 0, [-10, -68, 70, false, 40, -10]), 'setup')
-    timeline.add(animateLeg(legB2, 0.01, [-13, -68, 87, false, 61, -25], 100), 'setup')
-    timeline.add(animateLeg(legB3, 0.01, [10, -135, 165, 20, 15, 10], 33), 'setup')
-    timeline.add(animateLeg(legB4, 0, [20, -109, 105, false, 87, -33]), 'setup')
-    timeline.add(animateLeg(pedipalpB, 0, [0, -5, 53, 35, -15, false]), 'setup')
+    timeline.add(animateLegB1.step(legB1, 0), 'setup')
+    timeline.add(animateLegB2.step(legB2, 0.01), 'setup')
+    timeline.add(animateLegB3.step(legB3, 0.01), 'setup')
+    timeline.add(animateLegB4.step(legB4, 0), 'setup')
+    timeline.add(animatePedipalpB.step(pedipalpB, 0), 'setup')
 
-    timeline.add(animateLeg(legA1, 0.25, [40, -145, 102, false, 86, -40]), 'move-1')
-    timeline.add(animateLeg(legA2, 0.25, [30, -123, 130, false, 58, -35], 59), 'move-1')
-    timeline.add(animateLeg(legA3, 0.25, [15, -113, 94, 15, 88, -30], 100), 'move-1')
-    timeline.add(animateLeg(legA4, 0.25, [10, -65, 62, false, 50, -20]), 'move-1')
-    timeline.add(animateLeg(pedipalpA, 0.25, [1, -20, 122, 20, -30, false]), 'move-1')
+    timeline.add(animateLegA1.move(legA1, 0.25), 'move-1')
+    timeline.add(animateLegA2.move(legA2, 0.25), 'move-1')
+    timeline.add(animateLegA3.move(legA3, 0.25), 'move-1')
+    timeline.add(animateLegA4.move(legA4, 0.25), 'move-1')
+    timeline.add(animatePedipalpA.move(pedipalpA, 0.25), 'move-1')
 
-    timeline.add(animateLeg(legB1, 0.25, [30, -140, 102, false, 80, -30]), 'move-1')
-    timeline.add(animateLeg(legB2, 0.25, [20, -120, 120, false, 68, -35], 59), 'move-1')
-    timeline.add(animateLeg(legB3, 0.25, [5, -104, 95, 15, 88, -30], 100), 'move-1')
-    timeline.add(animateLeg(legB4, 0.25, [0, -56, 62, false, 55, -22]), 'move-1')
-    timeline.add(animateLeg(pedipalpB, 0.25, [0, -20, 122, 20, -30, false]), 'move-1')
+    timeline.add(animateLegB1.move(legB1, 0.25), 'move-1')
+    timeline.add(animateLegB2.move(legB2, 0.25), 'move-1')
+    timeline.add(animateLegB3.move(legB3, 0.25), 'move-1')
+    timeline.add(animateLegB4.move(legB4, 0.25), 'move-1')
+    timeline.add(animatePedipalpB.move(pedipalpB, 0.25), 'move-1')
 
-    timeline.add(animateLeg(legA1, 0.25, [26, -142, 72, false, 96, -10]), 'raise-1')
-    timeline.add(animateLeg(legA2, 0.25, [20, -127, 70, false, 88, 5], 80), 'raise-1')
-    timeline.add(animateLeg(legA3, 0.25, [18, -128, 94, 15, 48, -10], 58), 'raise-1')
-    timeline.add(animateLeg(legA4, 0.25, [20, -95, 72, false, 70, -10]), 'raise-1')
-    timeline.add(animateLeg(pedipalpA, 0.25, [1, -40, 82, 30, 20, false]), 'raise-1')
+    timeline.add(animateLegA1.raise(legA1, 0.25), 'raise-1')
+    timeline.add(animateLegA2.raise(legA2, 0.25), 'raise-1')
+    timeline.add(animateLegA3.raise(legA3, 0.25), 'raise-1')
+    timeline.add(animateLegA4.raise(legA4, 0.25), 'raise-1')
+    timeline.add(animatePedipalpA.raise(pedipalpA, 0.25), 'raise-1')
 
-    timeline.add(animateLeg(legB1, 0.25, [16, -130, 72, false, 90, -5]), 'raise-1')
-    timeline.add(animateLeg(legB2, 0.25, [10, -110, 67, false, 98, 5], 80), 'raise-1')
-    timeline.add(animateLeg(legB3, 0.25, [8, -120, 95, 15, 48, -10], 45), 'raise-1')
-    timeline.add(animateLeg(legB4, 0.25, [10, -89, 72, false, 75, -12]), 'raise-1')
-    timeline.add(animateLeg(pedipalpB, 0.25, [0, -40, 82, 30, 20, false]), 'raise-1')
+    timeline.add(animateLegB1.raise(legB1, 0.25), 'raise-1')
+    timeline.add(animateLegB2.raise(legB2, 0.25), 'raise-1')
+    timeline.add(animateLegB3.raise(legB3, 0.25), 'raise-1')
+    timeline.add(animateLegB4.raise(legB4, 0.25), 'raise-1')
+    timeline.add(animatePedipalpB.raise(pedipalpB, 0.25), 'raise-1')
 
-    timeline.add(animateLeg(legA1, 0.25, [13, -82, 42, false, 22, -25]), 'stretch-1')
-    timeline.add(animateLeg(legA2, 0.25, [10, -87, 60, false, 45, -30], 100), 'stretch-1')
-    timeline.add(animateLeg(legA3, 0.25, [19, -138, 165, 15, 15, -10], 38), 'stretch-1')
-    timeline.add(animateLeg(legA4, 0.25, [30, -125, 82, false, 100, -10]), 'stretch-1')
-    timeline.add(animateLeg(pedipalpA, 0.25, [1, -25, 52, 20, -25, false]), 'stretch-1')
+    timeline.add(animateLegA1.stretch(legA1, 0.25), 'stretch-1')
+    timeline.add(animateLegA2.stretch(legA2, 0.25), 'stretch-1')
+    timeline.add(animateLegA3.stretch(legA3, 0.25), 'stretch-1')
+    timeline.add(animateLegA4.stretch(legA4, 0.25), 'stretch-1')
+    timeline.add(animatePedipalpA.stretch(pedipalpA, 0.25), 'stretch-1')
 
-    timeline.add(animateLeg(legB1, 0.25, [3, -70, 42, false, 20, -25]), 'stretch-1')
-    timeline.add(animateLeg(legB2, 0.25, [0, -79, 57, false, 47, -30], 100), 'stretch-1')
-    timeline.add(animateLeg(legB3, 0.25, [9, -130, 170, 15, 15, 0], 25), 'stretch-1')
-    timeline.add(animateLeg(legB4, 0.25, [20, -119, 82, false, 105, -12]), 'stretch-1')
-    timeline.add(animateLeg(pedipalpB, 0.25, [0, -25, 52, 20, -25, false]), 'stretch-1')
+    timeline.add(animateLegB1.stretch(legB1, 0.25), 'stretch-1')
+    timeline.add(animateLegB2.stretch(legB2, 0.25), 'stretch-1')
+    timeline.add(animateLegB3.stretch(legB3, 0.25), 'stretch-1')
+    timeline.add(animateLegB4.stretch(legB4, 0.25), 'stretch-1')
+    timeline.add(animatePedipalpB.stretch(pedipalpB, 0.25), 'stretch-1')
 
-    timeline.add(animateLeg(legA1, 0.5, [0, -80, 75, false, 40, -10]), 'step-1')
-    timeline.add(animateLeg(legA2, 0.5, [-3, -78, 93, false, 61, -25]), 'step-1')
-    timeline.add(animateLeg(legA3, 0.5, [20, -140, 160, 20, 15, 0], 48), 'step-1')
-    timeline.add(animateLeg(legA4, 0.5, [30, -115, 100, false, 87, -33]), 'step-1')
-    timeline.add(animateLeg(pedipalpA, 0.5, [1, -5, 53, 35, -15, false]), 'step-1')
+    timeline.add(animateLegA1.step(legA1, 0.5), 'step-1')
+    timeline.add(animateLegA2.step(legA2, 0.5), 'step-1')
+    timeline.add(animateLegA3.step(legA3, 0.5), 'step-1')
+    timeline.add(animateLegA4.step(legA4, 0.5), 'step-1')
+    timeline.add(animatePedipalpA.step(pedipalpA, 0.5), 'step-1')
 
-    timeline.add(animateLeg(legB1, 0.5, [-10, -68, 70, false, 40, -10]), 'step-1')
-    timeline.add(animateLeg(legB2, 0.5, [-13, -68, 87, false, 61, -25]), 'step-1')
-    timeline.add(animateLeg(legB3, 0.5, [10, -135, 165, 20, 15, 10], 35), 'step-1')
-    timeline.add(animateLeg(legB4, 0.5, [20, -109, 105, false, 87, -33]), 'step-1')
-    timeline.add(animateLeg(pedipalpB, 0.5, [0, -5, 53, 35, -15, false]), 'step-1')
+    timeline.add(animateLegB1.step(legB1, 0.5), 'step-1')
+    timeline.add(animateLegB2.step(legB2, 0.5), 'step-1')
+    timeline.add(animateLegB3.step(legB3, 0.5), 'step-1')
+    timeline.add(animateLegB4.step(legB4, 0.5), 'step-1')
+    timeline.add(animatePedipalpB.step(pedipalpB, 0.5), 'step-1')
+
+    // timeline.add(animateLeg(legA1, 0, [0, -80, 75, false, 40, -10]), 'setup')
+    // timeline.add(animateLeg(legA2, 0.01, [-3, -78, 93, false, 61, -25], 100), 'setup')
+    // timeline.add(animateLeg(legA3, 0.01, [20, -140, 160, 20, 15, 0], 48), 'setup')
+    // timeline.add(animateLeg(legA4, 0, [30, -115, 100, false, 87, -33]), 'setup')
+    // timeline.add(animateLeg(pedipalpA, 0, [1, -5, 53, 35, -15, false]), 'setup')
+
+    // timeline.add(animateLeg(legB1, 0, [-10, -68, 70, false, 40, -10]), 'setup')
+    // timeline.add(animateLeg(legB2, 0.01, [-13, -68, 87, false, 61, -25], 100), 'setup')
+    // timeline.add(animateLeg(legB3, 0.01, [10, -135, 165, 20, 15, 10], 33), 'setup')
+    // timeline.add(animateLeg(legB4, 0, [20, -109, 105, false, 87, -33]), 'setup')
+    // timeline.add(animateLeg(pedipalpB, 0, [0, -5, 53, 35, -15, false]), 'setup')
+
+    // timeline.add(animateLeg(legA1, 0.25, [40, -145, 102, false, 86, -40]), 'move-1')
+    // timeline.add(animateLeg(legA2, 0.25, [30, -123, 130, false, 58, -35], 59), 'move-1')
+    // timeline.add(animateLeg(legA3, 0.25, [15, -113, 94, 15, 88, -30], 100), 'move-1')
+    // timeline.add(animateLeg(legA4, 0.25, [10, -65, 62, false, 50, -20]), 'move-1')
+    // timeline.add(animateLeg(pedipalpA, 0.25, [1, -20, 122, 20, -30, false]), 'move-1')
+
+    // timeline.add(animateLeg(legB1, 0.25, [30, -140, 102, false, 80, -30]), 'move-1')
+    // timeline.add(animateLeg(legB2, 0.25, [20, -120, 120, false, 68, -35], 59), 'move-1')
+    // timeline.add(animateLeg(legB3, 0.25, [5, -104, 95, 15, 88, -30], 100), 'move-1')
+    // timeline.add(animateLeg(legB4, 0.25, [0, -56, 62, false, 55, -22]), 'move-1')
+    // timeline.add(animateLeg(pedipalpB, 0.25, [0, -20, 122, 20, -30, false]), 'move-1')
+
+    // timeline.add(animateLeg(legA1, 0.25, [26, -142, 72, false, 96, -10]), 'raise-1')
+    // timeline.add(animateLeg(legA2, 0.25, [20, -127, 70, false, 88, 5], 80), 'raise-1')
+    // timeline.add(animateLeg(legA3, 0.25, [18, -128, 94, 15, 48, -10], 58), 'raise-1')
+    // timeline.add(animateLeg(legA4, 0.25, [20, -95, 72, false, 70, -10]), 'raise-1')
+    // timeline.add(animateLeg(pedipalpA, 0.25, [1, -40, 82, 30, 20, false]), 'raise-1')
+
+    // timeline.add(animateLeg(legB1, 0.25, [16, -130, 72, false, 90, -5]), 'raise-1')
+    // timeline.add(animateLeg(legB2, 0.25, [10, -110, 67, false, 98, 5], 80), 'raise-1')
+    // timeline.add(animateLeg(legB3, 0.25, [8, -120, 95, 15, 48, -10], 45), 'raise-1')
+    // timeline.add(animateLeg(legB4, 0.25, [10, -89, 72, false, 75, -12]), 'raise-1')
+    // timeline.add(animateLeg(pedipalpB, 0.25, [0, -40, 82, 30, 20, false]), 'raise-1')
+
+    // timeline.add(animateLeg(legA1, 0.25, [13, -82, 42, false, 22, -25]), 'stretch-1')
+    // timeline.add(animateLeg(legA2, 0.25, [10, -87, 60, false, 45, -30], 100), 'stretch-1')
+    // timeline.add(animateLeg(legA3, 0.25, [19, -138, 165, 15, 15, -10], 38), 'stretch-1')
+    // timeline.add(animateLeg(legA4, 0.25, [30, -125, 82, false, 100, -10]), 'stretch-1')
+    // timeline.add(animateLeg(pedipalpA, 0.25, [1, -25, 52, 20, -25, false]), 'stretch-1')
+
+    // timeline.add(animateLeg(legB1, 0.25, [3, -70, 42, false, 20, -25]), 'stretch-1')
+    // timeline.add(animateLeg(legB2, 0.25, [0, -79, 57, false, 47, -30], 100), 'stretch-1')
+    // timeline.add(animateLeg(legB3, 0.25, [9, -130, 170, 15, 15, 0], 25), 'stretch-1')
+    // timeline.add(animateLeg(legB4, 0.25, [20, -119, 82, false, 105, -12]), 'stretch-1')
+    // timeline.add(animateLeg(pedipalpB, 0.25, [0, -25, 52, 20, -25, false]), 'stretch-1')
+
+    // timeline.add(animateLeg(legA1, 0.5, [0, -80, 75, false, 40, -10]), 'step-1')
+    // timeline.add(animateLeg(legA2, 0.5, [-3, -78, 93, false, 61, -25]), 'step-1')
+    // timeline.add(animateLeg(legA3, 0.5, [20, -140, 160, 20, 15, 0], 48), 'step-1')
+    // timeline.add(animateLeg(legA4, 0.5, [30, -115, 100, false, 87, -33]), 'step-1')
+    // timeline.add(animateLeg(pedipalpA, 0.5, [1, -5, 53, 35, -15, false]), 'step-1')
+
+    // timeline.add(animateLeg(legB1, 0.5, [-10, -68, 70, false, 40, -10]), 'step-1')
+    // timeline.add(animateLeg(legB2, 0.5, [-13, -68, 87, false, 61, -25]), 'step-1')
+    // timeline.add(animateLeg(legB3, 0.5, [10, -135, 165, 20, 15, 10], 35), 'step-1')
+    // timeline.add(animateLeg(legB4, 0.5, [20, -109, 105, false, 87, -33]), 'step-1')
+    // timeline.add(animateLeg(pedipalpB, 0.5, [0, -5, 53, 35, -15, false]), 'step-1')
 
     // tl.to(leg.current, 0.5, {
 
