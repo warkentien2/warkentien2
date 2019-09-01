@@ -37,12 +37,10 @@
 
 .hero {
   background: #555;
-  background: repeating-linear-gradient(0deg, #606dbc, #606dbc 7px, #465298 7px, #465298 14px);
   height: 90vh;
   overflow: hidden;
 }
 .hero::before {
-  content: "";
   position: absolute;
   left: 0;
   top: 0;
@@ -117,11 +115,11 @@
 
 .tarantula {
   position: relative;
-  width: 66.9vw;
-  height: 24.5vw;
+  width: 53.52vw;
+  height: 40vw;
   left: 7.5vw;
-  top: 36.5vw;
-  font-size: 0.975vw;
+  top: 2.5vw;
+  font-size: 0.78vw;
   box-sizing: border-box;
 }
 .tarantula * {
@@ -131,7 +129,7 @@
 
 .x-body {
   left: 42.75%;
-  top: -40%;
+  top: 50%;
   width: 100%;
   height: 100%;
   transform: rotate(0);

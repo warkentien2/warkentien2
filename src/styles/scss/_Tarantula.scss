@@ -56,12 +56,13 @@ $body-shadow: inset 4px 3px 7px -1px rgba(255, 116, 24, 0.625), inset -4px -3px 
 
 .tarantula {
   position: relative;
-  width: 66.9vw; // 53.52vw; // 950px; // 66.9vw; // 
-  height: 24.5vw; // 40vw; // 710px; // 24.5vw; // 
-  left: 7.5vw; // 27.5vw;
-  top: 36.5vw;
-  font-size: 0.975vw; // 0.78vw; // 0.39vw; // 0.975vw; // 
+  width: 53.52vw; // 950px; // 66.9vw; // 
+  height: 40vw; // 710px; // 24.5vw; // 
+  left: 7.5vw; // 17.5vw; // -50vw; // 
+  top: 2.5vw;
+  font-size: 0.78vw; // 0.39vw; // 0.975vw; // 
   box-sizing: border-box;
+  // transform: translateX(26%); // distance of each walk motion
   // overflow: hidden;
 
   * {
@@ -72,7 +73,7 @@ $body-shadow: inset 4px 3px 7px -1px rgba(255, 116, 24, 0.625), inset -4px -3px 
 
 .x-body {
   left: 42.75%;
-  top: -40%;
+  top: 50%;
   width: 100%;
   height: 100%;
   transform: rotate(0);

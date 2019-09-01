@@ -18,7 +18,6 @@ function App() {
         <section id="home" className="hero" style={{ height: '100vh' }}>
           <h1
             className="hero__title"
-            style={{opacity: '0.125'}}
           >
             <span tabindex="-1" className="block right right--overflow">Complex UI &</span>
             <span className="block left left--overflow">Complex UI &</span>
