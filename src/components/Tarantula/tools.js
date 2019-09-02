@@ -11,7 +11,12 @@ function legCounterAngle(bodyAngle, distanceFromAxisToLeg, distanceFromLegToFloo
   return -1 * (bodyAngle + beta)
 }
 
+function randomChoice(arr) {
+  return arr[Math.floor(arr.length * Math.random())];
+}
+
 export default {
   degreesToRadians,
-  radiansToDegrees
+  radiansToDegrees,
+  randomChoice
 }

@@ -48,28 +48,28 @@ function animateLeg(leg, speed, angles = [false, false, false, false, false, fal
 const animateLegA1 = {
   step: (el, time) => animateLeg(el, time, [0, -80, 75, false, 40, -10]),
   move: (el, time) => animateLeg(el, time, [40, -145, 102, false, 86, -40]),
-  raise: (el, time) => animateLeg(el, time, [26, -142, 72, false, 96, -10]),
+  raise: (el, time) => animateLeg(el, time, [26, -142, tools.randomChoice([72, 67, 62]), false, tools.randomChoice([96, 106, 86]), -10]),
   stretch: (el, time) => animateLeg(el, time, [13, -82, 42, false, 22, -25])
 }
 
 const animateLegB1 = {
   step: (el, time) => animateLeg(el, time, [-10, -68, 70, false, 40, -10]),
   move: (el, time) => animateLeg(el, time, [30, -140, 102, false, 80, -30]),
-  raise: (el, time) => animateLeg(el, time, [16, -130, 72, false, 90, -5]),
+  raise: (el, time) => animateLeg(el, time, [16, -130, tools.randomChoice([72, 67, 62]), false, tools.randomChoice([90, 100, 80]), -5]),
   stretch: (el, time) => animateLeg(el, time, [3, -70, 42, false, 20, -25])
 }
 
 const animateLegA2 = {
   step: (el, time) => animateLeg(el, time, [-3, -78, 92, false, 66, -25], 100),
   move: (el, time) => animateLeg(el, time, [30, -123, 130, false, 58, -35], 59),
-  raise: (el, time) => animateLeg(el, time, [20, -127, 70, false, 88, 5], 80),
+  raise: (el, time) => animateLeg(el, time, [20, -127, tools.randomChoice([70, 65, 60]), false, tools.randomChoice([88, 92, 82]), 5], 80),
   stretch: (el, time) => animateLeg(el, time, [10, -87, 60, false, 45, -30], 100)  
 }
 
 const animateLegB2 = {
   step: (el, time) => animateLeg(el, time, [-13, -68, 86, false, 66, -25], 100),
   move: (el, time) => animateLeg(el, time, [20, -120, 120, false, 68, -35], 59),
-  raise: (el, time) => animateLeg(el, time, [10, -110, 67, false, 98, 5], 80),
+  raise: (el, time) => animateLeg(el, time, [10, -110, tools.randomChoice([67, 62, 57]), false, tools.randomChoice([98, 103, 93]), 5], 80),
   stretch: (el, time) => animateLeg(el, time, [0, -79, 57, false, 47, -30], 100)
 }
 
@@ -139,8 +139,8 @@ function legCycle(leg, ...options) {
       .addLabel('cycle')
       .add(animateObjects[legId].move(leg, 0.5), 'cycle')
       .add(animateObjects[legId].raise(leg, 0.25), 'cycle+=0.5')
-      .add(animateObjects[legId].stretch(leg, 0.25), 'cycle+=0.75')
-      .add(animateObjects[legId].step(leg, 0.5), 'cycle+=1')
+      .add(animateObjects[legId].stretch(leg, 0.5), 'cycle+=0.75')
+      .add(animateObjects[legId].step(leg, 0.25), 'cycle+=1.25')
     ;
   } else if (moveFirst) {
     return new TimelineMax({ repeat: 3 })
