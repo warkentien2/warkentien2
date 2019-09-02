@@ -135,7 +135,7 @@ function legCycle(leg, ...options) {
   console.log(moveFirst, raiseLate)
 
   if (moveFirst && raiseLate) {
-    return new TimelineMax({ repeat: 7 })
+    return new TimelineMax({ repeat: 3 })
       .addLabel('cycle')
       .add(animateObjects[legId].move(leg, 0.5), 'cycle')
       .add(animateObjects[legId].raise(leg, 0.25), 'cycle+=0.5')
@@ -143,7 +143,7 @@ function legCycle(leg, ...options) {
       .add(animateObjects[legId].step(leg, 0.5), 'cycle+=1')
     ;
   } else if (moveFirst) {
-    return new TimelineMax({ repeat: 7 })
+    return new TimelineMax({ repeat: 3 })
       .addLabel('cycle')
       .add(animateObjects[legId].move(leg, 0.75), 'cycle')
       .add(animateObjects[legId].raise(leg, 0.25), 'cycle+=0.75')
@@ -151,7 +151,7 @@ function legCycle(leg, ...options) {
       .add(animateObjects[legId].step(leg, 0.25), 'cycle+=1.25')
     ;
   } else if (raiseLate) {
-    return new TimelineMax({ repeat: 7 })
+    return new TimelineMax({ repeat: 3 })
       .addLabel('cycle')
       .add(animateObjects[legId].raise(leg, 0.5), 'cycle')
       .add(animateObjects[legId].stretch(leg, 0.25), 'cycle+=0.5')
@@ -159,7 +159,7 @@ function legCycle(leg, ...options) {
       .add(animateObjects[legId].move(leg, 0.5), 'cycle+=1')
       ;
   } else {
-    return new TimelineMax({ repeat: 7 })
+    return new TimelineMax({ repeat: 3 })
       .addLabel('cycle')
       .add(animateObjects[legId].raise(leg, 0.25), 'cycle')
       .add(animateObjects[legId].stretch(leg, 0.25), 'cycle+=0.25')
@@ -191,23 +191,22 @@ function Tarantula({hideFrontLegs = false, hideBackLegs = false}) {
     walk
       // .timeScale(0.5)
       .addLabel('setup')
-      .set(tarantula.current, { xPercent: (-7 * 26) }, 'setup')
+      .set(tarantula.current, { xPercent: (-8 * 26) }, 'setup')
       .addLabel('motion-1', 'setup+=0.01')
-      .to(tarantula.current, 0.725, { xPercent: (-6 * 26), ease: Linear.easeNone }, 'motion-1')
-      .to(tarantula.current, 0.725, { xPercent: (-5 * 26), ease: Linear.easeNone }, 'motion-1+=0.75')
-      .to(tarantula.current, 0.725, { xPercent: (-4 * 26), ease: Linear.easeNone }, 'motion-1+=1.5')
-      .to(tarantula.current, 0.725, { xPercent: (-3 * 26), ease: Linear.easeNone }, 'motion-1+=2.25')
-      .to(tarantula.current, 0.725, { xPercent: (-2 * 26), ease: Linear.easeNone }, 'motion-1+=3')
-      .to(tarantula.current, 0.725, { xPercent: (-1 * 26), ease: Linear.easeNone }, 'motion-1+=3.75')
-      .to(tarantula.current, 0.725, { xPercent: (0 * 26), ease: Linear.easeNone }, 'motion-1+=4.5')
-      .to(tarantula.current, 0.725, { xPercent: (1 * 26), ease: Linear.easeNone }, 'motion-1+=5.25')
-      .to(tarantula.current, 0.725, { xPercent: (2 * 26), ease: Linear.easeNone }, 'motion-1+=6')
-      .to(tarantula.current, 0.725, { xPercent: (3 * 26), ease: Linear.easeNone }, 'motion-1+=6.75')
-      .to(tarantula.current, 0.725, { xPercent: (4 * 26), ease: Linear.easeNone }, 'motion-1+=7.5')
-      .to(tarantula.current, 0.725, { xPercent: (5 * 26), ease: Linear.easeNone }, 'motion-1+=8.25')
-      .to(tarantula.current, 0.725, { xPercent: (6 * 26), ease: Linear.easeNone }, 'motion-1+=9')
-      .to(tarantula.current, 0.725, { xPercent: (7 * 26), ease: Linear.easeNone }, 'motion-1+=9.75')
-      .to(tarantula.current, 0.725, { xPercent: (8 * 26), ease: Linear.easeNone }, 'motion-1+=10.5')
+      .to(tarantula.current, 0.725, { xPercent: (-7 * 26), ease: Linear.easeNone }, 'motion-1')
+      .to(tarantula.current, 0.725, { xPercent: (-6 * 26), ease: Linear.easeNone }, 'motion-1+=0.75')
+      .to(tarantula.current, 0.725, { xPercent: (-5 * 26), ease: Linear.easeNone }, 'motion-1+=1.5')
+      .to(tarantula.current, 0.725, { xPercent: (-4 * 26), ease: Linear.easeNone }, 'motion-1+=2.25')
+      .to(tarantula.current, 0.725, { xPercent: (-3 * 26), ease: Linear.easeNone }, 'motion-1+=3')
+      .to(tarantula.current, 0.725, { xPercent: (-2 * 26), ease: Linear.easeNone }, 'motion-1+=3.75')
+      .to(tarantula.current, 0.725, { xPercent: (-1 * 26), ease: Linear.easeNone }, 'motion-1+=4.5')
+      .to(tarantula.current, 0.725, { xPercent: (0 * 26), ease: Linear.easeNone }, 'motion-1+=5.25')
+      // .to(tarantula.current, 0.725, { xPercent: (1 * 26), ease: Linear.easeNone }, 'motion-1+=6')
+      // .to(tarantula.current, 0.725, { xPercent: (2 * 26), ease: Linear.easeNone }, 'motion-1+=6.75')
+      // .to(tarantula.current, 0.725, { xPercent: (3 * 26), ease: Linear.easeNone }, 'motion-1+=7.5')
+      // .to(tarantula.current, 0.725, { xPercent: (4 * 26), ease: Linear.easeNone }, 'motion-1+=8.25')
+      // .to(tarantula.current, 0.725, { xPercent: (5 * 26), ease: Linear.easeNone }, 'motion-1+=9')
+      // .to(tarantula.current, 0.725, { xPercent: (6 * 26), ease: Linear.easeNone }, 'motion-1+=9.75')
     ;
 
     // Main Timeline

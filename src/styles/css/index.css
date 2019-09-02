@@ -37,6 +37,7 @@
 
 .hero {
   background: #555;
+  background: repeating-linear-gradient(0deg, #606dbc, #606dbc 7px, #465298 7px, #465298 14px);
   height: 90vh;
   overflow: hidden;
 }
@@ -117,8 +118,8 @@
   position: relative;
   width: 53.52vw;
   height: 40vw;
-  left: 7.5vw;
-  top: 2.5vw;
+  left: 17.5vw;
+  top: 5.5vw;
   font-size: 0.78vw;
   box-sizing: border-box;
 }
@@ -664,6 +665,9 @@
 .x-body-part .x-leg.leg-8 .x-tarsus {
   transform: rotate(-22.5deg);
 }
+.x-body-part .x-leg.leg-8 {
+  transform: rotateY(180deg) rotate(0deg);
+}
 .x-body-part .x-leg.leg-8 .x-femur {
   transform: rotate(-75deg);
 }
@@ -711,6 +715,7 @@
   width: calc(10.04em + 2px) !important;
   height: calc(2.76em + 2px) !important;
   left: 100%;
+  transform: rotate(-12deg);
 }
 .x-body-part .x-pedipalp.pedipalp-2 .x-femur {
   transform: rotate(-22.5deg);
