@@ -140,9 +140,7 @@ function legCycle(leg, ...options) {
       .add(animateObjects[legId].move(leg, 0.5), 'cycle')
       .add(animateObjects[legId].raise(leg, 0.25), 'cycle+=0.5')
       .add(animateObjects[legId].stretch(leg, 0.25), 'cycle+=0.75')
-      .add(animateObjects[legId].step(leg, 0.25), 'cycle+=1')
-      .addLabel('wait', 'cycle+=1.25')
-      .to([], 0.25, {}, 'wait')
+      .add(animateObjects[legId].step(leg, 0.5), 'cycle+=1')
     ;
   } else if (moveFirst) {
     return new TimelineMax({ repeat: 7 })
@@ -155,7 +153,7 @@ function legCycle(leg, ...options) {
   } else if (raiseLate) {
     return new TimelineMax({ repeat: 7 })
       .addLabel('cycle')
-      .add(animateObjects[legId].raise(leg, 0.25), 'cycle+=0.25')
+      .add(animateObjects[legId].raise(leg, 0.5), 'cycle')
       .add(animateObjects[legId].stretch(leg, 0.25), 'cycle+=0.5')
       .add(animateObjects[legId].step(leg, 0.25), 'cycle+=0.75')
       .add(animateObjects[legId].move(leg, 0.5), 'cycle+=1')
