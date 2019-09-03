@@ -351,7 +351,7 @@
   transform: scale(0.95) rotate(50deg);
 }
 .x-body-part.x-chelicerae.x-chelicerae--background .x-fang {
-  transform: rotate(112deg);
+  transform: rotate(135deg);
   bottom: -7%;
 }
 .x-body-part.x-chelicerae .x-fang {
@@ -361,7 +361,7 @@
   height: calc(10.5% + 2px);
   right: -32%;
   bottom: -3.5%;
-  transform: rotate(115.5deg);
+  transform: rotate(140.5deg);
   transform-origin: 5% 50%;
 }
 .x-body-part.x-chelicerae .x-fang::after {
@@ -719,7 +719,7 @@
   width: calc(9.04em + 2px) !important;
   height: calc(2.26em + 2px) !important;
   left: 100%;
-  transform: rotate(-12deg);
+  transform: rotate(-10deg);
 }
 .x-body-part .x-pedipalp.pedipalp-2 .x-femur {
   transform: rotate(-22.5deg);

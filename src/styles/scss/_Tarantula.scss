@@ -458,7 +458,7 @@ $body-shadow: none; // inset 4px 3px 7px -1px rgba(255, 116, 24, 0.625), inset -
       transform: scale(0.95) rotate(50deg);
 
       .x-fang {
-        transform: rotate(112deg);
+        transform: rotate(135deg);
         bottom: -7%;
       }
     }
@@ -470,7 +470,7 @@ $body-shadow: none; // inset 4px 3px 7px -1px rgba(255, 116, 24, 0.625), inset -
       height: calc(10.5% + 2px);
       right: -32%;
       bottom: -3.5%;
-      transform: rotate(115.5deg);
+      transform: rotate(140.5deg);
       transform-origin: 5% 50%;
 
       &::after {
@@ -1032,7 +1032,7 @@ $body-shadow: none; // inset 4px 3px 7px -1px rgba(255, 116, 24, 0.625), inset -
       width: calc(9.04em + 2px) !important;
       height: calc(2.26em + 2px) !important;
       left: 100%;
-      transform: rotate(-12deg - 1.35 * $body-angle + 0deg);
+      transform: rotate(-10deg - 1.95 * $body-angle + 0deg);
   
       .x-femur {
         transform: rotate(-22.5deg);
