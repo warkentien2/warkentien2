@@ -179,6 +179,7 @@
   width: 100%;
   height: 100%;
   border-radius: inherit;
+  background: #3c546d;
   z-index: 2;
 }
 .x-body-part.x-abdomen::after {
@@ -188,7 +189,7 @@
 .x-body-part.x-cephalothorax {
   transform: rotate(0);
   width: calc(16em + 2px);
-  height: calc(9.33em + 2px);
+  height: calc(8.88em + 2px);
   border-radius: 20%;
   border-top-left-radius: 100%;
   border-bottom-right-radius: 30%;
@@ -224,36 +225,38 @@
 }
 .x-body-part.x-cephalothorax .x-eye {
   z-index: 5;
-  right: -7.5%;
-  top: -7%;
-  width: calc(1.33em + 2px);
-  height: calc(1.07em + 2px);
+  right: -5.5%;
+  top: -10.5%;
+  width: calc(0.9em + 2px);
+  height: calc(0.75em + 2px);
   border-radius: 50% 50% 45% 45%;
   transform: rotate(30deg);
+  background-image: radial-gradient(circle at 68% 45%, #fff 2%, #899ac0 5%, rgba(101, 70, 145, 0.25) 15%, transparent 20%), radial-gradient(circle at 60% 30%, #fff 4%, #8799c0 10%, #434b96 20%, #332c68 30%, #000 50%);
+  box-shadow: inset 1px -1px 4px 0 #001, inset 1px -1px 2px -1px rgba(123, 112, 141, 0.5), -1px 2px 7px rgba(42, 48, 58, 0.5), 0 0 2px #b2d2fd;
 }
 .x-body-part.x-cephalothorax .x-eye::after {
   content: none;
 }
 .x-body-part.x-cephalothorax .x-eye2 {
-  right: -0.5%;
-  top: 2.5%;
-  width: calc(1.07em + 2px);
-  height: calc(1.07em + 2px);
+  right: 0.5%;
+  top: -3.5%;
+  width: calc(0.75em + 2px);
+  height: calc(0.75em + 2px);
   border-radius: 50%;
 }
 .x-body-part.x-cephalothorax .x-eye3 {
-  right: -5.5%;
-  top: 11%;
-  width: calc(0.6em + 2px);
-  height: calc(0.55em + 2px);
+  right: -3.5%;
+  top: 3%;
+  width: calc(0.3em + 2px);
+  height: calc(0.3em + 2px);
   border-radius: 50%;
   transform: rotate(35deg);
 }
 .x-body-part.x-cephalothorax .x-eye4 {
-  right: -10%;
-  top: 6.5%;
-  width: calc(0.55em + 2px);
-  height: calc(0.5em + 2px);
+  right: -7.5%;
+  top: 0.5%;
+  width: calc(0.25em + 2px);
+  height: calc(0.25em + 2px);
   border-radius: 50%;
   transform: rotate(25deg);
 }
@@ -322,33 +325,33 @@
   z-index: -1;
   position: absolute;
   top: 75%;
-  left: -10%;
+  left: -7.5%;
   width: 90%;
-  height: 30%;
+  height: 23%;
   border-radius: 0 0 0.5em 100%;
   transform: rotate(10deg);
   background: #8c8a8a;
   border: 1px dashed white;
 }
 .x-body-part.x-chelicerae {
-  width: calc(9.25em + 2px);
-  height: calc(5.25em + 2px);
-  left: 97.5%;
-  top: 18%;
+  width: calc(8.25em + 2px);
+  height: calc(4.75em + 2px);
+  left: 97%;
+  top: 11%;
   transform-origin: 25% 50%;
-  transform: rotate(75deg);
+  transform: rotate(60deg);
   border-radius: 30% 70% 10% 0%;
   background: #000003 !important;
   border: 1px dashed white;
   border-bottom: none;
 }
 .x-body-part.x-chelicerae.x-chelicerae--background {
-  top: 15%;
-  left: 98%;
-  transform: scale(0.95) rotate(65deg);
+  top: 7%;
+  left: 99%;
+  transform: scale(0.95) rotate(50deg);
 }
 .x-body-part.x-chelicerae.x-chelicerae--background .x-fang {
-  transform: rotate(115deg);
+  transform: rotate(112deg);
   bottom: -7%;
 }
 .x-body-part.x-chelicerae .x-fang {
@@ -358,7 +361,7 @@
   height: calc(10.5% + 2px);
   right: -32%;
   bottom: -3.5%;
-  transform: rotate(118.5deg);
+  transform: rotate(115.5deg);
   transform-origin: 5% 50%;
 }
 .x-body-part.x-chelicerae .x-fang::after {
@@ -370,10 +373,10 @@
   top: 50%;
 }
 .x-body-part .x-leg {
-  width: calc(16.46em + 2px);
-  height: calc(3.54em + 2px);
+  width: calc(15.46em + 2px);
+  height: calc(3.04em + 2px);
   left: 70%;
-  top: 60%;
+  top: 55%;
   transform-origin: 10% 55%;
   z-index: 5;
 }
@@ -391,8 +394,8 @@
   transform: rotate(30deg);
 }
 .x-body-part .x-leg.x-leg--background {
-  width: calc(16.41em + 2px);
-  height: calc(3.52em + 2px);
+  width: calc(15.41em + 2px);
+  height: calc(3.02em + 2px);
   z-index: -1;
 }
 .x-body-part .x-leg.x-leg--background.x-pedipalp {
@@ -433,8 +436,8 @@
   top: auto;
   bottom: 0;
   left: 22%;
-  width: 20%;
-  height: 10%;
+  width: 19%;
+  height: 9.5%;
   transform: rotate(-100deg);
   transform-origin: 20% 50%;
   z-index: 1;
@@ -453,8 +456,9 @@
   height: 90%;
 }
 .x-body-part .x-spinnerets.x-spinnerets--background {
-  width: 19.5%;
-  height: 9.5%;
+  width: 18.5%;
+  height: 9%;
+  z-index: 0;
 }
 .x-body-part .x-spinnerets.x-spinnerets--background .x-femur {
   transform: rotate(-70deg);
@@ -575,7 +579,7 @@
 }
 .x-body-part .x-leg.leg-2,
 .x-body-part .x-leg.leg-6 {
-  top: 67.5%;
+  top: 62.5%;
   left: 45%;
   transform: rotate(5deg);
 }
@@ -612,7 +616,7 @@
 }
 .x-body-part .x-leg.leg-3,
 .x-body-part .x-leg.leg-7 {
-  top: 70%;
+  top: 65%;
   left: 22.5%;
   transform: rotateY(180deg) rotateZ(20deg);
 }
@@ -649,7 +653,7 @@
 }
 .x-body-part .x-leg.leg-4,
 .x-body-part .x-leg.leg-8 {
-  top: 75%;
+  top: 70%;
   left: 5%;
   transform: rotateY(180deg) rotateZ(2deg);
 }
@@ -682,10 +686,10 @@
 }
 .x-body-part .x-pedipalp {
   left: 92%;
-  top: 60%;
+  top: 55%;
   transform: rotate(-12deg);
-  width: calc(10.14em + 2px);
-  height: calc(2.78em + 2px);
+  width: calc(9.14em + 2px);
+  height: calc(2.28em + 2px);
   z-index: 4;
 }
 .x-body-part .x-pedipalp .x-leg-parts {
@@ -712,8 +716,8 @@
   border-radius: 1em 50% 80% 30%;
 }
 .x-body-part .x-pedipalp.pedipalp-2 {
-  width: calc(10.04em + 2px) !important;
-  height: calc(2.76em + 2px) !important;
+  width: calc(9.04em + 2px) !important;
+  height: calc(2.26em + 2px) !important;
   left: 100%;
   transform: rotate(-12deg);
 }
