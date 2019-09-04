@@ -61,7 +61,7 @@ $body-shadow: none; // inset 4px 3px 7px -1px rgba(255, 116, 24, 0.625), inset -
   width: 53.52vw; // 950px; // 66.9vw; // 40vw; // 
   height: 40vw; // 710px; // 24.5vw; // 29.9vw; // 
   left: 17.5vw; // 17.5vw; // -50vw; // 
-  top: 5.5vw; // 2.5vw;
+  top: 15.5vw; // 2.5vw;
   font-size: 0.78vw; // 0.39vw; // 0.975vw; // 0.58vw; // 
   box-sizing: border-box;
   // transform: translateX(26%); // distance of each walk motion
@@ -857,37 +857,6 @@ $body-shadow: none; // inset 4px 3px 7px -1px rgba(255, 116, 24, 0.625), inset -
       transform: rotate(-30deg);
     }
   }
-
-  // leg-2 retracted
-  
-  // .x-leg.leg-2 {
-  //   top: 62.5%;
-  //   left: 45%;
-  //   transform: rotate(90deg - 1.45 * $body-angle + 0deg);
-
-  //   .x-femur {
-  //     transform: rotate(-170deg);
-  //   }
-
-  //   .x-patella {
-  //     transform: rotate(140deg);
-  //     width: 25%;
-  //   }
-
-  //   .x-tibia {
-  //     width: 150%;
-  //   }
-
-  //   .x-metatarsus {
-  //     transform: rotate(30deg);
-  //     width: 190%;
-  //   }
-
-  //   .x-tarsus {
-  //     transform: rotate(-32deg);
-  //     width: 50%;
-  //   }
-  // }
 
   .x-leg.leg-6 {
     transform: rotate(5deg - 1.15 * $body-angle + 0deg);
