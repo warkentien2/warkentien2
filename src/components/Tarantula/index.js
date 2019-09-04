@@ -113,7 +113,7 @@ const animateLegA2 = {
   move: (el, time) => animateLeg(el, time, [30, -123, 130, false, 58, -35], 59),
   raise: (el, time) => animateLeg(el, time, [20, -127, tools.randomChoice([60, 55, 80]), false, tools.randomChoice([88, 92, 52]), 5], 80),
   stretch: (el, time) => animateLeg(el, time, [10, -87, 60, false, tools.randomChoice([45, 30]), -30], 100),
-  attack: (el, time) => animateLeg(el, time, [30, -8, 72, false, 46, -25], 80, 150)
+  attack: (el, time) => animateLeg(el, time, [30, -98, 154, false, 11, -5], 100, 50)
 }
 
 const animateLegB2 = {
@@ -121,7 +121,7 @@ const animateLegB2 = {
   move: (el, time) => animateLeg(el, time, [20, -120, 120, false, 68, -35], 59),
   raise: (el, time) => animateLeg(el, time, [10, -110, tools.randomChoice([57, 52, 77]), false, tools.randomChoice([98, 103, 63]), 5], 80),
   stretch: (el, time) => animateLeg(el, time, [0, -79, 57, false, tools.randomChoice([47, 32]), -30], 100),
-  attack: (el, time) => animateLeg(el, time, [3, -67, 90, false, 65, -35], 75, 140)
+  attack: (el, time) => animateLeg(el, time, [-23, -97, 140, false, 15, -5], 50, 40)
 }
 
 const animateLegA3 = {
@@ -137,7 +137,7 @@ const animateLegB3 = {
   move: (el, time) => animateLeg(el, time, [5, -104, 95, 15, 88, -30], 100),
   raise: (el, time) => animateLeg(el, time, [8, -120, 95, 15, 48, -10], 45),
   stretch: (el, time) => animateLeg(el, time, [9, -130, 170, 15, 15, 0], 25),
-  attack: (el, time) => animateLeg(el, time, [-20, -73, 128, false, 12, -30], 57, 140)
+  attack: (el, time) => animateLeg(el, time, [-20, -73, 133, false, 12, -30], 57, 140)
 }
 
 const animateLegA4 = {
@@ -261,47 +261,47 @@ function Tarantula({hideFrontLegs = false, hideBackLegs = false}) {
   const walk = new TimelineMax()
 
   useEffect(() => {
-    walk
-      .addLabel('setup')
-      .set(tarantula.current, { xPercent: (-8 * 26) }, 'setup')
-      .addLabel('motion-1', 'setup+=0.01')
-      .to(tarantula.current, 0.725, { xPercent: (-7 * 26), ease: Linear.easeNone }, 'motion-1')
-      .to(tarantula.current, 0.725, { xPercent: (-6 * 26), ease: Linear.easeNone }, 'motion-1+=0.75')
-      .to(tarantula.current, 0.725, { xPercent: (-5 * 26), ease: Linear.easeNone }, 'motion-1+=1.5')
-      .to(tarantula.current, 0.725, { xPercent: (-4 * 26), ease: Linear.easeNone }, 'motion-1+=2.25')
-      .to(tarantula.current, 0.725, { xPercent: (-3 * 26), ease: Linear.easeNone }, 'motion-1+=3')
-      .to(tarantula.current, 0.725, { xPercent: (-2 * 26), ease: Linear.easeNone }, 'motion-1+=3.75')
-      .to(tarantula.current, 0.725, { xPercent: (-1 * 26), ease: Linear.easeNone }, 'motion-1+=4.5')
-      .to(tarantula.current, 0.725, { xPercent: (0 * 26), ease: Linear.easeNone }, 'motion-1+=5.25')
-    ;
+    // walk
+    //   .addLabel('setup')
+    //   .set(tarantula.current, { xPercent: (-8 * 26) }, 'setup')
+    //   .addLabel('motion-1', 'setup+=0.01')
+    //   .to(tarantula.current, 0.725, { xPercent: (-7 * 26), ease: Linear.easeNone }, 'motion-1')
+    //   .to(tarantula.current, 0.725, { xPercent: (-6 * 26), ease: Linear.easeNone }, 'motion-1+=0.75')
+    //   .to(tarantula.current, 0.725, { xPercent: (-5 * 26), ease: Linear.easeNone }, 'motion-1+=1.5')
+    //   .to(tarantula.current, 0.725, { xPercent: (-4 * 26), ease: Linear.easeNone }, 'motion-1+=2.25')
+    //   .to(tarantula.current, 0.725, { xPercent: (-3 * 26), ease: Linear.easeNone }, 'motion-1+=3')
+    //   .to(tarantula.current, 0.725, { xPercent: (-2 * 26), ease: Linear.easeNone }, 'motion-1+=3.75')
+    //   .to(tarantula.current, 0.725, { xPercent: (-1 * 26), ease: Linear.easeNone }, 'motion-1+=4.5')
+    //   .to(tarantula.current, 0.725, { xPercent: (0 * 26), ease: Linear.easeNone }, 'motion-1+=5.25')
+    // ;
 
     // Main Timeline
 
     timeline.addLabel('setup')
-    .add(animateLegA1.step(legA1, 0), 'setup')
-    .add(animateLegA2.move(legA2, 0.01), 'setup')
-    .add(animateLegA3.step(legA3, 0.01), 'setup')
-    .add(animateLegA4.move(legA4, 0), 'setup')
-    .add(animatePedipalpA.step(pedipalpA, 0), 'setup')
-    .add(animateLegB1.move(legB1, 0), 'setup')
-    .add(animateLegB2.step(legB2, 0.01), 'setup')
-    .add(animateLegB3.move(legB3, 0.01), 'setup')
-    .add(animateLegB4.step(legB4, 0), 'setup')
-    .add(animatePedipalpB.move(pedipalpB, 0), 'setup')
+      .add(animateLegA1.step(legA1, 0), 'setup')
+      .add(animateLegA2.move(legA2, 0.01), 'setup')
+      .add(animateLegA3.step(legA3, 0.01), 'setup')
+      .add(animateLegA4.move(legA4, 0), 'setup')
+      .add(animatePedipalpA.step(pedipalpA, 0), 'setup')
+      .add(animateLegB1.move(legB1, 0), 'setup')
+      .add(animateLegB2.step(legB2, 0.01), 'setup')
+      .add(animateLegB3.move(legB3, 0.01), 'setup')
+      .add(animateLegB4.step(legB4, 0), 'setup')
+      .add(animatePedipalpB.move(pedipalpB, 0), 'setup')
 
-      .addLabel('motion-1', 'setup+=0.01')
-      .add(legCycle(legA2), 'motion-1')
-      .add(legCycle(legB3), 'motion-1')
-      .add(legCycle(pedipalpB), 'motion-1')
-      .add(legCycle(legA4, { raiseLate: true }), 'motion-1')
-      .add(legCycle(legB1, { raiseLate: true }), 'motion-1')
-      .add(legCycle(legA3, { moveFirst: true }), 'motion-1')
-      .add(legCycle(legB2, { moveFirst: true }), 'motion-1')
-      .add(legCycle(pedipalpA, { moveFirst: true }), 'motion-1')
-      .add(legCycle(legA1, { raiseLate: true, moveFirst: true }), 'motion-1')
-      .add(legCycle(legB4, { raiseLate: true, moveFirst: true }), 'motion-1')
+      // .addLabel('motion-1', 'setup+=0.01')
+      // .add(legCycle(legA2), 'motion-1')
+      // .add(legCycle(legB3), 'motion-1')
+      // .add(legCycle(pedipalpB), 'motion-1')
+      // .add(legCycle(legA4, { raiseLate: true }), 'motion-1')
+      // .add(legCycle(legB1, { raiseLate: true }), 'motion-1')
+      // .add(legCycle(legA3, { moveFirst: true }), 'motion-1')
+      // .add(legCycle(legB2, { moveFirst: true }), 'motion-1')
+      // .add(legCycle(pedipalpA, { moveFirst: true }), 'motion-1')
+      // .add(legCycle(legA1, { raiseLate: true, moveFirst: true }), 'motion-1')
+      // .add(legCycle(legB4, { raiseLate: true, moveFirst: true }), 'motion-1')
       
-      .addLabel('motion-2')
+      .addLabel('motion-2', '+=0.5')
       .add(rotateBody(bodyParts, 0.5, -10, 15), 'motion-2-=0.5')
       .add(legCycle(legB2, { repeat: 0, steps: 3 }), 'motion-2')
       .add(legCycle(legA2, { repeat: 0, steps: 3 }), 'motion-2+=0.25')
