@@ -1,9 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react'
 import tools from './tools'
-import { TimelineMax, TweenMax, Power1, Power2, Power3, Power4, Linear } from 'gsap'
+import { CSSPlugin, TweenLite, TimelineMax, TweenMax, Power1, Power2, Power3, Power4, Linear } from 'gsap'
+import { scale as tScale, rotate as tRotate, transform as tTransform, compose as tCompose, toCSS } from 'transformation-matrix'
+import * as Rematrix from './rematrix'
 
-function animateBodyPart(node, speed, angle, newWidth = false, offset = 0) {
-  let animation
+function animateBodyPart(node, speed, angle, scale = false, offset = 0) {
+  var animation = {}, decomp
+
+  animation.force3d = true
   
   if(typeof angle === 'object') {
     animation = { ...angle }
@@ -11,10 +15,14 @@ function animateBodyPart(node, speed, angle, newWidth = false, offset = 0) {
   } else {
     animation = { rotation: angle, ease: Linear.easeNone }
   }
-
-  if(newWidth) {
-    // animation.width = newWidth
-    animation.xPercent = offset
+  
+  if(scale) {
+    const currentMatrixCSS = window.getComputedStyle(node).transform
+    const currentMatrix = Rematrix.fromString(currentMatrixCSS)
+    const r1 = Rematrix.rotateZ(angle)
+    const m = [currentMatrix, r1].reduce(Rematrix.multiply)
+    decomp = tools.qrDecompone([m[0], m[1], m[2], m[4], m[5], m[6]])
+    return speed > 0 ? TweenMax.to(node, speed, { rotation: decomp.angle,  scaleX: decomp.scaleX, scaleY: decomp.scaleY, skewX: decomp.skewX, ease: Linear.easeNone }) : TweenMax.to(node, 0.01, { rotation: decomp.angle,  scaleX: decomp.scaleX, scaleY: decomp.scaleY, skewX: decomp.skewX, ease: Linear.easeNone })
   }
 
   return speed > 0 ? TweenMax.to(node, speed, animation) : TweenMax.set(node, animation)
@@ -36,18 +44,25 @@ function animateLeg(leg, speed, angles = [false, false, false, false, false, fal
   let scalePatella = false;
   let scaleMetatarsus = false;
 
-  if(scaleFemurPercent) {
-    femurWidth = femur.getBoundingClientRect().width
-    scaleFemur = Math.abs(femurWidth * scaleFemurPercent / 100)
-    scalePatella = Math.abs(femurWidth * 0.95 + 2)
-  }
+  // if(scaleFemurPercent) {
+    // femurWidth = femur.getBoundingClientRect().width
+    // scaleFemur = Math.abs(femurWidth * scaleFemurPercent / 100)
+    // scaleFemur = Math.abs(scaleFemurPercent / 100)
+  //   // scalePatella = Math.abs(femurWidth * 0.95 + 2)
+  //   scalePatella = Math.abs(100 / scaleFemurPercent)
+  // }
 
-  if(scalePatellaPercent) {
-    patellaWidth = scaleFemurPercent ? scalePatella : patella.getBoundingClientRect().width
-    tibiaWidth = leg.current.querySelector('.x-tibia').getBoundingClientRect().width
-    scalePatella = Math.abs(patellaWidth * scalePatellaPercent / 100)
-    scaleMetatarsus = Math.abs(tibiaWidth * 0.95 + 2)
+  // if(scalePatellaPercent) {
+  //   patellaWidth = scaleFemurPercent ? scalePatella : patella.getBoundingClientRect().width
+  //   tibiaWidth = leg.current.querySelector('.x-tibia').getBoundingClientRect().width
+  //   scalePatella = Math.abs(patellaWidth * scalePatellaPercent / 100)
+  //   scaleMetatarsus = Math.abs(tibiaWidth * 0.95 + 2)
+  if(scaleFemurPercent) {
+    scalePatella = Math.abs(scalePatellaPercent / 100)
+    scaleMetatarsus = Math.abs(100 / scalePatellaPercent)
+    console.log('ScalePatella:', scalePatella, scaleMetatarsus, scalePatellaPercent)
   }
+  // }
 
   // moves leg parts on the x axis
   const offset = scalePatellaPercent ? (100 - scalePatellaPercent) * 1/5 : false
@@ -341,53 +356,53 @@ function Tarantula({hideFrontLegs = false, hideBackLegs = false}) {
       .add(animatePedipalpB.halfAttackStance(pedipalpB, 0.25), 'motion-2+=0.375')
     ;
 
-    attackStanceTl.addLabel('motion-3')
-      .add(rotateBody(bodyParts, 0.375, -60, 30, true), 'motion-3')
-      .to(body.current, 0.375, { xPercent: 0, yPercent: -8.5, ease: Linear.easeNone }, 'motion-3')
-      .to([spinneretA.current, spinneretB.current], 0.25, { rotation: -100, ease: Linear.easeNone }, 'motion-3')
-      .add(animateLeg(legA1, 0.25, [-50, -122, tools.randomChoice([42, 47]), false, tools.randomChoice([10, 15, 26]), -15]), 'motion-3+=0.125')
-      .add(animateLegA2.attackStance(legA2, 0.375), 'motion-3')
-      .add(animateLegA3.attackStance(legA3, 0.25), 'motion-3')
-      .add(animateLegA4.attackStance(legA4, 0.25), 'motion-3')
-      .add(animatePedipalpA.attackStance(pedipalpA, 0.25), 'motion-3+=0.25')
+    // attackStanceTl.addLabel('motion-3')
+    //   .add(rotateBody(bodyParts, 0.375, -60, 30, true), 'motion-3')
+    //   .to(body.current, 0.375, { xPercent: 0, yPercent: -8.5, ease: Linear.easeNone }, 'motion-3')
+    //   .to([spinneretA.current, spinneretB.current], 0.25, { rotation: -100, ease: Linear.easeNone }, 'motion-3')
+    //   .add(animateLeg(legA1, 0.25, [-50, -122, tools.randomChoice([42, 47]), false, tools.randomChoice([10, 15, 26]), -15]), 'motion-3+=0.125')
+    //   .add(animateLegA2.attackStance(legA2, 0.375), 'motion-3')
+    //   .add(animateLegA3.attackStance(legA3, 0.25), 'motion-3')
+    //   .add(animateLegA4.attackStance(legA4, 0.25), 'motion-3')
+    //   .add(animatePedipalpA.attackStance(pedipalpA, 0.25), 'motion-3+=0.25')
 
-      .add(animateLeg(legB1, 0.25, [-50, -143, tools.randomChoice([67, 62]), false, tools.randomChoice([10, 15, 20]), -10]), 'motion-3+=0.25')
-      .add(animateLegB2.attackStance(legB2, 0.375), 'motion-3')
-      .add(animateLegB3.attackStance(legB3, 0.25), 'motion-3')
-      .add(animateLegB4.attackStance(legB4, 0.25), 'motion-3')
-      .add(animatePedipalpB.attackStance(pedipalpB, 0.25), 'motion-3+=0.125')
+    //   .add(animateLeg(legB1, 0.25, [-50, -143, tools.randomChoice([67, 62]), false, tools.randomChoice([10, 15, 20]), -10]), 'motion-3+=0.25')
+    //   .add(animateLegB2.attackStance(legB2, 0.375), 'motion-3')
+    //   .add(animateLegB3.attackStance(legB3, 0.25), 'motion-3')
+    //   .add(animateLegB4.attackStance(legB4, 0.25), 'motion-3')
+    //   .add(animatePedipalpB.attackStance(pedipalpB, 0.25), 'motion-3+=0.125')
  
-      .addLabel('motion-4')
-      .add(animateLegA1.attackStance(legA1, 0.25), 'motion-4-=0.125')
-      .add(animateLegB1.attackStance(legB1, 0.25), 'motion-4')
-      .add(animateLegA2.halfAttackStance(legA2, 0.25), 'motion-4')      
-      .add(animateLegA2.move(legA2, 0.25), 'motion-4+=0.25')
-      .add(animateLegA2.attackStance(legA2, 0.25), 'motion-4+=0.5')
-      .add(animateLeg(legA3, 0.125, [-5, -73, 130, false, 37, -10], 85, 250), 'motion-4+=0.875')
-      .add(animateLegA3.attackStance(legA3, 0.125), 'motion-4+=1')
-    ;
+    //   .addLabel('motion-4')
+    //   .add(animateLegA1.attackStance(legA1, 0.25), 'motion-4-=0.125')
+    //   .add(animateLegB1.attackStance(legB1, 0.25), 'motion-4')
+    //   .add(animateLegA2.halfAttackStance(legA2, 0.25), 'motion-4')      
+    //   .add(animateLegA2.move(legA2, 0.25), 'motion-4+=0.25')
+    //   .add(animateLegA2.attackStance(legA2, 0.25), 'motion-4+=0.5')
+    //   .add(animateLeg(legA3, 0.125, [-5, -73, 130, false, 37, -10], 85, 250), 'motion-4+=0.875')
+    //   .add(animateLegA3.attackStance(legA3, 0.125), 'motion-4+=1')
+    // ;
 
-    moveLegsTl.addLabel('move-legs')
-      .add(() => {
-        return animateLegA1.wiggleStance(legA1, 1)
-      }, `move-legs+=${0.125 * tools.randomChoice([1, 2, 3, 4])}`)
-      .add(() => {
-        return animateLegB1.wiggleStance(legB1, 1)
-      }, `move-legs+=${0.125 * tools.randomChoice([1, 2, 3, 4])}`)
-      .add(() => {
-        return animatePedipalpA.wiggleStance(pedipalpA, 0.5)
-      }, `move-legs+=${0.125 * tools.randomChoice([1, 2, 3, 4, 5, 6])}`)
-      .add(() => {
-        return animatePedipalpB.wiggleStance(pedipalpB, 0.5)
-      }, `move-legs+=${0.125 * tools.randomChoice([1, 2, 3, 4, 5, 6])}`)
-    ;
+    // moveLegsTl.addLabel('move-legs')
+    //   .add(() => {
+    //     return animateLegA1.wiggleStance(legA1, 1)
+    //   }, `move-legs+=${0.125 * tools.randomChoice([1, 2, 3, 4])}`)
+    //   .add(() => {
+    //     return animateLegB1.wiggleStance(legB1, 1)
+    //   }, `move-legs+=${0.125 * tools.randomChoice([1, 2, 3, 4])}`)
+    //   .add(() => {
+    //     return animatePedipalpA.wiggleStance(pedipalpA, 0.5)
+    //   }, `move-legs+=${0.125 * tools.randomChoice([1, 2, 3, 4, 5, 6])}`)
+    //   .add(() => {
+    //     return animatePedipalpB.wiggleStance(pedipalpB, 0.5)
+    //   }, `move-legs+=${0.125 * tools.randomChoice([1, 2, 3, 4, 5, 6])}`)
+    // ;
 
-    new TimelineMax()
-      .addLabel('enter')
-      .to(walkMidStanceTl, 7, { progress: 1, ease: Power2.easeOut }, 'enter')
-      .to(attackStanceTl, 3, { progress: 1, ease: Power2.easeInOut }, 'enter+=7')
-      .to(moveLegsTl, 0.25, { progress: 1, repeat: -1, repeatDelay: 10, ease: Power2.easeInOut }, 'enter+=9.5')
-    ;
+    // new TimelineMax()
+    //   .addLabel('enter')
+    //   .to(walkMidStanceTl, 7, { progress: 1, ease: Power2.easeOut }, 'enter')
+    //   .to(attackStanceTl, 3, { progress: 1, ease: Power2.easeInOut }, 'enter+=7')
+    //   .to(moveLegsTl, 0.25, { progress: 1, repeat: -1, repeatDelay: 10, ease: Power2.easeInOut }, 'enter+=9.5')
+    // ;
 
   }, [])
 

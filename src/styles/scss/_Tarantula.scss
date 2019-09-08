@@ -61,8 +61,8 @@ $body-shadow: none; // inset 4px 3px 7px -1px rgba(255, 116, 24, 0.625), inset -
   width: 70vw; // 950px; // 66.9vw; // 40vw; // 
   height: 55vw; // 710px; // 24.5vw; // 29.9vw; // 
   left: 5vw; // 17.5vw; // -50vw; // 
-  top: 10.5vw; // 2.5vw;
-  font-size: 0.78vw; // 0.39vw; // 0.975vw; // 0.58vw; // 
+  bottom: 2.5vh; // 10.5vw; // 2.5vw;
+  font-size: 0.6vw; // 0.39vw; // 0.975vw; // 0.58vw; // 
 
   @media screen and (max-width: 700px) {
     transform-origin: 0 100%;

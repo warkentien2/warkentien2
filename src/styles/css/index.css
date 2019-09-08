@@ -118,8 +118,8 @@
   width: 70vw;
   height: 55vw;
   left: 5vw;
-  top: 10.5vw;
-  font-size: 0.78vw;
+  bottom: 2.5vh;
+  font-size: 0.6vw;
 }
 @media screen and (max-width: 700px) {
   .tarantula-wrapper {
