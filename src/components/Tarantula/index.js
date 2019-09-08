@@ -13,7 +13,7 @@ function animateBodyPart(node, speed, angle, newWidth = false, offset = 0) {
   }
 
   if(newWidth) {
-    animation.width = newWidth
+    // animation.width = newWidth
     animation.xPercent = offset
   }
 
@@ -392,183 +392,185 @@ function Tarantula({hideFrontLegs = false, hideBackLegs = false}) {
   }, [])
 
   return (
-    <div ref={tarantula} className="tarantula">
-      <div ref={body} className="x-body">
-        <div className="x-body-part x-cephalothorax">
+    <div className="tarantula-wrapper">
+      <div ref={tarantula} className="tarantula">
+        <div ref={body} className="x-body">
+          <div className="x-body-part x-cephalothorax">
 
-          { !hideBackLegs && (
-            <React.Fragment>
-              <div ref={legB2} id="legB2" className="x-leg x-leg--background leg-6">
-                <div className="x-leg-parts x-coxa">
-                  <div className="x-leg-parts x-femur">
-                    <div className="x-leg-parts x-patella">
-                      <div className="x-leg-parts x-tibia">
-                        <div className="x-leg-parts x-metatarsus">
-                          <div className="x-leg-parts x-tarsus"></div>
+            { !hideBackLegs && (
+              <React.Fragment>
+                <div ref={legB2} id="legB2" className="x-leg x-leg--background leg-6">
+                  <div className="x-leg-parts x-coxa">
+                    <div className="x-leg-parts x-femur">
+                      <div className="x-leg-parts x-patella">
+                        <div className="x-leg-parts x-tibia">
+                          <div className="x-leg-parts x-metatarsus">
+                            <div className="x-leg-parts x-tarsus"></div>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div ref={legB1} id="legB1" className="x-leg x-leg--background leg-5">
-                <div className="x-leg-parts x-coxa">
-                  <div className="x-leg-parts x-femur">
-                    <div className="x-leg-parts x-patella">
-                      <div className="x-leg-parts x-tibia">
-                        <div className="x-leg-parts x-metatarsus">
-                          <div className="x-leg-parts x-tarsus"></div>
+                <div ref={legB1} id="legB1" className="x-leg x-leg--background leg-5">
+                  <div className="x-leg-parts x-coxa">
+                    <div className="x-leg-parts x-femur">
+                      <div className="x-leg-parts x-patella">
+                        <div className="x-leg-parts x-tibia">
+                          <div className="x-leg-parts x-metatarsus">
+                            <div className="x-leg-parts x-tarsus"></div>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div ref={legB3} id="legB3" className="x-leg x-leg--background x-leg--small leg-7">
-                <div className="x-leg-parts x-coxa">
-                  <div className="x-leg-parts x-femur">
-                    <div className="x-leg-parts x-patella">
-                      <div className="x-leg-parts x-tibia">
-                        <div className="x-leg-parts x-metatarsus">
-                          <div className="x-leg-parts x-tarsus"></div>
+                <div ref={legB3} id="legB3" className="x-leg x-leg--background x-leg--small leg-7">
+                  <div className="x-leg-parts x-coxa">
+                    <div className="x-leg-parts x-femur">
+                      <div className="x-leg-parts x-patella">
+                        <div className="x-leg-parts x-tibia">
+                          <div className="x-leg-parts x-metatarsus">
+                            <div className="x-leg-parts x-tarsus"></div>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div ref={legB4} id="legB4" className="x-leg x-leg--background x-leg--small leg-8">
-                <div className="x-leg-parts x-coxa">
-                  <div className="x-leg-parts x-femur">
-                    <div className="x-leg-parts x-patella">
-                      <div className="x-leg-parts x-tibia">
-                        <div className="x-leg-parts x-metatarsus">
-                          <div className="x-leg-parts x-tarsus"></div>
+                <div ref={legB4} id="legB4" className="x-leg x-leg--background x-leg--small leg-8">
+                  <div className="x-leg-parts x-coxa">
+                    <div className="x-leg-parts x-femur">
+                      <div className="x-leg-parts x-patella">
+                        <div className="x-leg-parts x-tibia">
+                          <div className="x-leg-parts x-metatarsus">
+                            <div className="x-leg-parts x-tarsus"></div>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div ref={pedipalpB} id="pedipalpB" className="x-leg x-leg--background x-pedipalp pedipalp-2">
-                <div className="x-leg-parts x-coxa">
-                  <div className="x-leg-parts x-femur">
-                    <div className="x-leg-parts x-patella">
-                      <div className="x-leg-parts x-tibia">
-                        <div className="x-leg-parts x-metatarsus"></div>
+                <div ref={pedipalpB} id="pedipalpB" className="x-leg x-leg--background x-pedipalp pedipalp-2">
+                  <div className="x-leg-parts x-coxa">
+                    <div className="x-leg-parts x-femur">
+                      <div className="x-leg-parts x-patella">
+                        <div className="x-leg-parts x-tibia">
+                          <div className="x-leg-parts x-metatarsus"></div>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </React.Fragment>
-          )}
+              </React.Fragment>
+            )}
 
-          <div ref={cheliceraeB} className="x-body-part x-chelicerae x-chelicerae--background">
-            <div className="x-fang"></div>
-          </div>
-          <div ref={cheliceraeA} className="x-body-part x-chelicerae">
-            <div className="x-fang"></div>
-          </div>
-          <div ref={abdomen} className="x-body-part x-abdomen">
-            <div ref={spinneretB} className="x-spinnerets x-spinnerets--background">
-              <div className="x-spinnerets-parts x-coxa">
-                <div className="x-spinnerets-parts x-femur">
-                  <div className="x-spinnerets-parts x-patella">
-                    <div className="x-spinnerets-parts x-tibia"></div>
-                  </div>
-                </div>
-              </div>   
+            <div ref={cheliceraeB} className="x-body-part x-chelicerae x-chelicerae--background">
+              <div className="x-fang"></div>
             </div>
-            <div ref={spinneretA} className="x-spinnerets">    
-              <div className="x-spinnerets-parts x-coxa">
-                <div className="x-spinnerets-parts x-femur">
-                  <div className="x-spinnerets-parts x-patella">
-                    <div className="x-spinnerets-parts x-tibia"></div>
+            <div ref={cheliceraeA} className="x-body-part x-chelicerae">
+              <div className="x-fang"></div>
+            </div>
+            <div ref={abdomen} className="x-body-part x-abdomen">
+              <div ref={spinneretB} className="x-spinnerets x-spinnerets--background">
+                <div className="x-spinnerets-parts x-coxa">
+                  <div className="x-spinnerets-parts x-femur">
+                    <div className="x-spinnerets-parts x-patella">
+                      <div className="x-spinnerets-parts x-tibia"></div>
+                    </div>
+                  </div>
+                </div>   
+              </div>
+              <div ref={spinneretA} className="x-spinnerets">    
+                <div className="x-spinnerets-parts x-coxa">
+                  <div className="x-spinnerets-parts x-femur">
+                    <div className="x-spinnerets-parts x-patella">
+                      <div className="x-spinnerets-parts x-tibia"></div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        
-          <div className="x-chelicera-pattern"></div>
-          <div className="x-coxa-pattern x-cp1"></div>
-          <div className="x-coxa-pattern x-cp2"></div>
-          <div className="x-coxa-pattern x-cp3"></div>
-          <div className="x-coxa-pattern x-cp4"></div>
-          <div className="x-coxa-pattern x-cp5"></div>
-          <div className="x-eye x-eye1"></div>
-          <div className="x-eye x-eye2"></div>
-          <div className="x-eye x-eye3"></div>
-          <div className="x-eye x-eye4"></div>
+          
+            <div className="x-chelicera-pattern"></div>
+            <div className="x-coxa-pattern x-cp1"></div>
+            <div className="x-coxa-pattern x-cp2"></div>
+            <div className="x-coxa-pattern x-cp3"></div>
+            <div className="x-coxa-pattern x-cp4"></div>
+            <div className="x-coxa-pattern x-cp5"></div>
+            <div className="x-eye x-eye1"></div>
+            <div className="x-eye x-eye2"></div>
+            <div className="x-eye x-eye3"></div>
+            <div className="x-eye x-eye4"></div>
 
-          {!hideFrontLegs && (
-            <React.Fragment>
-              <div ref={pedipalpA} id="pedipalpA" className="x-leg x-pedipalp pedipalp-1">
-                <div className="x-leg-parts x-coxa">
-                  <div className="x-leg-parts x-femur">
-                    <div className="x-leg-parts x-patella">
-                      <div className="x-leg-parts x-tibia">
-                        <div className="x-leg-parts x-metatarsus"></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div ref={legA4} id="legA4" className="x-leg x-leg--small leg-4">
-                <div className="x-leg-parts x-coxa">
-                  <div className="x-leg-parts x-femur">
-                    <div className="x-leg-parts x-patella">
-                      <div className="x-leg-parts x-tibia">
-                        <div className="x-leg-parts x-metatarsus">
-                          <div className="x-leg-parts x-tarsus"></div>
+            {!hideFrontLegs && (
+              <React.Fragment>
+                <div ref={pedipalpA} id="pedipalpA" className="x-leg x-pedipalp pedipalp-1">
+                  <div className="x-leg-parts x-coxa">
+                    <div className="x-leg-parts x-femur">
+                      <div className="x-leg-parts x-patella">
+                        <div className="x-leg-parts x-tibia">
+                          <div className="x-leg-parts x-metatarsus"></div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div ref={legA3} id="legA3" className="x-leg x-leg--small leg-3">
-                <div className="x-leg-parts x-coxa">
-                  <div className="x-leg-parts x-femur">
-                    <div className="x-leg-parts x-patella">
-                      <div className="x-leg-parts x-tibia">
-                        <div className="x-leg-parts x-metatarsus">
-                          <div className="x-leg-parts x-tarsus"></div>
+                <div ref={legA4} id="legA4" className="x-leg x-leg--small leg-4">
+                  <div className="x-leg-parts x-coxa">
+                    <div className="x-leg-parts x-femur">
+                      <div className="x-leg-parts x-patella">
+                        <div className="x-leg-parts x-tibia">
+                          <div className="x-leg-parts x-metatarsus">
+                            <div className="x-leg-parts x-tarsus"></div>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div ref={legA1} id="legA1" className="x-leg leg-1">
-                <div className="x-leg-parts x-coxa">
-                  <div className="x-leg-parts x-femur">
-                    <div className="x-leg-parts x-patella">
-                      <div className="x-leg-parts x-tibia">
-                        <div className="x-leg-parts x-metatarsus">
-                          <div className="x-leg-parts x-tarsus"></div>
+                <div ref={legA3} id="legA3" className="x-leg x-leg--small leg-3">
+                  <div className="x-leg-parts x-coxa">
+                    <div className="x-leg-parts x-femur">
+                      <div className="x-leg-parts x-patella">
+                        <div className="x-leg-parts x-tibia">
+                          <div className="x-leg-parts x-metatarsus">
+                            <div className="x-leg-parts x-tarsus"></div>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div ref={legA2} id="legA2" className="x-leg leg-2">
-                <div className="x-leg-parts x-coxa">
-                  <div className="x-leg-parts x-femur">
-                    <div className="x-leg-parts x-patella">
-                      <div className="x-leg-parts x-tibia">
-                        <div className="x-leg-parts x-metatarsus">
-                          <div className="x-leg-parts x-tarsus"></div>
+                <div ref={legA1} id="legA1" className="x-leg leg-1">
+                  <div className="x-leg-parts x-coxa">
+                    <div className="x-leg-parts x-femur">
+                      <div className="x-leg-parts x-patella">
+                        <div className="x-leg-parts x-tibia">
+                          <div className="x-leg-parts x-metatarsus">
+                            <div className="x-leg-parts x-tarsus"></div>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </React.Fragment>
-          )}
+                <div ref={legA2} id="legA2" className="x-leg leg-2">
+                  <div className="x-leg-parts x-coxa">
+                    <div className="x-leg-parts x-femur">
+                      <div className="x-leg-parts x-patella">
+                        <div className="x-leg-parts x-tibia">
+                          <div className="x-leg-parts x-metatarsus">
+                            <div className="x-leg-parts x-tarsus"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </React.Fragment>
+            )}
+          </div>
         </div>
       </div>
     </div>

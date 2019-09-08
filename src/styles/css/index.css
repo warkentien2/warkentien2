@@ -113,14 +113,30 @@
   color: yellow;
 }
 
-.tarantula {
-  position: relative;
-  width: 53.52vw;
-  height: 40vw;
-  left: 12.5vw;
-  top: 12.5vw;
+.tarantula-wrapper {
+  position: absolute;
+  width: 70vw;
+  height: 55vw;
+  left: 5vw;
+  top: 10.5vw;
   font-size: 0.78vw;
+}
+@media screen and (max-width: 700px) {
+  .tarantula-wrapper {
+    transform-origin: 0 100%;
+    transform: rotate(-90deg) scale(1.5);
+    top: 44%;
+    left: 100%;
+  }
+}
+
+.tarantula {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  font-size: inherit;
   box-sizing: border-box;
+  background: #22222233;
 }
 .tarantula * {
   box-sizing: border-box;
@@ -128,8 +144,8 @@
 }
 
 .x-body {
-  left: 42.75%;
-  top: 50%;
+  left: 35%;
+  top: 70%;
   width: 100%;
   height: 100%;
   transform: rotate(0);
