@@ -37,12 +37,10 @@
 
 .hero {
   background: #555;
-  background: repeating-linear-gradient(0deg, #606dbc, #606dbc 7px, #465298 7px, #465298 14px);
   height: 90vh;
   overflow: hidden;
 }
 .hero::before {
-  content: "";
   position: absolute;
   left: 0;
   top: 0;
@@ -58,7 +56,6 @@
   left: 0;
   top: 50%;
   transform: translateY(-50%);
-  opacity: 0.25;
 }
 .hero__title span {
   font-size: 6.25vmax;
@@ -120,8 +117,8 @@
   position: relative;
   width: 53.52vw;
   height: 40vw;
-  left: 17.5vw;
-  top: 15.5vw;
+  left: 12.5vw;
+  top: 12.5vw;
   font-size: 0.78vw;
   box-sizing: border-box;
 }
@@ -263,7 +260,7 @@
   transform: rotate(25deg);
 }
 .x-body-part.x-cephalothorax .x-coxa-pattern {
-  background: #8084a8;
+  background: #181834;
   display: inline-block;
   left: 48%;
   top: 0;
@@ -343,7 +340,7 @@
   transform-origin: 25% 50%;
   transform: rotate(60deg);
   border-radius: 30% 70% 10% 0%;
-  background: #000003 !important;
+  background: #181834;
   border: 1px dashed white;
   border-bottom: none;
 }
@@ -688,7 +685,7 @@
   transform: rotate(-12deg);
   width: calc(10.14em + 2px);
   height: calc(2.58em + 2px);
-  z-index: 4;
+  z-index: 5;
 }
 .x-body-part .x-pedipalp .x-leg-parts {
   border-radius: 40% 50% 35% 25%;

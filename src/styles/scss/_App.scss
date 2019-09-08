@@ -50,7 +50,7 @@
 
   // attack stance
   &::before {
-    content: '';
+    // content: '';
     position: absolute;
     left: 0;
     top: 0;
@@ -109,13 +109,13 @@
   // }
 
   background: $bg;
-  background: repeating-linear-gradient(
-    0deg,
-    #606dbc,
-    #606dbc 7px,
-    #465298 7px,
-    #465298 14px
-  );
+  // background: repeating-linear-gradient(
+  //   0deg,
+  //   #606dbc,
+  //   #606dbc 7px,
+  //   #465298 7px,
+  //   #465298 14px
+  // );
   height: 90vh;
   overflow: hidden;
 
@@ -127,7 +127,6 @@
     left: 0;
     top: 50%;
     transform: translateY(-50%);
-    opacity: 0.25;
 
     span {
       font-size: 6.25vmax;

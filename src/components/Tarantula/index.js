@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import tools from './tools'
-import { TimelineMax, TweenMax, Power2, Linear } from 'gsap'
+import { TimelineMax, TweenMax, Power1, Power2, Power3, Power4, Linear } from 'gsap'
 
 function animateBodyPart(node, speed, angle, newWidth = false, offset = 0) {
   let animation
@@ -83,10 +83,10 @@ function rotateBody(bodyParts, speed, angle, abdomenAngle = false, showFangs = f
   tl.add(animateBodyPart(pedipalpB.current, speed, -10 - 1.95 * angle), 'move')
 
   if(showFangs) {
-    tl.add(animateBodyPart(cheliceraeA.current, speed + 0.125, 0), 'move')
-    tl.add(animateBodyPart(cheliceraeA.current.querySelector('.x-fang'), speed + 0.125, 47), 'move')
-    tl.add(animateBodyPart(cheliceraeB.current, speed + 0.125, -10), 'move')
-    tl.add(animateBodyPart(cheliceraeB.current.querySelector('.x-fang'), speed + 0.125, 60), 'move')
+    tl.add(animateBodyPart(cheliceraeA.current, speed, 0), 'move')
+    tl.add(animateBodyPart(cheliceraeA.current.querySelector('.x-fang'), speed, 47), 'move')
+    tl.add(animateBodyPart(cheliceraeB.current, speed, -10), 'move')
+    tl.add(animateBodyPart(cheliceraeB.current.querySelector('.x-fang'), speed, 60), 'move')
   }
 
   return tl
@@ -98,7 +98,8 @@ const animateLegA1 = {
   raise: (el, time) => animateLeg(el, time, [26, -142, tools.randomChoice([72, 87, 62]), false, tools.randomChoice([56, 66, 36]), -10]),
   stretch: (el, time) => animateLeg(el, time, [13, -82, 32, false, 22, -25]),
   halfAttackStance: (el, time) => animateLeg(el, time, [-20, -127, tools.randomChoice([97, 92]), false, tools.randomChoice([10, 15, 26]), -15]),
-  attackStance: (el, time) => animateLeg(el, time, [-50, -122, tools.randomChoice([62, 67]), false, tools.randomChoice([30, 35, 46]), -25])
+  attackStance: (el, time) => animateLeg(el, time, [-50, -122, tools.randomChoice([62, 67]), false, tools.randomChoice([30, 35, 46]), -25]),
+  wiggleStance: (el, time) => animateLeg(el, time, [-50, -122, tools.randomChoice([62, 67, 75, 83, 95]), false, tools.randomChoice([30, 35, 46, 50, 55]), tools.randomChoice([5, -5, -15, -25])])
 }
 
 const animateLegB1 = {
@@ -107,7 +108,8 @@ const animateLegB1 = {
   raise: (el, time) => animateLeg(el, time, [16, -130, tools.randomChoice([72, 87, 62]), false, tools.randomChoice([50, 60, 30]), -5]),
   stretch: (el, time) => animateLeg(el, time, [3, -70, 32, false, 20, -25]),
   halfAttackStance: (el, time) => animateLeg(el, time, [-20, -123, tools.randomChoice([97, 92]), false, tools.randomChoice([20, 25, 30]), -20]),
-  attackStance: (el, time) => animateLeg(el, time, [-50, -143, tools.randomChoice([87, 82]), false, tools.randomChoice([50, 55, 60]), -20])
+  attackStance: (el, time) => animateLeg(el, time, [-50, -143, tools.randomChoice([87, 82]), false, tools.randomChoice([50, 55, 60]), -20]),
+  wiggleStance: (el, time) => animateLeg(el, time, [-50, -143, tools.randomChoice([60, 75, 87, 82]), false, tools.randomChoice([40, 50, 55, 60]), tools.randomChoice([5, -10, -15, -20])])
 }
 
 const animateLegA2 = {
@@ -170,7 +172,8 @@ const animatePedipalpA = {
   raise: (el, time) => animateLeg(el, time, [1, -40, 82, 30, 20, false]),
   stretch: (el, time) => animateLeg(el, time, [1, -25, 52, 20, -25, false]),
   halfAttackStance: (el, time) => animateLeg(el, time, [1, -115, 107, 20, 60, false]),
-  attackStance: (el, time) => animateLeg(el, time, [1, -155, 72, 20, -10, false])
+  attackStance: (el, time) => animateLeg(el, time, [1, -155, 72, 20, -10, false]),
+  wiggleStance: (el, time) => animateLeg(el, time, [1, tools.randomChoice([-155, -157, -145]), tools.randomChoice([72, 82, 62]), tools.randomChoice([20, 25, 30]), tools.randomChoice([20, 10, 0, -10]), false])
 }
 
 const animatePedipalpB = {
@@ -179,7 +182,8 @@ const animatePedipalpB = {
   raise: (el, time) => animateLeg(el, time, [0, -40, 82, 30, 20, false]),
   stretch: (el, time) => animateLeg(el, time, [0, -25, 52, 20, -25, false]),
   halfAttackStance: (el, time) => animateLeg(el, time, [0, -110, 102, 20, 40, false]),
-  attackStance: (el, time) => animateLeg(el, time, [0, -180, 57, 20, -10, false])
+  attackStance: (el, time) => animateLeg(el, time, [0, -180, 57, 20, -10, false]),
+  wiggleStance: (el, time) => animateLeg(el, time, [0, tools.randomChoice([-180, -182, -170]), tools.randomChoice([57, 47, 62]), tools.randomChoice([20, 25, 30]), tools.randomChoice([15, 5, -5, -10]), false])
 }
 
 function legCycle(leg, options = false) {
@@ -187,13 +191,13 @@ function legCycle(leg, options = false) {
     var {
       moveFirst = false,
       raiseLate = false,
-      repeat = 3,
+      repeat = 4,
       steps = 4
     } = options;
   } else {
     var moveFirst = false,
       raiseLate = false,
-      repeat = 3,
+      repeat = 4,
       steps = 4;
   }
 
@@ -269,27 +273,12 @@ function Tarantula({hideFrontLegs = false, hideBackLegs = false}) {
   const spinneretB = useRef(null)
   const abdomen = useRef(null)
   const bodyParts = [body, abdomen, legA1, legA2, legA3, legA4, legB1, legB2, legB3, legB4, pedipalpA, pedipalpB, cheliceraeA, cheliceraeB];
-  const timeline = new TimelineMax()
-  const walk = new TimelineMax()
+  const walkMidStanceTl = new TimelineMax()
+  const attackStanceTl = new TimelineMax({ paused: true })
+  const moveLegsTl = new TimelineMax({ paused: true })
 
   useEffect(() => {
-    walk
-      .addLabel('setup')
-      .set(tarantula.current, { xPercent: (-8 * 26) }, 'setup')
-      .addLabel('motion-1', 'setup+=0.01')
-      .to(tarantula.current, 0.725, { xPercent: (-7 * 26), ease: Linear.easeNone }, 'motion-1')
-      .to(tarantula.current, 0.725, { xPercent: (-6 * 26), ease: Linear.easeNone }, 'motion-1+=0.75')
-      .to(tarantula.current, 0.725, { xPercent: (-5 * 26), ease: Linear.easeNone }, 'motion-1+=1.5')
-      .to(tarantula.current, 0.725, { xPercent: (-4 * 26), ease: Linear.easeNone }, 'motion-1+=2.25')
-      .to(tarantula.current, 0.725, { xPercent: (-3 * 26), ease: Linear.easeNone }, 'motion-1+=3')
-      .to(tarantula.current, 0.725, { xPercent: (-2 * 26), ease: Linear.easeNone }, 'motion-1+=3.75')
-      .to(tarantula.current, 0.725, { xPercent: (-1 * 26), ease: Linear.easeNone }, 'motion-1+=4.5')
-      .to(tarantula.current, 0.725, { xPercent: (0 * 26), ease: Linear.easeNone }, 'motion-1+=5.25')
-    ;
-
-    // Main Timeline
-
-    timeline.addLabel('setup')
+    walkMidStanceTl.addLabel('setup')
       .set(spinneretA.current, { rotation: -85 }, 'setup')
       .set(spinneretB.current, { rotation: -95 }, 'setup')
       .add(animateLegA1.step(legA1, 0), 'setup')
@@ -302,8 +291,22 @@ function Tarantula({hideFrontLegs = false, hideBackLegs = false}) {
       .add(animateLegB3.move(legB3, 0.01), 'setup')
       .add(animateLegB4.step(legB4, 0), 'setup')
       .add(animatePedipalpB.move(pedipalpB, 0), 'setup')
+      .set(tarantula.current, { xPercent: (-8 * 26) }, 'setup')
 
       .addLabel('motion-1', 'setup+=0.01')
+
+      // walk cycle
+      .to(tarantula.current, 0.725, { xPercent: (-7 * 26), ease: Linear.easeNone }, 'motion-1')
+      .to(tarantula.current, 0.725, { xPercent: (-6 * 26), ease: Linear.easeNone }, 'motion-1+=0.75')
+      .to(tarantula.current, 0.725, { xPercent: (-5 * 26), ease: Linear.easeNone }, 'motion-1+=1.5')
+      .to(tarantula.current, 0.725, { xPercent: (-4 * 26), ease: Linear.easeNone }, 'motion-1+=2.25')
+      .to(tarantula.current, 0.725, { xPercent: (-3 * 26), ease: Linear.easeNone }, 'motion-1+=3')
+      .to(tarantula.current, 0.725, { xPercent: (-2 * 26), ease: Linear.easeNone }, 'motion-1+=3.75')
+      .to(tarantula.current, 0.725, { xPercent: (-1 * 26), ease: Linear.easeNone }, 'motion-1+=4.5')
+      .to(tarantula.current, 0.725, { xPercent: (0 * 26), ease: Linear.easeNone }, 'motion-1+=5.25')
+      .to(tarantula.current, 0.725, { xPercent: (1 * 26), ease: Linear.easeNone }, 'motion-1+=6')
+      .to(tarantula.current, 0.725, { xPercent: (2 * 26), ease: Linear.easeNone }, 'motion-1+=6.75')
+
       .add(legCycle(legA2), 'motion-1')
       .add(legCycle(legB3), 'motion-1')
       .add(legCycle(pedipalpB), 'motion-1')
@@ -316,52 +319,75 @@ function Tarantula({hideFrontLegs = false, hideBackLegs = false}) {
       .add(legCycle(legB4, { raiseLate: true, moveFirst: true }), 'motion-1')
       
       .addLabel('motion-2')
-      // .add(rotateBody(bodyParts, 0.5, 10, 45), 'motion-2-=0.5')
-      // .add(legCycle(legB2, { repeat: 0, steps: 3 }), 'motion-2')
-      // .add(legCycle(legA2, { repeat: 0, steps: 3 }), 'motion-2+=0.25')
-      // .add(legCycle(legB1, { repeat: 0, steps: 3 }), 'motion-2+=0.25')
-      // .add(legCycle(legA1, { moveFirst: true, repeat: 0, steps: 2 }), 'motion-2')
+      .add(animateLegB4.raise(legB4, 0.25), 'motion-2+=0.125')
+      .add(legCycle(legB2, { repeat: 0, steps: 3 }), 'motion-2')
+      .add(legCycle(legA2, { repeat: 0, steps: 2 }), 'motion-2+=0.375')
+      .add(legCycle(legB1, { moveFirst: true, repeat: 0, steps: 2 }), 'motion-2+=0.25')
+      .add(legCycle(legA1, { moveFirst: true, repeat: 0, steps: 2 }), 'motion-2')
 
-      .add(rotateBody(bodyParts, 0.25, -20, 10, false), 'motion-2')
-      .to(body.current, 0.25, { xPercent: -5, yPercent: -8.5, ease: Linear.easeNone }, 'motion-2')
-      .to([spinneretA.current, spinneretB.current], 0.25, { rotation: -100, ease: Linear.easeNone }, 'motion-2')
-      .add(animateLegA1.halfAttackStance(legA1, 0.25), 'motion-2')
-      .add(animateLegA2.halfAttackStance(legA2, 0.25), 'motion-2')
-      .add(animateLegA3.halfAttackStance(legA3, 0.25), 'motion-2')
-      .add(animateLegA4.halfAttackStance(legA4, 0.25), 'motion-2')
-      .add(animatePedipalpA.halfAttackStance(pedipalpA, 0.25), 'motion-2')
+      .add(rotateBody(bodyParts, 0.25, -20, 10, false), 'motion-2+=0.375')
+      .to(body.current, 0.25, { xPercent: -5, yPercent: -8.5, ease: Linear.easeNone }, 'motion-2+=0.375')
+      .to([spinneretA.current, spinneretB.current], 0.25, { rotation: -100, ease: Linear.easeNone }, 'motion-2+=0.375')
+      .add(animateLegA1.halfAttackStance(legA1, 0.25), 'motion-2+=0.75')
+      .add(animateLegA2.halfAttackStance(legA2, 0.25), 'motion-2+=0.875')
+      .add(animateLegA3.halfAttackStance(legA3, 0.25), 'motion-2+=0.375')
+      .add(animateLegA4.halfAttackStance(legA4, 0.25), 'motion-2+=0.375')
+      .add(animatePedipalpA.halfAttackStance(pedipalpA, 0.25), 'motion-2+=0.375')
 
-      .add(animateLegB1.halfAttackStance(legB1, 0.25), 'motion-2')
-      .add(animateLegB2.halfAttackStance(legB2, 0.25), 'motion-2')
-      .add(animateLegB3.halfAttackStance(legB3, 0.25), 'motion-2')
-      .add(animateLegB4.halfAttackStance(legB4, 0.25), 'motion-2')
-      .add(animatePedipalpB.halfAttackStance(pedipalpB, 0.25), 'motion-2')
-
-      .addLabel('motion-3', '+=1')
-      // .add(rotateBody(bodyParts, 0.5, -10, 15), 'motion-3-=0.5')
-      // .add(legCycle(legB2, { repeat: 0, steps: 3 }), 'motion-3')
-      // .add(legCycle(legA2, { repeat: 0, steps: 3 }), 'motion-3+=0.25')
-      // .add(legCycle(legB1, { repeat: 0, steps: 3 }), 'motion-3+=0.25')
-      // .add(legCycle(legA1, { moveFirst: true, repeat: 0, steps: 3 }), 'motion-3')
-
-      .add(rotateBody(bodyParts, 0.25, -60, 30, false), 'motion-3')
-      .to(body.current, 0.25, { xPercent: 0, yPercent: -8.5, ease: Linear.easeNone }, 'motion-3')
-      .to([spinneretA.current, spinneretB.current], 0.25, { rotation: -100, ease: Linear.easeNone }, 'motion-3')
-      .add(animateLegA1.attackStance(legA1, 0.25), 'motion-3')
-      .add(animateLegA2.attackStance(legA2, 0.25), 'motion-3')
-      .add(animateLegA3.attackStance(legA3, 0.25), 'motion-3')
-      .add(animateLegA4.attackStance(legA4, 0.25), 'motion-3')
-      .add(animatePedipalpA.attackStance(pedipalpA, 0.25), 'motion-3')
-
-      .add(animateLegB1.attackStance(legB1, 0.25), 'motion-3')
-      .add(animateLegB2.attackStance(legB2, 0.25), 'motion-3')
-      .add(animateLegB3.attackStance(legB3, 0.25), 'motion-3')
-      .add(animateLegB4.attackStance(legB4, 0.25), 'motion-3')
-      .add(animatePedipalpB.attackStance(pedipalpB, 0.25), 'motion-3')
+      .add(animateLegB1.halfAttackStance(legB1, 0.25), 'motion-2+=1')
+      .add(animateLegB2.halfAttackStance(legB2, 0.25), 'motion-2+=0.75')
+      .add(animateLegB3.halfAttackStance(legB3, 0.25), 'motion-2+=0.375')
+      .add(animateLegB4.halfAttackStance(legB4, 0.25), 'motion-2+=0.375')
+      .add(animatePedipalpB.halfAttackStance(pedipalpB, 0.25), 'motion-2+=0.375')
     ;
 
-    // TODO: I prefer to raise all members and position them on "attackStance"
-    // Then lift the body and front legs.
+    attackStanceTl.addLabel('motion-3')
+      .add(rotateBody(bodyParts, 0.375, -60, 30, true), 'motion-3')
+      .to(body.current, 0.375, { xPercent: 0, yPercent: -8.5, ease: Linear.easeNone }, 'motion-3')
+      .to([spinneretA.current, spinneretB.current], 0.25, { rotation: -100, ease: Linear.easeNone }, 'motion-3')
+      .add(animateLeg(legA1, 0.25, [-50, -122, tools.randomChoice([42, 47]), false, tools.randomChoice([10, 15, 26]), -15]), 'motion-3+=0.125')
+      .add(animateLegA2.attackStance(legA2, 0.375), 'motion-3')
+      .add(animateLegA3.attackStance(legA3, 0.25), 'motion-3')
+      .add(animateLegA4.attackStance(legA4, 0.25), 'motion-3')
+      .add(animatePedipalpA.attackStance(pedipalpA, 0.25), 'motion-3+=0.25')
+
+      .add(animateLeg(legB1, 0.25, [-50, -143, tools.randomChoice([67, 62]), false, tools.randomChoice([10, 15, 20]), -10]), 'motion-3+=0.25')
+      .add(animateLegB2.attackStance(legB2, 0.375), 'motion-3')
+      .add(animateLegB3.attackStance(legB3, 0.25), 'motion-3')
+      .add(animateLegB4.attackStance(legB4, 0.25), 'motion-3')
+      .add(animatePedipalpB.attackStance(pedipalpB, 0.25), 'motion-3+=0.125')
+ 
+      .addLabel('motion-4')
+      .add(animateLegA1.attackStance(legA1, 0.25), 'motion-4-=0.125')
+      .add(animateLegB1.attackStance(legB1, 0.25), 'motion-4')
+      .add(animateLegA2.halfAttackStance(legA2, 0.25), 'motion-4')      
+      .add(animateLegA2.move(legA2, 0.25), 'motion-4+=0.25')
+      .add(animateLegA2.attackStance(legA2, 0.25), 'motion-4+=0.5')
+      .add(animateLeg(legA3, 0.125, [-5, -73, 130, false, 37, -10], 85, 250), 'motion-4+=0.875')
+      .add(animateLegA3.attackStance(legA3, 0.125), 'motion-4+=1')
+    ;
+
+    moveLegsTl.addLabel('move-legs')
+      .add(() => {
+        return animateLegA1.wiggleStance(legA1, 1)
+      }, `move-legs+=${0.125 * tools.randomChoice([1, 2, 3, 4])}`)
+      .add(() => {
+        return animateLegB1.wiggleStance(legB1, 1)
+      }, `move-legs+=${0.125 * tools.randomChoice([1, 2, 3, 4])}`)
+      .add(() => {
+        return animatePedipalpA.wiggleStance(pedipalpA, 0.5)
+      }, `move-legs+=${0.125 * tools.randomChoice([1, 2, 3, 4, 5, 6])}`)
+      .add(() => {
+        return animatePedipalpB.wiggleStance(pedipalpB, 0.5)
+      }, `move-legs+=${0.125 * tools.randomChoice([1, 2, 3, 4, 5, 6])}`)
+    ;
+
+    new TimelineMax()
+      .addLabel('enter')
+      .to(walkMidStanceTl, 7, { progress: 1, ease: Power2.easeOut }, 'enter')
+      .to(attackStanceTl, 3, { progress: 1, ease: Power2.easeInOut }, 'enter+=7')
+      .to(moveLegsTl, 0.25, { progress: 1, repeat: -1, repeatDelay: 10, ease: Power2.easeInOut }, 'enter+=9.5')
+    ;
 
   }, [])
 

@@ -60,8 +60,8 @@ $body-shadow: none; // inset 4px 3px 7px -1px rgba(255, 116, 24, 0.625), inset -
   position: relative;
   width: 53.52vw; // 950px; // 66.9vw; // 40vw; // 
   height: 40vw; // 710px; // 24.5vw; // 29.9vw; // 
-  left: 17.5vw; // 17.5vw; // -50vw; // 
-  top: 15.5vw; // 2.5vw;
+  left: 12.5vw; // 17.5vw; // -50vw; // 
+  top: 12.5vw; // 2.5vw;
   font-size: 0.78vw; // 0.39vw; // 0.975vw; // 0.58vw; // 
   box-sizing: border-box;
   // transform: translateX(26%); // distance of each walk motion
@@ -305,7 +305,7 @@ $body-shadow: none; // inset 4px 3px 7px -1px rgba(255, 116, 24, 0.625), inset -
     }
 
     .x-coxa-pattern {
-      background: $cephalo-color;
+      background: $primary-c4; // $cephalo-color;
       display: inline-block;
       left: 48%;
       top: 0;
@@ -404,7 +404,7 @@ $body-shadow: none; // inset 4px 3px 7px -1px rgba(255, 116, 24, 0.625), inset -
     transform: rotate(60deg);
     border-radius: 30% 70% 10% 0%;
 
-    background: $primary-c7 !important;
+    background: $primary-c4; // $primary-c5; // $primary-c7 !important;
   //   background-image: radial-gradient(circle at 55% 120%,
   //     transparent 5%,
   //     #a0400040 7.5%,
@@ -961,7 +961,7 @@ $body-shadow: none; // inset 4px 3px 7px -1px rgba(255, 116, 24, 0.625), inset -
     transform: rotate(-12deg - 1.52 * $body-angle + 0deg);
     width: calc(10.14em + 2px);
     height: calc(2.58em + 2px);
-    z-index: 4;
+    z-index: 5;
 
     .x-leg-parts {
       border-radius: 40% 50% 35% 25%;
