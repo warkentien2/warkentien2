@@ -8,6 +8,9 @@
 }
 
 .main {
+  overflow: visible;
+  z-index: 1;
+  
   section {
     position: relative;
   }
@@ -16,12 +19,14 @@
 .main-header {
   $color: #fff;
   $bg: #333;
+  width: 100vw;
+  overflow: scroll;
 
   background: $bg;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  overflow: hidden;
+  overflow-x: hidden;
 
   .brand {
     text-decoration: none;
@@ -117,7 +122,7 @@
   //   #465298 14px
   // );
   height: 90vh;
-  overflow: hidden;
+  overflow-x: hidden;
 
   &__title {
     text-transform: uppercase;
