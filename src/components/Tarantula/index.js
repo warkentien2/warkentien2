@@ -168,23 +168,23 @@ const animateLegB4 = {
 }
 
 const animatePedipalpA = {
-  step: (el, time) => animateLeg(el, time, [1, -5, 53, 35, -15, false]),
-  move: (el, time) => animateLeg(el, time, [1, -20, 122, 20, -30, false]),
-  raise: (el, time) => animateLeg(el, time, [1, -40, 82, 30, 20, false]),
-  stretch: (el, time) => animateLeg(el, time, [1, -25, 52, 20, -25, false]),
-  halfAttackStance: (el, time) => animateLeg(el, time, [1, -115, 107, 20, 60, false]),
-  attackStance: (el, time) => animateLeg(el, time, [1, -155, 72, 20, -10, false]),
-  wiggleStance: (el, time) => animateLeg(el, time, [1, tools.randomChoice([-155, -157, -145]), tools.randomChoice([72, 82, 62]), tools.randomChoice([20, 25, 30]), tools.randomChoice([20, 10, 0, -10]), false])
+  step: (el, time) => animateLeg(el, time, [false, -5, 53, 35, -15, false]),
+  move: (el, time) => animateLeg(el, time, [false, -26, 122, 20, -30, false]),
+  raise: (el, time) => animateLeg(el, time, [false, -40, 82, 30, 20, false]),
+  stretch: (el, time) => animateLeg(el, time, [false, -25, 52, 20, -25, false]),
+  halfAttackStance: (el, time) => animateLeg(el, time, [false, -115, 107, 20, 60, false]),
+  attackStance: (el, time) => animateLeg(el, time, [false, -155, 72, 20, -10, false]),
+  wiggleStance: (el, time) => animateLeg(el, time, [false, tools.randomChoice([-155, -157, -145]), tools.randomChoice([72, 82, 62]), tools.randomChoice([20, 25, 30]), tools.randomChoice([20, 10, 0, -10]), false])
 }
 
 const animatePedipalpB = {
-  step: (el, time) => animateLeg(el, time, [0, -5, 53, 35, -15, false]),
-  move: (el, time) => animateLeg(el, time, [0, -20, 122, 20, -30, false]),
-  raise: (el, time) => animateLeg(el, time, [0, -40, 82, 30, 20, false]),
-  stretch: (el, time) => animateLeg(el, time, [0, -25, 52, 20, -25, false]),
-  halfAttackStance: (el, time) => animateLeg(el, time, [0, -110, 102, 20, 40, false]),
-  attackStance: (el, time) => animateLeg(el, time, [0, -180, 57, 20, -10, false]),
-  wiggleStance: (el, time) => animateLeg(el, time, [0, tools.randomChoice([-180, -182, -170]), tools.randomChoice([57, 47, 62]), tools.randomChoice([20, 25, 30]), tools.randomChoice([15, 5, -5, -10]), false])
+  step: (el, time) => animateLeg(el, time, [false, -5, 53, 35, -15, false]),
+  move: (el, time) => animateLeg(el, time, [false, -26, 122, 20, -30, false]),
+  raise: (el, time) => animateLeg(el, time, [false, -40, 82, 30, 20, false]),
+  stretch: (el, time) => animateLeg(el, time, [false, -25, 52, 20, -25, false]),
+  halfAttackStance: (el, time) => animateLeg(el, time, [false, -110, 102, 20, 40, false]),
+  attackStance: (el, time) => animateLeg(el, time, [false, -180, 57, 20, -10, false]),
+  wiggleStance: (el, time) => animateLeg(el, time, [false, tools.randomChoice([-180, -182, -170]), tools.randomChoice([57, 47, 62]), tools.randomChoice([20, 25, 30]), tools.randomChoice([15, 5, -5, -10]), false])
 }
 
 function legCycle(leg, options = false) {
@@ -192,13 +192,13 @@ function legCycle(leg, options = false) {
     var {
       moveFirst = false,
       raiseLate = false,
-      repeat = 4,
+      repeat = 7,
       steps = 4
     } = options;
   } else {
     var moveFirst = false,
       raiseLate = false,
-      repeat = 4,
+      repeat = 7,
       steps = 4;
   }
 
@@ -285,7 +285,7 @@ function Tarantula({hideFrontLegs = false, hideBackLegs = false}) {
     walkMidStanceTl.addLabel('setup')
 
     if(isMobile) {
-      walkMidStanceTl.set(tarantulaWrapper.current, { rotation: -90 }, 'setup')
+      walkMidStanceTl.set(tarantulaWrapper.current, { rotation: 90 }, 'setup')
     }
     
     walkMidStanceTl
@@ -301,21 +301,27 @@ function Tarantula({hideFrontLegs = false, hideBackLegs = false}) {
       .add(animateLegB3.move(legB3, 0.01), 'setup')
       .add(animateLegB4.step(legB4, 0), 'setup')
       .add(animatePedipalpB.move(pedipalpB, 0), 'setup')
-      .set(tarantula.current, { xPercent: (-8 * 26) }, 'setup')
+      .set(tarantula.current, { xPercent: (-16 * 26) }, 'setup')
 
       .addLabel('motion-1', 'setup+=0.01')
 
       // walk cycle
-      .to(tarantula.current, 0.725, { xPercent: (-7 * 26), ease: Linear.easeNone }, 'motion-1')
-      .to(tarantula.current, 0.725, { xPercent: (-6 * 26), ease: Linear.easeNone }, 'motion-1+=0.75')
-      .to(tarantula.current, 0.725, { xPercent: (-5 * 26), ease: Linear.easeNone }, 'motion-1+=1.5')
-      .to(tarantula.current, 0.725, { xPercent: (-4 * 26), ease: Linear.easeNone }, 'motion-1+=2.25')
-      .to(tarantula.current, 0.725, { xPercent: (-3 * 26), ease: Linear.easeNone }, 'motion-1+=3')
-      .to(tarantula.current, 0.725, { xPercent: (-2 * 26), ease: Linear.easeNone }, 'motion-1+=3.75')
-      .to(tarantula.current, 0.725, { xPercent: (-1 * 26), ease: Linear.easeNone }, 'motion-1+=4.5')
-      .to(tarantula.current, 0.725, { xPercent: (0 * 26), ease: Linear.easeNone }, 'motion-1+=5.25')
-      .to(tarantula.current, 0.725, { xPercent: (1 * 26), ease: Linear.easeNone }, 'motion-1+=6')
-      .to(tarantula.current, 0.725, { xPercent: (2 * 26), ease: Linear.easeNone }, 'motion-1+=6.75')
+      .to(tarantula.current, 0.725, { xPercent: (-15 * 26), ease: Linear.easeNone }, 'motion-1')
+      .to(tarantula.current, 0.725, { xPercent: (-14 * 26), ease: Linear.easeNone }, 'motion-1+=0.75')
+      .to(tarantula.current, 0.725, { xPercent: (-13 * 26), ease: Linear.easeNone }, 'motion-1+=1.5')
+      .to(tarantula.current, 0.725, { xPercent: (-12 * 26), ease: Linear.easeNone }, 'motion-1+=2.25')
+      .to(tarantula.current, 0.725, { xPercent: (-11 * 26), ease: Linear.easeNone }, 'motion-1+=3')
+      .to(tarantula.current, 0.725, { xPercent: (-10 * 26), ease: Linear.easeNone }, 'motion-1+=3.75')
+      .to(tarantula.current, 0.725, { xPercent: (-9 * 26), ease: Linear.easeNone }, 'motion-1+=4.5')
+      .to(tarantula.current, 0.725, { xPercent: (-8 * 26), ease: Linear.easeNone }, 'motion-1+=5.25')
+      .to(tarantula.current, 0.725, { xPercent: (-7 * 26), ease: Linear.easeNone }, 'motion-1+=6')
+      .to(tarantula.current, 0.725, { xPercent: (-6 * 26), ease: Linear.easeNone }, 'motion-1+=6.75')
+      .to(tarantula.current, 0.725, { xPercent: (-5 * 26), ease: Linear.easeNone }, 'motion-1+=7.5')
+      .to(tarantula.current, 0.725, { xPercent: (-4 * 26), ease: Linear.easeNone }, 'motion-1+=8.25')
+      .to(tarantula.current, 0.725, { xPercent: (-3 * 26), ease: Linear.easeNone }, 'motion-1+=9')
+      .to(tarantula.current, 0.725, { xPercent: (-2 * 26), ease: Linear.easeNone }, 'motion-1+=9.75')
+      .to(tarantula.current, 0.725, { xPercent: (-1 * 26), ease: Linear.easeNone }, 'motion-1+=10.5')
+      .to(tarantula.current, 0.725, { xPercent: (0 * 26), ease: Linear.easeNone }, 'motion-1+=11.25')
 
       .add(legCycle(legA2), 'motion-1')
       .add(legCycle(legB3), 'motion-1')
@@ -394,9 +400,9 @@ function Tarantula({hideFrontLegs = false, hideBackLegs = false}) {
 
     new TimelineMax()
       .addLabel('enter')
-      .to(walkMidStanceTl, 7, { progress: 1, ease: Power2.easeOut }, 'enter')
-      .to(attackStanceTl, 3, { progress: 1, ease: Power2.easeInOut }, 'enter+=7')
-      .to(moveLegsTl, 0.25, { progress: 1, repeat: -1, repeatDelay: 10, ease: Power2.easeInOut }, 'enter+=9.5')
+      .to(walkMidStanceTl, 11, { progress: 1, ease: Power1.easeOut }, 'enter')
+      .to(attackStanceTl, 2, { progress: 1, ease: Power2.easeIn }, 'enter+=11')
+      .to(moveLegsTl, 0.25, { progress: 1, repeat: -1, repeatDelay: 10, ease: Power2.easeInOut }, 'enter+=12.5')
     ;
 
   }, [])

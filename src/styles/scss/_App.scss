@@ -18,7 +18,7 @@
 
 .main-header {
   $color: #fff;
-  $bg: #333;
+  $bg: rgba(0, 0, 20, 0.5);
   width: 100vw;
   overflow: scroll;
 
@@ -28,8 +28,12 @@
   align-items: center;
   overflow-x: hidden;
 
+  position: fixed;
+  z-index: 1;
+
   .brand {
     text-decoration: none;
+    white-space: nowrap;
     color: $color;
     margin: 10px 20px;
   }
@@ -51,7 +55,7 @@
 .hero {
   $color: #fff;
   $highlighted: yellow;
-  $bg: #555;
+  $bg: #190f2e;
 
   // attack stance
   &::before {
@@ -132,6 +136,10 @@
     left: 0;
     top: 50%;
     transform: translateY(-50%);
+
+    @media screen and (max-width: 700px) {
+      top: 35%;
+    }
 
     span {
       font-size: 6.25vmax;

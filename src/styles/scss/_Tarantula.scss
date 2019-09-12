@@ -57,20 +57,21 @@ $tibia-color: $patella-color;
 $body-shadow: none; // inset 4px 3px 7px -1px rgba(255, 116, 24, 0.625), inset -4px -3px 11px 3px rgba(0, 0, 0, 0.75), inset 3px 2px 7px rgba(33, 71, 141, 0.25), 0 0 4px rgba(101, 143, 210, 0.5);
 
 .tarantula-wrapper {
-  position: relative;
+  position: absolute;
   width: 53.52vw; // 950px; // 66.9vw; // 40vw; // 
   height: 40vw; // 710px; // 24.5vw; // 29.9vw; // 
-  left: 85%; // 17.5vw; // -50vw; // 
-  top: 22.5vw; // 2.5vw;
+  left: 30%; // 17.5vw; // -50vw; // 
+  top: auto; // 2.5vw;
+  bottom: 15%;
   font-size: 0.78vw; // 0.39vw; // 0.975vw; // 0.58vw; // 
   box-sizing: border-box;
-  transform-origin: 0 100%;
+  transform-origin: 100% 0;
   z-index: 1;
 
   &.tarantula-wrapper--mobile {
-    top: 35vh;
-    left: 85%;
-    font-size: 1.25vw;
+    top: 75%;
+    left: 7.5%;
+    font-size: 1.5vw;
   }
 }
 
@@ -105,7 +106,8 @@ $body-shadow: none; // inset 4px 3px 7px -1px rgba(255, 116, 24, 0.625), inset -
     position: absolute;
     width: 3px;
     height: 3px;
-    background: blue;
+        background: rgba(255, 255, 255, 0.625); // blue;
+        // background: blue;
     border: 1px solid white;
     border-radius: 50%;
     left: calc(5% + 1px);
@@ -123,7 +125,8 @@ $body-shadow: none; // inset 4px 3px 7px -1px rgba(255, 116, 24, 0.625), inset -
 .x-body-part {
     border: $border;
     transform-origin: 5% 50%;
-    background: $metalBgPrimary;
+        background: rgba(255, 255, 255, 0.625); // $metalBgPrimary;
+        // background: $metalBgPrimary;
     box-shadow: $metalShadowPrimary;
 
   &.x-abdomen {
@@ -144,7 +147,8 @@ $body-shadow: none; // inset 4px 3px 7px -1px rgba(255, 116, 24, 0.625), inset -
       width: 100%;
       height: 100%;
       border-radius: inherit;
-      background: $metalBgPrimary;
+            background: rgba(255, 255, 255, 0.625); // $metalBgPrimary;
+            // background: $metalBgPrimary;
       // background-image: radial-gradient(circle at 45% 135%,
       //   transparent 5%,
       //   #a0400060 7.5%,
@@ -275,6 +279,7 @@ $body-shadow: none; // inset 4px 3px 7px -1px rgba(255, 116, 24, 0.625), inset -
     }
 
     .x-eye {
+      opacity: 0;
       z-index: 5;
       right: -5.5%;
       top: -10.5%;
@@ -321,7 +326,8 @@ $body-shadow: none; // inset 4px 3px 7px -1px rgba(255, 116, 24, 0.625), inset -
     }
 
     .x-coxa-pattern {
-      background: $primary-c4; // $cephalo-color;
+            background: rgba(255, 255, 255, 0.625); // $primary-c4; // $cephalo-color;
+            // background: $primary-c4; // $cephalo-color;
       display: inline-block;
       left: 48%;
       top: 0;
@@ -404,7 +410,8 @@ $body-shadow: none; // inset 4px 3px 7px -1px rgba(255, 116, 24, 0.625), inset -
         height: 23%;
         border-radius: 0 0 0.5em 100%;
         transform: rotate(8deg);
-        background: $metalBgSecondary;
+                background: rgba(255, 255, 255, 0.625); // $metalBgSecondary;
+                // background: $metalBgSecondary;
         border: $border;
         // box-shadow: 2px 2px 7px -1px rgba(255, 93, 18, 0.75), $body-shadow;
       }
@@ -420,7 +427,8 @@ $body-shadow: none; // inset 4px 3px 7px -1px rgba(255, 116, 24, 0.625), inset -
     transform: rotate(60deg);
     border-radius: 30% 70% 10% 0%;
 
-    background: $primary-c4; // $primary-c5; // $primary-c7 !important;
+        background: rgba(255, 255, 255, 0.625); // $primary-c4; // $primary-c5; // $primary-c7 !important;
+        // background: $primary-c4; // $primary-c5; // $primary-c7 !important;
   //   background-image: radial-gradient(circle at 55% 120%,
   //     transparent 5%,
   //     #a0400040 7.5%,
@@ -480,7 +488,8 @@ $body-shadow: none; // inset 4px 3px 7px -1px rgba(255, 116, 24, 0.625), inset -
     }
 
     .x-fang {
-      background: $fang-color;
+            background: rgba(255, 255, 255, 0.625); // $fang-color;
+            // background: $fang-color;
       border-radius: 20% 250% 0 2em;
       width: calc(35.5% + 2px);
       height: calc(10.5% + 2px);
@@ -550,7 +559,8 @@ $body-shadow: none; // inset 4px 3px 7px -1px rgba(255, 116, 24, 0.625), inset -
           top: 0;
           width: 100%;
           height: 100%;
-          background: #000735;
+                    background: rgba(255, 255, 255, 0.625); // #000735;
+                    // background: #000735;
           box-sizing: border-box;
           border-radius: inherit;
           border-bottom: none;
@@ -647,7 +657,8 @@ $body-shadow: none; // inset 4px 3px 7px -1px rgba(255, 116, 24, 0.625), inset -
 
   .x-leg-parts,
   .x-spinnerets-parts {
-    background: $leg-color;
+        background: rgba(255, 255, 255, 0.625); // $leg-color;
+        // background: $leg-color;
     border: $border;
     border-radius: 50% 60% 45% 1.75em;
     // box-shadow: 1px -1px 7px 1px rgba(255, 93, 18, 0.5), 0 0 7px black, $body-shadow;
@@ -659,7 +670,8 @@ $body-shadow: none; // inset 4px 3px 7px -1px rgba(255, 116, 24, 0.625), inset -
     border-bottom: none;
 
     &::before {
-      background: $leg-color;
+            background: rgba(255, 255, 255, 0.625); // $leg-color;
+            // background: $leg-color;
       border: $border;
       box-shadow: $body-shadow !important;
 
@@ -719,10 +731,12 @@ $body-shadow: none; // inset 4px 3px 7px -1px rgba(255, 116, 24, 0.625), inset -
     width: calc(30% + 2px);
     border-radius: 50% 30% 50% 60%;
     // box-shadow: 0 -5px 10px -1px rgba(0, 0, 0, 0.75);
-    background: $leg-color !important;
+        background: rgba(255, 255, 255, 0.625); // $leg-color !important;
+        // background: $leg-color !important;
 
     &:before {
-      background: $leg-color !important;
+            background: rgba(255, 255, 255, 0.625); // $leg-color !important;
+            // background: $leg-color !important;
     }
 
     &::after {
@@ -780,7 +794,8 @@ $body-shadow: none; // inset 4px 3px 7px -1px rgba(255, 116, 24, 0.625), inset -
   }
 
   .x-tibia {
-    background: $tibia-color;
+        background: rgba(255, 255, 255, 0.625); // $tibia-color;
+        // background: $tibia-color;
     height: calc(100% + 2px);
     top: 2.5%;
     left: 80%;
@@ -974,8 +989,8 @@ $body-shadow: none; // inset 4px 3px 7px -1px rgba(255, 116, 24, 0.625), inset -
   .x-pedipalp {
     left: 92%;
     top: 55%;
-    transform: rotate(-12deg - 1.52 * $body-angle + 0deg);
-    width: calc(10.14em + 2px);
+    transform: rotate(-17deg - 1.52 * $body-angle + 0deg);
+    width: calc(12.14em + 2px);
     height: calc(2.58em + 2px);
     z-index: 5;
 
@@ -1009,10 +1024,10 @@ $body-shadow: none; // inset 4px 3px 7px -1px rgba(255, 116, 24, 0.625), inset -
     }
 
     &.pedipalp-2 {
-      width: calc(10.04em + 2px) !important;
+      width: calc(12.04em + 2px) !important;
       height: calc(2.56em + 2px) !important;
       left: 100%;
-      transform: rotate(-10deg - 1.95 * $body-angle + 0deg);
+      transform: rotate(-17deg - 1.95 * $body-angle + 0deg);
   
       .x-femur {
         transform: rotate(-22.5deg);

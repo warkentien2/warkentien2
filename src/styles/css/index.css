@@ -18,14 +18,17 @@
 .main-header {
   width: 100vw;
   overflow: scroll;
-  background: #333;
+  background: rgba(0, 0, 20, 0.5);
   display: flex;
   justify-content: space-between;
   align-items: center;
   overflow-x: hidden;
+  position: fixed;
+  z-index: 1;
 }
 .main-header .brand {
   text-decoration: none;
+  white-space: nowrap;
   color: #fff;
   margin: 10px 20px;
 }
@@ -42,7 +45,7 @@
 }
 
 .hero {
-  background: #555;
+  background: #190f2e;
   height: 90vh;
   overflow-x: hidden;
 }
@@ -62,6 +65,11 @@
   left: 0;
   top: 50%;
   transform: translateY(-50%);
+}
+@media screen and (max-width: 700px) {
+  .hero__title {
+    top: 35%;
+  }
 }
 .hero__title span {
   font-size: 6.25vmax;
@@ -120,20 +128,21 @@
 }
 
 .tarantula-wrapper {
-  position: relative;
+  position: absolute;
   width: 53.52vw;
   height: 40vw;
-  left: 85%;
-  top: 22.5vw;
+  left: 30%;
+  top: auto;
+  bottom: 15%;
   font-size: 0.78vw;
   box-sizing: border-box;
-  transform-origin: 0 100%;
+  transform-origin: 100% 0;
   z-index: 1;
 }
 .tarantula-wrapper.tarantula-wrapper--mobile {
-  top: 35vh;
-  left: 85%;
-  font-size: 1.25vw;
+  top: 75%;
+  left: 7.5%;
+  font-size: 1.5vw;
 }
 
 .tarantula {
@@ -164,7 +173,7 @@
   position: absolute;
   width: 3px;
   height: 3px;
-  background: blue;
+  background: rgba(255, 255, 255, 0.625);
   border: 1px solid white;
   border-radius: 50%;
   left: calc(5% + 1px);
@@ -180,7 +189,7 @@
 .x-body-part {
   border: 1px dashed white;
   transform-origin: 5% 50%;
-  background: #3c546d;
+  background: rgba(255, 255, 255, 0.625);
   box-shadow: none;
 }
 .x-body-part.x-abdomen {
@@ -201,7 +210,7 @@
   width: 100%;
   height: 100%;
   border-radius: inherit;
-  background: #3c546d;
+  background: rgba(255, 255, 255, 0.625);
   z-index: 2;
 }
 .x-body-part.x-abdomen::after {
@@ -246,6 +255,7 @@
   opacity: 1;
 }
 .x-body-part.x-cephalothorax .x-eye {
+  opacity: 0;
   z-index: 5;
   right: -5.5%;
   top: -10.5%;
@@ -283,7 +293,7 @@
   transform: rotate(25deg);
 }
 .x-body-part.x-cephalothorax .x-coxa-pattern {
-  background: #181834;
+  background: rgba(255, 255, 255, 0.625);
   display: inline-block;
   left: 48%;
   top: 0;
@@ -352,7 +362,7 @@
   height: 23%;
   border-radius: 0 0 0.5em 100%;
   transform: rotate(8deg);
-  background: #8c8a8a;
+  background: rgba(255, 255, 255, 0.625);
   border: 1px dashed white;
 }
 .x-body-part.x-chelicerae {
@@ -363,7 +373,7 @@
   transform-origin: 25% 50%;
   transform: rotate(60deg);
   border-radius: 30% 70% 10% 0%;
-  background: #181834;
+  background: rgba(255, 255, 255, 0.625);
   border: 1px dashed white;
   border-bottom: none;
 }
@@ -377,7 +387,7 @@
   bottom: -7%;
 }
 .x-body-part.x-chelicerae .x-fang {
-  background: #050505;
+  background: rgba(255, 255, 255, 0.625);
   border-radius: 20% 250% 0 2em;
   width: calc(35.5% + 2px);
   height: calc(10.5% + 2px);
@@ -433,7 +443,7 @@
   top: 0;
   width: 100%;
   height: 100%;
-  background: #000735;
+  background: rgba(255, 255, 255, 0.625);
   box-sizing: border-box;
   border-radius: inherit;
   border-bottom: none;
@@ -483,7 +493,7 @@
 }
 .x-body-part .x-leg-parts,
 .x-body-part .x-spinnerets-parts {
-  background: #030c14;
+  background: rgba(255, 255, 255, 0.625);
   border: 1px dashed white;
   border-radius: 50% 60% 45% 1.75em;
   height: calc(97.5% + 2px);
@@ -495,7 +505,7 @@
 }
 .x-body-part .x-leg-parts::before,
 .x-body-part .x-spinnerets-parts::before {
-  background: #030c14;
+  background: rgba(255, 255, 255, 0.625);
   border: 1px dashed white;
   box-shadow: none !important;
   box-sizing: content-box;
@@ -520,10 +530,10 @@
   top: 0;
   width: calc(30% + 2px);
   border-radius: 50% 30% 50% 60%;
-  background: #030c14 !important;
+  background: rgba(255, 255, 255, 0.625);
 }
 .x-body-part .x-coxa:before {
-  background: #030c14 !important;
+  background: rgba(255, 255, 255, 0.625);
 }
 .x-body-part .x-femur {
   height: calc(100% + 2px);
@@ -539,7 +549,7 @@
   width: calc(45% + 2px);
 }
 .x-body-part .x-tibia {
-  background: #030c14;
+  background: rgba(255, 255, 255, 0.625);
   height: calc(100% + 2px);
   top: 2.5%;
   left: 80%;
@@ -705,8 +715,8 @@
 .x-body-part .x-pedipalp {
   left: 92%;
   top: 55%;
-  transform: rotate(-12deg);
-  width: calc(10.14em + 2px);
+  transform: rotate(-17deg);
+  width: calc(12.14em + 2px);
   height: calc(2.58em + 2px);
   z-index: 5;
 }
@@ -734,10 +744,10 @@
   border-radius: 1em 50% 80% 30%;
 }
 .x-body-part .x-pedipalp.pedipalp-2 {
-  width: calc(10.04em + 2px) !important;
+  width: calc(12.04em + 2px) !important;
   height: calc(2.56em + 2px) !important;
   left: 100%;
-  transform: rotate(-10deg);
+  transform: rotate(-17deg);
 }
 .x-body-part .x-pedipalp.pedipalp-2 .x-femur {
   transform: rotate(-22.5deg);
