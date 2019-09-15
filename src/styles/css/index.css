@@ -26,12 +26,6 @@
   position: fixed;
   z-index: 1;
 }
-.main-header .brand {
-  text-decoration: none;
-  white-space: nowrap;
-  color: #fff;
-  margin: 10px 20px;
-}
 .main-header .navbar {
   list-style: none;
   color: #fff;
@@ -48,6 +42,11 @@
   background: #190f2e;
   height: 90vh;
   overflow-x: hidden;
+}
+.hero .brand {
+  text-decoration: none;
+  white-space: nowrap;
+  color: #fff;
 }
 .hero::before {
   position: absolute;
@@ -180,10 +179,6 @@
   opacity: 0.5;
   top: calc(50% + 1px);
   transform: translate(-50%, -50%);
-}
-.x-body::after {
-  top: 32%;
-  left: 10.5%;
 }
 
 .x-body-part {
