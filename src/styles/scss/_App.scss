@@ -27,7 +27,7 @@ $highlighted: #3500d3;
   align-items: center;
   position: fixed;
   z-index: 10;
-  padding-bottom: 0.25em;
+  padding-bottom: 0.75em;
 
   .navbar {
     list-style: none;
@@ -53,9 +53,11 @@ $highlighted: #3500d3;
 }
 
 .section {
+  $shadowUnit: 0.25vh;
+
   position: relative;
   min-height: 50vh;
-  box-shadow: 0 1.5vh 0.5vh #242424;
+  box-shadow: 0 3 * $shadowUnit 4 * $shadowUnit rgba(0, 0, 0, 0.25);
   z-index: 1;
 
   &::before {
@@ -68,7 +70,7 @@ $highlighted: #3500d3;
     bottom: $size / -1.25;
     background: $bgArrow;
     transform: rotateX(60deg) rotateZ(45deg);
-    box-shadow: 2.5vh 2.5vh 1vh #242424;
+    box-shadow: 4 * $shadowUnit 4 * $shadowUnit 7 * $shadowUnit rgba(0, 0, 0, 0.25);
     z-index: -2;
   }
 
@@ -96,7 +98,7 @@ $highlighted: #3500d3;
       bottom: $size / -1.25;
       background: $bgArrow;
       transform: rotateX(60deg) rotateZ(45deg);
-      box-shadow: 2vh 2vh 1vh #242424;
+      box-shadow: 2vh 2vh 1vh #222;
     }
   }
 }

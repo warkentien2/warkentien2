@@ -407,9 +407,9 @@ function Tarantula({isMobile}) {
 
     completeTl.addLabel('enter')
       .to(walkMidStanceTl, 11, { progress: 1, ease: Power1.easeOut }, 'enter')
-      .to(attackStanceTl, 2, { progress: 1, ease: Power2.easeIn }, 'enter+=11')
-      .to(info.current, 1, { autoAlpha: 1, ease: Power2.easeInOut }, 'enter+=13.5')
-      .to(moveLegsTl, 0.25, { progress: 1, repeat: -1, repeatDelay: 10, ease: Power2.easeInOut }, 'enter+=13.5')
+      .to(attackStanceTl, 2.25, { progress: 1, ease: Power2.easeInOut }, 'enter+=11')
+      .to(info.current, 1, { autoAlpha: 1, ease: Power2.easeInOut }, 'enter+=13.75')
+      .to(moveLegsTl, 0.25, { progress: 1, repeat: -1, repeatDelay: 10, ease: Power2.easeInOut }, 'enter+=15.25')
     ;
 
     completeTl.play(0)
