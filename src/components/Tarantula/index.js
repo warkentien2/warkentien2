@@ -516,10 +516,6 @@ function Tarantula({isMobile}) {
             <div className="x-coxa-pattern x-cp3"></div>
             <div className="x-coxa-pattern x-cp4"></div>
             <div className="x-coxa-pattern x-cp5"></div>
-            <div className="x-eye x-eye1"></div>
-            <div className="x-eye x-eye2"></div>
-            <div className="x-eye x-eye3"></div>
-            <div className="x-eye x-eye4"></div>
 
             <div ref={pedipalpA} id="pedipalpA" className="x-leg x-pedipalp pedipalp-1">
               <div className="x-leg-parts x-coxa">

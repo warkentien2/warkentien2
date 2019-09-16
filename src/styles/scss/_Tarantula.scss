@@ -139,53 +139,6 @@ $body-angle: 0;
       opacity: 1;
     }
 
-    .x-eye {
-      opacity: 0;
-      z-index: 5;
-      right: -5.5%;
-      top: -10.5%;
-      width: calc(0.9em + 2px);
-      height: calc(0.75em + 2px);
-      border-radius: 50% 50% 45% 45%;
-      transform: rotate(30deg);
-      background-image: radial-gradient(
-        circle at 68% 45%, #fff 2%, #899ac0 5%, rgba(101, 70, 145, 0.25) 15%, transparent 20%
-      ), radial-gradient(
-        circle at 60% 30%, #fff 4%, #8799c0 10%, #434b96 20%, #332c68 30%, #000 50%
-      );
-      box-shadow: inset 1px -1px 4px 0 #001, inset 1px -1px 2px -1px rgba(123, 112, 141, 0.5), -1px 2px 7px rgba(42, 48, 58, 0.5), 0 0 2px #b2d2fd;
-          
-      &::after {
-        content: none;
-      }
-    }
-
-    .x-eye2 {
-      right: 0.5%;
-      top: -3.5%;
-      width: calc(0.75em + 2px);
-      height: calc(0.75em + 2px);
-      border-radius: 50%;
-    }
-
-    .x-eye3 {
-      right: -3.5%;
-      top: 3%;
-      width: calc(0.3em + 2px);
-      height: calc(0.3em + 2px);
-      border-radius: 50%;
-      transform: rotate(35deg);
-    }
-
-    .x-eye4 {
-      right: -7.5%;
-      top: 0.5%;
-      width: calc(0.25em + 2px);
-      height: calc(0.25em + 2px);
-      border-radius: 50%;
-      transform: rotate(25deg);
-    }
-
     .x-coxa-pattern {
       background: rgba(255, 255, 255, 0.625);
       display: inline-block;
