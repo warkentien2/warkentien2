@@ -39,17 +39,31 @@ function App() {
           </React.Suspense>
         </section>
         <section id="animation" className="section section--second">
-          
+          <div className="container">
+            <h2>About</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure 
+              dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non 
+              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          </div>
         </section>
         <section id="projects" className="section section--third">
-          
+          <div className="container">
+            <h2>Subtitle</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure 
+              dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non 
+              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          </div>
         </section>
         <footer id="contact" className="footer">
-          <div>
-            <a href="https://www.linkedin.com/in/warkentien2/" target="_blank" className="ml-1 mr-1 rt-3"><i className="fab fa-linkedin-in"></i></a>
-            <a href="https://codepen.io/warkentien2/" target="_blank" className="ml-1 mr-1 rt-3"><i className="fab fa-codepen"></i></a>
-            <a href="https://stackoverflow.com/users/4714084/warkentien2?tab=profile" target="_blank" className="ml-1 mr-1 rt-3"><i className="fab fa-stack-overflow"></i></a>
-            <a href="https://www.deviantart.com/warkentien2/gallery/" target="_blank" className="ml-1 mr-1 rt-3"><i className="fab fa-deviantart"></i></a>
+          <div className="container">     
+            <div>
+              <a href="https://www.linkedin.com/in/warkentien2/" target="_blank" className="ml-1 mr-1 rt-3"><i className="fab fa-linkedin-in"></i></a>
+              <a href="https://codepen.io/warkentien2/" target="_blank" className="ml-1 mr-1 rt-3"><i className="fab fa-codepen"></i></a>
+              <a href="https://stackoverflow.com/users/4714084/warkentien2?tab=profile" target="_blank" className="ml-1 mr-1 rt-3"><i className="fab fa-stack-overflow"></i></a>
+              <a href="https://www.deviantart.com/warkentien2/gallery/" target="_blank" className="ml-1 mr-1 rt-3"><i className="fab fa-deviantart"></i></a>
+            </div>
           </div>
         </footer>
       </main>

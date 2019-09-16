@@ -4,7 +4,16 @@
   width: 100%;
   min-height: 100vh;
   background: white;
-  font-family: Oswald, sans-serif;
+  font-family: Montserrat, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Oswald, Helvetica, sans-serif;
 }
 
 .main {
@@ -44,20 +53,27 @@
 
 .section {
   position: relative;
-  min-height: 50vh;
-  box-shadow: 0 0.75vh 1vh rgba(0, 0, 0, 0.25);
-  z-index: 1;
+  min-height: 80vh;
+  box-shadow: 0 0.75vh 1vh rgba(0, 0, 0, 0.375);
+  color: #fff;
+  z-index: 4;
+}
+.section h2 {
+  font-size: 2em;
+}
+.section p {
+  line-height: 1.6em;
 }
 .section::before {
   position: absolute;
   content: "";
-  width: 10vw;
-  height: 10vw;
-  left: 45vw;
-  bottom: -4vw;
+  width: 8vw;
+  height: 8vw;
+  left: 46vw;
+  bottom: -3.8vw;
   background: #0c0032;
   transform: rotateX(60deg) rotateZ(45deg);
-  box-shadow: 1vh 1vh 1.75vh rgba(0, 0, 0, 0.25);
+  box-shadow: 1vh 1vh 1.75vh rgba(0, 0, 0, 0.375);
   z-index: -2;
 }
 .section::after {
@@ -71,25 +87,17 @@
   z-index: -1;
 }
 @media screen and (max-aspect-ratio: 100/101) {
-  .section {
-    height: 80vh;
-  }
   .section::before {
-    position: absolute;
-    content: "";
     width: 40vw;
     height: 40vw;
     left: 30vw;
-    bottom: -16vw;
-    background: #0c0032;
-    transform: rotateX(60deg) rotateZ(45deg);
-    box-shadow: 2vh 2vh 1vh #222;
+    bottom: -19vw;
   }
 }
 
 .hero {
   height: 85vh;
-  z-index: 2;
+  z-index: 4;
 }
 @media screen and (max-aspect-ratio: 100/101) {
   .hero {
@@ -221,24 +229,52 @@
   color: #3500d3;
 }
 
-.section--second::before, .section--second::after {
+.section--second {
   background: #282828;
+  z-index: 3;
+  box-shadow: inset 0 -0.75vh 1vh rgba(0, 0, 0, 0.25) !important;
+}
+.section--second::before {
+  background: #282828;
+  box-shadow: inset -1vh -1vh 1.75vh rgba(0, 0, 0, 0.25) !important;
+}
+.section--second::after {
+  background: none;
+}
+
+.section--third {
+  z-index: 2;
+}
+.section--third::after {
+  background: linear-gradient(0deg, #190061 5%, #0c0032 100%);
+}
+.section--third::before {
+  background: #190061;
 }
 
 .footer {
   position: relative;
   min-height: 20vh;
+  background: #C9C8D0;
+  z-index: 1;
 }
 
 .handwritten {
   font-family: "Nanum Pen Script", cursive;
 }
 
+.container {
+  margin: 0 auto;
+  padding: 4em 0;
+  width: 86%;
+  max-width: 980px;
+}
+
 .tarantula-wrapper {
   position: absolute;
   width: 90vh;
   height: 90vh;
-  left: calc(100vw - 100vh);
+  left: calc(100vw - 95vh);
   top: auto;
   bottom: -21vh;
   font-size: 1.08vh;
@@ -250,7 +286,7 @@
 .tarantula-wrapper .tarantula__info {
   position: absolute;
   top: 35%;
-  right: 5%;
+  right: 10%;
   font-size: 3.5em;
   text-align: center;
   opacity: 0.75;
@@ -271,8 +307,7 @@
   width: 100%;
   height: 100%;
   color: #fff !important;
-  font-size: 5em;
-  text-transform: uppercase;
+  font-size: 3.5em;
 }
 .tarantula-wrapper .tarantula__wait span {
   position: absolute;

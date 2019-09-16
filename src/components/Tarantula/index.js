@@ -309,7 +309,7 @@ function Tarantula({isMobile}) {
       .set(wait.current, { autoAlpha: 0 }, 'setup')
       
       .addLabel('motion-1', 'setup+=0.01')
-      .to(wait.current, 1.5, { yoyo: true, yoyoEase: true, repeat: 3, ease: Power1.easeIn, autoAlpha: 0.25 }, 'motion-1')
+      .to(wait.current, 1.5, { yoyo: true, yoyoEase: true, repeat: 3, ease: Power1.easeIn, autoAlpha: 0.5 }, 'motion-1')
       .to(tarantulaWrapper.current, 0.5, { autoAlpha: 1, ease: Power2.easeIn }, 'motion-1')
 
       // walk cycle

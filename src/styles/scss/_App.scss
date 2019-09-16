@@ -8,7 +8,16 @@ $highlighted: #3500d3;
   width: 100%;
   min-height: 100vh;
   background: white;
-  font-family: Oswald, sans-serif;
+  font-family: Montserrat, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Oswald, Helvetica, sans-serif;
 }
 
 .main {
@@ -55,22 +64,31 @@ $highlighted: #3500d3;
 .section {
   $shadowUnit: 0.25vh;
 
+  h2 {
+    font-size: 2em;
+  }
+
+  p {
+    line-height: 1.6em;
+  }
+  
   position: relative;
-  min-height: 50vh;
-  box-shadow: 0 3 * $shadowUnit 4 * $shadowUnit rgba(0, 0, 0, 0.25);
-  z-index: 1;
+  min-height: 80vh;
+  box-shadow: 0 3 * $shadowUnit 4 * $shadowUnit rgba(0, 0, 0, 0.375);
+  color: #fff;
+  z-index: 4;
 
   &::before {
-    $size: 5vw;
+    $size: 4vw;
     position: absolute;
     content: '';
     width: 2 * $size;
     height: 2 * $size;
     left: 50vw - $size;
-    bottom: $size / -1.25;
+    bottom: $size * -0.95;
     background: $bgArrow;
     transform: rotateX(60deg) rotateZ(45deg);
-    box-shadow: 4 * $shadowUnit 4 * $shadowUnit 7 * $shadowUnit rgba(0, 0, 0, 0.25);
+    box-shadow: 4 * $shadowUnit 4 * $shadowUnit 7 * $shadowUnit rgba(0, 0, 0, 0.375);
     z-index: -2;
   }
 
@@ -86,19 +104,12 @@ $highlighted: #3500d3;
   }
 
   @media screen and (max-aspect-ratio: 100/101) {
-    height: 80vh;
-
     &::before {
       $size: 20vw;
-      position: absolute;
-      content: '';
       width: 2 * $size;
       height: 2 * $size;
       left: 50vw - $size;
-      bottom: $size / -1.25;
-      background: $bgArrow;
-      transform: rotateX(60deg) rotateZ(45deg);
-      box-shadow: 2vh 2vh 1vh #222;
+      bottom: $size * -0.95;
     }
   }
 }
@@ -106,7 +117,7 @@ $highlighted: #3500d3;
 .hero {
   $color: #fff;
   height: 85vh;
-  z-index: 2;
+  z-index: 4;
 
   @media screen and (max-aspect-ratio: 100/101) {
     height: 80vh;
@@ -239,18 +250,48 @@ $highlighted: #3500d3;
 
 .section--second {
   $bg: #282828;
+  $shadowUnit: 0.25vh;
+  background: $bg;
+  z-index: 3;
 
-  &::before,
-  &::after {
+  box-shadow: inset 0 -3 * $shadowUnit 4 * $shadowUnit rgba(0, 0, 0, 0.25) !important;
+  
+  &::before {
     background: $bg;
+    box-shadow: inset -4 * $shadowUnit -4 * $shadowUnit 7 * $shadowUnit rgba(0, 0, 0, 0.25) !important;
+  }
+  
+  &::after {
+    background: none;
+  }
+}
+
+.section--third {
+  z-index: 2;
+
+  &::after {
+    background: linear-gradient(0deg, #190061 5%, #0c0032 100%);
+  }
+
+  &::before {
+    background: #190061;
   }
 }
 
 .footer {
   position: relative;
   min-height: 20vh;
+  background: #C9C8D0;
+  z-index: 1;
 }
 
 .handwritten {
   font-family: 'Nanum Pen Script', cursive;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 4em 0;
+  width: 86%;
+  max-width: 980px;
 }
