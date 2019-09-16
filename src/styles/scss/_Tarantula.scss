@@ -8,19 +8,93 @@ $body-angle: 0;
   height: 90vh;
   left: calc(100vw - 100vh);
   top: auto;
-  bottom: -13.5vh;
+  bottom: -21vh;
   font-size: 1.08vh;
   box-sizing: border-box;
   transform-origin: 0 100%;
   z-index: 1;
   visibility: hidden;
+  
+  .tarantula__info {
+    position: absolute;
+    top: 35%;
+    right: 5%;
+    font-size: 3.5em;
+    text-align: center;
+    opacity: 0.75;
+    
+    &__description {
+      color: #fff;
+      transform: rotate(30deg);
+    }
+
+    &__arrow {
+      position: absolute;
+      width: 1.5em;
+      height: 1.5em;
+      right: 59%;
+      top: 73%;
+    }
+  }
+
+  .tarantula__wait {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    color: #fff !important;
+    font-size: 5em;
+    text-transform: uppercase;
+    
+    span {
+      position: absolute;
+      left: 40%;
+      top: 50%;
+      visibility: hidden;
+      opacity: 0;
+    }
+  }
 
   &.tarantula-wrapper--mobile {
-    top: calc(100vh - 185vw);
+    top: calc(100vh - 205vw);
     left: -12.5vw;
     font-size: 1.2vw;
     width: 100vw;
     height: 100vw;
+
+    .tarantula__info {
+      top: -16%;
+      right: 10%;
+      font-size: 5.5em;
+
+      &__description {
+        transform: rotate(-130deg);
+      }
+
+      &__arrow {
+        right: 80%;
+        transform: rotateY(180deg) rotateZ(-90deg);
+        top: 45%;
+      }
+    }
+
+    .tarantula__wait {
+      transform: rotate(-90deg);
+    }
+
+    @media screen and (min-aspect-ratio: 30/41) and (max-aspect-ratio: 100/101) {
+      top: calc(100vh - 190vw);
+
+      .tarantula__info {
+        font-size: 4em;
+        top: -14%;
+        right: 20%;
+
+        &__arrow {
+          right: 69%;
+          top: 63%;
+        }
+      }
+    }
   }
 }
 

@@ -273,6 +273,8 @@ function Tarantula({isMobile}) {
   const spinneretA = useRef(null)
   const spinneretB = useRef(null)
   const abdomen = useRef(null)
+  const info = useRef(null)
+  const wait = useRef(null)
   const bodyParts = [body, abdomen, legA1, legA2, legA3, legA4, legB1, legB2, legB3, legB4, pedipalpA, pedipalpB, cheliceraeA, cheliceraeB];
   const walkMidStanceTl = new TimelineMax({ paused: true })
   const attackStanceTl = new TimelineMax({ paused: true })
@@ -292,6 +294,7 @@ function Tarantula({isMobile}) {
       .set(body.current, { xPercent: 0, yPercent: 0, rotation: 0 }, 'setup')
       .set(spinneretA.current, { rotation: -85 }, 'setup')
       .set(spinneretB.current, { rotation: -95 }, 'setup')
+      .set(info.current, { autoAlpha: 0 }, 'setup')
       .add(animateLegA1.step(legA1, 0), 'setup')
       .add(animateLegA2.move(legA2, 0.01), 'setup')
       .add(animateLegA3.step(legA3, 0.01), 'setup')
@@ -303,8 +306,10 @@ function Tarantula({isMobile}) {
       .add(animateLegB4.step(legB4, 0), 'setup')
       .add(animatePedipalpB.move(pedipalpB, 0), 'setup')
       .set(tarantula.current, { xPercent: (-16 * 26) }, 'setup')
-
+      .set(wait.current, { autoAlpha: 0 }, 'setup')
+      
       .addLabel('motion-1', 'setup+=0.01')
+      .to(wait.current, 1.5, { yoyo: true, yoyoEase: true, repeat: 3, ease: Power1.easeIn, autoAlpha: 0.25 }, 'motion-1')
       .to(tarantulaWrapper.current, 0.5, { autoAlpha: 1, ease: Power2.easeIn }, 'motion-1')
 
       // walk cycle
@@ -403,7 +408,8 @@ function Tarantula({isMobile}) {
     completeTl.addLabel('enter')
       .to(walkMidStanceTl, 11, { progress: 1, ease: Power1.easeOut }, 'enter')
       .to(attackStanceTl, 2, { progress: 1, ease: Power2.easeIn }, 'enter+=11')
-      .to(moveLegsTl, 0.25, { progress: 1, repeat: -1, repeatDelay: 10, ease: Power2.easeInOut }, 'enter+=12.5')
+      .to(info.current, 1, { autoAlpha: 1, ease: Power2.easeInOut }, 'enter+=13.5')
+      .to(moveLegsTl, 0.25, { progress: 1, repeat: -1, repeatDelay: 10, ease: Power2.easeInOut }, 'enter+=13.5')
     ;
 
     completeTl.play(0)
@@ -581,6 +587,15 @@ function Tarantula({isMobile}) {
           </div>
         </div>
       </div>
+      <p ref={info} className="tarantula__info handwritten">
+        <p className="tarantula__info__description">made with HTML5,<br />CSS and GSAP</p>
+        <svg className="tarantula__info__arrow" viewBox="0 0 52 34" fill="none">
+          <path d="M46.4576 1.32037C43.3078 10.8531 30.4555 28.15 4.24456 21.0754M4.24456 21.0754L14.3471 14.5008M4.24456 21.0754L11.7735 31.8898" stroke="white" stroke-width="3"/>
+        </svg>
+      </p>
+      <p className="tarantula__wait">
+        <span ref={wait}>loading...</span>
+      </p>
     </div>
   )
 }

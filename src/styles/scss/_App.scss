@@ -1,35 +1,33 @@
+$bg: linear-gradient(0deg, #0c0032 5%, black 100%);
+$bgArrow: #0c0032;
+$highlighted: #3500d3;
+
 .App {
   position: absolute;
   top: 0;
   width: 100%;
   min-height: 100vh;
-  background: #ddd;
+  background: white;
   font-family: Oswald, sans-serif;
 }
 
 .main {
-  overflow: visible;
-  z-index: 1;
-  
-  section {
-    position: relative;
-  }
+  position: relative;
+  overflow-x: hidden;
 }
 
 .main-header {
   $color: #fff;
-  $bg: rgba(0, 0, 20, 0.5);
+  $bg: linear-gradient(0deg, transparent 0%, black 57%);
   width: 100vw;
-  overflow: scroll;
-
+  overflow-x: hidden;
   background: $bg;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  overflow-x: hidden;
-
   position: fixed;
-  z-index: 1;
+  z-index: 10;
+  padding-bottom: 0.25em;
 
   .navbar {
     list-style: none;
@@ -41,24 +39,82 @@
 
     li {
       margin: 10px 20px;
+
+      a {
+        text-decoration: none;
+        color: #fff;
+
+        &:focus {
+          color: $highlighted;
+        }
+      }
+    }
+  }
+}
+
+.section {
+  position: relative;
+  min-height: 50vh;
+  box-shadow: 0 1.5vh 0.5vh #242424;
+  z-index: 1;
+
+  &::before {
+    $size: 5vw;
+    position: absolute;
+    content: '';
+    width: 2 * $size;
+    height: 2 * $size;
+    left: 50vw - $size;
+    bottom: $size / -1.25;
+    background: $bgArrow;
+    transform: rotateX(60deg) rotateZ(45deg);
+    box-shadow: 2.5vh 2.5vh 1vh #242424;
+    z-index: -2;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: $bg;
+    z-index: -1;
+  }
+
+  @media screen and (max-aspect-ratio: 100/101) {
+    height: 80vh;
+
+    &::before {
+      $size: 20vw;
+      position: absolute;
+      content: '';
+      width: 2 * $size;
+      height: 2 * $size;
+      left: 50vw - $size;
+      bottom: $size / -1.25;
+      background: $bgArrow;
+      transform: rotateX(60deg) rotateZ(45deg);
+      box-shadow: 2vh 2vh 1vh #242424;
     }
   }
 }
 
 .hero {
   $color: #fff;
-  $highlighted: yellow;
-  $bg: #190f2e;
+  height: 85vh;
+  z-index: 2;
+
+  @media screen and (max-aspect-ratio: 100/101) {
+    height: 80vh;
+  }
 
   .brand {
     text-decoration: none;
     white-space: nowrap;
     color: $color;
   }
-
-  background: $bg;
-  height: 90vh;
-  overflow-x: hidden;
 
   &__title {
     text-transform: uppercase;
@@ -73,7 +129,12 @@
     -moz-osx-font-smoothing: grayscale;
 
     @media screen and (max-aspect-ratio: 100/101) {
-      top: 42.5%;
+      top: 45%;
+      font-size: 11.5vmin;
+    }
+
+    @media screen and (min-aspect-ratio: 30/41) and (max-aspect-ratio: 100/101) {
+      font-size: 8vmin;
     }
 
     span {
@@ -106,6 +167,14 @@
 
       &--overflow {
         margin-left: -27vmin;
+
+        @media screen and (max-aspect-ratio: 100/101) {
+          margin-left: -24.75vmin;
+        }
+
+        @media screen and (min-aspect-ratio: 30/41) and (max-aspect-ratio: 100/101) {
+          margin-left: -17.25vmin;
+        }
       }
     }
 
@@ -114,6 +183,14 @@
 
       &--overflow {
         margin-right: -22.75vmin;
+
+        @media screen and (max-aspect-ratio: 100/101) {
+          margin-right: -21vmin;
+        }
+
+        @media screen and (min-aspect-ratio: 30/41) and (max-aspect-ratio: 100/101) {
+          margin-right: -14.5vmin;
+        }
       }
     }
 
@@ -122,11 +199,16 @@
 
       @media screen and (max-aspect-ratio: 100/101) {
         display: block;
-        width: 87%;
+        width: 80%;
         max-width: 100%;
         text-align: right;
         margin: 0;
-        padding: 0;
+        padding: 0 0 0 6.5%;
+      }
+      
+      @media screen and (min-aspect-ratio: 30/41) and (max-aspect-ratio: 100/101) {
+        width: 55.75%;
+        padding: 0 0 0 20.5%;
       }
     }
 
@@ -137,3 +219,20 @@
   }
 }
 
+.section--second {
+  $bg: #282828;
+
+  &::before,
+  &::after {
+    background: $bg;
+  }
+}
+
+.footer {
+  position: relative;
+  min-height: 20vh;
+}
+
+.handwritten {
+  font-family: 'Nanum Pen Script', cursive;
+}
