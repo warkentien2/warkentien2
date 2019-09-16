@@ -23,18 +23,16 @@ function App() {
       </header>
       <main className="main">
         <section id="home" className="hero" style={{ height: '100vh' }}>
-          <h1
-            className="hero__title"
-          >
-            <span tabindex="-1" className="block right">
-              <span className="block tiny right"><a className="brand hero__title--highlight" href="#home">Philip Warkentien II</a></span>
-              <span className="block right--overflow">Complex UI &</span>
+          <h1 className="hero__title">
+            <span tabIndex="-1" className="block right">
+              <span className="block font--tiny right"><a className="brand hero__title--highlight" href="#home">Philip Warkentien II</a></span>
+              <span className="block font--small right--overflow">Complex UI &</span>
             </span>
-            <span className="block left left--overflow">Complex UI &</span>
-            <span className="block left hero__title__block">
+            <span className="block font--small left left--overflow">Complex UI &</span>
+            <span className="block font--regular left hero__title__block">
               <span className="block right">animation-focused</span>
-              <span className="block right tiny">front-end <span className="hero__title--highlight">developer</span></span>
-              <span className="block right tiny">& <span className="hero__title--highlight">mentor</span></span>
+              <span className="block right font--tiny">front-end <span className="hero__title--highlight">developer</span></span>
+              <span className="block right font--tiny">& <span className="hero__title--highlight">mentor</span></span>
             </span>
           </h1>
           {isMobile ? <Tarantula isMobile={true} /> : <span />}

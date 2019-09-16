@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import tools from './tools'
 import { TimelineMax, TweenMax, Power1, Power2, Linear } from 'gsap'
 
@@ -361,7 +361,7 @@ function Tarantula({isMobile}) {
 
     attackStanceTl.addLabel('motion-3')
       .add(rotateBody(bodyParts, 0.375, -60, 30, true), 'motion-3')
-      .to(body.current, 0.375, { xPercent: 0, yPercent: 30, ease: Power1.easeIn }, 'motion-3')
+      .to(body.current, 0.375, { xPercent: 5, yPercent: 30, ease: Power1.easeIn }, 'motion-3')
       .to([spinneretA.current, spinneretB.current], 0.25, { rotation: -100, ease: Linear.easeNone }, 'motion-3')
       .add(animateLeg(legA1, 0.25, [-50, -122, tools.randomChoice([42, 47]), false, tools.randomChoice([10, 15, 26]), -15]), 'motion-3+=0.125')
       .add(animateLegA2.attackStance(legA2, 0.375), 'motion-3')
