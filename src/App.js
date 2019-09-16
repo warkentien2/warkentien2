@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import useWindowSize from './hooks/useWindowSize'
 import useScrollTop from "./hooks/useScrollTop"
+import Moth from './components/Moth'
 let Tarantula = React.lazy(() => import("./components/Tarantula"));
 
 function App() {
@@ -50,22 +51,23 @@ function App() {
               proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             <p><img className="responsive-image" src="./designers.png" alt="Design versus Development" /></p>
           </div>
+          <Moth bottomAnchorSection={mentoringSection} scrollTop={scroll.position} windowSize={windowSize} />
         </section>
         <section ref={mentoringSection} id="projects" className="section section--third">
           <div className="container">
             <h2>Mentoring</h2>
             <div className="row">
               <div className="col-sm-6 col-4">
-                <Statistics isMobile={isMobile} parentSection={mentoringSection} scrollTop={scroll.position} className="statistics-1" value={250} title="classroom students" />
+                <Statistics windowSize={windowSize} topAnchorSection={mentoringSection} scrollTop={scroll.position} className="statistics-1" value={250} title="classroom students" />
               </div>
               <div className="col-sm-6 col-4">
-                <Statistics isMobile={isMobile} parentSection={mentoringSection} scrollTop={scroll.position} large className="statistics-2" value={5000} title="project reviews" />
+                <Statistics windowSize={windowSize} topAnchorSection={mentoringSection} scrollTop={scroll.position} large className="statistics-2" value={5000} title="project reviews" />
               </div>
               <div className="col-sm-6 col-4">
-                <Statistics isMobile={isMobile} parentSection={mentoringSection} scrollTop={scroll.position} className="statistics-3" value={868} title="stackoverflow reputation" />
+                <Statistics windowSize={windowSize} topAnchorSection={mentoringSection} scrollTop={scroll.position} className="statistics-3" value={868} title="stackoverflow reputation" />
               </div>
               <div className="col-sm-6 col-12">
-                <Statistics isMobile={isMobile} parentSection={mentoringSection} scrollTop={scroll.position} className="statistics-4" value={14} title="peer onboarding" />
+                <Statistics windowSize={windowSize} topAnchorSection={mentoringSection} scrollTop={scroll.position} className="statistics-4" value={14} title="peer onboarding" />
               </div>
             </div>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
@@ -90,20 +92,27 @@ function App() {
   );
 }
 
-function Statistics({ isMobile, parentSection, scrollTop, className = '', value, title, large = false }) {
+function Statistics({ windowSize, topAnchorSection, scrollTop, className = '', value, title, large = false }) {
   const number = useRef(null)
   const [showValue, updateValue] = useState(0)
-  const multiplier = isMobile ? 4.5 : 3
+  const multiplier = (windowSize.width/windowSize.height <= 100/101) ? 7 : 4
   let thisOffsetTop = 1
 
   useEffect(() => {
-    thisOffsetTop = parentSection.current.offsetTop + number.current.getBoundingClientRect().top
+    thisOffsetTop = topAnchorSection.current.offsetTop + number.current.getBoundingClientRect().top
+    number.current.parentNode.style.transform = 'translateY(200%)'
+    number.current.parentNode.style.opacity = 0
   }, [])
   
   useEffect(() => {
-    if(Math.floor((scrollTop - parentSection.current.getBoundingClientRect().height / multiplier) / (thisOffsetTop * 1000) <= 1)) {
-      updateValue(Math.max(0, Math.floor((scrollTop - parentSection.current.getBoundingClientRect().height / multiplier) / (thisOffsetTop * 1000) * value)))
+    if(Math.floor((scrollTop - windowSize.height / multiplier) / (thisOffsetTop * 1000) <= 1)) {
+      const fraction = (scrollTop - windowSize.height / multiplier) / (thisOffsetTop * 1000)
+      number.current.parentNode.style.transform = `translateY(${((1 - fraction) * fraction * fraction) * 200}%)`
+      number.current.parentNode.style.opacity = Math.max(0, 1.5 * (fraction * fraction * fraction * fraction) - 0.5)
+      updateValue(Math.floor((fraction * fraction * fraction * fraction) * value))
     } else {
+      number.current.parentNode.style.transform = 'translateY(0)'
+      number.current.parentNode.style.opacity = 1
       updateValue(value);
     }
   }, [scrollTop])
