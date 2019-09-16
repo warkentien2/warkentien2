@@ -54,6 +54,14 @@ $body-angle: 0;
     }
   }
 
+  @media screen and (max-aspect-ratio: 41/30) and (min-aspect-ratio: 101/100) {
+    left: calc(100vw - 85vh);
+
+    .tarantula__info {
+      right: 12%;
+    }
+  }
+
   &.tarantula-wrapper--mobile {
     top: calc(100vh - 205vw);
     left: -12.5vw;
