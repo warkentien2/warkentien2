@@ -16,6 +16,10 @@ h6 {
   font-family: Oswald, Helvetica, sans-serif;
 }
 
+.highlight {
+  color: #3500d3;
+}
+
 .main {
   position: relative;
   overflow-x: hidden;
@@ -276,12 +280,85 @@ h6 {
 .container {
   margin: 0 auto;
   padding: 2.5em 0 4em;
-  width: 86%;
-  max-width: 980px;
+  width: 92%;
+  max-width: 1200px;
 }
 @media screen and (max-aspect-ratio: 100/101) {
   .container {
     padding: 4em 0 6em;
+  }
+}
+.container p,
+.container h1,
+.container h2,
+.container h3,
+.container h4,
+.container h5,
+.container h6 {
+  width: 90%;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 2.8em;
+}
+.container p {
+  line-height: 2.1em;
+  margin: 1.4em auto;
+}
+.container .art-direction {
+  position: relative;
+  margin: 0;
+  width: 100%;
+  overflow: hidden;
+  background: black;
+  padding: 0.5em 0;
+  box-sizing: border-box;
+}
+.container .art-direction img {
+  position: relative;
+  width: 100%;
+}
+.container .art-direction figcaption {
+  margin: 0.75em auto 0.5em;
+  max-width: 800px;
+  width: 90%;
+  font-size: 0.75em;
+  line-height: 1.4em;
+}
+.container .art-direction figcaption a {
+  text-decoration: none;
+}
+@media screen and (max-aspect-ratio: 100/101) {
+  .container .art-direction {
+    height: 18.5em;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+  }
+  .container .art-direction img {
+    height: 15em;
+    width: 31.35em;
+  }
+  .container .art-direction figcaption {
+    height: 3.5em;
+  }
+}
+@media screen and (min-aspect-ratio: 30/41) and (max-aspect-ratio: 100/101) {
+  .container .art-direction {
+    height: auto;
+  }
+  .container .art-direction img {
+    height: auto;
+    width: 100%;
+  }
+}
+@media screen and (max-aspect-ratio: 41/30) and (min-aspect-ratio: 101/100) {
+  .container .art-direction {
+    height: auto;
+  }
+  .container .art-direction img {
+    height: auto;
+    width: 100%;
   }
 }
 

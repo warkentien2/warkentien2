@@ -44,18 +44,46 @@ function App() {
         </section>
         <section id="animation" className="section section--second">
           <div className="container">
-            <h2>About</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure 
-              dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non 
-              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <p><img className="responsive-image" src="./designers.png" alt="Design versus Development" /></p>
+            <h2>Niche</h2>
+            <h3>UI-Focused Front-End Developer</h3>
+            <p>
+              It is common knowledge amongst Designers that Developers will ruin your dreams:
+            </p>
+            <figure className="art-direction">
+              <img className="resdivonsive-image" src="./designers.png" alt="Design versus Development" />
+              <figcaption>Awwwards Conference <a className="highlight" href="https://www.youtube.com/watch?v=bEg5ySTUGxE"
+                target="_blank"
+                rel="noopener noreferrer"
+                >
+                  talk by Pablo Stanley
+                </a> | InvisionApp Design Lead
+              </figcaption>
+            </figure>
+            <p>
+              If you ever heard "this <em>cannot</em> be done", that's where I come in! After all, we tell the computer what to do, 
+              not the other way around.<br /><br />
+              There's an ever growing need for Visual Web Developers. When the task was too big for a Web Master, the field was 
+              split between Front and Backend. However, with Webpack, Docker, Typescript, Cross-Plataform programming, and 
+              EverythingElse.js, most Front-End Developers are getting pulled into a Full-Stack role. Hiring Front-End no longer 
+              guarantees that you'll have a Visual Developer. So, new job descriptions started popping up:
+            </p>
+            <ul>
+              <li>UI-Focused Front-End Developer</li>
+              <li>Front-End Animation Developer</li>
+              <li>UI Developer</li>
+            </ul>
+            <p>
+              to fill the Visual Developer niche, the Front-End Developer was created. However, as the field keeps getting denser. Front-End 
+              Developers started working on cross-plataform projects, docker, 
+              <br />
+              Before you commit a large budget to a 3D-renderred or Video project, talk to me.
+            </p>
           </div>
           <Moth bottomAnchorSection={mentoringSection} scrollTop={scroll.position} windowSize={windowSize} />
         </section>
         <section ref={mentoringSection} id="projects" className="section section--third">
           <div className="container">
-            <h2>Mentoring</h2>
+            <h2>Helping others</h2>
             <div className="row">
               <div className="col-sm-6 col-4">
                 <Statistics windowSize={windowSize} topAnchorSection={mentoringSection} scrollTop={scroll.position} className="statistics-1" value={250} title="classroom students" />
@@ -79,10 +107,10 @@ function App() {
         <footer id="contact" className="footer">
           <div className="container">     
             <div>
-              <a href="https://www.linkedin.com/in/warkentien2/" target="_blank" className="ml-1 mr-1 rt-3"><i className="fab fa-linkedin-in"></i></a>
-              <a href="https://codepen.io/warkentien2/" target="_blank" className="ml-1 mr-1 rt-3"><i className="fab fa-codepen"></i></a>
-              <a href="https://stackoverflow.com/users/4714084/warkentien2?tab=profile" target="_blank" className="ml-1 mr-1 rt-3"><i className="fab fa-stack-overflow"></i></a>
-              <a href="https://www.deviantart.com/warkentien2/gallery/" target="_blank" className="ml-1 mr-1 rt-3"><i className="fab fa-deviantart"></i></a>
+              <a href="https://www.linkedin.com/in/warkentien2/" target="_blank" rel="noopener noreferrer" className="ml-1 mr-1 rt-3"><i className="fab fa-linkedin-in"></i></a>
+              <a href="https://codepen.io/warkentien2/" target="_blank" rel="noopener noreferrer" className="ml-1 mr-1 rt-3"><i className="fab fa-codepen"></i></a>
+              <a href="https://stackoverflow.com/users/4714084/warkentien2?tab=profile" target="_blank" rel="noopener noreferrer" className="ml-1 mr-1 rt-3"><i className="fab fa-stack-overflow"></i></a>
+              <a href="https://www.deviantart.com/warkentien2/gallery/" target="_blank" rel="noopener noreferrer" className="ml-1 mr-1 rt-3"><i className="fab fa-deviantart"></i></a>
             </div>
             <a href="mailto:philip.dw2@gmail.com?Subject=Job%20Offer" target="_top">philip.dw2@gmail.com</a>
           </div>
