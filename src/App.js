@@ -1,9 +1,12 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import useWindowSize from './hooks/useWindowSize'
+import useScrollTop from "./hooks/useScrollTop"
 let Tarantula = React.lazy(() => import("./components/Tarantula"));
 
 function App() {
+  const mentoringSection = useRef(null)
   const windowSize = useWindowSize()
+  const scroll = useScrollTop()
   const [isMobile, updateIsMobile] = useState(windowSize.width/windowSize.height <= 100/101)
 
   useEffect(() => {
@@ -45,11 +48,26 @@ function App() {
               Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure 
               dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non 
               proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p><img className="responsive-image" src="./designers.png" alt="Design versus Development" /></p>
           </div>
         </section>
-        <section id="projects" className="section section--third">
+        <section ref={mentoringSection} id="projects" className="section section--third">
           <div className="container">
-            <h2>Subtitle</h2>
+            <h2>Mentoring</h2>
+            <div className="row">
+              <div className="col-sm-6 col-4">
+                <Statistics isMobile={isMobile} parentSection={mentoringSection} scrollTop={scroll.position} className="statistics-1" value={250} title="classroom students" />
+              </div>
+              <div className="col-sm-6 col-4">
+                <Statistics isMobile={isMobile} parentSection={mentoringSection} scrollTop={scroll.position} large className="statistics-2" value={5000} title="project reviews" />
+              </div>
+              <div className="col-sm-6 col-4">
+                <Statistics isMobile={isMobile} parentSection={mentoringSection} scrollTop={scroll.position} className="statistics-3" value={868} title="stackoverflow reputation" />
+              </div>
+              <div className="col-sm-6 col-12">
+                <Statistics isMobile={isMobile} parentSection={mentoringSection} scrollTop={scroll.position} className="statistics-4" value={14} title="peer onboarding" />
+              </div>
+            </div>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
               Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure 
               dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non 
@@ -64,11 +82,37 @@ function App() {
               <a href="https://stackoverflow.com/users/4714084/warkentien2?tab=profile" target="_blank" className="ml-1 mr-1 rt-3"><i className="fab fa-stack-overflow"></i></a>
               <a href="https://www.deviantart.com/warkentien2/gallery/" target="_blank" className="ml-1 mr-1 rt-3"><i className="fab fa-deviantart"></i></a>
             </div>
+            <a href="mailto:philip.dw2@gmail.com?Subject=Job%20Offer" target="_top">philip.dw2@gmail.com</a>
           </div>
         </footer>
       </main>
     </div>
   );
+}
+
+function Statistics({ isMobile, parentSection, scrollTop, className = '', value, title, large = false }) {
+  const number = useRef(null)
+  const [showValue, updateValue] = useState(0)
+  const multiplier = isMobile ? 4.5 : 3
+  let thisOffsetTop = 1
+
+  useEffect(() => {
+    thisOffsetTop = parentSection.current.offsetTop + number.current.getBoundingClientRect().top
+  }, [])
+  
+  useEffect(() => {
+    if(Math.floor((scrollTop - parentSection.current.getBoundingClientRect().height / multiplier) / (thisOffsetTop * 1000) <= 1)) {
+      updateValue(Math.max(0, Math.floor((scrollTop - parentSection.current.getBoundingClientRect().height / multiplier) / (thisOffsetTop * 1000) * value)))
+    } else {
+      updateValue(value);
+    }
+  }, [scrollTop])
+
+  return (
+    <p className={`statistics${className ? ' ' + className : ''}${large ? ' statistics--large' : ''}`}>
+      <span ref={number} className="large">{showValue}<sup>+</sup></span><br /><span>{title}</span>
+    </p>
+  )
 }
 
 export default App;

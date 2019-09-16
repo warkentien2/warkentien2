@@ -26,6 +26,9 @@ $body-angle: 0;
     &__description {
       color: #fff;
       transform: rotate(30deg);
+      display: block;
+      line-height: 1.4em;
+      margin: 1em 0;
     }
 
     &__arrow {
@@ -75,6 +78,11 @@ $body-angle: 0;
 
       &__description {
         transform: rotate(-130deg);
+
+        br {
+          line-height: inherit;
+          font-size: inherit;
+        }
       }
 
       &__arrow {
