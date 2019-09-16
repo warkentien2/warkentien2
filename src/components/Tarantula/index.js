@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import tools from './tools'
 import { TimelineMax, TweenMax, Power1, Power2, Linear } from 'gsap'
-import useWindowSize from '../../hooks/useWindowSize'
 
 function animateBodyPart(node, speed, angle, newWidth = false, offset = 0) {
   let animation
@@ -283,14 +282,13 @@ function Tarantula({isMobile}) {
   // animation
 
   useEffect(() => {
+    walkMidStanceTl.addLabel('setup')
 
     if(isMobile) {
-      TweenMax.set(tarantulaWrapper.current, { rotation: 90 })
-    } else {
-      TweenMax.set(tarantulaWrapper.current, { rotation: 0 })
+      walkMidStanceTl.set(tarantulaWrapper.current, { rotation: 90 }, 'setup')
     }
 
-    walkMidStanceTl.addLabel('setup')
+    walkMidStanceTl
       .set(body.current, { xPercent: 0, yPercent: 0, rotation: 0 }, 'setup')
       .set(spinneretA.current, { rotation: -85 }, 'setup')
       .set(spinneretB.current, { rotation: -95 }, 'setup')
@@ -411,7 +409,7 @@ function Tarantula({isMobile}) {
     completeTl.play(0)
 
     return () => completeTl.stop()
-  }, [isMobile])
+  }, [])
 
   return (
     <div ref={tarantulaWrapper} className={`tarantula-wrapper${isMobile ? ' tarantula-wrapper--mobile' : ''}`}>

@@ -1,10 +1,14 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import useWindowSize from './hooks/useWindowSize'
 import Tarantula from './components/Tarantula'
 
 function App() {
-  // const windowSize = useWindowSize()
-  // const isMobile = (useWindowSize().width/useWindowSize().height <= 100/101)
+  const windowSize = useWindowSize()
+  const [isMobile, updateIsMobile] = useState(windowSize.width/windowSize.height <= 100/101)
+
+  useEffect(() => {
+    updateIsMobile(windowSize.width/windowSize.height <= 100/101)
+  }, [windowSize.width, windowSize.height, isMobile])
 
   return (
     <div className="App">
@@ -33,7 +37,8 @@ function App() {
               <span className="block right tiny">& <span className="hero__title--highlight">mentor</span></span>
             </span>
           </h1>
-          <Tarantula isMobile={(useWindowSize().width/useWindowSize().height <= 100/101)} />
+          {isMobile ? <Tarantula isMobile={true} /> : <span />}
+          {!isMobile ? <Tarantula isMobile={false} /> : <span />}
         </section>
       </main>
     </div>
