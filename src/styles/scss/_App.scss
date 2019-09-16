@@ -136,16 +136,16 @@
     top: 50%;
     transform: translateY(-50%);
 
-    @media screen and (max-width: 700px) {
+    @media screen and (max-aspect-ratio: 100/101) {
       top: 35%;
     }
 
     span {
-      font-size: 6.25vmax;
+      font-size: 12.5vmin;
       line-height: 1.25em;
       color: $color;
 
-      @media screen and (max-width: 700px) {
+      @media screen and (max-aspect-ratio: 100/101) {
         font-size: 1.75em;
       }
     }
@@ -158,14 +158,18 @@
       font-size: 0.75em;
     }
 
+    .tiny {
+      font-size: 0.5em;
+    }
+
     .left {
       text-align: left;
 
       &--overflow {
-        margin-left: -18vmax;
+        margin-left: -36vmin;
 
-        @media screen and (max-width: 700px) {
-          margin-left: -15vmax;
+        @media screen and (max-aspect-ratio: 100/101) {
+          margin-left: -30vmin;
         }
       }
     }
@@ -174,18 +178,18 @@
       text-align: right;
 
       &--overflow {
-        margin-right: -15.25vmax;
+        margin-right: -30.5vmin;
 
-        @media screen and (max-width: 700px) {
-          margin-right: -12.5vmax;
+        @media screen and (max-aspect-ratio: 100/101) {
+          margin-right: -25vmin;
         }
       }
     }
 
     &__block {
-      width: 49vmax;
+      width: 98vmin;
 
-      @media screen and (max-width: 700px) {
+      @media screen and (max-aspect-ratio: 100/101) {
         display: block;
         width: 87%;
         max-width: 100%;

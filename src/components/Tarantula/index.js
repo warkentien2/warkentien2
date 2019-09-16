@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import tools from './tools'
-import { TimelineMax, TweenMax, Power1, Power2, Power3, Power4, Linear } from 'gsap'
+import { TimelineMax, TweenMax, Power1, Power2, Linear } from 'gsap'
 import useWindowSize from '../../hooks/useWindowSize'
 
 function animateBodyPart(node, speed, angle, newWidth = false, offset = 0) {
@@ -255,7 +255,7 @@ function legCycle(leg, options = false) {
   }
 }
 
-function Tarantula({hideFrontLegs = false, hideBackLegs = false}) {
+function Tarantula({isMobile}) {
   const tarantulaWrapper = useRef(null)
   const tarantula = useRef(null)
   const body = useRef(null)
@@ -275,20 +275,23 @@ function Tarantula({hideFrontLegs = false, hideBackLegs = false}) {
   const spinneretB = useRef(null)
   const abdomen = useRef(null)
   const bodyParts = [body, abdomen, legA1, legA2, legA3, legA4, legB1, legB2, legB3, legB4, pedipalpA, pedipalpB, cheliceraeA, cheliceraeB];
-  const walkMidStanceTl = new TimelineMax()
+  const walkMidStanceTl = new TimelineMax({ paused: true })
   const attackStanceTl = new TimelineMax({ paused: true })
   const moveLegsTl = new TimelineMax({ paused: true })
-  const size = useWindowSize().width
-  const isMobile = (size <= 700)
+  const completeTl = new TimelineMax({ paused: true })
+
+  // animation
 
   useEffect(() => {
-    walkMidStanceTl.addLabel('setup')
 
     if(isMobile) {
-      walkMidStanceTl.set(tarantulaWrapper.current, { rotation: 90 }, 'setup')
+      TweenMax.set(tarantulaWrapper.current, { rotation: 90 })
+    } else {
+      TweenMax.set(tarantulaWrapper.current, { rotation: 0 })
     }
-    
-    walkMidStanceTl
+
+    walkMidStanceTl.addLabel('setup')
+      .set(body.current, { xPercent: 0, yPercent: 0, rotation: 0 }, 'setup')
       .set(spinneretA.current, { rotation: -85 }, 'setup')
       .set(spinneretB.current, { rotation: -95 }, 'setup')
       .add(animateLegA1.step(legA1, 0), 'setup')
@@ -304,6 +307,7 @@ function Tarantula({hideFrontLegs = false, hideBackLegs = false}) {
       .set(tarantula.current, { xPercent: (-16 * 26) }, 'setup')
 
       .addLabel('motion-1', 'setup+=0.01')
+      .to(tarantulaWrapper.current, 0.5, { autoAlpha: 1, ease: Power2.easeIn }, 'motion-1')
 
       // walk cycle
       .to(tarantula.current, 0.725, { xPercent: (-15 * 26), ease: Linear.easeNone }, 'motion-1')
@@ -342,7 +346,7 @@ function Tarantula({hideFrontLegs = false, hideBackLegs = false}) {
       .add(legCycle(legA1, { moveFirst: true, repeat: 0, steps: 2 }), 'motion-2')
 
       .add(rotateBody(bodyParts, 0.25, -20, 10, false), 'motion-2+=0.375')
-      .to(body.current, 0.25, { xPercent: -5, yPercent: -8.5, ease: Linear.easeNone }, 'motion-2+=0.375')
+      .to(body.current, 0.25, { xPercent: -5, yPercent: -30, ease: Power1.easeOut }, 'motion-2+=0.375')
       .to([spinneretA.current, spinneretB.current], 0.25, { rotation: -100, ease: Linear.easeNone }, 'motion-2+=0.375')
       .add(animateLegA1.halfAttackStance(legA1, 0.25), 'motion-2+=0.75')
       .add(animateLegA2.halfAttackStance(legA2, 0.25), 'motion-2+=0.875')
@@ -359,7 +363,7 @@ function Tarantula({hideFrontLegs = false, hideBackLegs = false}) {
 
     attackStanceTl.addLabel('motion-3')
       .add(rotateBody(bodyParts, 0.375, -60, 30, true), 'motion-3')
-      .to(body.current, 0.375, { xPercent: 0, yPercent: -8.5, ease: Linear.easeNone }, 'motion-3')
+      .to(body.current, 0.375, { xPercent: 0, yPercent: 30, ease: Power1.easeIn }, 'motion-3')
       .to([spinneretA.current, spinneretB.current], 0.25, { rotation: -100, ease: Linear.easeNone }, 'motion-3')
       .add(animateLeg(legA1, 0.25, [-50, -122, tools.randomChoice([42, 47]), false, tools.randomChoice([10, 15, 26]), -15]), 'motion-3+=0.125')
       .add(animateLegA2.attackStance(legA2, 0.375), 'motion-3')
@@ -398,14 +402,16 @@ function Tarantula({hideFrontLegs = false, hideBackLegs = false}) {
       }, `move-legs+=${0.125 * tools.randomChoice([1, 2, 3, 4, 5, 6])}`)
     ;
 
-    new TimelineMax()
-      .addLabel('enter')
+    completeTl.addLabel('enter')
       .to(walkMidStanceTl, 11, { progress: 1, ease: Power1.easeOut }, 'enter')
       .to(attackStanceTl, 2, { progress: 1, ease: Power2.easeIn }, 'enter+=11')
       .to(moveLegsTl, 0.25, { progress: 1, repeat: -1, repeatDelay: 10, ease: Power2.easeInOut }, 'enter+=12.5')
     ;
 
-  }, [])
+    completeTl.play(0)
+
+    return () => completeTl.stop()
+  }, [isMobile])
 
   return (
     <div ref={tarantulaWrapper} className={`tarantula-wrapper${isMobile ? ' tarantula-wrapper--mobile' : ''}`}>
@@ -413,73 +419,69 @@ function Tarantula({hideFrontLegs = false, hideBackLegs = false}) {
         <div ref={body} className="x-body">
           <div className="x-body-part x-cephalothorax">
 
-            { !hideBackLegs && (
-              <React.Fragment>
-                <div ref={legB2} id="legB2" className="x-leg x-leg--background leg-6">
-                  <div className="x-leg-parts x-coxa">
-                    <div className="x-leg-parts x-femur">
-                      <div className="x-leg-parts x-patella">
-                        <div className="x-leg-parts x-tibia">
-                          <div className="x-leg-parts x-metatarsus">
-                            <div className="x-leg-parts x-tarsus"></div>
-                          </div>
-                        </div>
+            <div ref={legB2} id="legB2" className="x-leg x-leg--background leg-6">
+              <div className="x-leg-parts x-coxa">
+                <div className="x-leg-parts x-femur">
+                  <div className="x-leg-parts x-patella">
+                    <div className="x-leg-parts x-tibia">
+                      <div className="x-leg-parts x-metatarsus">
+                        <div className="x-leg-parts x-tarsus"></div>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div ref={legB1} id="legB1" className="x-leg x-leg--background leg-5">
-                  <div className="x-leg-parts x-coxa">
-                    <div className="x-leg-parts x-femur">
-                      <div className="x-leg-parts x-patella">
-                        <div className="x-leg-parts x-tibia">
-                          <div className="x-leg-parts x-metatarsus">
-                            <div className="x-leg-parts x-tarsus"></div>
-                          </div>
-                        </div>
+              </div>
+            </div>
+            <div ref={legB1} id="legB1" className="x-leg x-leg--background leg-5">
+              <div className="x-leg-parts x-coxa">
+                <div className="x-leg-parts x-femur">
+                  <div className="x-leg-parts x-patella">
+                    <div className="x-leg-parts x-tibia">
+                      <div className="x-leg-parts x-metatarsus">
+                        <div className="x-leg-parts x-tarsus"></div>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div ref={legB3} id="legB3" className="x-leg x-leg--background x-leg--small leg-7">
-                  <div className="x-leg-parts x-coxa">
-                    <div className="x-leg-parts x-femur">
-                      <div className="x-leg-parts x-patella">
-                        <div className="x-leg-parts x-tibia">
-                          <div className="x-leg-parts x-metatarsus">
-                            <div className="x-leg-parts x-tarsus"></div>
-                          </div>
-                        </div>
+              </div>
+            </div>
+            <div ref={legB3} id="legB3" className="x-leg x-leg--background x-leg--small leg-7">
+              <div className="x-leg-parts x-coxa">
+                <div className="x-leg-parts x-femur">
+                  <div className="x-leg-parts x-patella">
+                    <div className="x-leg-parts x-tibia">
+                      <div className="x-leg-parts x-metatarsus">
+                        <div className="x-leg-parts x-tarsus"></div>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div ref={legB4} id="legB4" className="x-leg x-leg--background x-leg--small leg-8">
-                  <div className="x-leg-parts x-coxa">
-                    <div className="x-leg-parts x-femur">
-                      <div className="x-leg-parts x-patella">
-                        <div className="x-leg-parts x-tibia">
-                          <div className="x-leg-parts x-metatarsus">
-                            <div className="x-leg-parts x-tarsus"></div>
-                          </div>
-                        </div>
+              </div>
+            </div>
+            <div ref={legB4} id="legB4" className="x-leg x-leg--background x-leg--small leg-8">
+              <div className="x-leg-parts x-coxa">
+                <div className="x-leg-parts x-femur">
+                  <div className="x-leg-parts x-patella">
+                    <div className="x-leg-parts x-tibia">
+                      <div className="x-leg-parts x-metatarsus">
+                        <div className="x-leg-parts x-tarsus"></div>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div ref={pedipalpB} id="pedipalpB" className="x-leg x-leg--background x-pedipalp pedipalp-2">
-                  <div className="x-leg-parts x-coxa">
-                    <div className="x-leg-parts x-femur">
-                      <div className="x-leg-parts x-patella">
-                        <div className="x-leg-parts x-tibia">
-                          <div className="x-leg-parts x-metatarsus"></div>
-                        </div>
-                      </div>
+              </div>
+            </div>
+            <div ref={pedipalpB} id="pedipalpB" className="x-leg x-leg--background x-pedipalp pedipalp-2">
+              <div className="x-leg-parts x-coxa">
+                <div className="x-leg-parts x-femur">
+                  <div className="x-leg-parts x-patella">
+                    <div className="x-leg-parts x-tibia">
+                      <div className="x-leg-parts x-metatarsus"></div>
                     </div>
                   </div>
                 </div>
-              </React.Fragment>
-            )}
+              </div>
+            </div>
 
             <div ref={cheliceraeB} className="x-body-part x-chelicerae x-chelicerae--background">
               <div className="x-fang"></div>
@@ -519,73 +521,69 @@ function Tarantula({hideFrontLegs = false, hideBackLegs = false}) {
             <div className="x-eye x-eye3"></div>
             <div className="x-eye x-eye4"></div>
 
-            {!hideFrontLegs && (
-              <React.Fragment>
-                <div ref={pedipalpA} id="pedipalpA" className="x-leg x-pedipalp pedipalp-1">
-                  <div className="x-leg-parts x-coxa">
-                    <div className="x-leg-parts x-femur">
-                      <div className="x-leg-parts x-patella">
-                        <div className="x-leg-parts x-tibia">
-                          <div className="x-leg-parts x-metatarsus"></div>
-                        </div>
+            <div ref={pedipalpA} id="pedipalpA" className="x-leg x-pedipalp pedipalp-1">
+              <div className="x-leg-parts x-coxa">
+                <div className="x-leg-parts x-femur">
+                  <div className="x-leg-parts x-patella">
+                    <div className="x-leg-parts x-tibia">
+                      <div className="x-leg-parts x-metatarsus"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div ref={legA4} id="legA4" className="x-leg x-leg--small leg-4">
+              <div className="x-leg-parts x-coxa">
+                <div className="x-leg-parts x-femur">
+                  <div className="x-leg-parts x-patella">
+                    <div className="x-leg-parts x-tibia">
+                      <div className="x-leg-parts x-metatarsus">
+                        <div className="x-leg-parts x-tarsus"></div>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div ref={legA4} id="legA4" className="x-leg x-leg--small leg-4">
-                  <div className="x-leg-parts x-coxa">
-                    <div className="x-leg-parts x-femur">
-                      <div className="x-leg-parts x-patella">
-                        <div className="x-leg-parts x-tibia">
-                          <div className="x-leg-parts x-metatarsus">
-                            <div className="x-leg-parts x-tarsus"></div>
-                          </div>
-                        </div>
+              </div>
+            </div>
+            <div ref={legA3} id="legA3" className="x-leg x-leg--small leg-3">
+              <div className="x-leg-parts x-coxa">
+                <div className="x-leg-parts x-femur">
+                  <div className="x-leg-parts x-patella">
+                    <div className="x-leg-parts x-tibia">
+                      <div className="x-leg-parts x-metatarsus">
+                        <div className="x-leg-parts x-tarsus"></div>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div ref={legA3} id="legA3" className="x-leg x-leg--small leg-3">
-                  <div className="x-leg-parts x-coxa">
-                    <div className="x-leg-parts x-femur">
-                      <div className="x-leg-parts x-patella">
-                        <div className="x-leg-parts x-tibia">
-                          <div className="x-leg-parts x-metatarsus">
-                            <div className="x-leg-parts x-tarsus"></div>
-                          </div>
-                        </div>
+              </div>
+            </div>
+            <div ref={legA1} id="legA1" className="x-leg leg-1">
+              <div className="x-leg-parts x-coxa">
+                <div className="x-leg-parts x-femur">
+                  <div className="x-leg-parts x-patella">
+                    <div className="x-leg-parts x-tibia">
+                      <div className="x-leg-parts x-metatarsus">
+                        <div className="x-leg-parts x-tarsus"></div>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div ref={legA1} id="legA1" className="x-leg leg-1">
-                  <div className="x-leg-parts x-coxa">
-                    <div className="x-leg-parts x-femur">
-                      <div className="x-leg-parts x-patella">
-                        <div className="x-leg-parts x-tibia">
-                          <div className="x-leg-parts x-metatarsus">
-                            <div className="x-leg-parts x-tarsus"></div>
-                          </div>
-                        </div>
+              </div>
+            </div>
+            <div ref={legA2} id="legA2" className="x-leg leg-2">
+              <div className="x-leg-parts x-coxa">
+                <div className="x-leg-parts x-femur">
+                  <div className="x-leg-parts x-patella">
+                    <div className="x-leg-parts x-tibia">
+                      <div className="x-leg-parts x-metatarsus">
+                        <div className="x-leg-parts x-tarsus"></div>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div ref={legA2} id="legA2" className="x-leg leg-2">
-                  <div className="x-leg-parts x-coxa">
-                    <div className="x-leg-parts x-femur">
-                      <div className="x-leg-parts x-patella">
-                        <div className="x-leg-parts x-tibia">
-                          <div className="x-leg-parts x-metatarsus">
-                            <div className="x-leg-parts x-tarsus"></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </React.Fragment>
-            )}
+              </div>
+            </div>
           </div>
         </div>
       </div>
