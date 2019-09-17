@@ -124,10 +124,10 @@ function Statistics({ windowSize, topAnchorSection, scrollTop, className = '', v
   const number = useRef(null)
   const [showValue, updateValue] = useState(0)
   const multiplier = (windowSize.width/windowSize.height <= 100/101) ? 7 : 4
-  let thisOffsetTop = 1
+  const [thisOffsetTop, updateThisOffsetTop] = useState(1)
 
   useEffect(() => {
-    thisOffsetTop = topAnchorSection.current.offsetTop + number.current.getBoundingClientRect().top
+    updateThisOffsetTop(topAnchorSection.current.offsetTop + number.current.getBoundingClientRect().top)
     number.current.parentNode.style.transform = 'translateY(200%)'
     number.current.parentNode.style.opacity = 0
   }, [])

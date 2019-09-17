@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react'
 
-function Moth({ scrollTop, windowSize, bottomAnchorSection }) {
+function Moth({ scrollTop, bottomAnchorSection }) {
   const foreWing1 = useRef(null)
   const foreWing2 = useRef(null)
   const hindWing1 = useRef(null)
