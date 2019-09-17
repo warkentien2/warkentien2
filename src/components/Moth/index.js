@@ -1,16 +1,14 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useRef, useEffect, useState } from 'react'
 
 function Moth({ scrollTop, windowSize, bottomAnchorSection }) {
-  const moth = useRef(null)
   const foreWing1 = useRef(null)
   const foreWing2 = useRef(null)
   const hindWing1 = useRef(null)
   const hindWing2 = useRef(null)
-  const multiplier = 10
-  let thisOffsetTop = 1
+  const [thisOffsetTop, updateThisOffsetTop] = useState(1)
 
   useEffect(() => {
-    thisOffsetTop = bottomAnchorSection.current.offsetTop + moth.current.getBoundingClientRect().top
+    updateThisOffsetTop(bottomAnchorSection.current.offsetTop)
     foreWing1.current.style.transform = 'rotate(-85deg)'
     foreWing2.current.style.transform = 'rotateY(180deg) rotateZ(-88deg)'
     hindWing1.current.style.transform = 'rotate(-40deg)'
@@ -18,12 +16,12 @@ function Moth({ scrollTop, windowSize, bottomAnchorSection }) {
   }, [])
   
   useEffect(() => {
-    if(Math.floor((scrollTop - windowSize.height / multiplier) / (thisOffsetTop * 1000) <= 1)) {
-      const fraction = (scrollTop - windowSize.height / multiplier) / (thisOffsetTop * 1000)
-      foreWing1.current.style.transform = `rotate(${85 * Math.pow(fraction, 3) - 85}deg)`
-      foreWing2.current.style.transform = `rotateY(180deg) rotateZ(${85 * Math.pow(fraction, 3) - 88}deg)`
-      hindWing1.current.style.transform = `rotate(${40 * Math.pow(fraction, 3) - 40}deg)`
-      hindWing2.current.style.transform = `rotateY(-180deg) rotateZ(${40 * Math.pow(fraction, 3) - 42}deg)`
+    if(4 * scrollTop / (thisOffsetTop - 200) <= 4) {
+      const fraction = Math.max(0, (4 * scrollTop / (thisOffsetTop - 200)) - 3)
+      foreWing1.current.style.transform = `rotate(${85 * Math.pow(fraction, 2) - 85}deg)`
+      foreWing2.current.style.transform = `rotateY(180deg) rotateZ(${85 * Math.pow(fraction, 2) - 88}deg)`
+      hindWing1.current.style.transform = `rotate(${40 * Math.pow(fraction, 2) - 40}deg)`
+      hindWing2.current.style.transform = `rotateY(-180deg) rotateZ(${40 * Math.pow(fraction, 2) - 42}deg)`
     } else {
       foreWing1.current.style.transform = 'rotate(0deg)'
       foreWing2.current.style.transform = 'rotateY(180deg) rotateZ(-3deg)'
@@ -34,7 +32,7 @@ function Moth({ scrollTop, windowSize, bottomAnchorSection }) {
 
   return (
     <div className="moth-wrapper">
-      <div ref={moth} className="moth">
+      <div className="moth">
         <div className="m-thorax">
           <div className="pattern"></div>
           <div className="m-antennae m-antennae-1">
