@@ -45,7 +45,7 @@ function App() {
         <section id="animation" className="section section--second">
           <div className="container">
             <h2>Niche</h2>
-            <h3>UI-Focused Front-End Developer</h3>
+            <h3>Visual Problem Solving</h3>
             <p>
               It is common knowledge amongst Designers that Developers will ruin your dreams:
             </p>
@@ -70,6 +70,8 @@ function App() {
             <ul>
               <li>UI-Focused Front-End Developer</li>
               <li>Front-End Animation Developer</li>
+              <li>3D Rendering Front-End Developer</li>
+              <li>Rich Media Developer</li>
               <li>UI Developer</li>
             </ul>
             <p>
@@ -86,16 +88,16 @@ function App() {
             <h2>Helping others</h2>
             <div className="row">
               <div className="col-sm-6 col-4">
-                <Statistics windowSize={windowSize} topAnchorSection={mentoringSection} scrollTop={scroll.position} className="statistics-1" value={250} title="classroom students" />
+                <Statistics topAnchorSection={mentoringSection} scrollTop={scroll.position} index={1} value={250} title="classroom students" />
               </div>
               <div className="col-sm-6 col-4">
-                <Statistics windowSize={windowSize} topAnchorSection={mentoringSection} scrollTop={scroll.position} large className="statistics-2" value={5000} title="project reviews" />
+                <Statistics topAnchorSection={mentoringSection} scrollTop={scroll.position} large index={2} value={5000} title="project reviews" />
               </div>
               <div className="col-sm-6 col-4">
-                <Statistics windowSize={windowSize} topAnchorSection={mentoringSection} scrollTop={scroll.position} className="statistics-3" value={868} title="stackoverflow reputation" />
+                <Statistics topAnchorSection={mentoringSection} scrollTop={scroll.position} index={3} value={868} title="stackoverflow reputation" />
               </div>
               <div className="col-sm-6 col-12">
-                <Statistics windowSize={windowSize} topAnchorSection={mentoringSection} scrollTop={scroll.position} className="statistics-4" value={14} title="peer onboarding" />
+                <Statistics topAnchorSection={mentoringSection} scrollTop={scroll.position} index={4} value={14} title="peer onboarding" />
               </div>
             </div>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
@@ -107,10 +109,10 @@ function App() {
         <footer id="contact" className="footer">
           <div className="container">     
             <div>
-              <a href="https://www.linkedin.com/in/warkentien2/" target="_blank" rel="noopener noreferrer" className="ml-1 mr-1 rt-3"><i className="fab fa-linkedin-in"></i></a>
-              <a href="https://codepen.io/warkentien2/" target="_blank" rel="noopener noreferrer" className="ml-1 mr-1 rt-3"><i className="fab fa-codepen"></i></a>
-              <a href="https://stackoverflow.com/users/4714084/warkentien2?tab=profile" target="_blank" rel="noopener noreferrer" className="ml-1 mr-1 rt-3"><i className="fab fa-stack-overflow"></i></a>
-              <a href="https://www.deviantart.com/warkentien2/gallery/" target="_blank" rel="noopener noreferrer" className="ml-1 mr-1 rt-3"><i className="fab fa-deviantart"></i></a>
+              <a href="https://www.linkedin.com/in/warkentien2/" target="_blank" rel="noopener noreferrer"><i className="fab fa-linkedin-in"></i></a>
+              <a href="https://codepen.io/warkentien2/" target="_blank" rel="noopener noreferrer"><i className="fab fa-codepen"></i></a>
+              <a href="https://stackoverflow.com/users/4714084/warkentien2?tab=profile" target="_blank" rel="noopener noreferrer"><i className="fab fa-stack-overflow"></i></a>
+              <a href="https://www.deviantart.com/warkentien2/gallery/" target="_blank" rel="noopener noreferrer"><i className="fab fa-deviantart"></i></a>
             </div>
             <a href="mailto:philip.dw2@gmail.com?Subject=Job%20Offer" target="_top">philip.dw2@gmail.com</a>
           </div>
@@ -120,22 +122,23 @@ function App() {
   );
 }
 
-function Statistics({ windowSize, topAnchorSection, scrollTop, className = '', value, title, large = false }) {
+function Statistics({ topAnchorSection, scrollTop, index, value, title, large = false }) {
   const number = useRef(null)
   const [showValue, updateValue] = useState(0)
-  const multiplier = (windowSize.width/windowSize.height <= 100/101) ? 7 : 4
   const [thisOffsetTop, updateThisOffsetTop] = useState(1)
 
   useEffect(() => {
-    updateThisOffsetTop(topAnchorSection.current.offsetTop + number.current.getBoundingClientRect().top)
-    number.current.parentNode.style.transform = 'translateY(200%)'
-    number.current.parentNode.style.opacity = 0
+    updateThisOffsetTop(topAnchorSection.current.offsetTop)
+    if(scrollTop / (thisOffsetTop - 140) <= 1) {
+      number.current.parentNode.style.transform = 'translateY(100%)'
+      number.current.parentNode.style.opacity = 0
+    }
   }, [])
   
   useEffect(() => {
-    if(Math.floor((scrollTop - windowSize.height / multiplier) / (thisOffsetTop * 1000) <= 1)) {
-      const fraction = (scrollTop - windowSize.height / multiplier) / (thisOffsetTop * 1000)
-      number.current.parentNode.style.transform = `translateY(${((1 - fraction) * fraction * fraction) * 200}%)`
+    if(scrollTop / (thisOffsetTop - 140) <= 1) {
+      const fraction = scrollTop / (thisOffsetTop - 140)
+      number.current.parentNode.style.transform = `translateY(${((1 - fraction) * fraction * fraction) * 100}%)`
       number.current.parentNode.style.opacity = Math.max(0, 1.5 * (fraction * fraction * fraction * fraction) - 0.5)
       updateValue(Math.floor((fraction * fraction * fraction * fraction) * value))
     } else {
@@ -146,7 +149,7 @@ function Statistics({ windowSize, topAnchorSection, scrollTop, className = '', v
   }, [scrollTop])
 
   return (
-    <p className={`statistics${className ? ' ' + className : ''}${large ? ' statistics--large' : ''}`}>
+    <p className={`statistics statistics-${index}${large ? ' statistics--large' : ''}`}>
       <span ref={number} className="large">{showValue}<sup>+</sup></span><br /><span>{title}</span>
     </p>
   )

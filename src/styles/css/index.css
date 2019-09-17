@@ -289,6 +289,7 @@ h6 {
   }
 }
 .container p,
+.container ul,
 .container h1,
 .container h2,
 .container h3,
@@ -303,6 +304,12 @@ h6 {
 .container p {
   line-height: 2.1em;
   margin: 1.4em auto;
+}
+.container ul {
+  list-style-type: circle;
+  display: block;
+  padding-left: 2.1em;
+  line-height: 2.1em;
 }
 .container .art-direction {
   position: relative;
@@ -435,45 +442,54 @@ h6 {
   margin-right: -0.15em;
   line-height: 1.4em;
 }
-.statistics--large {
+.statistics.statistics--large {
   font-size: 1.5em;
 }
-.statistics--large .large {
+.statistics.statistics--large .large {
   line-height: 1em;
 }
+.statistics.statistics-2 {
+  margin-top: -2em;
+}
+.statistics.statistics-1, .statistics.statistics-3 {
+  margin-top: 5em;
+}
+.statistics.statistics-4 {
+  margin-top: -3em;
+}
 @media screen and (max-aspect-ratio: 100/101) {
-  .statistics--large {
+  .statistics.statistics--large {
     font-size: 1.25em;
   }
-  .statistics--large .large {
+  .statistics.statistics--large .large {
     line-height: 1em;
   }
-  .statistics-2 {
-    margin-top: -2em;
+  .statistics.statistics-1 {
+    margin-top: 6em;
+    margin-left: 0.5;
   }
-  .statistics-1, .statistics-3 {
-    margin-top: 5em;
-  }
-  .statistics-4 {
+  .statistics.statistics-2 {
     margin-top: -3em;
+    margin-right: 0.5em;
+  }
+  .statistics.statistics-3 {
+    margin-top: 2em;
+    margin-left: 0.5em;
+  }
+  .statistics.statistics-4 {
+    margin-top: -8em;
+    margin-right: 0.5em;
   }
 }
-@media screen and (max-aspect-ratio: 30/41) {
-  .statistics-1 {
+@media screen and (min-aspect-ratio: 30/41) and (max-aspect-ratio: 100/101) {
+  .statistics.statistics-2 {
+    margin-top: -2em;
+  }
+  .statistics.statistics-1, .statistics.statistics-3 {
     margin-top: 5em;
-    margin-left: -1em;
   }
-  .statistics-3 {
-    margin-top: 4em;
-    margin-left: -1em;
-  }
-  .statistics-2 {
-    margin-top: -6em;
-    margin-right: 0;
-  }
-  .statistics-4 {
-    margin-top: -10em;
-    margin-right: -1em;
+  .statistics.statistics-4 {
+    margin-top: -3em;
   }
 }
 
