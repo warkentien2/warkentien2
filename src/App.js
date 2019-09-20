@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import useWindowSize from './hooks/useWindowSize'
 import useScrollTop from "./hooks/useScrollTop"
 import Moth from './components/Moth'
+import ReviewSlider from './components/ReviewSlider'
 let Tarantula = React.lazy(() => import("./components/Tarantula"));
 
 function App() {
@@ -73,6 +74,7 @@ function App() {
               <li>3D Rendering Front-End Developer</li>
               <li>Rich Media Developer</li>
               <li>UI Developer</li>
+              <li>UX/UI Designer & Engineer</li>
             </ul>
             <p>
               to fill the Visual Developer niche, the Front-End Developer was created. However, as the field keeps getting denser. Front-End 
@@ -100,6 +102,7 @@ function App() {
                 <Statistics topAnchorSection={mentoringSection} scrollTop={scroll.position} index={4} value={14} title="peer onboarding" />
               </div>
             </div>
+            <ReviewSlider />
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
               Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure 
               dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non 
@@ -108,13 +111,14 @@ function App() {
         </section>
         <footer id="contact" className="footer">
           <div className="container">     
-            <div>
-              <a href="https://www.linkedin.com/in/warkentien2/" target="_blank" rel="noopener noreferrer"><i className="fab fa-linkedin-in"></i></a>
-              <a href="https://codepen.io/warkentien2/" target="_blank" rel="noopener noreferrer"><i className="fab fa-codepen"></i></a>
-              <a href="https://stackoverflow.com/users/4714084/warkentien2?tab=profile" target="_blank" rel="noopener noreferrer"><i className="fab fa-stack-overflow"></i></a>
-              <a href="https://www.deviantart.com/warkentien2/gallery/" target="_blank" rel="noopener noreferrer"><i className="fab fa-deviantart"></i></a>
-            </div>
-            <a href="mailto:philip.dw2@gmail.com?Subject=Job%20Offer" target="_top">philip.dw2@gmail.com</a>
+            <ul style={{ display: 'flex', justifyContent: 'flex-end', flexWrap: 'wrap', flexDirection: 'column' }}>
+              <li><a href="https://codepen.io/warkentien2/" target="_blank" rel="noopener noreferrer">Playground <i className="fab fa-codepen"></i></a></li>
+              <li><a href="https://www.linkedin.com/in/warkentien2/" target="_blank" rel="noopener noreferrer">Portfolio <i className="fab fa-linkedin-in"></i></a></li>
+              <li><a href="https://stackoverflow.com/users/4714084/warkentien2?tab=profile" target="_blank" rel="noopener noreferrer">Playground #2 <i className="fab fa-stack-overflow"></i></a></li>
+              <li><a href="https://www.deviantart.com/warkentien2/gallery/" target="_blank" rel="noopener noreferrer">Art<i className="fab fa-deviantart"></i></a></li>
+              <li><a href="mailto:philip.dw2@gmail.com?Subject=Job%20Offer" target="_top">philip.dw2@gmail.com</a></li>
+            </ul>
+            <p>© Copyright 2019 - Philip Daniel Warkentien II</p>
           </div>
         </footer>
       </main>

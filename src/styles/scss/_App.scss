@@ -17,6 +17,7 @@ h3,
 h4,
 h5,
 h6 {
+  text-transform: capitalize;
   font-family: Oswald, Helvetica, sans-serif;
 }
 
@@ -298,6 +299,10 @@ h6 {
   min-height: 20vh;
   background: #C9C8D0;
   z-index: 1;
+
+  .container {
+    padding-bottom: 2.5em;
+  }
 }
 
 .handwritten {
@@ -511,7 +516,7 @@ h6 {
 
     &.statistics-1 {
       margin-top: 6em;
-      margin-left: 0.5;
+      margin-left: 0.5em;
     }
 
     &.statistics-2 {
@@ -533,15 +538,18 @@ h6 {
   @media screen and (min-aspect-ratio: 30/41) and (max-aspect-ratio: 100/101) {
     &.statistics-2 {
       margin-top: -2em;
+      margin-right: 3em;
     }
   
     &.statistics-1,
     &.statistics-3 {
       margin-top: 5em;
+      margin-left: 3em;
     }
   
     &.statistics-4 {
       margin-top: -3em;
+      margin-right: 3em;
     }
   }
 }
