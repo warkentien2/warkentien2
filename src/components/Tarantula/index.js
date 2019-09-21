@@ -2,6 +2,20 @@ import React, { useEffect, useRef } from 'react'
 import tools from './tools'
 import { TimelineMax, TweenMax, Power1, Power2, Linear } from 'gsap'
 
+function addWidthMetadata(tarantula) {
+  const legsNodeList = tarantula.current.getElementsByClassName('x-leg')
+  const legs = Array.prototype.slice.call(legsNodeList)
+
+  legs.forEach(leg => {
+    const legPartsNodeList = leg.getElementsByClassName('x-leg-parts')
+    const legParts = Array.prototype.slice.call(legPartsNodeList)
+
+    legParts.forEach(part => {
+      part.dataset.width = part.getBoundingClientRect().width
+    })
+  })
+}
+
 function animateBodyPart(node, speed, angle, newWidth = false, offset = 0) {
   let animation
   
@@ -37,14 +51,14 @@ function animateLeg(leg, speed, angles = [false, false, false, false, false, fal
   let scaleMetatarsus = false;
 
   if(scaleFemurPercent) {
-    femurWidth = femur.getBoundingClientRect().width
+    femurWidth = femur.dataset.width
     scaleFemur = Math.abs(femurWidth * scaleFemurPercent / 100)
     scalePatella = Math.abs(femurWidth * 0.95 + 2)
   }
 
   if(scalePatellaPercent) {
-    patellaWidth = scaleFemurPercent ? scalePatella : patella.getBoundingClientRect().width
-    tibiaWidth = leg.current.querySelector('.x-tibia').getBoundingClientRect().width
+    patellaWidth = scaleFemurPercent ? scalePatella : patella.dataset.width
+    tibiaWidth = leg.current.querySelector('.x-tibia').dataset.width
     scalePatella = Math.abs(patellaWidth * scalePatellaPercent / 100)
     scaleMetatarsus = Math.abs(tibiaWidth * 0.95 + 2)
   }
@@ -284,6 +298,7 @@ function Tarantula({isMobile}) {
   // animation
 
   useEffect(() => {
+    addWidthMetadata(tarantula)
     walkMidStanceTl.addLabel('setup')
 
     if(isMobile) {
