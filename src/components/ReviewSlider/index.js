@@ -4,19 +4,19 @@ import Slider from "react-slick"
 function ReviewSlider() {
   const reviews = [
     {
-      review: "Philip is approachable, and gives detailed responses. He's encouraging and I'm happy with his support.",
+      review: "Philip is approachable and gives detailed responses. He's encouraging and I'm happy with his support.",
       author: ""
     },
     {
-      review: "Excellent job. All points have explicit description and resource. Where is the name of the mentor or reviewer? Thanks reviewer.",
+      review: "Excellent job. All points have an explicit description and resource. Where is the name of this mentor or reviewer? Thanks, reviewer!",
       author: ""
     },
     {
-      review: "Thanks for always giving me super detailed answer, I really appreciate it",
+      review: "Thanks for always giving me a super detailed answer, I truly appreciate it",
       author: ""
     },
     {
-      review: "His/Her attention to every little details of my code was impeccable!",
+      review: "His/Her attention to every little detail of my code was impeccable!",
       author: ""
     },
     {
@@ -52,15 +52,15 @@ function ReviewSlider() {
       author: ""
     },
     {
-      review: "Thanks so much Philip! All respect for your kind reply and excellent explanation",
+      review: "Thanks so much, Philip! All respect for your kind reply and excellent explanation",
       author: "Marwa M."
     },
     {
-      review: "Thank you so much for the reviewary! I wasn't expecting this much feedback! It was very helpful, and very supportive!",
+      review: "Thank you so much for the review! I wasn't expecting this much feedback! It was very helpful and very supportive!",
       author: ""
     },
     {
-      review: "Hey Philip, thanks man!!! You are very patient and a good teacher. It's greatly appreciated. I pray many blessings your way!!! Thanks man, you have no idea! Greatly appreciated!!!",
+      review: "Hey Philip, thanks, man!!! You are very patient and a good teacher. It's greatly appreciated. I pray many blessings your way!!! Thanks, man, you have no idea! Greatly appreciated!!!",
       author: "Ray H."
     },
     {
@@ -68,7 +68,7 @@ function ReviewSlider() {
       author: "Abdelrahman M."
     },
     {
-      review: "Thank you Philip for your time. I read all your notes which are so organized and clear to me ;) The game finally works fine! Thanks again for your support",
+      review: "Thank you, Philip, for your time. I read all your notes which are so organized and clear to me ;) The game finally works fine! Thanks again for your support",
       author: "Marwa M."
     },
     {
@@ -92,7 +92,7 @@ function ReviewSlider() {
       author: ""
     },
     {
-      review: "Super well explained. I could understood everything without any troubles. :)",
+      review: "Super well explained. I understood everything without any troubles. :)",
       author: ""
     },
     {
@@ -108,11 +108,11 @@ function ReviewSlider() {
       author: ""
     },
     {
-      review: "This review alone is equivalent to taking multiple lessons. It's fascinating how the reviewer doesn't stick to the limited set of previously covered concepts, but still, the way he approaches the subject doesn't make me fell dissapointed in myself. Instead, it motivates to study materiais beyond the curriculum.",
+      review: "This review alone is equivalent to taking multiple lessons. It's fascinating how the reviewer doesn't stick to the limited set of previously covered concepts, but still, the way he approaches the subject doesn't make me feel disappointed in myself. Instead, it motivates to study materials beyond the curriculum.",
       author: ""
     },
     {
-      review: "I was a little sad because of GIT... And, I decided to open my email. Awesome! I'm fascinated by how this review was made. I never thought that my project would be revised with so much detail. I'm also thrilled with the way you write! With the reviews and suggestions I received a revitalizing energy for my new path! Thanks a lot!",
+      review: "I was a little sad because of GIT... And, I decided to open my email. Awesome! I'm fascinated by how this review was made. I never thought that my project would be revised with so much detail. I'm also thrilled with the way you write! With the reviews and suggestions, I received revitalizing energy for my new path! Thanks a lot!",
       author: ""
     },
     {
@@ -120,7 +120,7 @@ function ReviewSlider() {
       author: ""
     },
     {
-      review: "Excellet feedback. It's a pleasure to have you as a tutor! :)",
+      review: "Excellent feedback. It's a pleasure to have you as a tutor! :)",
       author: ""
     },
     {
@@ -136,7 +136,7 @@ function ReviewSlider() {
       author: ""
     },
     {
-      review: "Excellent revision! I had no idea that it would be this good. This refueled my motivation to proceed with this course and find out what awaits me. Congratulations for such a great job!",
+      review: "Excellent revision! I had no idea that it would be this good. This refueled my motivation to proceed with this course and find out what awaits me. Congratulations on such a great job!",
       author: ""
     },
     {
@@ -152,7 +152,7 @@ function ReviewSlider() {
       author: ""
     },
     {
-      review: "This revision exceeded all my expectations. Very fast and thorough! Congratulations!",
+      review: "This revision exceeded all of my expectations. Very fast and thorough! Congratulations!",
       author: ""
     },
     {
@@ -160,19 +160,19 @@ function ReviewSlider() {
       author: ""
     },
     {
-      review: "I'm so very greatful to the reviewer for using simple terms in his revision, I was having some issues with this content, but now I understand! Such a loveable reviewer <3",
+      review: "I'm so very grateful to the reviewer for using simple terms in his revision, I was having some issues with this content, but now I understand! Such a loveable reviewer <3",
       author: ""
     },
     {
-      review: "Hi! Thank you very much for the very useful feedback! It's incredible how you pointed all my errors out! Now, I'm working on it one by one and it is actually working much better! Awesome review! Thank you!",
+      review: "Hi! Thank you very much for the very useful feedback! It's incredible how you pointed all my errors out! Now, I'm working on it one by one and it is, actually, working much better! Awesome review! Thank you!",
       author: "Sherry"
     },
     {
-      review: "Best cody review I had on Udacity! There were many excellent tips a you reinforced some core points that I hadn't even acknowledge how important they were! Plus, you added memes hhahahaha I'm still laughing! Thank you, keep it up!",
+      review: "Best code review I had on Udacity! There were many excellent tips and you reinforced some core points that I hadn't even acknowledged how important they were! Plus, you added memes hhahahaha I'm still laughing! Thank you, keep it up!",
       author: ""
     },
     {
-      review: "Hats off to your didactic and to the way you explained every project point. Praiseworthy interaction!",
+      review: "Hats off to your didactic and to the way you explained every required change. Praiseworthy interaction!",
       author: ""
     },
     {
@@ -184,7 +184,7 @@ function ReviewSlider() {
       author: ""
     },
     {
-      review: "I appreciate everything my reviewer said. Their feedback was a big help in finishing every little detail about this assignment. So, thank you very mucgh. :)",
+      review: "I appreciate everything my reviewer said. Their feedback was a big help in finishing every little detail about this assignment. So, thank you very much. :)",
       author: ""
     },
     {
