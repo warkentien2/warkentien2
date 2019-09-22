@@ -24,22 +24,24 @@ function App() {
     const html = app.current.parentNode.parentNode.parentNode
     const targetScroll = app.current.querySelector(e.target.getAttribute('href')).offsetTop - headerOffset
     TweenMax.to(html, 0.5, { scrollTop: targetScroll, ease: Power2.easeInOut })
+    window.history.replaceState(undefined, undefined, e.target.getAttribute('href'))
   }
 
   return (
     <div ref={app} className="App">
       <header className="main-header">
         <nav className="navbar">
+          <li><a href="#home" onClick={navigationHandler}>Philip Warkentien II</a></li>
           <li><a href="#animation" onClick={navigationHandler}>Animation</a></li>
           <li><a href="#projects" onClick={navigationHandler}>Projects</a></li>
           <li><a href="#contact" onClick={navigationHandler}>Contact</a></li>
         </nav>
       </header>
-      <main className="main">
+      <main id="home" className="main">
         <section id="home" className="section hero">
           <h1 className="hero__title">
             <span tabIndex="-1" className="block right">
-              <span className="block font--tiny right"><a className="brand hero__title--highlight" href="#home">Philip Warkentien II</a></span>
+              <span className="block font--tiny right"><a className="brand hero__title--highlight" href="#home" onClick={navigationHandler}>Philip Warkentien II</a></span>
               <span className="block font--small right--overflow">Complex UI &</span>
             </span>
             <span className="block font--small left left--overflow">Complex UI &</span>

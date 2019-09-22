@@ -647,12 +647,12 @@ h6 {
 .x-body .x-spinnerets-parts {
   transition: background 1.5s ease-out;
 }
-.x-body .x-leg-parts:hover,
-.x-body .x-leg-parts:hover::before,
-.x-body .x-body-part:hover,
-.x-body .x-body-part:hover::before,
-.x-body .x-fang:hover,
-.x-body .x-spinnerets-parts:hover {
+.x-body .glow.x-leg-parts,
+.x-body .glow.x-leg-parts::before,
+.x-body .glow.x-body-part,
+.x-body .glow.x-body-part::before,
+.x-body .glow.x-fang,
+.x-body .glow.x-spinnerets-parts {
   background: #3500d3 !important;
   transition: background 0.125s ease;
 }

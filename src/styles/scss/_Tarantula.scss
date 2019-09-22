@@ -158,6 +158,23 @@ $body-angle: 0;
     transform: translate(-50%, -50%);
   }
 
+  // .x-leg-parts,
+  // .x-body-part,
+  // .x-fang,
+  // .x-spinnerets-parts {
+  //   transition: background 1.5s ease-out;
+  // }
+  
+  // .x-leg-parts:hover,
+  // .x-leg-parts:hover::before,
+  // .x-body-part:hover,
+  // .x-body-part:hover::before,
+  // .x-fang:hover,
+  // .x-spinnerets-parts:hover {
+  //   background: #3500d3 !important;
+  //   transition: background 0.125s ease;
+  // }
+
   .x-leg-parts,
   .x-body-part,
   .x-fang,
@@ -165,12 +182,12 @@ $body-angle: 0;
     transition: background 1.5s ease-out;
   }
   
-  .x-leg-parts:hover,
-  .x-leg-parts:hover::before,
-  .x-body-part:hover,
-  .x-body-part:hover::before,
-  .x-fang:hover,
-  .x-spinnerets-parts:hover {
+  .glow.x-leg-parts,
+  .glow.x-leg-parts::before,
+  .glow.x-body-part,
+  .glow.x-body-part::before,
+  .glow.x-fang,
+  .glow.x-spinnerets-parts {
     background: #3500d3 !important;
     transition: background 0.125s ease;
   }
