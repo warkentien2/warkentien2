@@ -295,11 +295,47 @@ function Tarantula({isMobile}) {
   const attackStanceTl = new TimelineMax({ paused: true })
   const moveLegsTl = new TimelineMax({ paused: true })
   const completeTl = new TimelineMax({ paused: true })
+  const pulseTl = new TimelineMax({ paused: true })
 
   // animation
 
   useEffect(() => {
     addWidthMetadata(tarantula)
+
+    pulseTl
+      .addLabel('pulse')
+      .staggerTo([
+        body.current.querySelector('.x-cephalothorax'), 
+        body.current.querySelectorAll('.x-coxa-pattern, .x-abdomen, .x-chelicera-pattern'),
+        body.current.querySelectorAll('.x-coxa, .x-chelicerae'),
+        body.current.querySelectorAll('.x-femur, .x-fang'),
+        body.current.querySelectorAll('.x-patella'),
+        body.current.querySelectorAll('.x-tibia'),
+        body.current.querySelectorAll('.x-metatarsus'),
+        body.current.querySelectorAll('.x-tarsus')
+      ], 0.25, { 
+        onStart: (self) => {
+          if(self.hasOwnProperty('_targets')) {
+            self._targets.forEach(t => {
+              t.classList.toggle('glow')
+            })
+          } else {
+            self.target.classList.toggle('glow')
+          }
+        }, 
+        onStartParams: ['{self}'], 
+        onComplete: (self) => {
+          if(self.hasOwnProperty('_targets')) {
+            self._targets.forEach(t => {
+              t.classList.toggle('glow')
+            })
+          } else {
+            self.target.classList.toggle('glow')
+          }
+        }, 
+        onCompleteParams: ['{self}']
+      }, 0.125, 'pulse')
+
     walkMidStanceTl.addLabel('setup')
 
     if(isMobile) {
@@ -424,15 +460,19 @@ function Tarantula({isMobile}) {
     completeTl.addLabel('enter')
       .to(walkMidStanceTl, 11, { progress: 1, ease: Power1.easeOut }, 'enter')
       .to(attackStanceTl, 2.25, { progress: 1, ease: Power2.easeInOut }, 'enter+=11')
+      .to(pulseTl, 1.125, { progress: 1, ease: Linear.easeNone, onComplete: () => {
+        TweenMax.set(pulseTl, { progress: 0 })
+      }}, 'enter+=11.5')
       .to(info.current, 1, { autoAlpha: 1, ease: Power2.easeInOut }, 'enter+=13.75')
       .to(moveLegsTl, 0.25, { progress: 1, repeat: -1, repeatDelay: 10, ease: Power2.easeInOut }, 'enter+=15.25')
+      .to(pulseTl, 1.125, { progress: 1, repeat: -1, repeatDelay: 9.125, ease: Linear.easeNone }, 'enter+=15.25')
     ;
 
     completeTl.play(0)
 
     return () => completeTl.stop()
   }, [])
-
+  
   return (
     <div ref={tarantulaWrapper} className={`tarantula-wrapper${isMobile ? ' tarantula-wrapper--mobile' : ''}`}>
       <p ref={info} className="tarantula__info handwritten">

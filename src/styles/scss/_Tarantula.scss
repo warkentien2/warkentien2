@@ -175,21 +175,45 @@ $body-angle: 0;
   //   transition: background 0.125s ease;
   // }
 
-  .x-leg-parts,
-  .x-body-part,
-  .x-fang,
-  .x-spinnerets-parts {
-    transition: background 1.5s ease-out;
+  .x-body-part::before,
+  .x-body-part .x-coxa-pattern,
+  .x-body-part .x-chelicera-pattern::before,
+  .x-body-part .x-chelicera-pattern::after,
+  .x-body-part .x-chelicerae,
+  .x-body-part .x-fang,
+  .x-body-part .x-leg-parts,
+  .x-body-part .x-spinnerets-parts,
+  .x-body-part .x-leg--background .x-leg-parts::before,
+  .x-body-part .x-leg--background .x-leg-parts::before {
+    transition: background 1s ease-out;
   }
-  
-  .glow.x-leg-parts,
-  .glow.x-leg-parts::before,
-  .glow.x-body-part,
-  .glow.x-body-part::before,
-  .glow.x-fang,
-  .glow.x-spinnerets-parts {
+
+  .x-body-part:hover::before,
+  .x-body-part .x-coxa-pattern:hover,
+  .x-body-part .x-chelicera-pattern:hover::before,
+  .x-body-part .x-chelicera-pattern:hover::after,
+  .x-body-part .x-chelicerae:hover,
+  .x-body-part .x-fang:hover,
+  .x-body-part .x-leg-parts:hover,
+  .x-body-part .x-spinnerets-parts:hover,
+  .x-body-part .x-leg--background .x-leg-parts:hover::before,
+  .x-body-part .x-spinnerets--background .x-spinnerets-parts:hover::before {
     background: #3500d3 !important;
-    transition: background 0.125s ease;
+    transition: background 0.125s ease-in;
+  }
+
+  .x-body-part.glow::before,
+  .x-body-part .x-coxa-pattern.glow,
+  .x-body-part .x-chelicera-pattern.glow::before,
+  .x-body-part .x-chelicera-pattern.glow::after,
+  .x-body-part .x-chelicerae.glow,
+  .x-body-part .x-fang.glow,
+  .x-body-part .x-leg-parts.glow,
+  .x-body-part .x-spinnerets-parts.glow,
+  .x-body-part .x-leg--background .x-leg-parts.glow::before,
+  .x-body-part .x-spinnerets--background .x-spinnerets-parts.glow::before {
+    background: #3500d3 !important;
+    transition: background 0.25s ease-in;
   }
 }
 
