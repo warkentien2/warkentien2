@@ -3,7 +3,8 @@ import useWindowSize from './hooks/useWindowSize'
 import useScrollTop from "./hooks/useScrollTop"
 import Moth from './components/Moth'
 import ReviewSlider from './components/ReviewSlider'
-let Tarantula = React.lazy(() => import("./components/Tarantula"));
+import tools from './tools'
+let Tarantula = React.lazy(() => import("./components/Tarantula"))
 
 function App() {
   const mentoringSection = useRef(null)
@@ -90,16 +91,16 @@ function App() {
             <h2>Helping others</h2>
             <div className="row">
               <div className="col-sm-6 col-4">
-                <Statistics topAnchorSection={mentoringSection} scrollTop={scroll.position} index={1} value={250} title="classroom students" />
+                <Statistics topAnchorSection={mentoringSection} windowSize={windowSize} scrollTop={scroll.position} index={1} value={250} title="classroom students" />
               </div>
               <div className="col-sm-6 col-4">
-                <Statistics topAnchorSection={mentoringSection} scrollTop={scroll.position} large index={2} value={5000} title="project reviews" />
+                <Statistics topAnchorSection={mentoringSection} windowSize={windowSize} scrollTop={scroll.position} large index={2} value={5000} title="project reviews" />
               </div>
               <div className="col-sm-6 col-4">
-                <Statistics topAnchorSection={mentoringSection} scrollTop={scroll.position} index={3} value={868} title="stackoverflow reputation" />
+                <Statistics topAnchorSection={mentoringSection} windowSize={windowSize} scrollTop={scroll.position} index={3} value={868} title="stackoverflow reputation" />
               </div>
               <div className="col-sm-6 col-12">
-                <Statistics topAnchorSection={mentoringSection} scrollTop={scroll.position} index={4} value={14} title="peer onboarding" />
+                <Statistics topAnchorSection={mentoringSection} windowSize={windowSize} scrollTop={scroll.position} index={4} value={14} title="peer onboarding" />
               </div>
             </div>
             <ReviewSlider />
@@ -126,28 +127,17 @@ function App() {
   );
 }
 
-function Statistics({ topAnchorSection, scrollTop, index, value, title, large = false }) {
+function Statistics({ topAnchorSection, windowSize, scrollTop, index, value, title, large = false }) {
   const number = useRef(null)
   const [showValue, updateValue] = useState(0)
-  const [thisOffsetTop, updateThisOffsetTop] = useState(1)
 
   useEffect(() => {
-    updateThisOffsetTop(topAnchorSection.current.offsetTop)
-    if(scrollTop / (thisOffsetTop - 140) <= 1) {
-      number.current.parentNode.style.transform = 'translateY(100%)'
-      number.current.parentNode.style.opacity = 0
-    }
-  }, [])
-  
-  useEffect(() => {
-    if(scrollTop / (thisOffsetTop - 140) <= 1) {
-      const fraction = scrollTop / (thisOffsetTop - 140)
-      number.current.parentNode.style.transform = `translateY(${((1 - fraction) * fraction * fraction) * 100}%)`
-      number.current.parentNode.style.opacity = Math.max(0, 1.5 * (fraction * fraction * fraction * fraction) - 0.5)
-      updateValue(Math.floor((fraction * fraction * fraction * fraction) * value))
+    if(scrollTop + windowSize.height / 4 <= topAnchorSection.current.offsetTop) {
+      const fraction = tools.growCompletelyFrom(scrollTop + windowSize.height / 4, topAnchorSection.current.offsetTop, topAnchorSection.current.offsetTop - windowSize.height / 2) / topAnchorSection.current.offsetTop
+      number.current.parentNode.style.transform = `translateY(${((1 - fraction)) * 100}%)`
+      updateValue(Math.round(value * Math.pow(fraction, 0.75)))
     } else {
       number.current.parentNode.style.transform = 'translateY(0)'
-      number.current.parentNode.style.opacity = 1
       updateValue(value);
     }
   }, [scrollTop])

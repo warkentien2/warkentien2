@@ -1,23 +1,15 @@
-import React, { useRef, useEffect, useState } from 'react'
+import React, { useRef, useEffect } from 'react'
+import tools from '../../tools'
 
-function Moth({ scrollTop, bottomAnchorSection }) {
+function Moth({ scrollTop, bottomAnchorSection, windowSize }) {
   const foreWing1 = useRef(null)
   const foreWing2 = useRef(null)
   const hindWing1 = useRef(null)
   const hindWing2 = useRef(null)
-  const [thisOffsetTop, updateThisOffsetTop] = useState(1)
-
-  useEffect(() => {
-    updateThisOffsetTop(bottomAnchorSection.current.offsetTop)
-    foreWing1.current.style.transform = 'rotate(-85deg)'
-    foreWing2.current.style.transform = 'rotateY(180deg) rotateZ(-88deg)'
-    hindWing1.current.style.transform = 'rotate(-40deg)'
-    hindWing2.current.style.transform = 'rotateY(-180deg) rotateZ(-42deg)'
-  }, [])
   
   useEffect(() => {
-    if(4 * scrollTop / (thisOffsetTop - 200) <= 4) {
-      const fraction = Math.max(0, (4 * scrollTop / (thisOffsetTop - 200)) - 3)
+    if(scrollTop + windowSize.height / 2 <= bottomAnchorSection.current.offsetTop) {
+      const fraction = tools.growCompletelyFrom(scrollTop + windowSize.height / 2, bottomAnchorSection.current.offsetTop, bottomAnchorSection.current.offsetTop - windowSize.height / 2) / bottomAnchorSection.current.offsetTop
       foreWing1.current.style.transform = `rotate(${85 * Math.pow(fraction, 2) - 85}deg)`
       foreWing2.current.style.transform = `rotateY(180deg) rotateZ(${85 * Math.pow(fraction, 2) - 88}deg)`
       hindWing1.current.style.transform = `rotate(${40 * Math.pow(fraction, 2) - 40}deg)`
