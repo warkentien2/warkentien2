@@ -12,6 +12,7 @@ function addWidthMetadata(tarantula) {
 
     legParts.forEach(part => {
       part.dataset.width = part.getBoundingClientRect().width
+      part.style.width = part.dataset.width
     })
   })
 }

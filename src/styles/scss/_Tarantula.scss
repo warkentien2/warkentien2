@@ -130,6 +130,7 @@ $body-angle: 0;
 }
 
 .x-body {
+  font-size: inherit;
   left: 34%;
   top: 70%;
   width: 10%;
@@ -137,6 +138,10 @@ $body-angle: 0;
   transform: rotate(0);
   transform: rotate($body-angle + 0deg);
   transform-origin: 7.5% 8%;
+
+  * {
+    font-size: inherit;
+  }
 
   &::after,
   *::after {

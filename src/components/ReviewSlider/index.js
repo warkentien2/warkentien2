@@ -1,10 +1,16 @@
 import React from "react"
 import Slider from "react-slick"
+import "slick-carousel/slick/slick.css"
+import "slick-carousel/slick/slick-theme.css"
 
 function ReviewSlider() {
   const reviews = [
     {
       review: "Philip is approachable and gives detailed responses. He's encouraging and I'm happy with his support.",
+      author: ""
+    },
+    {
+      review: "Great reviewer! I hope I have another like him.",
       author: ""
     },
     {
@@ -16,15 +22,11 @@ function ReviewSlider() {
       author: ""
     },
     {
-      review: "His/Her attention to every little detail of my code was impeccable!",
-      author: ""
-    },
-    {
-      review: "Great reviewer! I hope I have another like him.",
-      author: ""
-    },
-    {
       review: "Many thanks for your review! I found it very motivational, helpful, and informative. I will do my best to apply your advice in the future. :-)",
+      author: ""
+    },
+    {
+      review: "His/Her attention to every little detail of my code was impeccable!",
       author: ""
     },
     {
@@ -60,8 +62,16 @@ function ReviewSlider() {
       author: ""
     },
     {
-      review: "Hey Philip, thanks, man!!! You are very patient and a good teacher. It's greatly appreciated. I pray many blessings your way!!! Thanks, man, you have no idea! Greatly appreciated!!!",
-      author: "Ray H."
+      review: "Very detailed-oriented reviewer. I liked the feedback!",
+      author: ""
+    },
+    {
+      review: "Very demanding and challenges-setting review, as it should be! This will help me become a better professional. Thank you!",
+      author: ""
+    },
+    {
+      review: "Super detailed review :-)",
+      author: ""
     },
     {
       review: "(Sic) My dude, you are such a kind person with great knowledge and high technical ability. You have supported me a lot.",
@@ -72,11 +82,11 @@ function ReviewSlider() {
       author: "Marwa M."
     },
     {
-      review: "The reviewer was very thorough, suggesting improvements on even small things that I feel that they would be commonly overlooked",
-      author: ""
+      review: "I think I learned more from you than from the lessons in Udacity. Thank you!",
+      author: "Marie Therese Y"
     },
     {
-      review: "Very detailed-oriented reviewer. I liked the feedback!",
+      review: "The reviewer was very thorough, suggesting improvements on even small things that I feel that they would be commonly overlooked",
       author: ""
     },
     {
@@ -84,11 +94,7 @@ function ReviewSlider() {
       author: ""
     },
     {
-      review: "Super detailed review :-)",
-      author: ""
-    },
-    {
-      review: "Very demanding and challenges-setting review, as it should be! This will help me become a better professional. Thank you!",
+      review: "This review alone is equivalent to taking multiple lessons. It's fascinating how the reviewer doesn't stick to the limited set of previously covered concepts, but still, the way he approaches the subject doesn't make me feel disappointed in myself. Instead, it motivates to study materials beyond the curriculum.",
       author: ""
     },
     {
@@ -108,7 +114,7 @@ function ReviewSlider() {
       author: ""
     },
     {
-      review: "This review alone is equivalent to taking multiple lessons. It's fascinating how the reviewer doesn't stick to the limited set of previously covered concepts, but still, the way he approaches the subject doesn't make me feel disappointed in myself. Instead, it motivates to study materials beyond the curriculum.",
+      review: "Excellent feedback. It's a pleasure to have you as a tutor! :)",
       author: ""
     },
     {
@@ -120,11 +126,15 @@ function ReviewSlider() {
       author: ""
     },
     {
-      review: "Excellent feedback. It's a pleasure to have you as a tutor! :)",
+      review: "A can't thank you enough for these revisions. They hold so many useful and pertinent orientations.",
       author: ""
     },
     {
-      review: "A can't thank you enough for these revisions. They hold so many useful and pertinent orientations.",
+      review: "Excellent revision! I had no idea that it would be this good. This refueled my motivation to proceed with this course and find out what awaits me. Congratulations on such a great job!",
+      author: ""
+    },
+    {
+      review: "Great reviewer! Gave me some very important suggestions and has a great sense of humor :D",
       author: ""
     },
     {
@@ -136,27 +146,7 @@ function ReviewSlider() {
       author: ""
     },
     {
-      review: "Excellent revision! I had no idea that it would be this good. This refueled my motivation to proceed with this course and find out what awaits me. Congratulations on such a great job!",
-      author: ""
-    },
-    {
-      review: "Loved the quote from Neil deGrasse Tyson!",
-      author: ""
-    },
-    {
-      review: "Great reviewer! Gave me some very important suggestions and has a great sense of humor :D",
-      author: ""
-    },
-    {
       review: "Best review ever! Thanks for your reviews.",
-      author: ""
-    },
-    {
-      review: "This revision exceeded all of my expectations. Very fast and thorough! Congratulations!",
-      author: ""
-    },
-    {
-      review: "So good! To me, this revision was like a bonus lesson",
       author: ""
     },
     {
@@ -164,8 +154,16 @@ function ReviewSlider() {
       author: ""
     },
     {
+      review: "This revision exceeded all of my expectations. Very fast and thorough! Congratulations!",
+      author: ""
+    },
+    {
       review: "Hi! Thank you very much for the very useful feedback! It's incredible how you pointed all my errors out! Now, I'm working on it one by one and it is, actually, working much better! Awesome review! Thank you!",
       author: "Sherry"
+    },
+    {
+      review: "So good! To me, this revision was like a bonus lesson",
+      author: ""
     },
     {
       review: "Best code review I had on Udacity! There were many excellent tips and you reinforced some core points that I hadn't even acknowledged how important they were! Plus, you added memes hhahahaha I'm still laughing! Thank you, keep it up!",
@@ -176,15 +174,19 @@ function ReviewSlider() {
       author: ""
     },
     {
-      review: "I think I learned more from you than from the lessons in Udacity. Thank you!",
-      author: "Marie Therese Y"
-    },
-    {
       review: "I feel excited with the review, there was a clear response to issues I raised, clear instructions on how to make my code better and I appreciate the list of podcast given.",
       author: ""
     },
     {
+      review: "Hey Philip, thanks, man!!! You are very patient and a good teacher. It's greatly appreciated. I pray many blessings your way!!! Thanks, man, you have no idea! Greatly appreciated!!!",
+      author: "Ray H."
+    },
+    {
       review: "I appreciate everything my reviewer said. Their feedback was a big help in finishing every little detail about this assignment. So, thank you very much. :)",
+      author: ""
+    },
+    {
+      review: "Loved the quote from Neil deGrasse Tyson!",
       author: ""
     },
     {
@@ -200,7 +202,7 @@ function ReviewSlider() {
     slidesToScroll: 1,
     rows: 3,
     autoplay: true,
-    autoplaySpeed: 2000
+    autoplaySpeed: 15000
   };
 
   return (

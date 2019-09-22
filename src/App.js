@@ -3,11 +3,13 @@ import useWindowSize from './hooks/useWindowSize'
 import useScrollTop from "./hooks/useScrollTop"
 import Moth from './components/Moth'
 import ReviewSlider from './components/ReviewSlider'
+import { TweenMax, Power2 } from 'gsap'
 import tools from './tools'
 let Tarantula = React.lazy(() => import("./components/Tarantula"))
 
 function App() {
   const mentoringSection = useRef(null)
+  const app = useRef(null)
   const windowSize = useWindowSize()
   const scroll = useScrollTop()
   const [isMobile, updateIsMobile] = useState(windowSize.width/windowSize.height <= 100/101)
@@ -16,13 +18,21 @@ function App() {
     updateIsMobile(windowSize.width/windowSize.height <= 100/101)
   }, [windowSize.width, windowSize.height, isMobile])
 
+  function navigationHandler(e) {
+    e.preventDefault()
+    const headerOffset = 50
+    const html = app.current.parentNode.parentNode.parentNode
+    const targetScroll = app.current.querySelector(e.target.getAttribute('href')).offsetTop - headerOffset
+    TweenMax.to(html, 0.5, { scrollTop: targetScroll, ease: Power2.easeInOut })
+  }
+
   return (
-    <div className="App">
+    <div ref={app} className="App">
       <header className="main-header">
         <nav className="navbar">
-          <li><a href="#animation">Animation</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="#animation" onClick={navigationHandler}>Animation</a></li>
+          <li><a href="#projects" onClick={navigationHandler}>Projects</a></li>
+          <li><a href="#contact" onClick={navigationHandler}>Contact</a></li>
         </nav>
       </header>
       <main className="main">
