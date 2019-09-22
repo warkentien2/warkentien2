@@ -187,6 +187,7 @@ const animatePedipalpA = {
   raise: (el, time) => animateLeg(el, time, [false, -40, 82, 30, 20, false]),
   stretch: (el, time) => animateLeg(el, time, [false, -25, 52, 20, -25, false]),
   halfAttackStance: (el, time) => animateLeg(el, time, [false, -115, 107, 20, 60, false]),
+  resting: (el, time) => animateLeg(el, time, [false, -70, 137, 20, 30, false]),
   attackStance: (el, time) => animateLeg(el, time, [false, -155, 72, 20, -10, false]),
   wiggleStance: (el, time) => animateLeg(el, time, [false, tools.randomChoice([-155, -157, -145]), tools.randomChoice([72, 82, 62]), tools.randomChoice([20, 25, 30]), tools.randomChoice([20, 10, 0, -10]), false])
 }
@@ -197,6 +198,7 @@ const animatePedipalpB = {
   raise: (el, time) => animateLeg(el, time, [false, -40, 82, 30, 20, false]),
   stretch: (el, time) => animateLeg(el, time, [false, -25, 52, 20, -25, false]),
   halfAttackStance: (el, time) => animateLeg(el, time, [false, -110, 102, 20, 40, false]),
+  resting: (el, time) => animateLeg(el, time, [false, -65, 132, 20, 20, false]),
   attackStance: (el, time) => animateLeg(el, time, [false, -180, 57, 20, -10, false]),
   wiggleStance: (el, time) => animateLeg(el, time, [false, tools.randomChoice([-180, -182, -170]), tools.randomChoice([57, 47, 62]), tools.randomChoice([20, 25, 30]), tools.randomChoice([15, 5, -5, -10]), false])
 }
@@ -384,16 +386,18 @@ function Tarantula({isMobile}) {
 
       .add(legCycle(legA2), 'motion-1')
       .add(legCycle(legB3), 'motion-1')
-      .add(legCycle(pedipalpB), 'motion-1')
+      .add(legCycle(pedipalpB, { repeat: 6 }), 'motion-1')
       .add(legCycle(legA4, { raiseLate: true }), 'motion-1')
       .add(legCycle(legB1, { raiseLate: true }), 'motion-1')
       .add(legCycle(legA3, { moveFirst: true }), 'motion-1')
       .add(legCycle(legB2, { moveFirst: true }), 'motion-1')
-      .add(legCycle(pedipalpA, { moveFirst: true }), 'motion-1')
+      .add(legCycle(pedipalpA, { moveFirst: true, repeat: 6 }), 'motion-1')
       .add(legCycle(legA1, { raiseLate: true, moveFirst: true }), 'motion-1')
       .add(legCycle(legB4, { raiseLate: true, moveFirst: true }), 'motion-1')
       
       .addLabel('motion-2')
+      .add(animatePedipalpA.resting(pedipalpA, 1), 'motion-2-=1.5')
+      .add(animatePedipalpB.resting(pedipalpB, 0.875), 'motion-2-=1.5')
       .add(animateLegB4.raise(legB4, 0.25), 'motion-2+=0.125')
       .add(legCycle(legB2, { repeat: 0, steps: 3 }), 'motion-2')
       .add(legCycle(legA2, { repeat: 0, steps: 2 }), 'motion-2+=0.375')
