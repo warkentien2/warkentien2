@@ -638,6 +638,21 @@ h6 {
   top: calc(50% + 1px);
   transform: translate(-50%, -50%);
 }
+.x-body .x-leg-parts,
+.x-body .x-body-part,
+.x-body .x-fang,
+.x-body .x-spinnerets-parts {
+  transition: background 1.5s ease-out;
+}
+.x-body .x-leg-parts:hover,
+.x-body .x-leg-parts:hover::before,
+.x-body .x-body-part:hover,
+.x-body .x-body-part:hover::before,
+.x-body .x-fang:hover,
+.x-body .x-spinnerets-parts:hover {
+  background: #3500d3 !important;
+  transition: background 0.125s ease;
+}
 
 .x-body-part {
   border: 1px dashed white;
@@ -1216,9 +1231,23 @@ h6 {
   top: 49%;
   width: 10%;
   height: 13%;
+  cursor: pointer;
 }
 .moth * {
   position: absolute;
+}
+.moth .m-thorax div,
+.moth .m-abdomen,
+.moth .m-fore-wing div,
+.moth .m-hind-wing div {
+  transition: background 1.5s ease-out;
+}
+.moth .m-thorax:hover div,
+.moth .m-abdomen:hover,
+.moth .m-fore-wing:hover div,
+.moth .m-hind-wing:hover div {
+  background: #3500d3 !important;
+  transition: background 0.125s ease;
 }
 
 .m-thorax {

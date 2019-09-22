@@ -434,6 +434,15 @@ function Tarantula({isMobile}) {
 
   return (
     <div ref={tarantulaWrapper} className={`tarantula-wrapper${isMobile ? ' tarantula-wrapper--mobile' : ''}`}>
+      <p ref={info} className="tarantula__info handwritten">
+        <span className="tarantula__info__description">made with HTML5,<br />CSS and GSAP</span>
+        <svg className="tarantula__info__arrow" viewBox="0 0 52 34" fill="none">
+          <path d="M46.4576 1.32037C43.3078 10.8531 30.4555 28.15 4.24456 21.0754M4.24456 21.0754L14.3471 14.5008M4.24456 21.0754L11.7735 31.8898" stroke="white" strokeWidth="3" />
+        </svg>
+      </p>
+      <p className="tarantula__wait">
+        <span ref={wait}>loading...</span>
+      </p>
       <div ref={tarantula} className="tarantula">
         <div ref={body} className="x-body">
           <div className="x-body-part x-cephalothorax">
@@ -602,15 +611,6 @@ function Tarantula({isMobile}) {
           </div>
         </div>
       </div>
-      <p ref={info} className="tarantula__info handwritten">
-        <span className="tarantula__info__description">made with HTML5,<br />CSS and GSAP</span>
-        <svg className="tarantula__info__arrow" viewBox="0 0 52 34" fill="none">
-          <path d="M46.4576 1.32037C43.3078 10.8531 30.4555 28.15 4.24456 21.0754M4.24456 21.0754L14.3471 14.5008M4.24456 21.0754L11.7735 31.8898" stroke="white" strokeWidth="3" />
-        </svg>
-      </p>
-      <p className="tarantula__wait">
-        <span ref={wait}>loading...</span>
-      </p>
     </div>
   )
 }

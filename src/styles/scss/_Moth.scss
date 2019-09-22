@@ -38,9 +38,25 @@
   top: 49%;
   width: 10%;
   height: 13%;
+  cursor: pointer;
   
   * {
     position: absolute;
+  }
+
+  .m-thorax div,
+  .m-abdomen,
+  .m-fore-wing div,
+  .m-hind-wing div {
+    transition: background 1.5s ease-out;
+  }
+  
+  .m-thorax:hover div,
+  .m-abdomen:hover,
+  .m-fore-wing:hover div,
+  .m-hind-wing:hover div {
+    background: #3500d3 !important;
+    transition: background 0.125s ease;
   }
 }
 
