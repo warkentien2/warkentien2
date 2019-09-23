@@ -143,7 +143,6 @@ $body-angle: 0;
     font-size: inherit;
   }
 
-  &::after,
   *::after {
     content: '';
     position: absolute;
@@ -157,23 +156,6 @@ $body-angle: 0;
     top: calc(50% + 1px);
     transform: translate(-50%, -50%);
   }
-
-  // .x-leg-parts,
-  // .x-body-part,
-  // .x-fang,
-  // .x-spinnerets-parts {
-  //   transition: background 1.5s ease-out;
-  // }
-  
-  // .x-leg-parts:hover,
-  // .x-leg-parts:hover::before,
-  // .x-body-part:hover,
-  // .x-body-part:hover::before,
-  // .x-fang:hover,
-  // .x-spinnerets-parts:hover {
-  //   background: #3500d3 !important;
-  //   transition: background 0.125s ease;
-  // }
 
   .x-body-part::before,
   .x-body-part .x-coxa-pattern,
@@ -218,11 +200,11 @@ $body-angle: 0;
 }
 
 .x-body-part {
-    border: $border;
-    transform-origin: 5% 50%;
-    background: rgba(255, 255, 255, 0.625);
-    box-shadow: none;
-    cursor: pointer;
+  border: $border;
+  transform-origin: 5% 50%;
+  background: rgba(255, 255, 255, 0.625);
+  box-shadow: none;
+  cursor: pointer;
 
   &.x-abdomen {
     left: -120.75%;
@@ -231,7 +213,7 @@ $body-angle: 0;
     height: calc(14.4em + 2px);
     border-radius: 60% 50% 35% 50%;
     transform-origin: 97.5% 60.5%;
-    transform: rotate(10deg);
+    transform: scale(0.875) rotate(10deg);
     z-index: 1;
     
     &::before {
@@ -410,6 +392,7 @@ $body-angle: 0;
       transform-origin: 5% 50%;
 
       &::after {
+        content: none;
         left: 5%;
         top: 50%;
       }
@@ -433,22 +416,31 @@ $body-angle: 0;
       transform: rotateY(180deg);
   
       .x-femur {
-        width: calc(310% + 2px);
+        width: calc(14.378em + 2px);
         transform: rotate(-67.5deg);
       }
   
       .x-patella {
+        width: calc(6.47em + 2px);
         transform: rotate(67.5deg);
+      }
+
+      .x-tibia {
+        width: calc(9.7em + 2px);
       }
   
       .x-metatarsus {
+        width: calc(9.22em + 2px);
         transform: rotate(30deg);
+      }
+
+      .x-tarsus {
+        width: calc(5.53em + 2px);
       }
     }
 
     &.x-leg--background {
-      width: calc(15.41em + 2px);
-      height: calc(3.02em + 2px);
+      font-size: 0.9875em;
       z-index: -1;
 
       * {
@@ -490,31 +482,37 @@ $body-angle: 0;
     top: auto;
     bottom: 0;
     left: 22%;
-    width: 19%;
-    height: 9.5%;
+    width: 3.876em;
+    height: 1.368em;
     transform: rotate(-100deg);
     transform-origin: 20% 50%;
     z-index: 1;
 
+    .x-coxa {
+      width: 0.75em !important;
+      height: 1.33em;
+    }
+
     .x-femur {
+      width: 3.876em;
+      height: 1.3em;
       transform: rotate(-85deg);
     }
 
     .x-patella {
       transform: rotate(20deg);
-      width: 80%;
-      height: 90%;
+      width: 3.1em;
+      height: 1.17em;
     }
     
     .x-tibia {
       transform: rotate(20deg);
-      width: 80%;
-      height: 90%;
+      width: 2.48em;
+      height: 1.05em;
     }
     
     &.x-spinnerets--background {
-      width: 18.5%;
-      height: 9%;
+      font-size: 0.974em;
       z-index: 0;
 
       .x-femur {
@@ -528,8 +526,6 @@ $body-angle: 0;
     background: rgba(255, 255, 255, 0.625);
     border: $border;
     border-radius: 50% 60% 45% 1.75em;
-    height: calc(97.5% + 2px);
-    width: calc(100% + 2px);
     left: 95%;
     top: 10%;
     transform-origin: 5% 50%;
@@ -561,53 +557,59 @@ $body-angle: 0;
   .x-coxa {
     left: 0;
     top: 0;
-    width: calc(30% + 2px);
+    width: calc(4.623em + 2px);
+    height: calc(3.76em + 2px);
     border-radius: 50% 30% 50% 60%;
     background: rgba(255, 255, 255, 0.625);
 
-    &:before {
+    &::before {
       background: rgba(255, 255, 255, 0.625);
+    }
+
+    &::after {
+      content: none;
     }
   }
 
   .x-femur {
-    height: calc(100% + 2px);
+    height: calc(3.76em + 2px);
     left: 55%;
     top: 0;
     transform: rotate(-80deg);
     transform-origin: 5% 50%;
-    width: calc(350% + 2px);
+    width: calc(16.18em + 2px);
     border-radius: 50% 60% 2em 3em;
   }
 
   .x-patella {
     transform: rotate(100deg);
-    width: calc(45% + 2px);
+    width: calc(7.28em + 2px);
+    height: calc(3.668em + 2px);
   }
 
   .x-tibia {
     background: rgba(255, 255, 255, 0.625);
-    height: calc(100% + 2px);
+    height: calc(3.668em + 2px);
     top: 2.5%;
     left: 80%;
     transform: rotate(15deg);
-    width: calc(150% + 2px);
+    width: calc(10.92em + 2px);
   }
 
   .x-metatarsus {
     left: 92.5%;
-    height: calc(80% + 2px);
+    height: calc(2.972em + 2px);
     transform: rotate(25deg);
-    width: calc(95% + 2px);
+    width: calc(10.38em + 2px);
   }
 
   .x-tarsus {
     border-radius: 2em 0.25em 100% 1em;
-    height: calc(62.5% + 2px);
+    height: calc(1.934em + 2px);
     left: 95%;
     top: 20%;
     transform: rotate(-10deg);
-    width: calc(60% + 2px);
+    width: calc(6.22em + 2px);
   }
 
   .x-leg.leg-1,
@@ -699,7 +701,7 @@ $body-angle: 0;
     top: 65%;
     left: 22.5%;
     transform: rotateY(180deg) rotateZ(20deg + 1.3 * $body-angle + 0deg);
-
+    
     .x-femur {
       transform: rotate(-115deg);
     }
@@ -719,7 +721,7 @@ $body-angle: 0;
 
   .x-leg.leg-7 {
     transform: rotateY(180deg) rotateZ(15deg + 0.85 * $body-angle + 0deg);
-
+    
     .x-femur {
       transform: rotate(-124deg);
     }
@@ -781,7 +783,7 @@ $body-angle: 0;
     top: 55%;
     transform: rotate(-17deg - 1.52 * $body-angle + 0deg);
     width: calc(12.14em + 2px);
-    height: calc(2.28em + 2px);
+    height: calc(2.78em + 2px);
     z-index: 5;
 
     .x-leg-parts {
@@ -789,33 +791,39 @@ $body-angle: 0;
     }
 
     .x-coxa {
+      width: calc(3.642em + 2px);
+      height: calc(2.723em + 2px);
       border-radius: 50%;
     }
 
     .x-femur {
+      width: calc(12.747em + 2px);
+      height: calc(2.723em + 2px);
       transform: rotate(-15deg);
     }
 
     .x-patella {
+      width: calc(5.636em + 2px);
       transform: rotate(100.5deg);
-      height: 95%;
+      height: calc(2.612em + 2px);
     }
 
     .x-tibia {
+      width: calc(8.4em + 2px);
+      height: calc(2.512em + 2px);
       transform: rotate(11.5deg);
       top: -5%;
     }
 
     .x-metatarsus {
       transform: rotate(-30deg);
-      width: calc(65% + 2px);
-      height: calc(70% + 2px);
+      width: calc(5.29em + 2px);
+      height: calc(1.778em + 2px);
       border-radius: 1em 50% 80% 30%;
     }
 
     &.pedipalp-2 {
-      width: calc(12.04em + 2px) !important;
-      height: calc(2.26em + 2px) !important;
+      font-size: 0.99em;
       left: 100%;
       transform: rotate(-17deg - 1.95 * $body-angle + 0deg);
   

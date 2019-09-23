@@ -7,7 +7,7 @@ function addWidthMetadata(tarantula) {
   const legs = Array.prototype.slice.call(legsNodeList)
 
   legs.forEach(leg => {
-    const legPartsNodeList = leg.getElementsByClassName('x-leg-parts')
+    const legPartsNodeList = leg.querySelectorAll('.x-femur, .x-patella, .x-tibia')
     const legParts = Array.prototype.slice.call(legPartsNodeList)
 
     legParts.forEach(part => {
@@ -37,7 +37,6 @@ function animateBodyPart(node, speed, angle, newWidth = false, offset = 0) {
 
 function animateLeg(leg, speed, angles = [false, false, false, false, false, false], scalePatellaPercent = false, scaleFemurPercent = false) {
   const tl = new TimelineMax()
-  let femurWidth, patellaWidth, tibiaWidth
   const legParts = ['coxa', 'femur', 'patella', 'tibia', 'metatarsus', 'tarsus']
   const [coxa, femur, patella, tibia, metatarsus, tarsus] = angles.map((angle, index) => {
     if(angle !== false) {
@@ -49,19 +48,16 @@ function animateLeg(leg, speed, angles = [false, false, false, false, false, fal
 
   let scaleFemur = false;
   let scalePatella = false;
+  let scaleTibia = false;
   let scaleMetatarsus = false;
 
   if(scaleFemurPercent) {
-    femurWidth = femur.dataset.width
-    scaleFemur = Math.abs(femurWidth * scaleFemurPercent / 100)
-    scalePatella = Math.abs(femurWidth * 0.95 + 2)
+    scaleFemur = Math.abs(femur.dataset.width * scaleFemurPercent / 100)
   }
 
   if(scalePatellaPercent) {
-    patellaWidth = scaleFemurPercent ? scalePatella : patella.dataset.width
-    tibiaWidth = leg.current.querySelector('.x-tibia').dataset.width
-    scalePatella = Math.abs(patellaWidth * scalePatellaPercent / 100)
-    scaleMetatarsus = Math.abs(tibiaWidth * 0.95 + 2)
+    scalePatella = Math.abs(patella.dataset.width * scalePatellaPercent / 100)
+    scaleTibia = Math.abs(tibia.dataset.width * scalePatellaPercent / 100)
   }
 
   // moves leg parts on the x axis
@@ -71,7 +67,7 @@ function animateLeg(leg, speed, angles = [false, false, false, false, false, fal
   if(coxa) tl.add(animateBodyPart(coxa, speed, angles[0]), 'move')
   if(femur) tl.add(animateBodyPart(femur, speed, angles[1], scaleFemur), 'move')
   if(patella) tl.add(animateBodyPart(patella, speed, angles[2], scalePatella, offset), 'move')
-  if(tibia) tl.add(animateBodyPart(tibia, speed, angles[3]), 'move')
+  if(tibia) tl.add(animateBodyPart(tibia, speed, angles[3], scaleTibia), 'move')
   if(metatarsus) tl.add(animateBodyPart(metatarsus, speed, angles[4], scaleMetatarsus, -offset), 'move')
   if(tarsus) tl.add(animateBodyPart(tarsus, speed, angles[5]), 'move')
 
@@ -108,97 +104,97 @@ function rotateBody(bodyParts, speed, angle, abdomenAngle = false, showFangs = f
 }
 
 const animateLegA1 = {
-  step: (el, time) => animateLeg(el, time, [0, -80, 75, false, 40, -10]),
-  move: (el, time) => animateLeg(el, time, [40, -145, 102, false, 86, -40]),
-  raise: (el, time) => animateLeg(el, time, [26, -142, tools.randomChoice([72, 87, 62]), false, tools.randomChoice([56, 66, 36]), -10]),
-  stretch: (el, time) => animateLeg(el, time, [13, -82, 32, false, 22, -25]),
-  halfAttackStance: (el, time) => animateLeg(el, time, [-20, -127, tools.randomChoice([97, 92]), false, tools.randomChoice([10, 15, 26]), -15]),
-  attackStance: (el, time) => animateLeg(el, time, [-50, -122, tools.randomChoice([62, 67]), false, tools.randomChoice([30, 35, 46]), -25]),
-  wiggleStance: (el, time) => animateLeg(el, time, [-50, -122, tools.randomChoice([62, 67, 75, 83, 95]), false, tools.randomChoice([30, 35, 46, 50, 55]), tools.randomChoice([5, -5, -15, -25])])
+  step: (el, time) => animateLeg(el, time, [0, -80, 75, 15, 40, -10]),
+  move: (el, time) => animateLeg(el, time, [40, -145, 102, 15, 86, -40]),
+  raise: (el, time) => animateLeg(el, time, [26, -142, tools.randomChoice([72, 87, 62]), 15, tools.randomChoice([56, 66, 36]), -10]),
+  stretch: (el, time) => animateLeg(el, time, [13, -82, 32, 15, 22, -25]),
+  halfAttackStance: (el, time) => animateLeg(el, time, [-20, -127, tools.randomChoice([97, 92]), 15, tools.randomChoice([10, 15, 26]), -15]),
+  attackStance: (el, time) => animateLeg(el, time, [-50, -122, tools.randomChoice([62, 67]), 15, tools.randomChoice([30, 35, 46]), -25]),
+  wiggleStance: (el, time) => animateLeg(el, time, [-50, -122, tools.randomChoice([62, 67, 75, 83, 95]), 15, tools.randomChoice([30, 35, 46, 50, 55]), tools.randomChoice([5, -5, -15, -25])])
 }
 
 const animateLegB1 = {
-  step: (el, time) => animateLeg(el, time, [-10, -68, 70, false, 40, -10]),
-  move: (el, time) => animateLeg(el, time, [30, -140, 102, false, 80, -30]),
-  raise: (el, time) => animateLeg(el, time, [16, -130, tools.randomChoice([72, 87, 62]), false, tools.randomChoice([50, 60, 30]), -5]),
-  stretch: (el, time) => animateLeg(el, time, [3, -70, 32, false, 20, -25]),
-  halfAttackStance: (el, time) => animateLeg(el, time, [-20, -123, tools.randomChoice([97, 92]), false, tools.randomChoice([20, 25, 30]), -20]),
-  attackStance: (el, time) => animateLeg(el, time, [-50, -143, tools.randomChoice([87, 82]), false, tools.randomChoice([50, 55, 60]), -20]),
-  wiggleStance: (el, time) => animateLeg(el, time, [-50, -143, tools.randomChoice([60, 75, 87, 82]), false, tools.randomChoice([40, 50, 55, 60]), tools.randomChoice([5, -10, -15, -20])])
+  step: (el, time) => animateLeg(el, time, [-10, -69, 70, 15, 40, -10]),
+  move: (el, time) => animateLeg(el, time, [30, -141, 102, 15, 80, -30]),
+  raise: (el, time) => animateLeg(el, time, [16, -130, tools.randomChoice([72, 87, 62]), 15, tools.randomChoice([50, 60, 30]), -5]),
+  stretch: (el, time) => animateLeg(el, time, [3, -70, 32, 15, 20, -25]),
+  halfAttackStance: (el, time) => animateLeg(el, time, [-20, -123, tools.randomChoice([97, 92]), 15, tools.randomChoice([20, 25, 30]), -20]),
+  attackStance: (el, time) => animateLeg(el, time, [-50, -143, tools.randomChoice([87, 82]), 15, tools.randomChoice([50, 55, 60]), -20]),
+  wiggleStance: (el, time) => animateLeg(el, time, [-50, -143, tools.randomChoice([60, 75, 87, 82]), 15, tools.randomChoice([40, 50, 55, 60]), tools.randomChoice([5, -10, -15, -20])])
 }
 
 const animateLegA2 = {
-  step: (el, time) => animateLeg(el, time, [-3, -78, 92, false, 66, -25], 100),
-  move: (el, time) => animateLeg(el, time, [30, -123, 130, false, 58, -35], 59),
-  raise: (el, time) => animateLeg(el, time, [20, -127, tools.randomChoice([60, 55, 80]), false, tools.randomChoice([88, 92, 52]), 5], 80),
-  stretch: (el, time) => animateLeg(el, time, [10, -87, 60, false, tools.randomChoice([45, 30]), -30], 100),
-  halfAttackStance: (el, time) => animateLeg(el, time, [27, -73, 97, false, 43, -25], 90, 170),
-  attackStance: (el, time) => animateLeg(el, time, [30, -95, 162, false, 10, -5], 100, 120)
+  step: (el, time) => animateLeg(el, time, [-3, -75, 92, 15, 66, -25], 100),
+  move: (el, time) => animateLeg(el, time, [30, -123, 130, 15, 58, -35], 59),
+  raise: (el, time) => animateLeg(el, time, [20, -127, tools.randomChoice([60, 55, 80]), 15, tools.randomChoice([88, 92, 52]), 5], 80),
+  stretch: (el, time) => animateLeg(el, time, [10, -87, 60, 15, tools.randomChoice([45, 30]), -30], 100),
+  halfAttackStance: (el, time) => animateLeg(el, time, [27, -75, 96, 15, 43, -25], 100, 160),
+  attackStance: (el, time) => animateLeg(el, time, [30, -95, 162, 15, 10, -5], 110, 120)
 }
 
 const animateLegB2 = {
-  step: (el, time) => animateLeg(el, time, [-13, -68, 86, false, 66, -25], 100),
-  move: (el, time) => animateLeg(el, time, [20, -120, 120, false, 68, -35], 59),
-  raise: (el, time) => animateLeg(el, time, [10, -110, tools.randomChoice([57, 52, 77]), false, tools.randomChoice([98, 103, 63]), 5], 80),
-  stretch: (el, time) => animateLeg(el, time, [0, -79, 57, false, tools.randomChoice([47, 32]), -30], 100),
-  halfAttackStance: (el, time) => animateLeg(el, time, [17, -93, 91, false, 55, -30], 90, 170),
-  attackStance: (el, time) => animateLeg(el, time, [25, -155, 147, false, 7, -5], 80, 110)
+  step: (el, time) => animateLeg(el, time, [-13, -67, 86, 15, 66, -25], 100),
+  move: (el, time) => animateLeg(el, time, [20, -120, 120, 15, 68, -35], 55),
+  raise: (el, time) => animateLeg(el, time, [10, -110, tools.randomChoice([57, 52, 77]), 15, tools.randomChoice([98, 103, 63]), 5], 80),
+  stretch: (el, time) => animateLeg(el, time, [0, -79, 57, 15, tools.randomChoice([47, 32]), -30], 100),
+  halfAttackStance: (el, time) => animateLeg(el, time, [17, -95, 91, 15, 55, -30], 100, 160),
+  attackStance: (el, time) => animateLeg(el, time, [25, -155, 148, 15, 7, -5], 100, 110)
 }
 
 const animateLegA3 = {
-  step: (el, time) => animateLeg(el, time, [20, -140, 160, 20, 15, 0], 48),
-  move: (el, time) => animateLeg(el, time, [15, -113, 94, 15, 88, -30], 100),
-  raise: (el, time) => animateLeg(el, time, [18, -128, 94, 15, 48, -10], 58),
-  stretch: (el, time) => animateLeg(el, time, [19, -138, 165, 15, 15, -10], 38),
-  halfAttackStance: (el, time) => animateLeg(el, time, [70, -153, 163, false, 0, 0], 70),
-  attackStance: (el, time) => animateLeg(el, time, [-10, -63, 150, false, 12, -10], 100, 205)
+  step: (el, time) => animateLeg(el, time, [20, -140, 160, 20, 15, 0], 47),
+  move: (el, time) => animateLeg(el, time, [15, -108, 94, 15, 88, -30], 100),
+  raise: (el, time) => animateLeg(el, time, [18, -128, 74, 15, 98, -10], 58),
+  stretch: (el, time) => animateLeg(el, time, [19, -138, 65, 15, 135, -10], 48),
+  halfAttackStance: (el, time) => animateLeg(el, time, [70, -153, 153, 15, 0, 0], 62),
+  attackStance: (el, time) => animateLeg(el, time, [-10, -63, 140, 15, 12, -10], 75, 185)
 }
 
 const animateLegB3 = {
-  step: (el, time) => animateLeg(el, time, [10, -135, 165, 20, 15, 10], 33),
-  move: (el, time) => animateLeg(el, time, [5, -104, 95, 15, 88, -30], 100),
-  raise: (el, time) => animateLeg(el, time, [8, -120, 95, 15, 48, -10], 45),
-  stretch: (el, time) => animateLeg(el, time, [9, -130, 170, 15, 15, 0], 25),
-  halfAttackStance: (el, time) => animateLeg(el, time, [50, -153, 133, false, 42, -30], 67),
-  attackStance: (el, time) => animateLeg(el, time, [-20, -73, 133, false, 12, -30], 57, 140)
+  step: (el, time) => animateLeg(el, time, [10, -135, 165, 20, 15, 10], 35, 185),
+  move: (el, time) => animateLeg(el, time, [5, -105, 95, 15, 88, -30], 100),
+  raise: (el, time) => animateLeg(el, time, [8, -120, 85, 15, 98, -10], 70),
+  stretch: (el, time) => animateLeg(el, time, [8, -120, 80, 15, 118, -10], 20),
+  halfAttackStance: (el, time) => animateLeg(el, time, [50, -153, 133, 15, 42, -30], 71),
+  attackStance: (el, time) => animateLeg(el, time, [-20, -73, 133, 15, 12, -30], 65, 130)
 }
 
 const animateLegA4 = {
-  step: (el, time) => animateLeg(el, time, [30, -115, 100, false, 87, -33]),
-  move: (el, time) => animateLeg(el, time, [10, -65, 62, false, 50, -20]),
-  raise: (el, time) => animateLeg(el, time, [20, -95, 72, false, 70, -10]),
-  stretch: (el, time) => animateLeg(el, time, [30, -125, 82, false, 100, -10]),
-  halfAttackStance: (el, time) => animateLeg(el, time, [10, -45, 52, false, 50, -20]),
-  attackStance: (el, time) => animateLeg(el, time, [30, -50, 40, false, 27, -33])
+  step: (el, time) => animateLeg(el, time, [30, -116, 100, 15, 87, -33]),
+  move: (el, time) => animateLeg(el, time, [10, -65, 62, 15, 50, -20]),
+  raise: (el, time) => animateLeg(el, time, [20, -95, 67, 15, 70, -10]),
+  stretch: (el, time) => animateLeg(el, time, [30, -125, 82, 15, 100, -10]),
+  halfAttackStance: (el, time) => animateLeg(el, time, [10, -48, 51, 15, 50, -20]),
+  attackStance: (el, time) => animateLeg(el, time, [30, -50, 41, 15, 27, -33])
 }
 
 const animateLegB4 = {
-  step: (el, time) => animateLeg(el, time, [20, -109, 105, false, 87, -33]),
-  move: (el, time) => animateLeg(el, time, [0, -56, 62, false, 55, -22]),
-  raise: (el, time) => animateLeg(el, time, [10, -89, 72, false, 75, -12]),
-  stretch: (el, time) => animateLeg(el, time, [20, -119, 82, false, 105, -12]),
-  halfAttackStance: (el, time) => animateLeg(el, time, [0, -36, 62, false, 65, -22]),
-  attackStance: (el, time) => animateLeg(el, time, [20, -45, 72, false, 27, -33])
+  step: (el, time) => animateLeg(el, time, [20, -110, 105, 15, 87, -33]),
+  move: (el, time) => animateLeg(el, time, [0, -55, 62, 15, 55, -22]),
+  raise: (el, time) => animateLeg(el, time, [10, -89, 67, 15, 75, -12]),
+  stretch: (el, time) => animateLeg(el, time, [20, -119, 82, 15, 105, -12]),
+  halfAttackStance: (el, time) => animateLeg(el, time, [0, -40, 62, 15, 65, -22]),
+  attackStance: (el, time) => animateLeg(el, time, [20, -43, 70, 15, 27, -33])
 }
 
 const animatePedipalpA = {
-  step: (el, time) => animateLeg(el, time, [false, -5, 53, 35, -15, false]),
-  move: (el, time) => animateLeg(el, time, [false, -26, 122, 20, -30, false]),
+  step: (el, time) => animateLeg(el, time, [false, -3, 52, 35, -15, false]),
+  move: (el, time) => animateLeg(el, time, [false, -23, 122, 20, -30, false]),
   raise: (el, time) => animateLeg(el, time, [false, -40, 82, 30, 20, false]),
   stretch: (el, time) => animateLeg(el, time, [false, -25, 52, 20, -25, false]),
   halfAttackStance: (el, time) => animateLeg(el, time, [false, -115, 107, 20, 60, false]),
-  resting: (el, time) => animateLeg(el, time, [false, -70, 137, 20, 30, false]),
+  resting: (el, time) => animateLeg(el, time, [false, -90, 132, 30, 25, false]),
   attackStance: (el, time) => animateLeg(el, time, [false, -155, 72, 20, -10, false]),
   wiggleStance: (el, time) => animateLeg(el, time, [false, tools.randomChoice([-155, -157, -145]), tools.randomChoice([72, 82, 62]), tools.randomChoice([20, 25, 30]), tools.randomChoice([20, 10, 0, -10]), false])
 }
 
 const animatePedipalpB = {
-  step: (el, time) => animateLeg(el, time, [false, -5, 53, 35, -15, false]),
-  move: (el, time) => animateLeg(el, time, [false, -26, 122, 20, -30, false]),
+  step: (el, time) => animateLeg(el, time, [false, -4, 53, 35, -15, false]),
+  move: (el, time) => animateLeg(el, time, [false, -22, 122, 20, -30, false]),
   raise: (el, time) => animateLeg(el, time, [false, -40, 82, 30, 20, false]),
   stretch: (el, time) => animateLeg(el, time, [false, -25, 52, 20, -25, false]),
   halfAttackStance: (el, time) => animateLeg(el, time, [false, -110, 102, 20, 40, false]),
-  resting: (el, time) => animateLeg(el, time, [false, -65, 132, 20, 20, false]),
+  resting: (el, time) => animateLeg(el, time, [false, -90, 132, 30, 20, false]),
   attackStance: (el, time) => animateLeg(el, time, [false, -180, 57, 20, -10, false]),
   wiggleStance: (el, time) => animateLeg(el, time, [false, tools.randomChoice([-180, -182, -170]), tools.randomChoice([57, 47, 62]), tools.randomChoice([20, 25, 30]), tools.randomChoice([15, 5, -5, -10]), false])
 }
@@ -299,11 +295,10 @@ function Tarantula({isMobile}) {
   const completeTl = new TimelineMax({ paused: true })
   const pulseTl = new TimelineMax({ paused: true })
 
-  // animation
-
   useEffect(() => {
     addWidthMetadata(tarantula)
 
+    // animation
     pulseTl
       .addLabel('pulse')
       .staggerTo([
@@ -393,19 +388,22 @@ function Tarantula({isMobile}) {
       .add(legCycle(legB2, { moveFirst: true }), 'motion-1')
       .add(legCycle(pedipalpA, { moveFirst: true, repeat: 6 }), 'motion-1')
       .add(legCycle(legA1, { raiseLate: true, moveFirst: true }), 'motion-1')
-      .add(legCycle(legB4, { raiseLate: true, moveFirst: true }), 'motion-1')
+      .add(legCycle(legB4, { raiseLate: true, moveFirst: true, repeat: 6 }), 'motion-1')
       
       .addLabel('motion-2')
       .add(animatePedipalpA.resting(pedipalpA, 1), 'motion-2-=1.5')
       .add(animatePedipalpB.resting(pedipalpB, 0.875), 'motion-2-=1.5')
-      .add(animateLegB4.raise(legB4, 0.25), 'motion-2+=0.125')
+      .add(legCycle(legB4, { raiseLate: true, moveFirst: true, repeat: 0, steps: 3 }), 'motion-2-=1.5')
+      .add(animateLegB4.raise(legB4, 0.25), 'motion-2-=0.125')
+      .add(animateLegB4.move(legB4, 0.25), 'motion-2+=0.125')
+      .add(animateLegB3.raise(legB3, 0.25), 'motion-2+=0.125')
       .add(legCycle(legB2, { repeat: 0, steps: 3 }), 'motion-2')
       .add(legCycle(legA2, { repeat: 0, steps: 2 }), 'motion-2+=0.375')
       .add(legCycle(legB1, { moveFirst: true, repeat: 0, steps: 2 }), 'motion-2+=0.25')
       .add(legCycle(legA1, { moveFirst: true, repeat: 0, steps: 2 }), 'motion-2')
 
       .add(rotateBody(bodyParts, 0.25, -20, 10, false), 'motion-2+=0.375')
-      .to(body.current, 0.25, { xPercent: -5, yPercent: -30, ease: Power1.easeOut }, 'motion-2+=0.375')
+      .to(body.current, 0.25, { xPercent: -20, yPercent: -35, ease: Power1.easeOut }, 'motion-2+=0.375')
       .to([spinneretA.current, spinneretB.current], 0.25, { rotation: -100, ease: Linear.easeNone }, 'motion-2+=0.375')
       .add(animateLegA1.halfAttackStance(legA1, 0.25), 'motion-2+=0.75')
       .add(animateLegA2.halfAttackStance(legA2, 0.25), 'motion-2+=0.875')
@@ -422,15 +420,15 @@ function Tarantula({isMobile}) {
 
     attackStanceTl.addLabel('motion-3')
       .add(rotateBody(bodyParts, 0.375, -60, 30, true), 'motion-3')
-      .to(body.current, 0.375, { xPercent: 5, yPercent: 30, ease: Power1.easeIn }, 'motion-3')
+      .to(body.current, 0.375, { xPercent: 15, yPercent: 10, ease: Power1.easeIn }, 'motion-3')
       .to([spinneretA.current, spinneretB.current], 0.25, { rotation: -100, ease: Linear.easeNone }, 'motion-3')
-      .add(animateLeg(legA1, 0.25, [-50, -122, tools.randomChoice([42, 47]), false, tools.randomChoice([10, 15, 26]), -15]), 'motion-3+=0.125')
+      .add(animateLeg(legA1, 0.25, [-50, -122, tools.randomChoice([42, 47]), 15, tools.randomChoice([10, 15, 26]), -15]), 'motion-3+=0.125')
       .add(animateLegA2.attackStance(legA2, 0.375), 'motion-3')
       .add(animateLegA3.attackStance(legA3, 0.25), 'motion-3')
       .add(animateLegA4.attackStance(legA4, 0.25), 'motion-3')
       .add(animatePedipalpA.attackStance(pedipalpA, 0.25), 'motion-3+=0.25')
 
-      .add(animateLeg(legB1, 0.25, [-50, -143, tools.randomChoice([67, 62]), false, tools.randomChoice([10, 15, 20]), -10]), 'motion-3+=0.25')
+      .add(animateLeg(legB1, 0.25, [-50, -143, tools.randomChoice([67, 62]), 15, tools.randomChoice([10, 15, 20]), -10]), 'motion-3+=0.25')
       .add(animateLegB2.attackStance(legB2, 0.375), 'motion-3')
       .add(animateLegB3.attackStance(legB3, 0.25), 'motion-3')
       .add(animateLegB4.attackStance(legB4, 0.25), 'motion-3')
@@ -442,7 +440,7 @@ function Tarantula({isMobile}) {
       .add(animateLegA2.halfAttackStance(legA2, 0.25), 'motion-4')      
       .add(animateLegA2.move(legA2, 0.25), 'motion-4+=0.25')
       .add(animateLegA2.attackStance(legA2, 0.25), 'motion-4+=0.5')
-      .add(animateLeg(legA3, 0.125, [-5, -73, 130, false, 37, -10], 85, 250), 'motion-4+=0.875')
+      .add(animateLeg(legA3, 0.125, [-5, -73, 130, 15, 37, -10], 85, 250), 'motion-4+=0.875')
       .add(animateLegA3.attackStance(legA3, 0.125), 'motion-4+=1')
     ;
 
