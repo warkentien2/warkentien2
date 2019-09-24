@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import tools from './tools'
-import { TimelineMax, TweenMax, Power1, Power2, Linear } from 'gsap'
+import { TimelineMax, TweenMax, Power1, Power2, Power3, Linear } from 'gsap'
 
 function addWidthMetadata(tarantula) {
   const legsNodeList = tarantula.current.getElementsByClassName('x-leg')
@@ -110,7 +110,7 @@ const animateLegA1 = {
   stretch: (el, time) => animateLeg(el, time, [13, -82, 32, 15, 22, -25]),
   halfAttackStance: (el, time) => animateLeg(el, time, [-20, -127, tools.randomChoice([97, 92]), 15, tools.randomChoice([10, 15, 26]), -15]),
   attackStance: (el, time) => animateLeg(el, time, [-50, -122, tools.randomChoice([62, 67]), 15, tools.randomChoice([30, 35, 46]), -25]),
-  wiggleStance: (el, time) => animateLeg(el, time, [-50, -122, tools.randomChoice([62, 67, 75, 83, 95]), 15, tools.randomChoice([30, 35, 46, 50, 55]), tools.randomChoice([5, -5, -15, -25])])
+  wiggleStance: (el, time) => animateLeg(el, time, [-50, -122, tools.randomChoice([62, 67, 75, 83, 95]), 15, tools.randomChoice([30, 35, 46, 50, 55]), tools.randomChoice([5, -5, -15, -25])], 95)
 }
 
 const animateLegB1 = {
@@ -120,7 +120,7 @@ const animateLegB1 = {
   stretch: (el, time) => animateLeg(el, time, [3, -70, 32, 15, 20, -25]),
   halfAttackStance: (el, time) => animateLeg(el, time, [-20, -123, tools.randomChoice([97, 92]), 15, tools.randomChoice([20, 25, 30]), -20]),
   attackStance: (el, time) => animateLeg(el, time, [-50, -143, tools.randomChoice([87, 82]), 15, tools.randomChoice([50, 55, 60]), -20]),
-  wiggleStance: (el, time) => animateLeg(el, time, [-50, -143, tools.randomChoice([60, 75, 87, 82]), 15, tools.randomChoice([40, 50, 55, 60]), tools.randomChoice([5, -10, -15, -20])])
+  wiggleStance: (el, time) => animateLeg(el, time, [-50, -143, tools.randomChoice([60, 75, 87, 82]), 15, tools.randomChoice([40, 50, 55, 60]), tools.randomChoice([5, -10, -15, -20])], 95)
 }
 
 const animateLegA2 = {
@@ -129,7 +129,7 @@ const animateLegA2 = {
   raise: (el, time) => animateLeg(el, time, [20, -127, tools.randomChoice([60, 55, 80]), 15, tools.randomChoice([88, 92, 52]), 5], 80),
   stretch: (el, time) => animateLeg(el, time, [10, -87, 60, 15, tools.randomChoice([45, 30]), -30], 100),
   halfAttackStance: (el, time) => animateLeg(el, time, [27, -75, 96, 15, 43, -25], 100, 160),
-  attackStance: (el, time) => animateLeg(el, time, [30, -95, 162, 15, 10, -5], 110, 120)
+  attackStance: (el, time) => animateLeg(el, time, [30, -92, 162, 15, 10, -5], 100, 110)
 }
 
 const animateLegB2 = {
@@ -147,7 +147,7 @@ const animateLegA3 = {
   raise: (el, time) => animateLeg(el, time, [18, -128, 74, 15, 98, -10], 58),
   stretch: (el, time) => animateLeg(el, time, [19, -138, 65, 15, 135, -10], 48),
   halfAttackStance: (el, time) => animateLeg(el, time, [70, -153, 153, 15, 0, 0], 62),
-  attackStance: (el, time) => animateLeg(el, time, [-10, -63, 140, 15, 12, -10], 75, 185)
+  attackStance: (el, time) => animateLeg(el, time, [-10, -63, 155, 10, 12, -10], 75, 185)
 }
 
 const animateLegB3 = {
@@ -165,7 +165,7 @@ const animateLegA4 = {
   raise: (el, time) => animateLeg(el, time, [20, -95, 67, 15, 70, -10]),
   stretch: (el, time) => animateLeg(el, time, [30, -125, 82, 15, 100, -10]),
   halfAttackStance: (el, time) => animateLeg(el, time, [10, -48, 51, 15, 50, -20]),
-  attackStance: (el, time) => animateLeg(el, time, [30, -50, 41, 15, 27, -33])
+  attackStance: (el, time) => animateLeg(el, time, [30, -49, 41, 15, 27, -33])
 }
 
 const animateLegB4 = {
@@ -174,7 +174,7 @@ const animateLegB4 = {
   raise: (el, time) => animateLeg(el, time, [10, -89, 67, 15, 75, -12]),
   stretch: (el, time) => animateLeg(el, time, [20, -119, 82, 15, 105, -12]),
   halfAttackStance: (el, time) => animateLeg(el, time, [0, -40, 62, 15, 65, -22]),
-  attackStance: (el, time) => animateLeg(el, time, [20, -43, 70, 15, 27, -33])
+  attackStance: (el, time) => animateLeg(el, time, [20, -42, 70, 15, 27, -33])
 }
 
 const animatePedipalpA = {
@@ -420,7 +420,7 @@ function Tarantula({isMobile}) {
 
     attackStanceTl.addLabel('motion-3')
       .add(rotateBody(bodyParts, 0.375, -60, 30, true), 'motion-3')
-      .to(body.current, 0.375, { xPercent: 15, yPercent: 10, ease: Power1.easeIn }, 'motion-3')
+      .to(body.current, 0.375, { xPercent: -10, yPercent: 10, ease: Power3.easeIn }, 'motion-3')
       .to([spinneretA.current, spinneretB.current], 0.25, { rotation: -100, ease: Linear.easeNone }, 'motion-3')
       .add(animateLeg(legA1, 0.25, [-50, -122, tools.randomChoice([42, 47]), 15, tools.randomChoice([10, 15, 26]), -15]), 'motion-3+=0.125')
       .add(animateLegA2.attackStance(legA2, 0.375), 'motion-3')
