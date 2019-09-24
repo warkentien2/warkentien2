@@ -20,7 +20,7 @@ function App() {
 
   function navigationHandler(e) {
     e.preventDefault()
-    const headerOffset = 50
+    const headerOffset = 0
     const html = app.current.parentNode.parentNode.parentNode
     const targetScroll = app.current.querySelector(e.target.getAttribute('href')).offsetTop - headerOffset
     TweenMax.to(html, 0.5, { scrollTop: targetScroll, ease: Power2.easeInOut })
@@ -78,7 +78,7 @@ function App() {
               not the other way around.<br /><br />
               There's an ever growing need for Visual Web Developers. When the task was too big for a Web Master, the field was 
               split between Front and Backend. However, with Webpack, Docker, Typescript, Cross-Plataform programming, and 
-              EverythingElse.js, most Front-End Developers are getting pulled into a Full-Stack role. Hiring Front-End no longer 
+              EverythingElse.js, most Front-End Developers are getting pulled into a Full-Stack role. Hiring a Front-End Developer no longer 
               guarantees that you'll have a Visual Developer. So, new job descriptions started popping up:
             </p>
             <ul>
@@ -90,8 +90,7 @@ function App() {
               <li>UX/UI Designer & Engineer</li>
             </ul>
             <p>
-              to fill the Visual Developer niche, the Front-End Developer was created. However, as the field keeps getting denser. Front-End 
-              Developers started working on cross-plataform projects, docker, 
+              Their goal? To fill the Visual Developer niche the Front-End Developer has created.
               <br />
               Before you commit a large budget to a 3D-renderred or Video project, talk to me.
             </p>
@@ -115,7 +114,7 @@ function App() {
                 <Statistics topAnchorSection={mentoringSection} windowSize={windowSize} scrollTop={scroll.position} index={4} value={14} title="peer onboarding" />
               </div>
             </div>
-            <ReviewSlider />
+            <ReviewSlider windowSize={windowSize} />
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
               Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure 
               dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non 
@@ -144,8 +143,8 @@ function Statistics({ topAnchorSection, windowSize, scrollTop, index, value, tit
   const [showValue, updateValue] = useState(0)
 
   useEffect(() => {
-    if(scrollTop + windowSize.height / 4 <= topAnchorSection.current.offsetTop) {
-      const fraction = tools.growCompletelyFrom(scrollTop + windowSize.height / 4, topAnchorSection.current.offsetTop, topAnchorSection.current.offsetTop - windowSize.height / 2) / topAnchorSection.current.offsetTop
+    if(scrollTop + windowSize.height / 5 <= topAnchorSection.current.offsetTop) {
+      const fraction = tools.growCompletelyFrom(scrollTop + windowSize.height / 5, topAnchorSection.current.offsetTop, topAnchorSection.current.offsetTop - windowSize.height / 2) / topAnchorSection.current.offsetTop
       number.current.parentNode.style.transform = `translateY(${((1 - fraction)) * 100}%)`
       updateValue(Math.round(value * Math.pow(fraction, 0.75)))
     } else {

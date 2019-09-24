@@ -8,8 +8,8 @@ function Moth({ scrollTop, bottomAnchorSection, windowSize }) {
   const hindWing2 = useRef(null)
   
   useEffect(() => {
-    if(scrollTop + windowSize.height / 2 <= bottomAnchorSection.current.offsetTop) {
-      const fraction = tools.growCompletelyFrom(scrollTop + windowSize.height / 2, bottomAnchorSection.current.offsetTop, bottomAnchorSection.current.offsetTop - windowSize.height / 2) / bottomAnchorSection.current.offsetTop
+    if(scrollTop + windowSize.height / 3 <= bottomAnchorSection.current.offsetTop) {
+      const fraction = tools.growCompletelyFrom(scrollTop + windowSize.height / 3, bottomAnchorSection.current.offsetTop, bottomAnchorSection.current.offsetTop - windowSize.height / 2) / bottomAnchorSection.current.offsetTop
       foreWing1.current.style.transform = `rotate(${85 * Math.pow(fraction, 2) - 85}deg)`
       foreWing2.current.style.transform = `rotateY(180deg) rotateZ(${85 * Math.pow(fraction, 2) - 88}deg)`
       hindWing1.current.style.transform = `rotate(${40 * Math.pow(fraction, 2) - 40}deg)`

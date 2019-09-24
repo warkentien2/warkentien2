@@ -3,14 +3,14 @@ import Slider from "react-slick"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 
-function ReviewSlider() {
+function ReviewSlider({ windowSize }) {
   const reviews = [
     {
       review: "Philip is approachable and gives detailed responses. He's encouraging and I'm happy with his support.",
       author: ""
     },
     {
-      review: "Great reviewer! I hope I have another like him.",
+      review: "Great reviewer! I hope I'll have others like him.",
       author: ""
     },
     {
@@ -18,7 +18,7 @@ function ReviewSlider() {
       author: "Sherry"
     },
     {
-      review: "Thanks for always giving me a super detailed answer, I truly appreciate it",
+      review: "Thanks for always giving me a super detailed answer, I truly appreciate it.",
       author: ""
     },
     {
@@ -30,7 +30,7 @@ function ReviewSlider() {
       author: ""
     },
     {
-      review: "Very detailed review, suggestions are clear and relevant to the code I wrote. The reviewer considered and reviewed on all my information. Excellent :)!",
+      review: "Very detailed review, suggestions are clear and relevant to the code I wrote. The reviewer considered and reviewed on all my information. Excellent! :)",
       author: ""
     },
     {
@@ -42,7 +42,7 @@ function ReviewSlider() {
       author: ""
     },
     {
-      review: "I was very impressed with how clear and didactic this review was! Way beyond my expectations :)",
+      review: "I was very impressed with how clear and didactic this review was! Way beyond my expectations! :)",
       author: ""
     },
     {
@@ -50,11 +50,11 @@ function ReviewSlider() {
       author: ""
     },
     {
-      review: "Super constructive feedback - thank you so much :)",
+      review: "Super constructive feedback - thank you so much! :)",
       author: ""
     },
     {
-      review: "Thanks so much, Philip! All respect for your kind reply and excellent explanation",
+      review: "Thanks so much, Philip! All respect for your kind reply and excellent explanation!",
       author: "Marwa M."
     },
     {
@@ -78,7 +78,7 @@ function ReviewSlider() {
       author: "Abdelrahman M."
     },
     {
-      review: "Thank you, Philip, for your time. I read all your notes which are so organized and clear to me ;) The game finally works fine! Thanks again for your support",
+      review: "Thank you, Philip, for your time. I read all your notes which are so organized and clear to me ;) The game finally works fine! Thanks again for your support.",
       author: "Marwa M."
     },
     {
@@ -86,11 +86,11 @@ function ReviewSlider() {
       author: "Marie Therese Y"
     },
     {
-      review: "The reviewer was very thorough, suggesting improvements on even small things that I feel that they would be commonly overlooked",
+      review: "The reviewer was very thorough, suggesting improvements on even small things that I feel that they would be commonly overlooked.",
       author: ""
     },
     {
-      review: "This type of review is magnificent!",
+      review: "Thorough code review, much appreciated! Thank you for the feedback.",
       author: ""
     },
     {
@@ -98,7 +98,7 @@ function ReviewSlider() {
       author: ""
     },
     {
-      review: "Excellent feedback. It's a pleasure to have you as a tutor! :)",
+      review: "Super detailed review! :-)",
       author: ""
     },
     {
@@ -114,7 +114,7 @@ function ReviewSlider() {
       author: ""
     },
     {
-      review: "Super detailed review :-)",
+      review: "Excellent feedback. It's a pleasure to have you as a tutor! :)",
       author: ""
     },
     {
@@ -122,7 +122,7 @@ function ReviewSlider() {
       author: ""
     },
     {
-      review: "Thorough code review, much appreciated! Thank you for the feedback.",
+      review: "This type of review is magnificent!",
       author: ""
     },
     {
@@ -134,7 +134,7 @@ function ReviewSlider() {
       author: ""
     },
     {
-      review: "Great reviewer! Gave me some very important suggestions and has a great sense of humor :D",
+      review: "Great reviewer! Gave me some very important suggestions and has a great sense of humor! :D",
       author: ""
     },
     {
@@ -150,7 +150,7 @@ function ReviewSlider() {
       author: ""
     },
     {
-      review: "I'm so very grateful to the reviewer for using simple terms in his revision, I was having some issues with this content, but now I understand! Such a loveable reviewer <3",
+      review: "I'm so very grateful to the reviewer for using simple terms in his revision, I was having some issues with this content, but now I understand! Such a loveable reviewer. <3",
       author: ""
     },
     {
@@ -162,7 +162,7 @@ function ReviewSlider() {
       author: ""
     },
     {
-      review: "So good! To me, this revision was like a bonus lesson",
+      review: "So good! To me, this revision was like a bonus lesson.",
       author: ""
     },
     {
@@ -200,7 +200,7 @@ function ReviewSlider() {
     infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,
-    rows: 3,
+    rows: (windowSize.width <= 940) ? 2 : 3,
     autoplay: true,
     autoplaySpeed: 15000
   };
