@@ -9,6 +9,7 @@ $highlighted: #3500d3;
   min-height: 100vh;
   background: white;
   font-family: Montserrat, sans-serif;
+  font-size: 18px;
 }
 
 h1,
@@ -19,6 +20,30 @@ h5,
 h6 {
   text-transform: capitalize;
   font-family: Oswald, Helvetica, sans-serif;
+}
+
+h6 {
+  font-size: 1em;
+}
+
+h5 {
+  font-size: 1.2em;
+}
+
+h4 {
+  font-size: 1.6em;
+}
+
+h3 {
+  font-size: 2em;
+}
+
+h2 {
+  font-size: 2.6em;
+}
+
+h1 {
+  font-size: 3.4em;
 }
 
 .highlight {
@@ -75,7 +100,6 @@ h6 {
   z-index: 4;
 
   h2 {
-    font-size: 2em;
     margin-bottom: 1.4em;
   }
 
@@ -286,11 +310,11 @@ h6 {
   z-index: 2;
 
   &::after {
-    background: linear-gradient(0deg, #190061 5%, #0c0032 100%);
+    background: linear-gradient(0deg, black 5%, #0c0032 100%);
   }
 
   &::before {
-    background: #190061;
+    background: black;
   }
 }
 
@@ -326,8 +350,9 @@ h6 {
   h3,
   h4,
   h5,
-  h6 {
-    width: 90%;
+  h6,
+  .contain {
+    width: 94%;
     max-width: 800px;
     margin: 0 auto;
     line-height: 2.8em;
