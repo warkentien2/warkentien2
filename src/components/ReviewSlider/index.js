@@ -94,7 +94,7 @@ function ReviewSlider({ windowSize }) {
       author: ""
     },
     {
-      review: "I was a little sad because of GIT... And, I decided to open my email. Awesome! I'm fascinated by how this review was made. I never thought that my project would be revised with so much detail. I'm also thrilled with the way you write! With the reviews and suggestions, I received revitalizing energy for my new path! Thanks a lot!",
+      review: "Awesome! I'm fascinated by how this review was made. I never thought that my project would be revised with so much detail. I'm also thrilled with the way you write! With these reviews and suggestions, I received revitalizing energy for my new path! Thank you!",
       author: ""
     },
     {
@@ -118,7 +118,7 @@ function ReviewSlider({ windowSize }) {
       author: ""
     },
     {
-      review: "This review alone is equivalent to taking multiple lessons. It's fascinating how the reviewer doesn't stick to the limited set of previously covered concepts, but still, the way he approaches the subject doesn't make me feel disappointed in myself. Instead, it motivates to study materials beyond the curriculum.",
+      review: "This review alone is equivalent to taking multiple lessons. It's fascinating how the reviewer doesn't stick to the limited set of previously covered concepts, but still, the way he approaches the subject doesn't make me feel disappointed in myself. Instead, it motivates me to study materials beyond the curriculum.",
       author: ""
     },
     {
@@ -195,18 +195,20 @@ function ReviewSlider({ windowSize }) {
     }
   ]
 
+  const smallScreen = windowSize.width <= 940
+
   const settings = {
     dots: true,
     infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,
-    rows: (windowSize.width <= 940) ? 2 : 3,
+    rows: smallScreen ? 2 : 3,
     autoplay: true,
     autoplaySpeed: 15000
   };
 
   return (
-    <div className="student-feedback__slider contain">
+    <div className={`student-feedback__slider contain${smallScreen ? ' small-screen' : ''}`}>
       <h3>Student Feedback</h3>
       <Slider {...settings}>
         {reviews.map((review, index) => {

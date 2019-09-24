@@ -1465,7 +1465,7 @@ h1 {
 }
 
 .student-feedback__slider {
-  margin-bottom: 6em !important;
+  margin-bottom: 8em !important;
 }
 .student-feedback__slider.contain {
   width: 100%;
@@ -1478,12 +1478,18 @@ h1 {
   left: -40px !important;
 }
 .student-feedback__slider .slick-arrow.slick-prev {
-  left: 35px !important;
+  left: -15px !important;
   z-index: 100;
 }
 .student-feedback__slider .slick-arrow.slick-next {
-  right: 35px !important;
+  right: -15px !important;
   z-index: 100;
+}
+.student-feedback__slider.small-screen .slick-arrow.slick-prev {
+  left: 35px !important;
+}
+.student-feedback__slider.small-screen .slick-arrow.slick-next {
+  right: 35px !important;
 }
 .student-feedback__slider .slick-list {
   padding-bottom: 10px;
@@ -1494,6 +1500,7 @@ h1 {
   padding: 0 !important;
   right: 0 !important;
   left: 0 !important;
+  height: 40px;
 }
 .student-feedback__slider .slick-dots li,
 .student-feedback__slider .slick-dots button {
