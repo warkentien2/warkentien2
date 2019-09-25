@@ -157,104 +157,118 @@ $body-angle: 0;
     transform: translate(-50%, -50%);
   }
 
-  // .x-body-part::before,
-  // .x-body-part::after,
-  // .x-chelicera-pattern::before,
-  // .x-chelicera-pattern::after,
-  // .x-body-part .x-coxa-pattern,
-  // .x-body-part .x-chelicerae,
-  // .x-body-part .x-fang,
-  // .x-body-part .x-leg-parts,
-  // .x-body-part .x-spinnerets-parts,
-  // .x-body-part .x-leg--background .x-leg-parts::before,
-  // .x-body-part .x-leg--background .x-leg-parts::before {
-  //   transition: background 1s ease-out;
-  // }
+  .x-body-part::before,
+  .x-body-part::after,
+  .x-chelicera-pattern::before,
+  .x-chelicera-pattern::after,
+  .x-body-part .x-coxa-pattern,
+  .x-body-part .x-chelicerae,
+  .x-body-part .x-fang,
+  .x-body-part .x-leg-parts,
+  .x-body-part .x-spinnerets-parts,
+  .x-body-part .x-leg--background .x-leg-parts::before,
+  .x-body-part .x-leg--background .x-leg-parts::before {
+    transition: background 1s ease-out;
+  }
 
-  // .x-body-part:hover::before,
-  // .x-body-part:hover::after,
-  // .x-cephalothorax:hover .x-chelicera-pattern::after,
-  // .x-chelicera-pattern:hover::before,
-  // .x-body-part .x-coxa-pattern:hover,
-  // .x-body-part .x-chelicerae:hover,
-  // .x-body-part .x-fang:hover,
-  // .x-body-part .x-leg-parts:hover,
-  // .x-body-part .x-spinnerets-parts:hover,
-  // .x-body-part .x-leg--background .x-leg-parts:hover::before,
-  // .x-body-part .x-spinnerets--background .x-spinnerets-parts:hover::before {
-  //   background: #3500d3 !important;
-  //   transition: background 0.125s ease-in;
-  // }
-
-  // .x-body-part.glow::before,
-  // .x-body-part.glow::after,
-  // .x-cephalothorax.glow .x-chelicera-pattern::after,
-  // .x-chelicera-pattern.glow::before,
-  // .x-body-part .x-coxa-pattern.glow,
-  // .x-body-part .x-chelicerae.glow,
-  // .x-body-part .x-fang.glow,
-  // .x-body-part .x-leg-parts.glow,
-  // .x-body-part .x-spinnerets-parts.glow,
-  // .x-body-part .x-leg--background .x-leg-parts.glow::before,
-  // .x-body-part .x-spinnerets--background .x-spinnerets-parts.glow::before {
+  .x-body-part:hover::before,
+  .x-body-part:hover::after,
+  .x-cephalothorax:hover .x-chelicera-pattern::after,
+  .x-chelicera-pattern:hover::before,
+  .x-body-part .x-coxa-pattern:hover,
+  .x-body-part .x-chelicerae:hover,
+  .x-body-part .x-fang:hover,
+  .x-body-part .x-leg-parts:hover,
+  .x-body-part .x-spinnerets-parts:hover,
+  .x-body-part .x-leg--background .x-leg-parts:hover::before,
+  .x-body-part .x-spinnerets--background .x-spinnerets-parts:hover::before {
+    background: #3500d3 !important;
+    transition: background 0.125s ease-in;
+  }
 
   &.glow {
-    // .x-coxa-pattern,
-    // .x-abdomen,
-    // .x-chelicera-pattern,
-    // .x-coxa,
-    // .x-chelicerae,
-    // .x-femur,
-    // .x-fang,
-    // .x-patella,
-    // .x-tibia,
-    // .x-metatarsus,
-    // .x-tarsus {
-    // }
-    animation: pulse 1.25s ease-in-out;
+    .x-coxa-pattern,
+    .x-abdomen::before,
+    .x-cephalothorax::after,
+    .x-chelicera-pattern::after,
+    .x-chelicera-pattern::before,
+    .x-chelicerae,
+    .x-fang,
+    .x-spinnerets-parts.x-coxa,
+    .x-spinnerets-parts.x-femur,
+    .x-spinnerets-parts.x-patella,
+    .x-spinnerets-parts.x-tibia,
+    .x-leg--foreground .x-coxa,
+    .x-leg--foreground .x-femur,
+    .x-leg--foreground .x-patella,
+    .x-leg--foreground .x-tibia,
+    .x-leg--foreground .x-metatarsus,
+    .x-leg--foreground .x-tarsus,
+    .x-leg--background .x-coxa::before,
+    .x-leg--background .x-femur::before,
+    .x-leg--background .x-patella::before,
+    .x-leg--background .x-tibia::before,
+    .x-leg--background .x-metatarsus::before,
+    .x-leg--background .x-tarsus::before {
+      animation: pulse 1.375s ease-in-out;
+    }
 
-    // .x-coxa,
-    // .x-chelicerae {
-    //   animation-delay: 0.125s;
-    // }
+    .x-abdomen::before,
+    .x-coxa-pattern,
+    .x-chelicera-pattern::before {
+      animation-delay: 0.125s;
+    }
+    
+    .x-leg--foreground .x-coxa,
+    .x-leg--background .x-coxa::before,
+    .x-spinnerets-parts.x-coxa,
+    .x-chelicerae {
+      animation-delay: 0.25s;
+    }
+    
+    .x-leg--foreground .x-femur,
+    .x-leg--background .x-femur::before,
+    .x-spinnerets-parts.x-femur,
+    .x-fang {
+      animation-delay: 0.375s;
+    }
+    
+    .x-leg--foreground .x-patella,
+    .x-leg--background .x-patella::before,
+    .x-spinnerets-parts.x-patella {
+      animation-delay: 0.5s;
+    }
 
-    // .x-femur,
-    // .x-fang {
-    //   animation-delay: 0.25s;
-    // }
+    .x-leg--foreground .x-tibia,
+    .x-leg--background .x-tibia::before,
+    .x-spinnerets-parts.x-tibia {
+      animation-delay: 0.625s;
+    }
 
-    // .x-patella {
-    //   animation-delay: 0.375s;
-    // }
+    .x-leg--foreground .x-metatarsus,
+    .x-leg--background .x-metatarsus::before {
+      animation-delay: 0.75s;
+    }
 
-    // .x-tibia {
-    //   animation-delay: 0.5s;
-    // }
-
-    // .x-metatarsus {
-    //   animation-delay: 0.625s;
-    // }
-
-    // .x-tarsus {
-    //   animation-delay: 0.75s;
-    // }
+    .x-leg--foreground .x-tarsus,
+    .x-leg--background .x-tarsus::before {
+      animation-delay: 0.875s;
+    }
   }
 }
 
 @keyframes pulse {
   0% {
-    background: rgba(255, 255, 255, 0.625) !important;
+    background: rgba(255, 255, 255, 0.625);
   }
   10% {
-    background: #3500d3 !important;
-    border: 10px solid green;
+    background: rgba(53, 0, 211, 1);
   }
   20% {
-    background: #3500d3 !important;
-    border: 10px solid green;
+    background: rgba(53, 0, 211, 1);
   }
   100% {
-    background: rgba(255, 255, 255, 0.625) !important;
+    background: rgba(255, 255, 255, 0.625);
   }
 }
 
@@ -600,7 +614,7 @@ $body-angle: 0;
     }
 
     *::after {
-      content: '';
+      content: none;
       position: absolute;
       left: 0;
       top: 0;

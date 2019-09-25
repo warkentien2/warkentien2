@@ -293,15 +293,16 @@ function Tarantula({isMobile}) {
   const attackStanceTl = new TimelineMax({ paused: true })
   const moveLegsTl = new TimelineMax({ paused: true })
   const completeTl = new TimelineMax({ paused: true })
-  const pulseTl = new TimelineMax({ paused: true })
+  const singlePulseTl = new TimelineMax({ paused: true })
+  const pulseTl = new TimelineMax({ paused: true, repeat: -1, repeatDelay: 8 })
 
   useEffect(() => {
     addWidthMetadata(tarantula)
 
     // animation
-    pulseTl
+    singlePulseTl
       .addLabel('pulse')
-      .to(body.current, 0.25, { 
+      .to(body.current, 2.25, { 
         onStart: (self) => {
           self.target.classList.add('glow')
         }, 
@@ -311,6 +312,14 @@ function Tarantula({isMobile}) {
         }, 
         onCompleteParams: ['{self}']
       }, 'pulse')
+    ;
+
+    pulseTl
+      .addLabel('keep-on-pulsing')
+      .to(singlePulseTl, 2.25, { progress: 1, ease: Linear.easeNone, onStart: () => {
+        TweenMax.set(singlePulseTl, { progress: 0 })
+      }}, 'keep-on-pulsing')
+    ;
 
     walkMidStanceTl.addLabel('setup')
 
@@ -441,12 +450,12 @@ function Tarantula({isMobile}) {
     completeTl.addLabel('enter')
       .to(walkMidStanceTl, 11, { progress: 1, ease: Power1.easeOut }, 'enter')
       .to(attackStanceTl, 2.25, { progress: 1, ease: Power2.easeInOut }, 'enter+=11')
-      .to(pulseTl, 1.125, { progress: 1, ease: Linear.easeNone, onComplete: () => {
-        TweenMax.set(pulseTl, { progress: 0 })
+      .to(singlePulseTl, 2.5, { progress: 1, ease: Linear.easeNone, onComplete: () => {
+        TweenMax.set(singlePulseTl, { progress: 0 })
       }}, 'enter+=11.5')
       .to(info.current, 1, { autoAlpha: 1, ease: Power2.easeInOut }, 'enter+=13.75')
       .to(moveLegsTl, 0.25, { progress: 1, repeat: -1, repeatDelay: 10, ease: Power2.easeInOut }, 'enter+=15.25')
-      .to(pulseTl, 1.125, { progress: 1, repeat: -1, repeatDelay: 9.125, ease: Linear.easeNone }, 'enter+=15.25')
+      .add(pulseTl.play(0), 'enter+=15.25')
     ;
 
     completeTl.play(0)
@@ -549,7 +558,7 @@ function Tarantula({isMobile}) {
                   </div>
                 </div>   
               </div>
-              <div ref={spinneretA} className="x-spinnerets">    
+              <div ref={spinneretA} className="x-spinnerets x-spinnerets--foreground">    
                 <div className="x-spinnerets-parts x-coxa">
                   <div className="x-spinnerets-parts x-femur">
                     <div className="x-spinnerets-parts x-patella">
@@ -567,7 +576,7 @@ function Tarantula({isMobile}) {
             <div className="x-coxa-pattern x-cp4"></div>
             <div className="x-coxa-pattern x-cp5"></div>
 
-            <div ref={pedipalpA} id="pedipalpA" className="x-leg x-pedipalp pedipalp-1">
+            <div ref={pedipalpA} id="pedipalpA" className="x-leg x-leg--foreground x-pedipalp pedipalp-1">
               <div className="x-leg-parts x-coxa">
                 <div className="x-leg-parts x-femur">
                   <div className="x-leg-parts x-patella">
@@ -578,7 +587,7 @@ function Tarantula({isMobile}) {
                 </div>
               </div>
             </div>
-            <div ref={legA4} id="legA4" className="x-leg x-leg--small leg-4">
+            <div ref={legA4} id="legA4" className="x-leg x-leg--foreground x-leg--small leg-4">
               <div className="x-leg-parts x-coxa">
                 <div className="x-leg-parts x-femur">
                   <div className="x-leg-parts x-patella">
@@ -591,7 +600,7 @@ function Tarantula({isMobile}) {
                 </div>
               </div>
             </div>
-            <div ref={legA3} id="legA3" className="x-leg x-leg--small leg-3">
+            <div ref={legA3} id="legA3" className="x-leg x-leg--foreground x-leg--small leg-3">
               <div className="x-leg-parts x-coxa">
                 <div className="x-leg-parts x-femur">
                   <div className="x-leg-parts x-patella">
@@ -604,7 +613,7 @@ function Tarantula({isMobile}) {
                 </div>
               </div>
             </div>
-            <div ref={legA1} id="legA1" className="x-leg leg-1">
+            <div ref={legA1} id="legA1" className="x-leg x-leg--foreground leg-1">
               <div className="x-leg-parts x-coxa">
                 <div className="x-leg-parts x-femur">
                   <div className="x-leg-parts x-patella">
@@ -617,7 +626,7 @@ function Tarantula({isMobile}) {
                 </div>
               </div>
             </div>
-            <div ref={legA2} id="legA2" className="x-leg leg-2">
+            <div ref={legA2} id="legA2" className="x-leg x-leg--foreground leg-2">
               <div className="x-leg-parts x-coxa">
                 <div className="x-leg-parts x-femur">
                   <div className="x-leg-parts x-patella">

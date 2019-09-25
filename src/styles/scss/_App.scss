@@ -113,7 +113,7 @@ h1 {
     content: '';
     width: 2 * $size;
     height: 2 * $size;
-    left: 50vw - $size;
+    left: 45.5vw;
     bottom: $size * -0.95;
     background: $bgArrow;
     transform: rotateX(60deg) rotateZ(45deg);
@@ -309,6 +309,10 @@ h1 {
 .section--third {
   z-index: 2;
 
+  h2 {
+    margin-bottom: 1.2em !important;
+  }
+
   &::after {
     background: linear-gradient(0deg, black 5%, #0c0032 100%);
   }
@@ -326,6 +330,44 @@ h1 {
 
   .container {
     padding-bottom: 2.5em;
+  }
+
+  .contact-list {
+    h4,
+    ul {
+      margin: 0;
+      width: 100%;
+    }
+
+    &.col-6 {
+      box-sizing: border-box;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    &--left {
+      padding-right: 1.4em;
+    }
+
+    &--right {
+      padding-left: 1.4em;
+    }
+
+    .contact {
+      a {
+        color: #0c0032;
+        text-decoration: none;
+      }
+
+      svg {
+        width: 16px;
+        height: 16px;
+        vertical-align: text-top;
+      }
+    }
   }
 }
 
@@ -434,18 +476,26 @@ h1 {
 }
 
 .row {
-  padding: 0 0 4em;
+  padding: 1em 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
 }
 
 [class^=col] {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   order: 99;
+
+  &.col-wrap {
+    flex-wrap: wrap;
+  }
+}
+
+.col-3 {
+  width: calc(100%/4);
 }
 
 .col-4 {
@@ -480,6 +530,14 @@ h1 {
   .col-sm-order-1 {
     order: 1;
   }
+}
+
+.center {
+  text-align: center;
+}
+
+.right {
+  text-align: right;
 }
 
 .responsive-image {
@@ -577,4 +635,8 @@ h1 {
       margin-right: 3em;
     }
   }
+}
+
+.no-wrap {
+  white-space: nowrap;
 }

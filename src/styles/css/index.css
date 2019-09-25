@@ -99,7 +99,7 @@ h1 {
   content: "";
   width: 8vw;
   height: 8vw;
-  left: 46vw;
+  left: 45.5vw;
   bottom: -3.8vw;
   background: #0c0032;
   transform: rotateX(60deg) rotateZ(45deg);
@@ -284,6 +284,9 @@ h1 {
 .section--third {
   z-index: 2;
 }
+.section--third h2 {
+  margin-bottom: 1.2em !important;
+}
 .section--third::after {
   background: linear-gradient(0deg, black 5%, #0c0032 100%);
 }
@@ -299,6 +302,33 @@ h1 {
 }
 .footer .container {
   padding-bottom: 2.5em;
+}
+.footer .contact-list h4,
+.footer .contact-list ul {
+  margin: 0;
+  width: 100%;
+}
+.footer .contact-list.col-6 {
+  box-sizing: border-box;
+}
+.footer .contact-list ul {
+  list-style: none;
+  padding: 0;
+}
+.footer .contact-list--left {
+  padding-right: 1.4em;
+}
+.footer .contact-list--right {
+  padding-left: 1.4em;
+}
+.footer .contact-list .contact a {
+  color: #0c0032;
+  text-decoration: none;
+}
+.footer .contact-list .contact svg {
+  width: 16px;
+  height: 16px;
+  vertical-align: text-top;
 }
 
 .handwritten {
@@ -399,18 +429,25 @@ h1 {
 }
 
 .row {
-  padding: 0 0 4em;
+  padding: 1em 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
 }
 
 [class^=col] {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   order: 99;
+}
+[class^=col].col-wrap {
+  flex-wrap: wrap;
+}
+
+.col-3 {
+  width: calc(100%/4);
 }
 
 .col-4 {
@@ -446,6 +483,14 @@ h1 {
     order: 1;
   }
 }
+.center {
+  text-align: center;
+}
+
+.right {
+  text-align: right;
+}
+
 .responsive-image {
   width: 100%;
   height: auto;
@@ -523,6 +568,10 @@ h1 {
     margin-top: -3em;
     margin-right: 3em;
   }
+}
+
+.no-wrap {
+  white-space: nowrap;
 }
 
 .tarantula-wrapper {
@@ -665,24 +714,106 @@ h1 {
   top: calc(50% + 1px);
   transform: translate(-50%, -50%);
 }
-.x-body.glow {
-  animation: pulse 1.25s ease-in-out;
+.x-body .x-body-part::before,
+.x-body .x-body-part::after,
+.x-body .x-chelicera-pattern::before,
+.x-body .x-chelicera-pattern::after,
+.x-body .x-body-part .x-coxa-pattern,
+.x-body .x-body-part .x-chelicerae,
+.x-body .x-body-part .x-fang,
+.x-body .x-body-part .x-leg-parts,
+.x-body .x-body-part .x-spinnerets-parts,
+.x-body .x-body-part .x-leg--background .x-leg-parts::before,
+.x-body .x-body-part .x-leg--background .x-leg-parts::before {
+  transition: background 1s ease-out;
+}
+.x-body .x-body-part:hover::before,
+.x-body .x-body-part:hover::after,
+.x-body .x-cephalothorax:hover .x-chelicera-pattern::after,
+.x-body .x-chelicera-pattern:hover::before,
+.x-body .x-body-part .x-coxa-pattern:hover,
+.x-body .x-body-part .x-chelicerae:hover,
+.x-body .x-body-part .x-fang:hover,
+.x-body .x-body-part .x-leg-parts:hover,
+.x-body .x-body-part .x-spinnerets-parts:hover,
+.x-body .x-body-part .x-leg--background .x-leg-parts:hover::before,
+.x-body .x-body-part .x-spinnerets--background .x-spinnerets-parts:hover::before {
+  background: #3500d3 !important;
+  transition: background 0.125s ease-in;
+}
+.x-body.glow .x-coxa-pattern,
+.x-body.glow .x-abdomen::before,
+.x-body.glow .x-cephalothorax::after,
+.x-body.glow .x-chelicera-pattern::after,
+.x-body.glow .x-chelicera-pattern::before,
+.x-body.glow .x-chelicerae,
+.x-body.glow .x-fang,
+.x-body.glow .x-spinnerets-parts.x-coxa,
+.x-body.glow .x-spinnerets-parts.x-femur,
+.x-body.glow .x-spinnerets-parts.x-patella,
+.x-body.glow .x-spinnerets-parts.x-tibia,
+.x-body.glow .x-leg--foreground .x-coxa,
+.x-body.glow .x-leg--foreground .x-femur,
+.x-body.glow .x-leg--foreground .x-patella,
+.x-body.glow .x-leg--foreground .x-tibia,
+.x-body.glow .x-leg--foreground .x-metatarsus,
+.x-body.glow .x-leg--foreground .x-tarsus,
+.x-body.glow .x-leg--background .x-coxa::before,
+.x-body.glow .x-leg--background .x-femur::before,
+.x-body.glow .x-leg--background .x-patella::before,
+.x-body.glow .x-leg--background .x-tibia::before,
+.x-body.glow .x-leg--background .x-metatarsus::before,
+.x-body.glow .x-leg--background .x-tarsus::before {
+  animation: pulse 1.375s ease-in-out;
+}
+.x-body.glow .x-abdomen::before,
+.x-body.glow .x-coxa-pattern,
+.x-body.glow .x-chelicera-pattern::before {
+  animation-delay: 0.125s;
+}
+.x-body.glow .x-leg--foreground .x-coxa,
+.x-body.glow .x-leg--background .x-coxa::before,
+.x-body.glow .x-spinnerets-parts.x-coxa,
+.x-body.glow .x-chelicerae {
+  animation-delay: 0.25s;
+}
+.x-body.glow .x-leg--foreground .x-femur,
+.x-body.glow .x-leg--background .x-femur::before,
+.x-body.glow .x-spinnerets-parts.x-femur,
+.x-body.glow .x-fang {
+  animation-delay: 0.375s;
+}
+.x-body.glow .x-leg--foreground .x-patella,
+.x-body.glow .x-leg--background .x-patella::before,
+.x-body.glow .x-spinnerets-parts.x-patella {
+  animation-delay: 0.5s;
+}
+.x-body.glow .x-leg--foreground .x-tibia,
+.x-body.glow .x-leg--background .x-tibia::before,
+.x-body.glow .x-spinnerets-parts.x-tibia {
+  animation-delay: 0.625s;
+}
+.x-body.glow .x-leg--foreground .x-metatarsus,
+.x-body.glow .x-leg--background .x-metatarsus::before {
+  animation-delay: 0.75s;
+}
+.x-body.glow .x-leg--foreground .x-tarsus,
+.x-body.glow .x-leg--background .x-tarsus::before {
+  animation-delay: 0.875s;
 }
 
 @keyframes pulse {
   0% {
-    background: rgba(255, 255, 255, 0.625) !important;
+    background: rgba(255, 255, 255, 0.625);
   }
   10% {
-    background: #3500d3 !important;
-    border: 10px solid green;
+    background: #3500d3;
   }
   20% {
-    background: #3500d3 !important;
-    border: 10px solid green;
+    background: #3500d3;
   }
   100% {
-    background: rgba(255, 255, 255, 0.625) !important;
+    background: rgba(255, 255, 255, 0.625);
   }
 }
 .x-body-part {
@@ -987,7 +1118,7 @@ h1 {
 }
 .x-body-part .x-leg-parts *::after,
 .x-body-part .x-spinnerets-parts *::after {
-  content: "";
+  content: none;
   position: absolute;
   left: 0;
   top: 0;
