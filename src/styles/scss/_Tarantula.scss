@@ -226,49 +226,49 @@ $body-angle: 0;
     .x-leg--background .x-metatarsus::before,
     .x-leg--background .x-tarsus::before {
       will-change: background;
-      animation: pulse 2.0625s ease-in-out;
+      animation: pulse 1.375s ease-in-out;
     }
 
     .x-abdomen::before,
     .x-coxa-pattern,
     .x-chelicera-pattern::before {
-      animation-delay: 0.1875s;
+      animation-delay: 0.125s;
     }
     
     .x-leg--foreground .x-coxa,
     .x-leg--background .x-coxa::before,
     .x-spinnerets-parts.x-coxa,
     .x-chelicerae {
-      animation-delay: 0.375s;
+      animation-delay: 0.25s;
     }
     
     .x-leg--foreground .x-femur,
     .x-leg--background .x-femur::before,
     .x-spinnerets-parts.x-femur,
     .x-fang {
-      animation-delay: 0.5625s;
+      animation-delay: 0.375s;
     }
     
     .x-leg--foreground .x-patella,
     .x-leg--background .x-patella::before,
     .x-spinnerets-parts.x-patella {
-      animation-delay: 0.7s;
+      animation-delay: 0.5s;
     }
 
     .x-leg--foreground .x-tibia,
     .x-leg--background .x-tibia::before,
     .x-spinnerets-parts.x-tibia {
-      animation-delay: 0.8875s;
+      animation-delay: 0.625s;
     }
 
     .x-leg--foreground .x-metatarsus,
     .x-leg--background .x-metatarsus::before {
-      animation-delay: 1.075s;
+      animation-delay: 0.75s;
     }
 
     .x-leg--foreground .x-tarsus,
     .x-leg--background .x-tarsus::before {
-      animation-delay: 1.2625s;
+      animation-delay: 0.875s;
     }
   }
 }

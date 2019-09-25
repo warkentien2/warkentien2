@@ -64,8 +64,11 @@ function App() {
           <div className="container">
             <h2>About Me</h2>
             <p>
-              I'm a dual-citizen (US/Brazil) with a life-long passion for arts and math! 
-              I'm the bridge between designers and developers. Between the idea and the execution.
+              I'm a (USA/Brazil) dual-citizen Front-End Developer with a life-long passion for arts and math! 
+              My passions lead me from highschool math mentoring and comicbook drawing,
+              past Microsoft Paint animation and Photoshop proficiency,
+              to Computer Engineering and a 3D-Modelling Course. Finally, while working for Grey,
+              I became the bridge between art directors/designers and developers.
             </p>
             <blockquote className="student-feedback__wrapper" key="1off">
               <p className="student-feedback">
@@ -79,7 +82,8 @@ function App() {
             <p>
               That's where I found my niche.
             </p>
-            <h3>Niche (Visual Problem Solving)</h3>
+            <h3>Niche</h3>
+            <h4><em>Visual Problem Solving</em></h4>
             <p>
               It is common knowledge amongst Designers that Developers will ruin your dreams:
             </p>

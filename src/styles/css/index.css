@@ -812,42 +812,42 @@ h1 {
 .x-body.glow .x-leg--background .x-metatarsus::before,
 .x-body.glow .x-leg--background .x-tarsus::before {
   will-change: background;
-  animation: pulse 2.0625s ease-in-out;
+  animation: pulse 1.375s ease-in-out;
 }
 .x-body.glow .x-abdomen::before,
 .x-body.glow .x-coxa-pattern,
 .x-body.glow .x-chelicera-pattern::before {
-  animation-delay: 0.1875s;
+  animation-delay: 0.125s;
 }
 .x-body.glow .x-leg--foreground .x-coxa,
 .x-body.glow .x-leg--background .x-coxa::before,
 .x-body.glow .x-spinnerets-parts.x-coxa,
 .x-body.glow .x-chelicerae {
-  animation-delay: 0.375s;
+  animation-delay: 0.25s;
 }
 .x-body.glow .x-leg--foreground .x-femur,
 .x-body.glow .x-leg--background .x-femur::before,
 .x-body.glow .x-spinnerets-parts.x-femur,
 .x-body.glow .x-fang {
-  animation-delay: 0.5625s;
+  animation-delay: 0.375s;
 }
 .x-body.glow .x-leg--foreground .x-patella,
 .x-body.glow .x-leg--background .x-patella::before,
 .x-body.glow .x-spinnerets-parts.x-patella {
-  animation-delay: 0.7s;
+  animation-delay: 0.5s;
 }
 .x-body.glow .x-leg--foreground .x-tibia,
 .x-body.glow .x-leg--background .x-tibia::before,
 .x-body.glow .x-spinnerets-parts.x-tibia {
-  animation-delay: 0.8875s;
+  animation-delay: 0.625s;
 }
 .x-body.glow .x-leg--foreground .x-metatarsus,
 .x-body.glow .x-leg--background .x-metatarsus::before {
-  animation-delay: 1.075s;
+  animation-delay: 0.75s;
 }
 .x-body.glow .x-leg--foreground .x-tarsus,
 .x-body.glow .x-leg--background .x-tarsus::before {
-  animation-delay: 1.2625s;
+  animation-delay: 0.875s;
 }
 
 @keyframes pulse {

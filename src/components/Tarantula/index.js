@@ -295,7 +295,7 @@ function Tarantula({isMobile}) {
   const moveLegsTl = new TimelineMax({ paused: true })
   const completeTl = new TimelineMax({ paused: true })
   const singlePulseTl = new TimelineMax({ paused: true })
-  const pulseTl = new TimelineMax({ paused: true, repeat: -1, repeatDelay: 6.875 })
+  const pulseTl = new TimelineMax({ paused: true, repeat: -1, repeatDelay: 8 })
 
   useEffect(() => {
     addWidthMetadata(tarantula)
@@ -303,7 +303,7 @@ function Tarantula({isMobile}) {
     // animation
     singlePulseTl
       .addLabel('pulse')
-      .to(body.current, 3.375, { 
+      .to(body.current, 2.25, { 
         onStart: (self) => {
           toggleGlow(true)
         },
@@ -315,7 +315,7 @@ function Tarantula({isMobile}) {
 
     pulseTl
       .addLabel('keep-on-pulsing')
-      .to(singlePulseTl, 3.375, { progress: 1, ease: Linear.easeNone, onStart: () => {
+      .to(singlePulseTl, 2.25, { progress: 1, ease: Linear.easeNone, onStart: () => {
         TweenMax.set(singlePulseTl, { progress: 0 })
       }}, 'keep-on-pulsing')
     ;
@@ -448,10 +448,13 @@ function Tarantula({isMobile}) {
 
     completeTl.addLabel('enter')
       .to(walkMidStanceTl, 11, { progress: 1, ease: Power1.easeOut }, 'enter')
-      .to(attackStanceTl, 4.5, { progress: 1, ease: Power2.easeInOut }, 'enter+=11')
+      .to(attackStanceTl, 2.25, { progress: 1, ease: Power2.easeInOut }, 'enter+=11')
+      .to(singlePulseTl, 2.5, { progress: 1, ease: Linear.easeNone, onComplete: () => {
+        TweenMax.set(singlePulseTl, { progress: 0 })
+      }}, 'enter+=11.5')
       .to(info.current, 1, { autoAlpha: 1, ease: Power2.easeInOut }, 'enter+=13.75')
-      .add(pulseTl.play(0), 'enter+=14.25')
-      .to(moveLegsTl, 0.25, { progress: 1, repeat: -1, repeatDelay: 10, ease: Power2.easeInOut }, 'enter+=15.5')
+      .to(moveLegsTl, 0.25, { progress: 1, repeat: -1, repeatDelay: 10, ease: Power2.easeInOut }, 'enter+=15.25')
+      .add(pulseTl.play(0), 'enter+=15.25')
     ;
 
     completeTl.play(0)
