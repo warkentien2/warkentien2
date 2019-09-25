@@ -329,7 +329,11 @@ h1 {
   z-index: 1;
 
   .container {
-    padding-bottom: 2.5em;
+    padding-bottom: 1em;
+
+    p.small {
+      padding-top: 2em;
+    }
   }
 
   .contact-list {
@@ -545,6 +549,10 @@ h1 {
   height: auto;
 }
 
+.stats {
+  margin: 3em 0 1.5em;
+}
+
 .statistics {
   position: relative;
   text-align: center;
@@ -581,7 +589,7 @@ h1 {
 
   &.statistics-1,
   &.statistics-3 {
-    margin-top: 5em;
+    margin-top: 3em;
   }
 
   &.statistics-4 {
@@ -598,7 +606,7 @@ h1 {
     }
 
     &.statistics-1 {
-      margin-top: 6em;
+      margin-top: 3em;
       margin-left: 0.5em;
     }
 
@@ -613,7 +621,7 @@ h1 {
     }
 
     &.statistics-4 {
-      margin-top: -8em;
+      margin-top: -3em;
       margin-right: 0.5em;
     }
   }
@@ -635,6 +643,10 @@ h1 {
       margin-right: 3em;
     }
   }
+}
+
+.small {
+  font-size: 0.75em;
 }
 
 .no-wrap {
