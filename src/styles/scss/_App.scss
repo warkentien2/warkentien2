@@ -381,6 +381,10 @@ h1 {
     }
 
     .contact {
+      .highlight a {
+        color: $highlighted;
+      }
+      
       a {
         color: #0c0032;
         text-decoration: none;
@@ -667,6 +671,11 @@ h1 {
 
 .small {
   font-size: 0.75em;
+}
+
+.horizontal-spacer {
+  display: inline-block;
+  width: 1.125em;
 }
 
 .no-wrap {

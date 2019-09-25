@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import tools from './tools'
-import { TimelineMax, TweenMax, Power1, Power2, Power3, Linear } from 'gsap'
+import { TimelineMax, TweenMax, Power1, Power2, Linear } from 'gsap'
 
 function addWidthMetadata(tarantula) {
   const legsNodeList = tarantula.current.getElementsByClassName('x-leg')
@@ -129,7 +129,7 @@ const animateLegA2 = {
   raise: (el, time) => animateLeg(el, time, [20, -127, tools.randomChoice([60, 55, 80]), 15, tools.randomChoice([88, 92, 52]), 5], 80),
   stretch: (el, time) => animateLeg(el, time, [10, -87, 60, 15, tools.randomChoice([45, 30]), -30], 100),
   halfAttackStance: (el, time) => animateLeg(el, time, [27, -75, 96, 15, 43, -25], 100, 160),
-  attackStance: (el, time) => animateLeg(el, time, [30, -92, 158, 15, 10, -5], 110, 110)
+  attackStance: (el, time) => animateLeg(el, time, [30, -92, 159, 15, 10, -5], 105, 110)
 }
 
 const animateLegB2 = {
@@ -407,7 +407,7 @@ function Tarantula({isMobile}) {
 
     attackStanceTl.addLabel('motion-3')
       .add(rotateBody(bodyParts, 0.375, -60, 30, true), 'motion-3')
-      .to(body.current, 0.375, { xPercent: -10, yPercent: 10, ease: Power3.easeIn }, 'motion-3')
+      .to(body.current, 0.375, { xPercent: -10, yPercent: 10, ease: Power2.easeIn }, 'motion-3')
       .to([spinneretA.current, spinneretB.current], 0.25, { rotation: -100, ease: Linear.easeNone }, 'motion-3')
       .add(animateLeg(legA1, 0.25, [-50, -122, tools.randomChoice([42, 47]), 15, tools.randomChoice([10, 15, 26]), -15]), 'motion-3+=0.125')
       .add(animateLegA2.attackStance(legA2, 0.375), 'motion-3')

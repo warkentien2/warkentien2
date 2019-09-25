@@ -340,6 +340,9 @@ h1 {
 .footer .contact-list--right {
   padding-left: 1.4em;
 }
+.footer .contact-list .contact .highlight a {
+  color: #3500d3;
+}
 .footer .contact-list .contact a {
   color: #0c0032;
   text-decoration: none;
@@ -595,6 +598,11 @@ h1 {
 
 .small {
   font-size: 0.75em;
+}
+
+.horizontal-spacer {
+  display: inline-block;
+  width: 1.125em;
 }
 
 .no-wrap {

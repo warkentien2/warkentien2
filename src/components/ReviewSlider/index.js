@@ -230,22 +230,24 @@ function ReviewSlider({ windowSize }) {
   };
 
   return (
-    <div className={`student-feedback__slider contain${smallScreen ? ' small-screen' : ''}`}>
+    <React.Fragment>
       <h3>Student Feedback</h3>
-      <Slider {...settings}>
-        {reviews.map((review, index) => {
-          return (
-            <blockquote className="student-feedback__wrapper" key={index} style={{ width: '90%', border: '5px dotted green !important' }}>
-              <p className="student-feedback">
-                <span className="big">“</span>{ review.review }
-                <cite className={`student-name${review.author ? '' : ' faint'}`}>— {review.author || 'Student'}</cite>
-                <span className="big">”</span>
-              </p>
-            </blockquote>
-          )
-        })}
-      </Slider>
-    </div>
+      <div className={`student-feedback__slider contain${smallScreen ? ' small-screen' : ''}`}>
+        <Slider {...settings}>
+          {reviews.map((review, index) => {
+            return (
+              <blockquote className="student-feedback__wrapper" key={index}>
+                <p className="student-feedback">
+                  <span className="big">“</span>{ review.review }
+                  <cite className={`student-name${review.author ? '' : ' faint'}`}>— {review.author || 'Student'}</cite>
+                  <span className="big">”</span>
+                </p>
+              </blockquote>
+            )
+          })}
+        </Slider>
+      </div>
+    </React.Fragment>
   );
 }
 
