@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import tools from './tools'
 import { TimelineMax, TweenMax, Power1, Power2, Power3, Linear } from 'gsap'
 
@@ -129,7 +129,7 @@ const animateLegA2 = {
   raise: (el, time) => animateLeg(el, time, [20, -127, tools.randomChoice([60, 55, 80]), 15, tools.randomChoice([88, 92, 52]), 5], 80),
   stretch: (el, time) => animateLeg(el, time, [10, -87, 60, 15, tools.randomChoice([45, 30]), -30], 100),
   halfAttackStance: (el, time) => animateLeg(el, time, [27, -75, 96, 15, 43, -25], 100, 160),
-  attackStance: (el, time) => animateLeg(el, time, [30, -92, 162, 15, 10, -5], 100, 110)
+  attackStance: (el, time) => animateLeg(el, time, [30, -92, 158, 15, 10, -5], 110, 110)
 }
 
 const animateLegB2 = {
@@ -138,7 +138,7 @@ const animateLegB2 = {
   raise: (el, time) => animateLeg(el, time, [10, -110, tools.randomChoice([57, 52, 77]), 15, tools.randomChoice([98, 103, 63]), 5], 80),
   stretch: (el, time) => animateLeg(el, time, [0, -79, 57, 15, tools.randomChoice([47, 32]), -30], 100),
   halfAttackStance: (el, time) => animateLeg(el, time, [17, -95, 91, 15, 55, -30], 100, 160),
-  attackStance: (el, time) => animateLeg(el, time, [25, -155, 148, 15, 7, -5], 100, 110)
+  attackStance: (el, time) => animateLeg(el, time, [25, -155, 146, 16, 7, -5], 105, 110)
 }
 
 const animateLegA3 = {
@@ -288,13 +288,14 @@ function Tarantula({isMobile}) {
   const abdomen = useRef(null)
   const info = useRef(null)
   const wait = useRef(null)
+  const [glow, toggleGlow] = useState(false)
   const bodyParts = [body, abdomen, legA1, legA2, legA3, legA4, legB1, legB2, legB3, legB4, pedipalpA, pedipalpB, cheliceraeA, cheliceraeB];
   const walkMidStanceTl = new TimelineMax({ paused: true })
   const attackStanceTl = new TimelineMax({ paused: true })
   const moveLegsTl = new TimelineMax({ paused: true })
   const completeTl = new TimelineMax({ paused: true })
   const singlePulseTl = new TimelineMax({ paused: true })
-  const pulseTl = new TimelineMax({ paused: true, repeat: -1, repeatDelay: 8 })
+  const pulseTl = new TimelineMax({ paused: true, repeat: -1, repeatDelay: 6.875 })
 
   useEffect(() => {
     addWidthMetadata(tarantula)
@@ -302,21 +303,19 @@ function Tarantula({isMobile}) {
     // animation
     singlePulseTl
       .addLabel('pulse')
-      .to(body.current, 2.25, { 
+      .to(body.current, 3.375, { 
         onStart: (self) => {
-          self.target.classList.add('glow')
-        }, 
-        onStartParams: ['{self}'], 
+          toggleGlow(true)
+        },
         onComplete: (self) => {
-          self.target.classList.remove('glow')
-        }, 
-        onCompleteParams: ['{self}']
+          toggleGlow(false)
+        }
       }, 'pulse')
     ;
 
     pulseTl
       .addLabel('keep-on-pulsing')
-      .to(singlePulseTl, 2.25, { progress: 1, ease: Linear.easeNone, onStart: () => {
+      .to(singlePulseTl, 3.375, { progress: 1, ease: Linear.easeNone, onStart: () => {
         TweenMax.set(singlePulseTl, { progress: 0 })
       }}, 'keep-on-pulsing')
     ;
@@ -449,13 +448,10 @@ function Tarantula({isMobile}) {
 
     completeTl.addLabel('enter')
       .to(walkMidStanceTl, 11, { progress: 1, ease: Power1.easeOut }, 'enter')
-      .to(attackStanceTl, 2.25, { progress: 1, ease: Power2.easeInOut }, 'enter+=11')
-      .to(singlePulseTl, 2.5, { progress: 1, ease: Linear.easeNone, onComplete: () => {
-        TweenMax.set(singlePulseTl, { progress: 0 })
-      }}, 'enter+=11.5')
+      .to(attackStanceTl, 4.5, { progress: 1, ease: Power2.easeInOut }, 'enter+=11')
       .to(info.current, 1, { autoAlpha: 1, ease: Power2.easeInOut }, 'enter+=13.75')
-      .to(moveLegsTl, 0.25, { progress: 1, repeat: -1, repeatDelay: 10, ease: Power2.easeInOut }, 'enter+=15.25')
-      .add(pulseTl.play(0), 'enter+=15.25')
+      .add(pulseTl.play(0), 'enter+=14.25')
+      .to(moveLegsTl, 0.25, { progress: 1, repeat: -1, repeatDelay: 10, ease: Power2.easeInOut }, 'enter+=15.5')
     ;
 
     completeTl.play(0)
@@ -475,7 +471,7 @@ function Tarantula({isMobile}) {
         <span ref={wait}>loading...</span>
       </p>
       <div ref={tarantula} className="tarantula">
-        <div ref={body} className="x-body">
+        <div ref={body} className={`x-body${glow ? ' glow' : ''}`}>
           <div className="x-body-part x-cephalothorax">
 
             <div ref={legB2} id="legB2" className="x-leg x-leg--background leg-6">

@@ -135,8 +135,23 @@ $body-angle: 0;
   top: 70%;
   width: 10%;
   height: 10%;
-  transform: rotate(0);
-  transform: rotate($body-angle + 0deg);
+  will-change: transform;
+
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
+
+  -webkit-perspective: 1000;
+  -moz-perspective: 1000;
+  -ms-perspective: 1000;
+  perspective: 1000;
+
+  -webkit-transform: rotate($body-angle + 0deg) translateZ(0);
+  -moz-transform: rotate($body-angle + 0deg) translateZ(0);
+  -ms-transform: rotate($body-angle + 0deg) translateZ(0);
+  -o-transform: rotate($body-angle + 0deg) translateZ(0);
+  transform: rotate($body-angle + 0deg) translateZ(0);
   transform-origin: 7.5% 8%;
 
   * {
@@ -210,49 +225,50 @@ $body-angle: 0;
     .x-leg--background .x-tibia::before,
     .x-leg--background .x-metatarsus::before,
     .x-leg--background .x-tarsus::before {
-      animation: pulse 1.375s ease-in-out;
+      will-change: background;
+      animation: pulse 2.0625s ease-in-out;
     }
 
     .x-abdomen::before,
     .x-coxa-pattern,
     .x-chelicera-pattern::before {
-      animation-delay: 0.125s;
+      animation-delay: 0.1875s;
     }
     
     .x-leg--foreground .x-coxa,
     .x-leg--background .x-coxa::before,
     .x-spinnerets-parts.x-coxa,
     .x-chelicerae {
-      animation-delay: 0.25s;
+      animation-delay: 0.375s;
     }
     
     .x-leg--foreground .x-femur,
     .x-leg--background .x-femur::before,
     .x-spinnerets-parts.x-femur,
     .x-fang {
-      animation-delay: 0.375s;
+      animation-delay: 0.5625s;
     }
     
     .x-leg--foreground .x-patella,
     .x-leg--background .x-patella::before,
     .x-spinnerets-parts.x-patella {
-      animation-delay: 0.5s;
+      animation-delay: 0.7s;
     }
 
     .x-leg--foreground .x-tibia,
     .x-leg--background .x-tibia::before,
     .x-spinnerets-parts.x-tibia {
-      animation-delay: 0.625s;
+      animation-delay: 0.8875s;
     }
 
     .x-leg--foreground .x-metatarsus,
     .x-leg--background .x-metatarsus::before {
-      animation-delay: 0.75s;
+      animation-delay: 1.075s;
     }
 
     .x-leg--foreground .x-tarsus,
     .x-leg--background .x-tarsus::before {
-      animation-delay: 0.875s;
+      animation-delay: 1.2625s;
     }
   }
 }
@@ -261,10 +277,10 @@ $body-angle: 0;
   0% {
     background: rgba(255, 255, 255, 0.625);
   }
-  10% {
+  30% {
     background: rgba(53, 0, 211, 1);
   }
-  20% {
+  40% {
     background: rgba(53, 0, 211, 1);
   }
   100% {
@@ -286,7 +302,7 @@ $body-angle: 0;
     height: calc(14.4em + 2px);
     border-radius: 60% 50% 35% 50%;
     transform-origin: 97.5% 60.5%;
-    transform: scale(0.875) rotate(10deg);
+    transform: rotate(10deg);
     z-index: 1;
     
     &::before {
@@ -437,7 +453,22 @@ $body-angle: 0;
     left: 97%;
     top: 8%;
     transform-origin: 25% 50%;
-    transform: rotate(60deg);
+    will-change: transform;
+
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    backface-visibility: hidden;
+  
+    -webkit-perspective: 1000;
+    -moz-perspective: 1000;
+    -ms-perspective: 1000;
+    perspective: 1000;
+    -webkit-transform: rotate(60deg) translateZ(0);
+    -moz-transform: rotate(60deg) translateZ(0);
+    -ms-transform: rotate(60deg) translateZ(0);
+    -o-transform: rotate(60deg) translateZ(0);
+    transform: rotate(60deg) translateZ(0);
     border-radius: 30% 70% 10% 0%;
     background: rgba(255, 255, 255, 0.625);
     border: $border;
@@ -461,7 +492,22 @@ $body-angle: 0;
       height: calc(10.5% + 2px);
       right: -32%;
       bottom: -3.5%;
-      transform: rotate(140.5deg);
+      will-change: transform;
+
+      -webkit-backface-visibility: hidden;
+      -moz-backface-visibility: hidden;
+      -ms-backface-visibility: hidden;
+      backface-visibility: hidden;
+    
+      -webkit-perspective: 1000;
+      -moz-perspective: 1000;
+      -ms-perspective: 1000;
+      perspective: 1000;
+      -webkit-transform: rotate(140.5deg) translateZ(0);
+      -moz-transform: rotate(140.5deg) translateZ(0);
+      -ms-transform: rotate(140.5deg) translateZ(0);
+      -o-transform: rotate(140.5deg) translateZ(0);
+      transform: rotate(140.5deg) translateZ(0);
       transform-origin: 5% 50%;
 
       &::after {
@@ -603,6 +649,17 @@ $body-angle: 0;
     top: 10%;
     transform-origin: 5% 50%;
     border-bottom: none;
+    will-change: transform;
+
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    backface-visibility: hidden;
+
+    -webkit-perspective: 1000;
+    -moz-perspective: 1000;
+    -ms-perspective: 1000;
+    perspective: 1000;
 
     &::before {
       background: rgba(255, 255, 255, 0.625);
@@ -648,16 +705,26 @@ $body-angle: 0;
     height: calc(3.76em + 2px);
     left: 55%;
     top: 0;
-    transform: rotate(-80deg);
+    -webkit-transform: rotate(-80deg) translateZ(0);
+    -moz-transform: rotate(-80deg) translateZ(0);
+    -ms-transform: rotate(-80deg) translateZ(0);
+    -o-transform: rotate(-80deg) translateZ(0);
+    transform: rotate(-80deg) translateZ(0);
     transform-origin: 5% 50%;
     width: calc(16.18em + 2px);
     border-radius: 50% 60% 2em 3em;
+    will-change: width;
   }
 
   .x-patella {
-    transform: rotate(100deg);
+    -webkit-transform: rotate(100deg) translateZ(0);
+    -moz-transform: rotate(100deg) translateZ(0);
+    -ms-transform: rotate(100deg) translateZ(0);
+    -o-transform: rotate(100deg) translateZ(0);
+    transform: rotate(100deg) translateZ(0);
     width: calc(7.28em + 2px);
     height: calc(3.668em + 2px);
+    will-change: width;
   }
 
   .x-tibia {
@@ -665,14 +732,23 @@ $body-angle: 0;
     height: calc(3.668em + 2px);
     top: 2.5%;
     left: 80%;
-    transform: rotate(15deg);
+    -webkit-transform: rotate(15deg) translateZ(0);
+    -moz-transform: rotate(15deg) translateZ(0);
+    -ms-transform: rotate(15deg) translateZ(0);
+    -o-transform: rotate(15deg) translateZ(0);
+    transform: rotate(15deg) translateZ(0);
     width: calc(10.92em + 2px);
+    will-change: width;
   }
 
   .x-metatarsus {
     left: 92.5%;
     height: calc(2.972em + 2px);
-    transform: rotate(25deg);
+    -webkit-transform: rotate(25deg) translateZ(0);
+    -moz-transform: rotate(25deg) translateZ(0);
+    -ms-transform: rotate(25deg) translateZ(0);
+    -o-transform: rotate(25deg) translateZ(0);
+    transform: rotate(25deg) translateZ(0);
     width: calc(10.38em + 2px);
   }
 
@@ -681,48 +757,92 @@ $body-angle: 0;
     height: calc(1.934em + 2px);
     left: 95%;
     top: 20%;
-    transform: rotate(-10deg);
+    -webkit-transform: rotate(-10deg) translateZ(0);
+    -moz-transform: rotate(-10deg) translateZ(0);
+    -ms-transform: rotate(-10deg) translateZ(0);
+    -o-transform: rotate(-10deg) translateZ(0);
+    transform: rotate(-10deg) translateZ(0);
     width: calc(6.22em + 2px);
   }
 
   .x-leg.leg-1,
   .x-leg.leg-5 {
-    transform: rotate(20deg - 1.2 * $body-angle + 0deg);
+    -webkit-transform: rotate(20deg - 1.2 * $body-angle + 0deg) translateZ(0);
+    -moz-transform: rotate(20deg - 1.2 * $body-angle + 0deg) translateZ(0);
+    -ms-transform: rotate(20deg - 1.2 * $body-angle + 0deg) translateZ(0);
+    -o-transform: rotate(20deg - 1.2 * $body-angle + 0deg) translateZ(0);
+    transform: rotate(20deg - 1.2 * $body-angle + 0deg) translateZ(0);
 
     .x-femur {
-      transform: rotate(-80deg);
+      -webkit-transform: rotate(-80deg) translateZ(0);
+      -moz-transform: rotate(-80deg) translateZ(0);
+      -ms-transform: rotate(-80deg) translateZ(0);
+      -o-transform: rotate(-80deg) translateZ(0);
+      transform: rotate(-80deg) translateZ(0);
     }
 
     .x-patella {
-      transform: rotate(71deg);
+      -webkit-transform: rotate(71deg) translateZ(0);
+      -moz-transform: rotate(71deg) translateZ(0);
+      -ms-transform: rotate(71deg) translateZ(0);
+      -o-transform: rotate(71deg) translateZ(0);
+      transform: rotate(71deg) translateZ(0);
     }
 
     .x-metatarsus {
-      transform: rotate(60deg);
+      -webkit-transform: rotate(60deg) translateZ(0);
+      -moz-transform: rotate(60deg) translateZ(0);
+      -ms-transform: rotate(60deg) translateZ(0);
+      -o-transform: rotate(60deg) translateZ(0);
+      transform: rotate(60deg) translateZ(0);
     }
 
     .x-tarsus {
-      transform: rotate(-20deg);
+      -webkit-transform: rotate(-20deg) translateZ(0);
+      -moz-transform: rotate(-20deg) translateZ(0);
+      -ms-transform: rotate(-20deg) translateZ(0);
+      -o-transform: rotate(-20deg) translateZ(0);
+      transform: rotate(-20deg) translateZ(0);
     }
   }
 
   .x-leg.leg-5 {
-    transform: rotate(21.5deg - 1.42 * $body-angle + 0deg);
+    -webkit-transform: rotate(21.5deg - 1.42 * $body-angle + 0deg) translateZ(0);
+    -moz-transform: rotate(21.5deg - 1.42 * $body-angle + 0deg) translateZ(0);
+    -ms-transform: rotate(21.5deg - 1.42 * $body-angle + 0deg) translateZ(0);
+    -o-transform: rotate(21.5deg - 1.42 * $body-angle + 0deg) translateZ(0);
+    transform: rotate(21.5deg - 1.42 * $body-angle + 0deg) translateZ(0);
 
     .x-femur {
-      transform: rotate(-77.5deg);
+      -webkit-transform: rotate(-77.5deg) translateZ(0);
+      -moz-transform: rotate(-77.5deg) translateZ(0);
+      -ms-transform: rotate(-77.5deg) translateZ(0);
+      -o-transform: rotate(-77.5deg) translateZ(0);
+      transform: rotate(-77.5deg) translateZ(0);
     }
 
     .x-patella {
-      transform: rotate(65deg);
+      -webkit-transform: rotate(65deg) translateZ(0);
+      -moz-transform: rotate(65deg) translateZ(0);
+      -ms-transform: rotate(65deg) translateZ(0);
+      -o-transform: rotate(65deg) translateZ(0);
+      transform: rotate(65deg) translateZ(0);
     }
 
     .x-metatarsus {
-      transform: rotate(55deg);
+      -webkit-transform: rotate(55deg) translateZ(0);
+      -moz-transform: rotate(55deg) translateZ(0);
+      -ms-transform: rotate(55deg) translateZ(0);
+      -o-transform: rotate(55deg) translateZ(0);
+      transform: rotate(55deg) translateZ(0);
     }
 
     .x-tarsus {
-      transform: rotate(-25deg);
+      -webkit-transform: rotate(-25deg) translateZ(0);
+      -moz-transform: rotate(-25deg) translateZ(0);
+      -ms-transform: rotate(-25deg) translateZ(0);
+      -o-transform: rotate(-25deg) translateZ(0);
+      transform: rotate(-25deg) translateZ(0);
     }
   }
 
@@ -730,42 +850,82 @@ $body-angle: 0;
   .x-leg.leg-6 {
     top: 62.5%;
     left: 45%;
-    transform: rotate(5deg - 1.7 * $body-angle + 0deg);
+    -webkit-transform: rotate(5deg - 1.7 * $body-angle + 0deg) translateZ(0);
+    -moz-transform: rotate(5deg - 1.7 * $body-angle + 0deg) translateZ(0);
+    -ms-transform: rotate(5deg - 1.7 * $body-angle + 0deg) translateZ(0);
+    -o-transform: rotate(5deg - 1.7 * $body-angle + 0deg) translateZ(0);
+    transform: rotate(5deg - 1.7 * $body-angle + 0deg) translateZ(0);
 
     .x-femur {
-      transform: rotate(-80deg);
+      -webkit-transform: rotate(-80deg) translateZ(0);
+      -moz-transform: rotate(-80deg) translateZ(0);
+      -ms-transform: rotate(-80deg) translateZ(0);
+      -o-transform: rotate(-80deg) translateZ(0);
+      transform: rotate(-80deg) translateZ(0);
     }
 
     .x-patella {
-      transform: rotate(95deg);
+      -webkit-transform: rotate(95deg) translateZ(0);
+      -moz-transform: rotate(95deg) translateZ(0);
+      -ms-transform: rotate(95deg) translateZ(0);
+      -o-transform: rotate(95deg) translateZ(0);
+      transform: rotate(95deg) translateZ(0);
     }
 
     .x-metatarsus {
-      transform: rotate(60deg);
+      -webkit-transform: rotate(60deg) translateZ(0);
+      -moz-transform: rotate(60deg) translateZ(0);
+      -ms-transform: rotate(60deg) translateZ(0);
+      -o-transform: rotate(60deg) translateZ(0);
+      transform: rotate(60deg) translateZ(0);
     }
 
     .x-tarsus {
-      transform: rotate(-30deg);
+      -webkit-transform: rotate(-30deg) translateZ(0);
+      -moz-transform: rotate(-30deg) translateZ(0);
+      -ms-transform: rotate(-30deg) translateZ(0);
+      -o-transform: rotate(-30deg) translateZ(0);
+      transform: rotate(-30deg) translateZ(0);
     }
   }
 
   .x-leg.leg-6 {
-    transform: rotate(5deg - 1.15 * $body-angle + 0deg);
+    -webkit-transform: rotate(5deg - 1.15 * $body-angle + 0deg) translateZ(0);
+    -moz-transform: rotate(5deg - 1.15 * $body-angle + 0deg) translateZ(0);
+    -ms-transform: rotate(5deg - 1.15 * $body-angle + 0deg) translateZ(0);
+    -o-transform: rotate(5deg - 1.15 * $body-angle + 0deg) translateZ(0);
+    transform: rotate(5deg - 1.15 * $body-angle + 0deg) translateZ(0);
 
     .x-femur {
-      transform: rotate(-75.5deg);
+      -webkit-transform: rotate(-75.5deg) translateZ(0);
+      -moz-transform: rotate(-75.5deg) translateZ(0);
+      -ms-transform: rotate(-75.5deg) translateZ(0);
+      -o-transform: rotate(-75.5deg) translateZ(0);
+      transform: rotate(-75.5deg) translateZ(0);
     }
 
     .x-patella {
-      transform: rotate(80.5deg);
+      -webkit-transform: rotate(80.5deg) translateZ(0);
+      -moz-transform: rotate(80.5deg) translateZ(0);
+      -ms-transform: rotate(80.5deg) translateZ(0);
+      -o-transform: rotate(80.5deg) translateZ(0);
+      transform: rotate(80.5deg) translateZ(0);
     }
 
     .x-metatarsus {
-      transform: rotate(65deg);
+      -webkit-transform: rotate(65deg) translateZ(0);
+      -moz-transform: rotate(65deg) translateZ(0);
+      -ms-transform: rotate(65deg) translateZ(0);
+      -o-transform: rotate(65deg) translateZ(0);
+      transform: rotate(65deg) translateZ(0);
     }
 
     .x-tarsus {
-      transform: rotate(-25deg);
+      -webkit-transform: rotate(-25deg) translateZ(0);
+      -moz-transform: rotate(-25deg) translateZ(0);
+      -ms-transform: rotate(-25deg) translateZ(0);
+      -o-transform: rotate(-25deg) translateZ(0);
+      transform: rotate(-25deg) translateZ(0);
     }
   }
 
@@ -773,42 +933,82 @@ $body-angle: 0;
   .x-leg.leg-7 {
     top: 65%;
     left: 22.5%;
-    transform: rotateY(180deg) rotateZ(20deg + 1.3 * $body-angle + 0deg);
+    -webkit-transform: rotateY(180deg) rotateZ(20deg + 1.3 * $body-angle + 0deg) translateZ(0);
+    -moz-transform: rotateY(180deg) rotateZ(20deg + 1.3 * $body-angle + 0deg) translateZ(0);
+    -ms-transform: rotateY(180deg) rotateZ(20deg + 1.3 * $body-angle + 0deg) translateZ(0);
+    -o-transform: rotateY(180deg) rotateZ(20deg + 1.3 * $body-angle + 0deg) translateZ(0);
+    transform: rotateY(180deg) rotateZ(20deg + 1.3 * $body-angle + 0deg) translateZ(0);
     
     .x-femur {
-      transform: rotate(-115deg);
+      -webkit-transform: rotate(-115deg) translateZ(0);
+      -moz-transform: rotate(-115deg) translateZ(0);
+      -ms-transform: rotate(-115deg) translateZ(0);
+      -o-transform: rotate(-115deg) translateZ(0);
+      transform: rotate(-115deg) translateZ(0);
     }
 
     .x-patella {
-      transform: rotate(120deg);
+      -webkit-transform: rotate(120deg) translateZ(0);
+      -moz-transform: rotate(120deg) translateZ(0);
+      -ms-transform: rotate(120deg) translateZ(0);
+      -o-transform: rotate(120deg) translateZ(0);
+      transform: rotate(120deg) translateZ(0);
     }
 
     .x-metatarsus {
-      transform: rotate(60deg);
+      -webkit-transform: rotate(60deg) translateZ(0);
+      -moz-transform: rotate(60deg) translateZ(0);
+      -ms-transform: rotate(60deg) translateZ(0);
+      -o-transform: rotate(60deg) translateZ(0);
+      transform: rotate(60deg) translateZ(0);
     }
 
     .x-tarsus {
-      transform: rotate(-35deg);
+      -webkit-transform: rotate(-35deg) translateZ(0);
+      -moz-transform: rotate(-35deg) translateZ(0);
+      -ms-transform: rotate(-35deg) translateZ(0);
+      -o-transform: rotate(-35deg) translateZ(0);
+      transform: rotate(-35deg) translateZ(0);
     }
   }
 
   .x-leg.leg-7 {
-    transform: rotateY(180deg) rotateZ(15deg + 0.85 * $body-angle + 0deg);
+    -webkit-transform: rotateY(180deg) rotateZ(15deg + 0.85 * $body-angle + 0deg) translateZ(0);
+    -moz-transform: rotateY(180deg) rotateZ(15deg + 0.85 * $body-angle + 0deg) translateZ(0);
+    -ms-transform: rotateY(180deg) rotateZ(15deg + 0.85 * $body-angle + 0deg) translateZ(0);
+    -o-transform: rotateY(180deg) rotateZ(15deg + 0.85 * $body-angle + 0deg) translateZ(0);
+    transform: rotateY(180deg) rotateZ(15deg + 0.85 * $body-angle + 0deg) translateZ(0);
     
     .x-femur {
-      transform: rotate(-124deg);
+      -webkit-transform: rotate(-124deg) translateZ(0);
+      -moz-transform: rotate(-124deg) translateZ(0);
+      -ms-transform: rotate(-124deg) translateZ(0);
+      -o-transform: rotate(-124deg) translateZ(0);
+      transform: rotate(-124deg) translateZ(0);
     }
 
     .x-patella {
-      transform: rotate(122deg);
+      -webkit-transform: rotate(122deg) translateZ(0);
+      -moz-transform: rotate(122deg) translateZ(0);
+      -ms-transform: rotate(122deg) translateZ(0);
+      -o-transform: rotate(122deg) translateZ(0);
+      transform: rotate(122deg) translateZ(0);
     }
 
     .x-metatarsus {
-      transform: rotate(75deg);
+      -webkit-transform: rotate(75deg) translateZ(0);
+      -moz-transform: rotate(75deg) translateZ(0);
+      -ms-transform: rotate(75deg) translateZ(0);
+      -o-transform: rotate(75deg) translateZ(0);
+      transform: rotate(75deg) translateZ(0);
     }
     
     .x-tarsus {
-      transform: rotate(-40deg);
+      -webkit-transform: rotate(-40deg) translateZ(0);
+      -moz-transform: rotate(-40deg) translateZ(0);
+      -ms-transform: rotate(-40deg) translateZ(0);
+      -o-transform: rotate(-40deg) translateZ(0);
+      transform: rotate(-40deg) translateZ(0);
     }
   }
 
@@ -816,45 +1016,85 @@ $body-angle: 0;
   .x-leg.leg-8 {
     top: 70%;
     left: 5%;
-    transform: rotateY(180deg) rotateZ(2deg + 1.12 * $body-angle + 0deg);
+    -webkit-transform: rotateY(180deg) rotateZ(2deg + 1.12 * $body-angle + 0deg) translateZ(0);
+    -moz-transform: rotateY(180deg) rotateZ(2deg + 1.12 * $body-angle + 0deg) translateZ(0);
+    -ms-transform: rotateY(180deg) rotateZ(2deg + 1.12 * $body-angle + 0deg) translateZ(0);
+    -o-transform: rotateY(180deg) rotateZ(2deg + 1.12 * $body-angle + 0deg) translateZ(0);
+    transform: rotateY(180deg) rotateZ(2deg + 1.12 * $body-angle + 0deg) translateZ(0);
 
     .x-patella {
-      transform: rotate(82.5deg);
+      -webkit-transform: rotate(82.5deg) translateZ(0);
+      -moz-transform: rotate(82.5deg) translateZ(0);
+      -ms-transform: rotate(82.5deg) translateZ(0);
+      -o-transform: rotate(82.5deg) translateZ(0);
+      transform: rotate(82.5deg) translateZ(0);
     }
 
     .x-metatarsus {
-      transform: rotate(50.5deg);
+      -webkit-transform: rotate(50.5deg) translateZ(0);
+      -moz-transform: rotate(50.5deg) translateZ(0);
+      -ms-transform: rotate(50.5deg) translateZ(0);
+      -o-transform: rotate(50.5deg) translateZ(0);
+      transform: rotate(50.5deg) translateZ(0);
     }
 
     .x-tarsus {
-      transform: rotate(-22.5deg);
+      -webkit-transform: rotate(-22.5deg) translateZ(0);
+      -moz-transform: rotate(-22.5deg) translateZ(0);
+      -ms-transform: rotate(-22.5deg) translateZ(0);
+      -o-transform: rotate(-22.5deg) translateZ(0);
+      transform: rotate(-22.5deg) translateZ(0);
     }
   }
 
   .x-leg.leg-8 {
-    transform: rotateY(180deg) rotate(1.35 * $body-angle + 0deg);
+    -webkit-transform: rotateY(180deg) rotate(1.35 * $body-angle + 0deg) translateZ(0);
+    -moz-transform: rotateY(180deg) rotate(1.35 * $body-angle + 0deg) translateZ(0);
+    -ms-transform: rotateY(180deg) rotate(1.35 * $body-angle + 0deg) translateZ(0);
+    -o-transform: rotateY(180deg) rotate(1.35 * $body-angle + 0deg) translateZ(0);
+    transform: rotateY(180deg) rotate(1.35 * $body-angle + 0deg) translateZ(0);
 
     .x-femur {
-      transform: rotate(-75deg);
+      -webkit-transform: rotate(-75deg) translateZ(0);
+      -moz-transform: rotate(-75deg) translateZ(0);
+      -ms-transform: rotate(-75deg) translateZ(0);
+      -o-transform: rotate(-75deg) translateZ(0);
+      transform: rotate(-75deg) translateZ(0);
     }
 
     .x-patella {
-      transform: rotate(87.5deg);
+      -webkit-transform: rotate(87.5deg) translateZ(0);
+      -moz-transform: rotate(87.5deg) translateZ(0);
+      -ms-transform: rotate(87.5deg) translateZ(0);
+      -o-transform: rotate(87.5deg) translateZ(0);
+      transform: rotate(87.5deg) translateZ(0);
     }
 
     .x-metatarsus {
-      transform: rotate(70.5deg);
+      -webkit-transform: rotate(70.5deg) translateZ(0);
+      -moz-transform: rotate(70.5deg) translateZ(0);
+      -ms-transform: rotate(70.5deg) translateZ(0);
+      -o-transform: rotate(70.5deg) translateZ(0);
+      transform: rotate(70.5deg) translateZ(0);
     }
 
     .x-tarsus {
-      transform: rotate(-30deg);
+      -webkit-transform: rotate(-30deg) translateZ(0);
+      -moz-transform: rotate(-30deg) translateZ(0);
+      -ms-transform: rotate(-30deg) translateZ(0);
+      -o-transform: rotate(-30deg) translateZ(0);
+      transform: rotate(-30deg) translateZ(0);
     }
   }
 
   .x-pedipalp {
     left: 92%;
     top: 55%;
-    transform: rotate(-17deg - 1.52 * $body-angle + 0deg);
+    -webkit-transform: rotate(-17deg - 1.52 * $body-angle + 0deg) translateZ(0);
+    -moz-transform: rotate(-17deg - 1.52 * $body-angle + 0deg) translateZ(0);
+    -ms-transform: rotate(-17deg - 1.52 * $body-angle + 0deg) translateZ(0);
+    -o-transform: rotate(-17deg - 1.52 * $body-angle + 0deg) translateZ(0);
+    transform: rotate(-17deg - 1.52 * $body-angle + 0deg) translateZ(0);
     width: calc(12.14em + 2px);
     height: calc(2.78em + 2px);
     z-index: 5;
@@ -872,24 +1112,40 @@ $body-angle: 0;
     .x-femur {
       width: calc(12.747em + 2px);
       height: calc(2.723em + 2px);
-      transform: rotate(-15deg);
+      -webkit-transform: rotate(-15deg) translateZ(0);
+      -moz-transform: rotate(-15deg) translateZ(0);
+      -ms-transform: rotate(-15deg) translateZ(0);
+      -o-transform: rotate(-15deg) translateZ(0);
+      transform: rotate(-15deg) translateZ(0);
     }
 
     .x-patella {
       width: calc(5.636em + 2px);
-      transform: rotate(100.5deg);
+      -webkit-transform: rotate(100.5deg) translateZ(0);
+      -moz-transform: rotate(100.5deg) translateZ(0);
+      -ms-transform: rotate(100.5deg) translateZ(0);
+      -o-transform: rotate(100.5deg) translateZ(0);
+      transform: rotate(100.5deg) translateZ(0);
       height: calc(2.612em + 2px);
     }
 
     .x-tibia {
       width: calc(8.4em + 2px);
       height: calc(2.512em + 2px);
-      transform: rotate(11.5deg);
+      -webkit-transform: rotate(11.5deg) translateZ(0);
+      -moz-transform: rotate(11.5deg) translateZ(0);
+      -ms-transform: rotate(11.5deg) translateZ(0);
+      -o-transform: rotate(11.5deg) translateZ(0);
+      transform: rotate(11.5deg) translateZ(0);
       top: -5%;
     }
 
     .x-metatarsus {
-      transform: rotate(-30deg);
+      -webkit-transform: rotate(-30deg) translateZ(0);
+      -moz-transform: rotate(-30deg) translateZ(0);
+      -ms-transform: rotate(-30deg) translateZ(0);
+      -o-transform: rotate(-30deg) translateZ(0);
+      transform: rotate(-30deg) translateZ(0);
       width: calc(5.29em + 2px);
       height: calc(1.778em + 2px);
       border-radius: 1em 50% 80% 30%;
@@ -898,18 +1154,34 @@ $body-angle: 0;
     &.pedipalp-2 {
       font-size: 0.99em;
       left: 100%;
-      transform: rotate(-17deg - 1.95 * $body-angle + 0deg);
+      -webkit-transform: rotate(-17deg - 1.95 * $body-angle + 0deg) translateZ(0);
+      -moz-transform: rotate(-17deg - 1.95 * $body-angle + 0deg) translateZ(0);
+      -ms-transform: rotate(-17deg - 1.95 * $body-angle + 0deg) translateZ(0);
+      -o-transform: rotate(-17deg - 1.95 * $body-angle + 0deg) translateZ(0);
+      transform: rotate(-17deg - 1.95 * $body-angle + 0deg) translateZ(0);
   
       .x-femur {
-        transform: rotate(-22.5deg);
+        -webkit-transform: rotate(-22.5deg) translateZ(0);
+        -moz-transform: rotate(-22.5deg) translateZ(0);
+        -ms-transform: rotate(-22.5deg) translateZ(0);
+        -o-transform: rotate(-22.5deg) translateZ(0);
+        transform: rotate(-22.5deg) translateZ(0);
       }
   
       .x-patella {
-        transform: rotate(120deg);
+        -webkit-transform: rotate(120deg) translateZ(0);
+        -moz-transform: rotate(120deg) translateZ(0);
+        -ms-transform: rotate(120deg) translateZ(0);
+        -o-transform: rotate(120deg) translateZ(0);
+        transform: rotate(120deg) translateZ(0);
       }
   
       .x-metatarsus {
-        transform: rotate(-30deg);
+        -webkit-transform: rotate(-30deg) translateZ(0);
+        -moz-transform: rotate(-30deg) translateZ(0);
+        -ms-transform: rotate(-30deg) translateZ(0);
+        -o-transform: rotate(-30deg) translateZ(0);
+        transform: rotate(-30deg) translateZ(0);
       }
     }
   }

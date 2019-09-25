@@ -40,12 +40,16 @@ function App() {
       <main id="home" className="main">
         <section id="home" className="section hero">
           <h1 className="hero__title">
-            <span tabIndex="-1" className="block right">
-              <span className="block font--tiny right"><a className="brand hero__title--highlight" href="#home" onClick={navigationHandler}>Philip D. Warkentien II</a></span>
-              <span className="block font--small right--overflow">Complex UI &</span>
-            </span>
-            <span className="block font--small left left--overflow">Complex UI &</span>
             <span className="block left hero__title__block">
+              <span className="block font--tiny right"><a className="brand hero__title--highlight" href="#home" onClick={navigationHandler}>Philip D. Warkentien II</a></span>
+              <span className="block right block--split-wrapper">
+                <span tabIndex="-1" className="block block--no-overflow split-1">
+                  <span className="block font--small right--overflow">Complex UI &</span>
+                </span>
+                <span className="block block--no-overflow split-2">
+                  <span className="block font--small left left--overflow">Complex UI &</span>
+                </span>
+              </span>
               <span className="block right font--regular">animation-focused</span>
               <span className="block right font--tiny">front-end <span className="hero__title--highlight">developer</span></span>
               <span className="block right font--tiny">& <span className="hero__title--highlight">mentor</span></span>

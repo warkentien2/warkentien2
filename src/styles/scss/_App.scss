@@ -201,6 +201,26 @@ h1 {
 
     .block {
       display: block;
+
+      &--no-overflow {
+        overflow: hidden;
+      }
+
+      &--split-wrapper {
+        position: relative;
+        left: calc(100% - 1.85em);
+      }
+
+      &.split-1 {
+        position: relative;
+        width: 2.181em;
+        left: -2.181em;
+      }
+
+      &.split-2 {
+        position: relative;
+        width: 1.85em;
+      }
     }
 
     .font--regular {
