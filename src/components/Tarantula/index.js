@@ -301,37 +301,16 @@ function Tarantula({isMobile}) {
     // animation
     pulseTl
       .addLabel('pulse')
-      .staggerTo([
-        body.current.querySelector('.x-cephalothorax'), 
-        body.current.querySelectorAll('.x-coxa-pattern, .x-abdomen, .x-chelicera-pattern'),
-        body.current.querySelectorAll('.x-coxa, .x-chelicerae'),
-        body.current.querySelectorAll('.x-femur, .x-fang'),
-        body.current.querySelectorAll('.x-patella'),
-        body.current.querySelectorAll('.x-tibia'),
-        body.current.querySelectorAll('.x-metatarsus'),
-        body.current.querySelectorAll('.x-tarsus')
-      ], 0.25, { 
+      .to(body.current, 0.25, { 
         onStart: (self) => {
-          if(self.hasOwnProperty('_targets')) {
-            self._targets.forEach(t => {
-              t.classList.toggle('glow')
-            })
-          } else {
-            self.target.classList.toggle('glow')
-          }
+          self.target.classList.add('glow')
         }, 
         onStartParams: ['{self}'], 
         onComplete: (self) => {
-          if(self.hasOwnProperty('_targets')) {
-            self._targets.forEach(t => {
-              t.classList.toggle('glow')
-            })
-          } else {
-            self.target.classList.toggle('glow')
-          }
+          self.target.classList.remove('glow')
         }, 
         onCompleteParams: ['{self}']
-      }, 0.125, 'pulse')
+      }, 'pulse')
 
     walkMidStanceTl.addLabel('setup')
 

@@ -157,45 +157,104 @@ $body-angle: 0;
     transform: translate(-50%, -50%);
   }
 
-  .x-body-part::before,
-  .x-body-part .x-coxa-pattern,
-  .x-body-part .x-chelicera-pattern::before,
-  .x-body-part .x-chelicera-pattern::after,
-  .x-body-part .x-chelicerae,
-  .x-body-part .x-fang,
-  .x-body-part .x-leg-parts,
-  .x-body-part .x-spinnerets-parts,
-  .x-body-part .x-leg--background .x-leg-parts::before,
-  .x-body-part .x-leg--background .x-leg-parts::before {
-    transition: background 1s ease-out;
-  }
+  // .x-body-part::before,
+  // .x-body-part::after,
+  // .x-chelicera-pattern::before,
+  // .x-chelicera-pattern::after,
+  // .x-body-part .x-coxa-pattern,
+  // .x-body-part .x-chelicerae,
+  // .x-body-part .x-fang,
+  // .x-body-part .x-leg-parts,
+  // .x-body-part .x-spinnerets-parts,
+  // .x-body-part .x-leg--background .x-leg-parts::before,
+  // .x-body-part .x-leg--background .x-leg-parts::before {
+  //   transition: background 1s ease-out;
+  // }
 
-  .x-body-part:hover::before,
-  .x-body-part .x-coxa-pattern:hover,
-  .x-body-part .x-chelicera-pattern:hover::before,
-  .x-body-part .x-chelicera-pattern:hover::after,
-  .x-body-part .x-chelicerae:hover,
-  .x-body-part .x-fang:hover,
-  .x-body-part .x-leg-parts:hover,
-  .x-body-part .x-spinnerets-parts:hover,
-  .x-body-part .x-leg--background .x-leg-parts:hover::before,
-  .x-body-part .x-spinnerets--background .x-spinnerets-parts:hover::before {
-    background: #3500d3 !important;
-    transition: background 0.125s ease-in;
-  }
+  // .x-body-part:hover::before,
+  // .x-body-part:hover::after,
+  // .x-cephalothorax:hover .x-chelicera-pattern::after,
+  // .x-chelicera-pattern:hover::before,
+  // .x-body-part .x-coxa-pattern:hover,
+  // .x-body-part .x-chelicerae:hover,
+  // .x-body-part .x-fang:hover,
+  // .x-body-part .x-leg-parts:hover,
+  // .x-body-part .x-spinnerets-parts:hover,
+  // .x-body-part .x-leg--background .x-leg-parts:hover::before,
+  // .x-body-part .x-spinnerets--background .x-spinnerets-parts:hover::before {
+  //   background: #3500d3 !important;
+  //   transition: background 0.125s ease-in;
+  // }
 
-  .x-body-part.glow::before,
-  .x-body-part .x-coxa-pattern.glow,
-  .x-body-part .x-chelicera-pattern.glow::before,
-  .x-body-part .x-chelicera-pattern.glow::after,
-  .x-body-part .x-chelicerae.glow,
-  .x-body-part .x-fang.glow,
-  .x-body-part .x-leg-parts.glow,
-  .x-body-part .x-spinnerets-parts.glow,
-  .x-body-part .x-leg--background .x-leg-parts.glow::before,
-  .x-body-part .x-spinnerets--background .x-spinnerets-parts.glow::before {
+  // .x-body-part.glow::before,
+  // .x-body-part.glow::after,
+  // .x-cephalothorax.glow .x-chelicera-pattern::after,
+  // .x-chelicera-pattern.glow::before,
+  // .x-body-part .x-coxa-pattern.glow,
+  // .x-body-part .x-chelicerae.glow,
+  // .x-body-part .x-fang.glow,
+  // .x-body-part .x-leg-parts.glow,
+  // .x-body-part .x-spinnerets-parts.glow,
+  // .x-body-part .x-leg--background .x-leg-parts.glow::before,
+  // .x-body-part .x-spinnerets--background .x-spinnerets-parts.glow::before {
+
+  &.glow {
+    // .x-coxa-pattern,
+    // .x-abdomen,
+    // .x-chelicera-pattern,
+    // .x-coxa,
+    // .x-chelicerae,
+    // .x-femur,
+    // .x-fang,
+    // .x-patella,
+    // .x-tibia,
+    // .x-metatarsus,
+    // .x-tarsus {
+    // }
+    animation: pulse 1.25s ease-in-out;
+
+    // .x-coxa,
+    // .x-chelicerae {
+    //   animation-delay: 0.125s;
+    // }
+
+    // .x-femur,
+    // .x-fang {
+    //   animation-delay: 0.25s;
+    // }
+
+    // .x-patella {
+    //   animation-delay: 0.375s;
+    // }
+
+    // .x-tibia {
+    //   animation-delay: 0.5s;
+    // }
+
+    // .x-metatarsus {
+    //   animation-delay: 0.625s;
+    // }
+
+    // .x-tarsus {
+    //   animation-delay: 0.75s;
+    // }
+  }
+}
+
+@keyframes pulse {
+  0% {
+    background: rgba(255, 255, 255, 0.625) !important;
+  }
+  10% {
     background: #3500d3 !important;
-    transition: background 0.25s ease-in;
+    border: 10px solid green;
+  }
+  20% {
+    background: #3500d3 !important;
+    border: 10px solid green;
+  }
+  100% {
+    background: rgba(255, 255, 255, 0.625) !important;
   }
 }
 

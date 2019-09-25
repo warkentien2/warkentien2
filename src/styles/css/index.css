@@ -665,45 +665,26 @@ h1 {
   top: calc(50% + 1px);
   transform: translate(-50%, -50%);
 }
-.x-body .x-body-part::before,
-.x-body .x-body-part .x-coxa-pattern,
-.x-body .x-body-part .x-chelicera-pattern::before,
-.x-body .x-body-part .x-chelicera-pattern::after,
-.x-body .x-body-part .x-chelicerae,
-.x-body .x-body-part .x-fang,
-.x-body .x-body-part .x-leg-parts,
-.x-body .x-body-part .x-spinnerets-parts,
-.x-body .x-body-part .x-leg--background .x-leg-parts::before,
-.x-body .x-body-part .x-leg--background .x-leg-parts::before {
-  transition: background 1s ease-out;
-}
-.x-body .x-body-part:hover::before,
-.x-body .x-body-part .x-coxa-pattern:hover,
-.x-body .x-body-part .x-chelicera-pattern:hover::before,
-.x-body .x-body-part .x-chelicera-pattern:hover::after,
-.x-body .x-body-part .x-chelicerae:hover,
-.x-body .x-body-part .x-fang:hover,
-.x-body .x-body-part .x-leg-parts:hover,
-.x-body .x-body-part .x-spinnerets-parts:hover,
-.x-body .x-body-part .x-leg--background .x-leg-parts:hover::before,
-.x-body .x-body-part .x-spinnerets--background .x-spinnerets-parts:hover::before {
-  background: #3500d3 !important;
-  transition: background 0.125s ease-in;
-}
-.x-body .x-body-part.glow::before,
-.x-body .x-body-part .x-coxa-pattern.glow,
-.x-body .x-body-part .x-chelicera-pattern.glow::before,
-.x-body .x-body-part .x-chelicera-pattern.glow::after,
-.x-body .x-body-part .x-chelicerae.glow,
-.x-body .x-body-part .x-fang.glow,
-.x-body .x-body-part .x-leg-parts.glow,
-.x-body .x-body-part .x-spinnerets-parts.glow,
-.x-body .x-body-part .x-leg--background .x-leg-parts.glow::before,
-.x-body .x-body-part .x-spinnerets--background .x-spinnerets-parts.glow::before {
-  background: #3500d3 !important;
-  transition: background 0.25s ease-in;
+.x-body.glow {
+  animation: pulse 1.25s ease-in-out;
 }
 
+@keyframes pulse {
+  0% {
+    background: rgba(255, 255, 255, 0.625) !important;
+  }
+  10% {
+    background: #3500d3 !important;
+    border: 10px solid green;
+  }
+  20% {
+    background: #3500d3 !important;
+    border: 10px solid green;
+  }
+  100% {
+    background: rgba(255, 255, 255, 0.625) !important;
+  }
+}
 .x-body-part {
   border: 1px dashed white;
   transform-origin: 5% 50%;
