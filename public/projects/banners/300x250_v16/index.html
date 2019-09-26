@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1">
+  
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>walgreens-always-on-beauty-oct</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <style>
+    html {
+      -webkit-tap-highlight-color: transparent;
+      -webkit-touch-callout: none;
+      text-rendering: optimizeLegibility
+    }
+
+    body,
+    body * {
+      border: 0;
+      font: 100%/1.5 Arial, sans-serif;
+      margin: 0;
+      outline: 0;
+      padding: 0;
+      vertical-align: baseline
+    }
+
+    svg {
+      opacity: 0
+    }
+
+    #container-dc {
+      background-color: #fff;
+      border: 1px solid #666;
+      box-sizing: border-box;
+      cursor: pointer;
+      height: 250px;
+      left: 0;
+      margin: auto;
+      opacity: 0;
+      overflow: hidden;
+      position: absolute;
+      top: 0;
+      transform-origin: 0 0;
+      width: 300px
+    }
+
+    #content-ad {
+      background: #fff;
+      height: 250px;
+      left: -1px;
+      position: absolute;
+      top: -1px;
+      width: 300px;
+      z-index: 100
+    }
+
+    #background-exit {
+      background: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7) 0 0 repeat;
+      cursor: pointer;
+      height: 250px;
+      left: -1px;
+      position: absolute;
+      top: -1px;
+      width: 300px;
+      z-index: 400
+    }
+
+    .full-size {
+      width: 300px;
+      height: 250px;
+      position: absolute;
+      left: 0;
+      top: 0
+    }
+
+    #color-bar {
+      width: 300px;
+      height: 192px;
+      background: #e31837;
+      border-bottom: 11px solid #ca020c
+    }
+
+    .canvas-container {
+      height: 250px;
+      left: 0;
+      margin: 0 auto;
+      position: absolute;
+      top: 0;
+      user-select: none;
+      width: 300px
+    }
+
+    .canvas-container #brush-canvas,
+    .canvas-container #object-canvas {
+      left: 0;
+      position: absolute;
+      top: 0
+    }
+
+    .spritesheet img {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 750px;
+      width: 300px;
+    }
+
+    #copy img {
+      top: 0
+    }
+
+    #products img {
+      top: -250px
+    }
+
+    #logo img {
+      top: -500px
+    }
+
+    .description {
+            position: absolute;
+            width: 300px;
+            height: 250px;
+            z-index: 700;
+            box-sizing: border-box;
+            padding: 1.5em;
+            background: linear-gradient(45deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.90) 85%, rgba(0,0,0,0.35) 85%, rgba(0,0,0,0.35) 100%);
+            color: #fff;
+            cursor: pointer;
+            opacity: 0;
+        }
+        .description-body {
+            font-family: 'Montserrat', Helvetica, sans-serif;
+            width: 80%;
+            font-size: 1em
+        }
+        .description .fa {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            padding: 1.5em;
+        }
+  </style>
+  <script>
+    var clickTag = "https://www.google.com/"
+  </script>
+</head>
+
+<body>
+  <div id="container-dc">
+    <img id="brush-texture" src="./brush-textured.png" alt="">
+    <img id="bg" src="./bg.png" alt="">
+    <img id="object" src="./object.png" alt="">
+    <div id="content-ad"><div class="description">
+        <p class="description-body">Erased background with canvas.</p>
+        <i class="fa fa-redo"></i>
+    </div><svg id="brush-path-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 822.37 204.55">
+        <defs>
+          <style>
+            .cls-1 {
+              fill: none;
+              stroke: #000;
+              stroke-miterlimit: 10
+            }
+          </style>
+        </defs>
+        <title>walgreens-new</title>
+        <path id="brush-path" class="cls-1" d="M753.82,160.9c-137,71.93-280.49-117.1-146.9-156.5,90.68-26.74,106.51,159.69,30.47,188.46C501.32,244.35,429,19,544.89,2.41c91-13,107.88,189.69,1,200-115.4,11.12-226-172.62-87.93-198,115-21.14,99.42,187.32-9,197.32-77.16,7.12-186.57-180.58-81.4-198.33,119-20.08,127.4,181.13,13.4,198.33C293.14,215,204.92,20.4,304.92,1.9c92-17,80.47,189.76,14.15,199.28C213.79,216.28,115.16,26.08,228.26,5.4c93-17,107.1,184.74,21,196.32C145.26,215.72,41.18,18.55,157.12,2c90.94-13,113.84,180.7,8.07,199.42C93.06,214.17-11.58,23.82,77.26,3.4c99.45-22.85,115.09,182.53,21,197.32-76.55,12-204.59-160-85.39-197.33C101.06-24.23,104,184.93,26.26,200.72c-87,17.68-176-181.32-76-199.82,92-17,83.63,185.29,18,198.82"></path>
+      </svg>
+      <div id="color-bar" class="full-size"></div>
+      <div id="products" class="spritesheet">
+        <img src="././spritesheet.png" alt="">
+      </div>
+      <div class="canvas-container"><canvas id="brush-canvas">
+      </canvas></div>
+      <div id="copy" class="spritesheet">
+        <img src="././spritesheet.png" alt="">
+      </div>
+      <div id="logo" class="spritesheet">
+        <img src="././spritesheet.png" alt="">
+      </div>
+      <div class="canvas-container"><canvas id="object-canvas">
+      </canvas></div>
+</div><a href="javascript:window.open(window.clickTag); void(0);" id="background-exit"></a>
+  </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
+  <script>
+    "use strict";
+    var tl = new TimelineLite,
+      tl2 = new TimelineMax({
+        paused: !0
+      }),
+      bannerContainer = window.document.getElementById("container-dc"),
+      lastPoint = {
+        x: -100,
+        y: 250
+      },
+      brushCanvas = document.getElementById("brush-canvas"),
+      objectCanvas = document.getElementById("object-canvas");
+    brushCanvas.width = 600, brushCanvas.height = 500, brushCanvas.style.width = "300px", brushCanvas.style.height =
+      "250px", objectCanvas.width = 600, objectCanvas.height = 500, objectCanvas.style.width = "300px", objectCanvas.style
+      .height = "250px";
+    var currentPoint, canvasWidth = brushCanvas.width,
+      canvasHeight = brushCanvas.height,
+      brushCtx = brushCanvas.getContext("2d"),
+      objectCtx = objectCanvas.getContext("2d"),
+      image = document.getElementById('bg'),
+      brush = document.getElementById('brush-texture'),
+      object = document.getElementById('object'),
+      brushPath = document.querySelector("#brush-path-svg path"),
+      pathLength = Math.floor(brushPath.getTotalLength()),
+      prcnt = 100,
+      prcntStep = 100 / 255;
+
+    function distanceBetween(t, a) {
+      return Math.sqrt(Math.pow(a.x - t.x, 2) + Math.pow(a.y - t.y, 2))
+    }
+
+    function angleBetween(t, a) {
+      return Math.atan2(a.x - t.x, a.y - t.y)
+    }
+
+    function step(t) {
+      var a = t;
+      t = t * pathLength / 100, currentPoint = brushPath.getPointAtLength(t);
+      var e, n, o, s = distanceBetween(lastPoint, currentPoint),
+        r = angleBetween(lastPoint, currentPoint);
+      for (o = 0; o < s; o += 6) e = lastPoint.x + Math.sin(r) * o - 50, n = lastPoint.y + Math.cos(r) * o + 190,
+        brushCtx.drawImage(brush, e, n), objectCtx.drawImage(object, e - (a + 70), n - 100);
+      lastPoint = currentPoint
+    }
+
+    function loop() {
+      0 <= (prcnt -= prcntStep) ? (step(prcnt), requestAnimationFrame(loop)) : tl2.play(0)
+    }
+
+    function startAnimation() {
+      tl.addLabel("setup").set("#color-bar", {
+        y: -203
+      }).set(["#copy", "#products", brushCanvas, objectCanvas], {
+        autoAlpha: 0
+      }).addLabel("frame1", "setup").to("#color-bar", 1, {
+        y: 0,
+        rotation: .01,
+        ease: Power2.easeInOut
+      }, "frame1").to("#copy", 1, {
+        autoAlpha: 1
+      }, "frame1+=0.8").add(loop, "frame1+=1.8").set([brushCanvas, objectCanvas], {
+        autoAlpha: 1
+      }, "frame1+=1.8").to(["#products"], .5, {
+        autoAlpha: 1
+      }, "frame1+=1.8").addLabel("timeout", "frame1+=14.5").to([brushCanvas, objectCanvas], .5, {
+        autoAlpha: 0,
+        ease: Power2.easeOut
+      }, "timeout"), tl2.addLabel("frame2").to([brushCanvas, objectCanvas], .5, {
+        autoAlpha: 0,
+        ease: Power2.easeOut
+      }, "frame2")
+      .to('.description', 1, {
+                    autoAlpha: 1, ease: Power2.easeOut
+                }, '+=2.5')
+    }
+
+    function init() {
+      bannerContainer.style.opacity = 1, startAnimation()
+    }
+
+    function handleClickTag() {
+      EB.clickthrough();
+    }
+    brushCtx.drawImage(image, 0, 0, 600, 500), brushCtx.globalCompositeOperation = "destination-out", objectCtx.globalCompositeOperation =
+        "copy", window.onload = init();
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,97 @@
+body {
+  font-family: 'Montserrat', Helvetica, sans-serif;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #dadcef;
+  color: #1a1c2f;
+}
+
+h1 {
+  font-size: 3em;
+}
+
+h2 {
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  font-weight: 300;
+  font-size: 1.75em;
+  color: #3a3c4f;
+}
+
+h3 {
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  font-size: 1.25em;
+}
+
+.fab {
+  color: #1a1c2f;
+  font-size: 1.25em;
+  padding-top: 0.25em;
+}
+
+.media-image {
+  width: 5em;
+  background: #fff;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.header {
+  padding: 5em 0 0;
+  max-width: 900px;
+  margin: auto;
+}
+
+.banner-section-summary {
+  width: 100%;
+  padding: 2.5em 0 3.5em;
+  max-width: 900px;
+  margin: auto;
+}
+
+.banner-section-summary ul {
+  list-style: square;
+  padding-left: 20px;
+}
+
+.banner-section-summary p:nth-child(2) {
+  margin-bottom: 0.5em;
+}
+
+.inner-container {
+  margin: auto;
+}
+
+.note {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.banners {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 5em;
+}
+
+.banner {
+  position: relative;
+  width: 300px;
+  height: 250px;
+}
+
+.banner-refresh {
+  position: absolute;
+  z-index: 500;
+  width: 300px;
+  height: 250px;
+  cursor: pointer;
+}
+
+.banner iframe {
+  position: absolute;
+  width: 300px;
+  height: 250px;
+}

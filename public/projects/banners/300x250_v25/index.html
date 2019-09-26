@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en-us" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Standard Template</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <meta name="viewport" content="initial-scale=1">
+  
+  <link rel="stylesheet" href="./style.css">
+
+  <script>
+    var clickTag = 'https://www.google.com/';
+  </script>
+</head>
+
+<body>
+
+<div id="container_dc" class="abs">
+  <div id="calendar-container">
+    <img src="./calendar.png" class="calendar-color" alt="Calendar Color"/>
+    <div id="calendar-bottom">
+      <div class="calendar-numbers">
+        <img src="./numbers.png" alt="Number" class="spritesheet"/>
+      </div>
+    </div>
+
+    <div id="calendar-backface-mask">
+
+      <div id="static">
+        <div id="calendar-top">
+          <img src="./calendar.png" class="calendar-color" alt="Calendar Color"/>
+          <div class="calendar-numbers">
+            <img src="./numbers.png" alt="Numbers" class="spritesheet"/>
+          </div>
+        </div>
+      </div>
+
+      <div id="calendar-backface"></div>
+    </div>
+  </div>
+  <div class="description">
+      <p class="description-body">Simulated a calendar page flip with a single 2D &lt;div&gt;.</p>
+      <i class="fa fa-redo"></i>
+  </div>
+
+  <img src="./copy1.png" alt="Average wait time on a liver transplant waiting list" id="copy1"/>
+  <img src="./copy2.png" alt="Average wait time for a living-donor liver transplant" id="copy2"/>
+  <img src="./copy3.png" alt="Shorten the wait for a loved one with a living-donor liver transplant" id="copy3"/>
+
+  <img src="./liver.png" alt="Liver" id="liver"/>
+
+  <img src="./cta.png" id="cta" alt="Find out more"/>
+  <img src="./cta-hover.png" id="cta-hover" alt="Find out more"/>
+
+  <img src="./logo.png" id="logo" alt="UPMC Life changing medicine"/>
+
+  <a href="javascript:window.open(window.clickTag); void(0);" id="background_exit_dc" class="abs"></a>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
+<script src="./script.js"></script>
+
+<script>
+  window.onload = init;
+</script>
+</body>
+</html>

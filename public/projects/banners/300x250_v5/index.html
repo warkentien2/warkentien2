@@ -1,0 +1,395 @@
+<!-- pringlesSuperBowlBanners - An HTML banner @version v1.0.0 @date 12-14-2017 at 15:52:15 -->
+<!DOCTYPE html><html lang="en-us" dir="ltr"><head><meta charset="utf-8"><meta name="viewport" content="initial-scale=1"><meta http-equiv="x-ua-compatible" content="ie=edge"><title>pringlesSuperBowlBanners</title><link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"><style>html {
+    -webkit-tap-highlight-color: transparent;
+    text-rendering: optimizeLegibility;
+    -webkit-touch-callout: none
+}
+
+body,
+body * {
+    border: 0;
+    font: 100%/1.5 Arial, sans-serif;
+    margin: 0;
+    outline: 0;
+    padding: 0;
+    vertical-align: baseline
+}
+
+#container-dc {
+    background-color: #fff;
+    border: 1px solid #666;
+    box-sizing: border-box;
+    height: 250px;
+    left: 0;
+    margin: auto;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    -moz-transform-origin: 0 0;
+    -ms-transform-origin: 0 0;
+    -o-transform-origin: 0 0;
+    -webkit-transform-origin: 0 0;
+    width: 300px
+}
+
+#content-ad {
+    background: #ff6e2c;
+    height: 250px;
+    left: -1px;
+    position: absolute;
+    top: -1px;
+    width: 300px;
+    z-index: 100
+}
+
+#background-exit {
+    background: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7) 0 0 repeat;
+    cursor: pointer;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 400
+}
+
+.abs {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%
+}
+
+.mask {
+    overflow: hidden
+}
+
+.chip {
+    height: 95px;
+    width: 146px
+}
+
+.chip-img {
+    height: 285px;
+    width: 146px
+}
+
+.chip-under-img {
+    top: -95px
+}
+
+.chip-shadow-img {
+    top: -190px
+}
+
+.chip-1 {
+    left: 11px;
+    top: 115px
+}
+
+.chip-2 {
+    left: 10px;
+    top: 133px
+}
+
+.chip-3 {
+    left: 9px;
+    top: 151px
+}
+
+#pringles-1-small {
+    height: 152px;
+    width: 48px;
+    left: 161px;
+    top: 87px
+}
+
+#pringles-2-small {
+    height: 151px;
+    width: 48px;
+    left: 204px;
+    top: 87px
+}
+
+#pringles-3-small {
+    height: 152px;
+    width: 47px;
+    left: 247px;
+    top: 87px
+}
+
+#pringles-1 {
+    height: 172px;
+    width: 55px;
+    left: 1px;
+    top: 82px
+}
+
+#pringles-2 {
+    height: 171px;
+    width: 54px;
+    left: 54px;
+    top: 82px
+}
+
+#pringles-3 {
+    height: 172px;
+    width: 54px;
+    left: 106px;
+    top: 82px
+}
+
+#chip-shadow-1,
+#chip-shadow-2,
+#copy1,
+#copy2,
+#pringles-1,
+#pringles-1-small,
+#pringles-2,
+#pringles-2-small,
+#pringles-3,
+#pringles-3-small,
+.chip-1,
+.chip-2,
+.chip-3 {
+    visibility: hidden
+}
+.description {
+            position: absolute;
+            width: 300px;
+            height: 250px;
+            z-index: 700;
+            box-sizing: border-box;
+            padding: 1.5em;
+            background: linear-gradient(45deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.90) 85%, rgba(0,0,0,0.35) 85%, rgba(0,0,0,0.35) 100%);
+            color: #fff;
+            cursor: pointer;
+            opacity: 0;
+        }
+        .description-body {
+            font-family: 'Montserrat', Helvetica, sans-serif;
+            width: 80%;
+            font-size: 1em
+        }
+        .description .fa {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            padding: 1.5em;
+        }
+
+</style>
+<script>var clickTag="https://www.google.com/"</script>
+</head>
+<body>
+  <div id="container-dc">
+    <div id="content-ad">
+            <div class="description">
+                <p class="description-body">Tricky HTML layering: Stacking chips fit inside each other.</p>
+                <i class="fa fa-redo"></i>
+            </div>
+      <img id="pringles-1-small" class="abs pringles-can" src="./pringles-1-small.png" alt="">
+      <img id="pringles-3-small" class="abs pringles-can" src="./pringles-3-small.png" alt="">
+      <img id="pringles-2-small" class="abs pringles-can" src="./pringles-2-small.png" alt="">
+      <img id="pringles-1" class="abs pringles-can" src="./pringles-1.png" alt="">
+      <img id="pringles-3" class="abs pringles-can" src="./pringles-3.png" alt="">
+      <img id="pringles-2" class="abs pringles-can" src="./pringles-2.png" alt="">
+      <div id="chips" class="abs">
+        <div id="chip-under-1" class="abs chip chip-1 mask">
+          <img class="abs chip-img chip-under-img" src="./chip.png" alt="">
+        </div>
+        <div id="chip-under-2" class="abs chip chip-2 mask">
+          <img class="abs chip-img chip-under-img" src="./chip.png" alt="">
+        </div>
+        <div id="chip-under-3" class="abs chip chip-3 mask">
+          <img class="abs chip-img chip-under-img" src="./chip.png" alt="">
+        </div>
+        <div id="chip-over-3" class="abs chip chip-3 mask">
+          <img class="abs chip-img chip-over-img" src="./chip.png" alt="">
+        </div>
+        <div id="chip-shadow-2" class="abs chip chip-2 mask">
+        <img class="abs chip-img chip-shadow-img" src="./chip.png" alt=""></div>
+        <div id="chip-over-2" class="abs chip chip-2 mask">
+          <img class="abs chip-img chip-over-img" src="./chip.png" alt="">
+        </div>
+        <div id="chip-shadow-1" class="abs chip chip-1 mask">
+          <img class="abs chip-img chip-shadow-img" src="./chip.png" alt="">
+        </div>
+        <div id="chip-over-1" class="abs chip chip-1 mask">
+          <img class="abs chip-img chip-over-img" src="./chip.png" alt="">
+        </div>
+      </div>
+      <img id="copy1" class="abs" src="./copy1.png" alt="">
+      <img id="copy2" class="abs" src="./copy2.png" alt="">
+    </div>
+    <a href="javascript:window.open(window.clickTag); void(0);" id="background-exit"></a>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
+<script>!function(e) {
+    "use strict";
+    function t() {
+        r.addLabel("start").set("#pringles-1-small", {
+            y: -350
+        }
+        , "start").set("#pringles-2-small", {
+            y: -350
+        }
+        , "start").set("#pringles-3-small", {
+            y: -350
+        }
+        , "start").set("#pringles-1", {
+            y: 175
+        }
+        , "start").set("#pringles-2", {
+            y: 175
+        }
+        , "start").set("#pringles-3", {
+            y: 175
+        }
+        , "start").set([".chip-1", ".chip-2", ".chip-3"], {
+            y: -300, rotation: 60
+        }
+        , "start").set("#copy1", {
+            scale: .45, transformOrigin: "207px 76px"
+        }
+        , "start").set("#copy2", {
+            scale: .45, transformOrigin: "232px 86px"
+        }
+        , "start").addLabel("frame01", "start+=1").set([".chip-1", ".chip-2", ".chip-3", "#pringles-1-small", "#pringles-2-small", "#pringles-3-small", "#pringles-1", "#pringles-2", "#pringles-3"], {
+            autoAlpha: 1
+        }
+        , "frame01").to(".chip-3", .75, {
+            y: -36, ease: Elastic.easeOut.config(1, 1), rotation: .01
+        }
+        , "frame01").to("#pringles-1-small", .85, {
+            y: 18, ease: Elastic.easeOut.config(1, 1.25), rotation: .01
+        }
+        , "frame01").to("#chips", .05, {
+            y: 3, rotation: -7
+        }
+        , "frame01+=0.15").to("#chips", 2, {
+            y: 0, ease: Elastic.easeOut.config(1, .7), rotation: .01
+        }
+        , "frame01+=0.2").to(".chip-3", .25, {
+            y: -36, rotation: 2, ease: Quad.easeInOut
+        }
+        , "frame01+=0.25").to(".chip-3", .25, {
+            rotation: -3, repeat: 3, yoyo: !0, ease: Quad.easeInOut
+        }
+        , "frame01+=0.5").to(".chip-3", .25, {
+            rotation: 0, ease: Quad.easeInOut
+        }
+        , "frame01+=1").addLabel("frame02", "frame01+=1.5").to(".chip-2", .75, {
+            y: -18, ease: Elastic.easeOut.config(1, 1), rotation: .01
+        }
+        , "frame02").to("#pringles-2-small", .85, {
+            y: 18, ease: Elastic.easeOut.config(1, 1.25), rotation: .01
+        }
+        , "frame02").to("#chips", .05, {
+            y: 3, rotation: -7
+        }
+        , "frame02+=0.15").to("#chips", 2, {
+            y: 0, ease: Elastic.easeOut.config(1, .7), rotation: .01
+        }
+        , "frame02+=0.2").to("#chip-shadow-2", .5, {
+            autoAlpha: .9, ease: Power2.easeIn
+        }
+        , "frame02+=0.15").to(".chip-2", .25, {
+            rotation: -3, ease: Quad.easeInOut
+        }
+        , "frame02+=0.25").to(".chip-3", .25, {
+            y: -18, rotation: 2, ease: Quad.easeInOut
+        }
+        , "frame02+=0.1").to(".chip-2", .25, {
+            rotation: 3, y: -21, repeat: 3, yoyo: !0, ease: Quad.easeInOut
+        }
+        , "frame02+=0.5").to(".chip-3", .25, {
+            rotation: -3, repeat: 2, yoyo: !0, ease: Quad.easeInOut
+        }
+        , "frame02+=0.5").to(".chip-2", .25, {
+            rotation: 5, y: -16, ease: Quad.easeInOut
+        }
+        , "frame02+=1.1").to(".chip-3", .25, {
+            rotation: 0, ease: Quad.easeInOut
+        }
+        , "frame02+=1.1").addLabel("frame03", "frame02+=1.6").to(".chip-1", .75, {
+            y: 0, ease: Elastic.easeOut.config(1, 1), rotation: .01
+        }
+        , "frame03").to("#pringles-3-small", .85, {
+            y: 18, ease: Elastic.easeOut.config(1, 1.25), rotation: .01
+        }
+        , "frame03").to("#chips", .05, {
+            y: 3, rotation: -7
+        }
+        , "frame03+=0.15").to("#chips", 2, {
+            y: 0, ease: Elastic.easeOut.config(1, .7), rotation: .01
+        }
+        , "frame03+=0.2").to("#chip-shadow-1", .5, {
+            autoAlpha: .9, ease: Power2.easeIn
+        }
+        , "frame03+=0.15").to(".chip-1", .25, {
+            rotation: 2, ease: Quad.easeInOut
+        }
+        , "frame03+=0.25").to(".chip-2", .25, {
+            y: 0, rotation: -3, ease: Quad.easeInOut
+        }
+        , "frame03+=0.1").to(".chip-3", .25, {
+            y: 0, rotation: 2, ease: Quad.easeInOut
+        }
+        , "frame03+=0.05").to(".chip-1", .25, {
+            rotation: -3, y: -3, repeat: 3, yoyo: !0, ease: Quad.easeInOut
+        }
+        , "frame03+=0.5").to(".chip-2", .25, {
+            rotation: 3, y: 2, repeat: 2, yoyo: !0, ease: Quad.easeInOut
+        }
+        , "frame03+=0.75").to(".chip-3", .25, {
+            rotation: -3, repeat: 1, yoyo: !0, ease: Quad.easeInOut
+        }
+        , "frame03+=0.5").to(".chip-1", .25, {
+            rotation: 1, y: 4, ease: Quad.easeInOut
+        }
+        , "frame03+=1.5").to(".chip-2", .25, {
+            rotation: 0, y: 2, ease: Quad.easeInOut
+        }
+        , "frame03+=1.55").to(".chip-3", .25, {
+            rotation: 1, ease: Quad.easeInOut
+        }
+        , "frame03+=1.6").addLabel("frame04", "frame03+=1.75").staggerTo(["#pringles-1-small", "#pringles-2-small", "#pringles-3-small"], 1, {
+            y: 175, ease: Expo.easeIn, rotation: .01
+        }
+        , .25, "frame04").to("#copy1", .75, {
+            autoAlpha: 1, scale: 1, ease: Elastic.easeOut.config(1.25, 1), rotation: .01
+        }
+        , "frame04+=1.5").addLabel("frame05", "frame04+=5.5").staggerTo([".chip-3", ".chip-2", ".chip-1"], .75, {
+            y: 220, ease: Expo.easeIn, rotation: .01
+        }
+        , .25, "frame05").to("#copy1", .5, {
+            scale: .75, autoAlpha: 0, ease: Power2.easeOut, rotation: .01, transformOrigin: "232px 86px"
+        }
+        , "frame05+=1.25").staggerTo(["#pringles-1", "#pringles-2", "#pringles-3"], 1, {
+            y: 0, ease: Elastic.easeOut.config(.5, 1), rotation: .01
+        }
+        , .25, "frame05+=1.5").to("#copy2", .75, {
+            autoAlpha: 1, scale: 1, ease: Elastic.easeOut.config(1.5, 1), rotation: .01
+        }
+        , "frame05+=2.25")
+        .to('.description', 1, {
+                    autoAlpha: 1, ease: Power2.easeOut
+                }, '+=2.5'),
+        r.timeScale(2.5).play()
+    }
+    var s=e.document,
+    r=new TimelineMax( {
+        paused: !0
+    }
+    ),
+    i=s.getElementById("container-dc");
+    e.init = function() {
+      i.style.opacity=1,
+      t()
+    }
+    e.tl=r
+}(this)</script>
+<script>window.onload = init</script></body></html>

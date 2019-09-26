@@ -1,0 +1,112 @@
+<!--
+ quakerstateTrustdad - An HTML banner
+ @version v1.0.0
+ @date 4-11-2017 at 12:55:20
+ -->
+<!DOCTYPE html><html lang="en-us"><head><meta charset="UTF-8"><title>Quaker</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <script>var clickTag="http://www.google.com"</script><style>html{-webkit-tap-highlight-color:transparent;text-rendering:optimizeLegibility;-webkit-touch-callout:none}body,body *{border:0;font:100%/1.5 Arial,sans-serif;margin:0;outline:0;padding:0;vertical-align:baseline}#container-dc{background-color:#fff;border:1px solid #666;box-sizing:border-box;height:250px;left:0;margin:auto;opacity:0;overflow:hidden;position:absolute;top:0;-moz-transform-origin:0 0;-ms-transform-origin:0 0;-o-transform-origin:0 0;-webkit-transform-origin:0 0;width:300px}#content-ad{background:#69c;height:250px;left:-1px;position:absolute;top:-1px;width:300px;z-index:100}#background-exit-dc{background:url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7) 0 0 repeat;cursor:pointer;height:100%;left:0;position:absolute;top:0;width:100%;z-index:400}.fit{height:100%;left:0;position:absolute;top:0;width:100%}#legal{height:12px;position:absolute;width:300px}#photo-frame{background-color:#000;height:120px;left:44px;overflow:hidden;position:absolute;top:103px;width:223px}#photos{height:120px;width:446px}#flash-screen{background-color:#fff}
+.description {
+            position: absolute;
+            width: 300px;
+            height: 250px;
+            z-index: 700;
+            box-sizing: border-box;
+            padding: 1.5em;
+            background: linear-gradient(45deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.90) 85%, rgba(0,0,0,0.35) 85%, rgba(0,0,0,0.35) 100%);
+            color: #fff;
+            cursor: pointer;
+            opacity: 0;
+        }
+        .description-body {
+            font-family: 'Montserrat', Helvetica, sans-serif;
+            width: 80%;
+            font-size: 1em
+        }
+        .description .fa {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            padding: 1.5em;
+        }
+        </style></head><body><div id="container-dc"><div id="content-ad"><div class="description">
+                <p class="description-body">Fun flash-effect animation.</p>
+                <i class="fa fa-redo"></i>
+            </div><img id="bg" class="fit" src="./bg.jpg" alt="gray wall"> <img id="product" class="fit" src="./product.png" alt="product"> <img id="t4" class="fit" src="./t4.png" alt="t4"> <img id="t5" class="fit" src="./t5.png" alt="t5"> <img id="legal" src="./legal.png" alt="legal"><div id="smartphone" class="fit"><img class="fit" src="./smartphone.jpg" alt="smartphone">
+              <div id="photo-frame"><img id="photos" class="fit" src="./photos.jpg" alt="photos"> <svg id="reflection" class="fit" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 446 239"><title>reflection</title><polygon points="0 0 446 0 446 239 0 0" style="fill:rgba(255,255,255,.15)"/></svg></div></div>
+            <img id="t2" class="fit" src="./t2.png" alt="t2"> <img id="t3" class="fit" src="./t3.png" alt="t3"> <img id="papa" class="fit" src="./papa.jpg" alt="papa"> <img id="flash" class="fit" src="./flash.png" alt="flash"><div id="flash-screen" class="fit"></div><img id="cta2" class="fit" src="./cta2.png" alt="cta2"> <img id="cta" class="fit" src="./cta.png" alt="cta"> 
+            <img id="t1" class="fit" src="./t1.png" alt="t1"></div><a href="javascript:window.open(window.clickTag); void(0);" id="background-exit-dc"></a></div><script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
+            <script>
+              function frame01(){
+                tt(t1,.7,{y:0,ease:Elastic.easeInOut}),
+                tt(flash,.05,{delay:2.2,autoAlpha:.7}),
+                tt(flashScreen,.05,{delay:2.22,autoAlpha:.3}),
+                tt([flash,flashScreen],.07,{delay:2.27,autoAlpha:0}),
+                tt(flash,.05,{delay:2.4,autoAlpha:1}),
+                tt(flashScreen,.05,{delay:2.42,autoAlpha:.5}),
+                tt([flash,flashScreen],.07,{delay:2.47,autoAlpha:0}),
+                tt([papa,t1],.05,{delay:2.55,autoAlpha:0}),td(2.6,frame02)}function frame02(){tt([t2,smartphone],.7,{y:0,rotation:.01,ease:Elastic.easeInOut}),td(3,frame03)}function frame03(){tt(photos,.7,{x:-223,ease:Elastic.easeInOut}),
+                tt(t2,.7,{x:-300,ease:Elastic.easeInOut}),
+                tt(t3,.7,{x:0,ease:Elastic.easeInOut}),
+                tt([smartphone,t3],1.5,{delay:3,autoAlpha:0,ease:Elastic.easeInOut}),td(3.5,frame04)}function frame04(){tt(product,.7,{x:0,rotation:.01,ease:Elastic.easeInOut}),
+                tt(t4,.7,{x:0,ease:Elastic.easeInOut}),
+                tt(t4,.75,{delay:3.5,autoAlpha:0}),td(3.8,frame05)}function frame05(){tt(t5,.4,{x:0,ease:Circ.easeInOut}),
+                tt(cta,.4,{delay:.2,x:0,ease:Circ.easeInOut}),
+                tt(legal,.4,{delay:.2,y:238,ease:Circ.easeInOut}),
+                td(1.1,end),
+                tt('.description', 1, {
+                    autoAlpha: 1, ease: Power2.easeOut, delay: 2.5
+                })
+              }
+              function end(){
+                function t(){
+                  TweenMax.to(cta,.2,{autoAlpha:0}),
+                  TweenMax.to(cta2,.2,{autoAlpha:1})
+                }
+                function e(){
+                  TweenMax.to(cta,.2,{autoAlpha:1}),
+                  TweenMax.to(cta2,.2,{autoAlpha:0})
+                }
+                clickSpace.addEventListener("mouseover",t),
+                clickSpace.addEventListener("mouseout",e)
+              }
+              var tt=TweenMax.to,
+                tf=TweenMax.from,
+                ts=TweenMax.set,
+                td=TweenMax.delayedCall,
+                bannerContainer=document.getElementById("container-dc"),
+                product=document.getElementById("product"),
+                legal=document.getElementById("legal"),
+                papa=document.getElementById("papa"),
+                flash=document.getElementById("flash"),
+                flashScreen=document.getElementById("flash-screen"),
+                smartphone=document.getElementById("smartphone"),
+                photos=document.getElementById("photos"),
+                bg=document.getElementById("bg"),
+                t1=document.getElementById("t1"),
+                t2=document.getElementById("t2"),
+                t3=document.getElementById("t3"),
+                t4=document.getElementById("t4"),
+                t5=document.getElementById("t5"),
+                cta=document.getElementById("cta"),
+                cta2=document.getElementById("cta2"),
+                clickSpace=document.getElementById("background-exit-dc"),
+                init;
+              ts(t1,{y:-250}),
+              ts(t2,{y:-250}),
+              ts(t3,{x:300}),
+              ts(t4,{x:160}),
+              ts(t5,{x:160}),
+              ts(product,{x:-160}),
+              ts(smartphone,{y:250}),
+              ts(legal,{y:250}),
+              ts(cta,{x:300}),
+              ts(cta2,{autoAlpha:0}),
+              ts([flash,flashScreen],{autoAlpha:0}),
+              init=function(){
+                bannerContainer.style.opacity=1,
+                td(0,frame01)
+              },
+              window.onload=init</script>
+            </body>
+          </html>

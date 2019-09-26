@@ -1,0 +1,13 @@
+@mixin half-size($width, $height) {
+  height: $height / 2 + px;
+  width: $width / 2 + px;
+}
+
+@mixin align-center {
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
