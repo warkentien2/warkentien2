@@ -77,11 +77,17 @@ h1 {
     flex-wrap: nowrap;
 
     li {
-      margin: 10px 20px;
+      margin: 10px 15px;
 
-      a {
+      .navigation {
         text-decoration: none;
         color: #fff;
+
+        i {
+          font-size: 0.9em;
+          vertical-align: text-top;
+          line-height: 1.25em;
+        }
 
         &:focus {
           color: $highlighted;
@@ -433,6 +439,16 @@ h1 {
       padding-left: 1.4em;
     }
 
+    @media screen and (max-aspect-ratio: 100/101) {
+      &--left {
+        padding-right: 1em;
+      }
+  
+      &--right {
+        padding-left: 1em;
+      }
+    }
+
     .contact {
       .highlight a {
         color: $highlighted;
@@ -733,4 +749,50 @@ h1 {
 
 .no-wrap {
   white-space: nowrap;
+}
+
+.quote__wrapper {
+  margin: 0;
+}
+
+.quote {
+  padding: 0 1em;
+  box-sizing: border-box;
+
+  .big {
+    font-size: 1.75em;
+    line-height: 0.75em;
+    position: relative;
+    top: 0.25em;
+    color: #3500d3;
+  }
+
+  .cite {
+    color: #3500d3;
+    white-space: nowrap;
+  
+    &::before {
+      content: ' ';
+    }
+  }
+}
+
+.add-background {
+  background: #000;
+}
+
+.section--third .add-background {
+  background: rgba(53, 0, 211, 0.25);
+}
+
+.footer strong {
+  background: none;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;
 }

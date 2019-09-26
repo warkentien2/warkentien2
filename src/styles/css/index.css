@@ -71,13 +71,18 @@ h1 {
   flex-wrap: nowrap;
 }
 .main-header .navbar li {
-  margin: 10px 20px;
+  margin: 10px 15px;
 }
-.main-header .navbar li a {
+.main-header .navbar li .navigation {
   text-decoration: none;
   color: #fff;
 }
-.main-header .navbar li a:focus {
+.main-header .navbar li .navigation i {
+  font-size: 0.9em;
+  vertical-align: text-top;
+  line-height: 1.25em;
+}
+.main-header .navbar li .navigation:focus {
   color: #3500d3;
 }
 
@@ -362,6 +367,14 @@ h1 {
 .footer .contact-list--right {
   padding-left: 1.4em;
 }
+@media screen and (max-aspect-ratio: 100/101) {
+  .footer .contact-list--left {
+    padding-right: 1em;
+  }
+  .footer .contact-list--right {
+    padding-left: 1em;
+  }
+}
 .footer .contact-list .contact .highlight a {
   color: #3500d3;
 }
@@ -629,6 +642,49 @@ h1 {
 
 .no-wrap {
   white-space: nowrap;
+}
+
+.quote__wrapper {
+  margin: 0;
+}
+
+.quote {
+  padding: 0 1em;
+  box-sizing: border-box;
+}
+.quote .big {
+  font-size: 1.75em;
+  line-height: 0.75em;
+  position: relative;
+  top: 0.25em;
+  color: #3500d3;
+}
+.quote .cite {
+  color: #3500d3;
+  white-space: nowrap;
+}
+.quote .cite::before {
+  content: " ";
+}
+
+.add-background {
+  background: #000;
+}
+
+.section--third .add-background {
+  background: rgba(53, 0, 211, 0.25);
+}
+
+.footer strong {
+  background: none;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .tarantula-wrapper {
@@ -1899,13 +1955,16 @@ h1 {
 }
 
 .student-feedback__slider {
-  margin-bottom: 8em !important;
+  margin-bottom: 4em !important;
 }
 .student-feedback__slider.contain {
   width: 100%;
 }
 .student-feedback__slider p {
   max-width: unset;
+}
+.student-feedback__slider + p {
+  margin-bottom: 4em;
 }
 .student-feedback__slider .slick-slider {
   width: calc(100% + 80px) !important;

@@ -19,22 +19,23 @@ function App() {
   }, [windowSize.width, windowSize.height, isMobile])
 
   function navigationHandler(e) {
+    const target = (e.target.tagName === 'A') ? e.target : e.target.parentNode
     e.preventDefault()
     const headerOffset = 0
     const html = app.current.parentNode.parentNode.parentNode
-    const targetScroll = app.current.querySelector(e.target.getAttribute('href')).offsetTop - headerOffset
+    const targetScroll = app.current.querySelector(target.getAttribute('href')).offsetTop - headerOffset
     TweenMax.to(html, 0.5, { scrollTop: targetScroll, ease: Power2.easeInOut })
-    window.history.replaceState(undefined, undefined, e.target.getAttribute('href'))
+    window.history.replaceState(undefined, undefined, target.getAttribute('href'))
   }
 
   return (
     <div ref={app} className="App">
       <header className="main-header">
         <nav className="navbar">
-          <li><a href="#home" onClick={navigationHandler}>warkentien2</a></li>
-          <li><a href="#animation" onClick={navigationHandler}>Niche</a></li>
-          <li><a href="#projects" onClick={navigationHandler}>Mentoring</a></li>
-          <li><a href="#contact" onClick={navigationHandler}>Contact</a></li>
+          <li><a className="navigation" href="#home" onClick={navigationHandler}><i class="fas fa-home"></i></a></li>
+          <li><a className="navigation" href="#about-me" onClick={navigationHandler}>About Me</a></li>
+          <li><a className="navigation" href="#projects" onClick={navigationHandler}>Mentoring</a></li>
+          <li><a className="navigation" href="#contact" onClick={navigationHandler}>Contact</a></li>
         </nav>
       </header>
       <main id="home" className="main">
@@ -61,35 +62,36 @@ function App() {
             {!isMobile ? <Tarantula isMobile={false} /> : <span />}
           </React.Suspense>
         </section>
-        <section id="animation" className="section section--second">
+        <section id="about-me" className="section section--second">
           <div className="container">
             <h2>About Me</h2>
             <p>
-              I'm a (USA/Brazil) dual-citizen Front-End Developer with a life-long passion for arts and math! 
-              My passions lead me from highschool math mentoring and comicbook drawing,
-              past Microsoft Paint animation and Photoshop proficiency,
-              to Computer Engineering and a 3D-Modelling Course. Finally, while working for Grey,
-              I became the bridge between art directors/designers and developers.
+              I'm a (USA/Brazil) dual-citizen Front-End Developer with a <span className="add-background">lifelong passion for arts and math</span>!<br /><br />
+              My passions led me from high school math mentoring and comic book drawing,
+              to computer engineering and 3D-character modeling. My heart then found a home 
+              in Front-End Development. Where, while working at Grey,
+              I became the <span className="add-background">bridge between art directors/designers and developers</span>.
             </p>
-            <blockquote className="student-feedback__wrapper" key="1off">
-              <p className="student-feedback">
-                <span className="big">“</span>Thank you, Philip, for handling this! I knew that if someone could do this, 
-                it had to be you! The art directors were all worked-up thinking this would be impossible to accomplish. Now they are 
-                excited about the project!
-                <cite className="student-name"> — Account Manager</cite>
+            <blockquote className="quote__wrapper" key="1off">
+              <p className="quote">
+                <span className="big">“</span>Thank you, Philip, for handling this so well! Before we called you, the art directors 
+                were worried over the timeline and skeptical about getting this wild idea across, especially over the phone.  
+                I told them that if someone could ever do this, it had to be you! ...And it worked! You immediately understood them. 
+                They were smiling and thanking me right now! This took the weight off our shoulders.
+                <cite className="cite" style={{background: '#fff'}}> — Account Manager at Grey Group</cite>
                 <span className="big">”</span>
               </p>
             </blockquote>
             <p>
-              That's where I found my niche.
+              To make clients and art directors smile. That's where I found my <span className="add-background">niche</span>.
             </p>
             <h3>Niche</h3>
-            <h4><em>Visual Problem Solving</em></h4>
+            <h4>Visual Problem Solving</h4>
             <p>
-              It is common knowledge amongst Designers that Developers will ruin your dreams:
+              It is common knowledge amongst designers that developers will ruin your dreams:
             </p>
             <figure className="art-direction">
-              <img className="responsive-image" src="./designers.png" alt="Design versus Development" />
+              <img className="responsive-image" src="./awwwards.png" alt="Design versus Development" />
               <figcaption>Awwwards Conference. <a className="highlight" href="https://www.youtube.com/watch?v=bEg5ySTUGxE"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -99,12 +101,29 @@ function App() {
               </figcaption>
             </figure>
             <p>
-              If you ever heard "this <em>cannot</em> be done", that's where I come in! After all, we tell the computer what to do, 
-              not the other way around.<br /><br />
-              There's an ever growing need for Visual Web Developers. When the task was too big for a Web Master, the field was 
-              split between Front and Backend. However, with Webpack, Docker, Typescript, Cross-Plataform programming, and 
-              EverythingElse.js, most Front-End Developers are getting pulled into a Full-Stack role. Hiring a Front-End Developer no longer 
-              guarantees that you'll have a Visual Developer. So, new job descriptions started popping up:
+              Most all-purpose developers will “simplify” your ideas, cut corners, remove micro-interactions, and, if pressured, say that 
+              the desired outcome is impossible or that it simply can't be done.<br /><br />
+              If you ever heard “this is impossible!” or “this <em>cannot</em> be done!”, <span className="add-background">bring those projects to me! 
+              They <em>can</em> be done!</span> After all, we tell the computer what to do, not the other way around.<br /><br />
+            </p>
+            <p>
+            <span className="add-background">I tackle and lead teams in tackling problems</span> from ideation to asset creation and implementation. 
+              Focusing on the visual outcome, customizability, responsivity, optimization, browser-support, and accessibility. 
+            </p>
+            <h4>Field</h4>
+            <p>
+              There's an ever-growing need for Visual Web Developers. If we go back a decade, when tasks became too big for a WebMaster, the field was 
+              split between Front and Backend. Once again, with Webpack, Docker, cross-platform programming, and 
+              EverythingElse.js, most Front-End Developers are specializing in a full-stack role. So, <span className="add-background">who will specialize in</span>:
+              complex CSS and JavaScript animations,
+              SVG filters and animations,
+              canvas games and animations,
+              React animations,
+              data visualization,
+              web-based 3D rendering, virtual reality, and augmented reality?
+              There's simply too much ground to cover. 
+              Hiring a Front-End Developer no longer guarantees that you'll have a Visual Developer.<br /><br />
+              For this reason, new job descriptions are popping up:
             </p>
             <ul>
               <li>UI-Focused Front-End Developer</li>
@@ -115,9 +134,12 @@ function App() {
               <li>UX/UI Designer & Engineer</li>
             </ul>
             <p>
-              Their goal? To fill the Visual Developer niche the Front-End Developer has created.
-              <br />
-              Before you commit a large budget to a 3D-renderred or Video project, talk to me.
+              All looking for this <span className="add-background">specialized Visual Web Developer.</span>
+              <br /><br />
+              If you are now having that <em>Eureka</em> Moment: “This is what my UX team has been pleading for all along!”<br />
+              Call me; I'll ramp up your team's problem-solving arsenal while at it.
+              <br /><br />
+              Before you commit a large budget to a 3D-rendered animation or Video project, <strong className="add-background"><a className="highlight" href="#contact" onClick={navigationHandler}>reach out</a></strong>.
             </p>
           </div>
           <Moth bottomAnchorSection={mentoringSection} scrollTop={scroll.position} windowSize={windowSize} />
@@ -141,12 +163,15 @@ function App() {
             </div>
             <h3>Insight</h3>
             <p>
-              I've been a highschool math mentor, a college statistics mentor, an advanced-english teacher (at a second language course), 
-              and a Front-End mentor for the last three years. The most valuable lesson I learned as a teacher was that students look up to us. 
-              When we give an answer, they are trusting us with that answer. We must own what we say. So, to survive this level of responsibility, I'm constantly studying. 
-              This technical quality ownership mindset played a big part in all my professional growth.
+              I've been a high school math mentor, a college statistics mentor, an advanced-English teacher (at a second language course), 
+              and a Front-End mentor for the last three years. <span className="add-background">The most valuable lesson I learned as a teacher is</span> that students look up to us 
+              and will take our words as facts. Teaching is very demanding and requires constant study. 
+              This mindset of maintaining a high technical quality played a big part in my professional growth.
             </p>
             <ReviewSlider windowSize={windowSize} />
+            <p>
+              As the feedback shows, I operate on making people's lives easier!
+            </p>
           </div>
         </section>
         <footer id="contact" className="footer">
@@ -174,7 +199,7 @@ function App() {
                 </ul>        
               </div>
             </div>
-            <p className="small center">© Copyright 2019 - <span className="no-wrap">Philip D. Warkentien II</span></p>
+            <p className="small center">Made using React Hooks. Creatures were created in CSS and animated with React, GSAP, and CSS.<br />© Copyright 2019 - <span className="no-wrap">Philip D. Warkentien II</span></p>
           </div>
         </footer>
       </main>
