@@ -103,7 +103,7 @@ function App() {
             <p>
               Most all-purpose developers will “simplify” your ideas, cut corners, remove micro-interactions, and, if pressured, say that 
               the desired outcome is impossible or that it simply can't be done.<br /><br />
-              If you ever heard “this is impossible!” or “this <em>cannot</em> be done!”, <span className="add-background">bring those mentoring to me! 
+              If you ever heard “this is impossible!” or “this <em>cannot</em> be done!”, <span className="add-background">bring those projects to me! 
               They <em>can</em> be done!</span> After all, we tell the computer what to do, not the other way around.<br /><br />
             </p>
             <p>

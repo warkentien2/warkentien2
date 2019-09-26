@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "license": "GNU GPLv2",
   "author": "Philip D. Warkentien II",
-  "homepage": "https://warkentien2.github.io/warkentien2",
+  "homepage": "https://warkentien2.com",
   "dependencies": {
     "gh-pages": "^2.1.1",
     "gsap": "^2.1.3",
