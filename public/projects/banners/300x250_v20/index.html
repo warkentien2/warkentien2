@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en-us" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1">
+    
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>bannertest</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <style>
+        html {
+            -webkit-tap-highlight-color: transparent;
+            -webkit-touch-callout: none;
+            text-rendering: optimizeLegibility
+        }
+        
+        body,
+        body * {
+            border: 0;
+            font: 100%/1.5 Arial, sans-serif;
+            margin: 0;
+            outline: 0;
+            padding: 0;
+            vertical-align: baseline
+        }
+        
+        #container-dc {
+            background-color: #fff;
+            border: 1px solid #666;
+            box-sizing: border-box;
+            cursor: pointer;
+            height: 250px;
+            left: 0;
+            margin: auto;
+            opacity: 0;
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+            transform-origin: 0 0;
+            width: 300px
+        }
+        
+        #content-ad {
+            background: #fff;
+            height: 250px;
+            left: -1px;
+            position: absolute;
+            top: -1px;
+            width: 300px;
+            z-index: 100
+        }
+        
+        .full {
+            height: 250px;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 300px
+        }
+        
+        .fill {
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 100%
+        }
+        
+        #canvas-container {
+            left: 0;
+            margin: 0 auto;
+            position: absolute;
+            top: 0;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            -webkit-user-select: none;
+            user-select: none
+        }
+        
+        #canvas-container canvas {
+            left: 0;
+            position: absolute;
+            top: 0
+        }
+        
+        #glint1 {
+            left: -97px;
+            top: -41px;
+            transform: rotate(-14.5deg) scale(.25)
+        }
+        
+        #glint2 {
+            left: -40px;
+            top: -52px;
+            transform: scale(.35)
+        }
+        
+        #glint3 {
+            left: 35px;
+            top: -44px;
+            transform: rotate(14.5deg) scale(.25)
+        }
+        
+        .glint {
+            opacity: .9;
+            outline: 0;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none
+        }
+        
+        .razor-glint {
+            visibility: hidden
+        }
+        
+        .light {
+            left: -100px;
+            width: 500px
+        }
+
+        .description {
+            position: absolute;
+            width: 300px;
+            height: 250px;
+            z-index: 700;
+            box-sizing: border-box;
+            padding: 1.5em;
+            background: linear-gradient(45deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.90) 85%, rgba(0,0,0,0.35) 85%, rgba(0,0,0,0.35) 100%);
+            color: #fff;
+            cursor: pointer;
+            opacity: 0;
+        }
+        .description-body {
+            font-family: 'Montserrat', Helvetica, sans-serif;
+            width: 80%;
+            font-size: 1em
+        }
+        .description .fa {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            padding: 1.5em;
+        }
+    </style>
+    <script>
+        var clickTag = "https://www.google.com/"
+    </script>
+</head>
+
+<body>
+    <div id="container-dc">
+        <div id="content-ad"><div class="description">
+                <p class="description-body">Wave animation with Canvas.</p>
+                <i class="fa fa-redo"></i>
+            </div><img class="full" src="./small-logo.png" alt=""> <img class="full" src="./thin-brush.png" alt=""> <img class="full" src="./brush.png" alt=""> <img class="full" src="./women-aux.jpg" alt=""> <img class="full" src="./women.jpg" alt=""> <img class="full" src="./razors-aux.jpg" alt=""> <img id="razors" class="full" src="./razors.jpg" alt=""> <img id="copy" class="full" src="./copy.png" alt="">
+            <div id="canvas-container" class="full">
+                <canvas id="wave-canvas-2"></canvas>
+                <canvas id="canvas"></canvas>
+                <canvas id="wave-canvas"></canvas>
+            </div>
+            <div id="glint1" class="full glint"><img class="razor-glint" src="./glint.png" alt=""></div>
+            <div id="glint2" class="full glint"><img class="razor-glint" src="./glint.png" alt=""></div>
+            <div id="glint3" class="full glint"><img class="razor-glint" src="./glint.png" alt=""></div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
+    <script>
+        "use strict";
+        ! function(e) {
+            var t, a = new TimelineMax,
+                o = new TimelineMax({
+                    paused: !0
+                }),
+                n = e.document.getElementById("container-dc"),
+                r = (document.getElementById("women"), document.getElementsByClassName("razor-glint")),
+                s = (document.getElementById("razors"), document.getElementById("canvas-container"), document.getElementById("canvas")),
+                l = document.getElementById("wave-canvas"),
+                i = document.getElementById("wave-canvas-2"),
+                d = s.getContext("2d"),
+                g = l.getContext("2d"),
+                m = i.getContext("2d"),
+                c = new Image,
+                u = new Image,
+                p = new Image,
+                w = new Image,
+                h = new Image,
+                I = new Image,
+                y = 90,
+                v = 0,
+                x = .75,
+                b = 5,
+                f = 5,
+                E = -300,
+                C = -330;
+
+            function O() {
+                var e, t, a, n;
+                (v += x) <= y ? (a = (e = E + v * b) - 50, n = (t = C + v * f) - 50, g.scale(1 / 2.25, 1 / 2.25), g.globalCompositeOperation = "source-over", g.drawImage(u, 0, 0, 600, 500), g.scale(2.25, 2.25), g.globalCompositeOperation = "destination-in", g.translate(e, t), g.drawImage(h, 0, 0), g.translate(-e, -t), d.translate(e, t), d.drawImage(w, 300, 330), d.translate(-e, -t), m.scale(1 / 2.25, 1 / 2.25), m.globalCompositeOperation = "source-over", m.drawImage(p, 0, 0, 600, 500), m.scale(2.25, 2.25), m.globalCompositeOperation = "destination-in", m.translate(a, n), m.drawImage(h, 0, 0), m.translate(-a, -n), requestAnimationFrame(O)) : o.play()
+            }
+
+            function z() {
+                e.open(e.clickTag)
+            }
+            s.width = 600, s.height = 500, s.style.width = "300px", s.style.height = "250px", l.width = 600, l.height = 500, l.style.width = "300px", l.style.height = "250px", i.width = 600, i.height = 500, i.style.width = "300px", i.style.height = "250px", c.src = "women.jpg", u.src = "women-aux.jpg", p.src = "razors-aux.jpg", I.src = "small-logo.png", c.onload = function() {
+                g.scale(2.25, 2.25), m.scale(2.25, 2.25), d.drawImage(c, 0, 0, 600, 500), d.globalCompositeOperation = "source-over", d.drawImage(I, 0, 0, 600, 500), d.scale(2.25, 2.25), d.translate(E, C), d.globalCompositeOperation = "destination-out"
+            }, w.src = "brush.png", h.src = "thin-brush.png", e.init = function() {
+                n.style.opacity = 1, n.addEventListener("click", z), t = function() {
+                    n.addEventListener("mouseenter", function() {
+                        o.reverse()
+                    }), n.addEventListener("mouseleave", function() {
+                        o.play()
+                    })
+                }, 
+                a.addLabel("start")
+                .add(O, "start+=1"), 
+                o.addLabel("frame01")
+                .add(t, "frame01")
+                .set(r, {
+                    scale: .5,
+                    rotation: -90
+                }, "frame01")
+                .addLabel("razor-glint").to(r, .3, { autoAlpha: .9 }, "razor-glint")
+                .to(r, .3, { scale: 2, ease: Power4.easeOut }, "razor-glint+=0.1")
+                .to(r, .7, { rotation: 0, ease: Power4.easeOut }, "razor-glint+=0.1")
+                .to(r, .7, { x: 80, ease: Power3.easeOut }, "razor-glint+=0.15")
+                .to(r, .7, { autoAlpha: .9, scale: 1, ease: Power4.easeOut, onComplete: function() {
+                    TweenMax.to('.description', 1, {
+                        autoAlpha: 1, ease: Power2.easeOut, delay: 2.5
+                    });
+                } }, "razor-glint+=0.4")
+                .addLabel("end")
+            }
+        }(this)
+    </script>
+    <script>
+        window.onload = init
+    </script>
+</body>
+
+</html>

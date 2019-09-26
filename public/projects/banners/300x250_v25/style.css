@@ -1,0 +1,230 @@
+html {
+  -webkit-tap-highlight-color: transparent;
+  text-rendering: optimizeLegibility;
+  -webkit-touch-callout: none;
+}
+
+body,
+body * {
+  border: 0;
+  font: 100%/1.5 Arial, sans-serif;
+  margin: 0;
+  outline: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+
+#container_dc {
+  background-color: #651554;
+  border: 1px solid #666;
+  box-sizing: border-box;
+  height: 250px;
+  left: 0;
+  margin: auto;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  -moz-transform-origin: 0% 0%;
+  /* Firefox */
+  -ms-transform-origin: 0% 0%;
+  /* IE 9 */
+  -o-transform-origin: 0% 0%;
+  /* Opera */
+  -webkit-transform-origin: 0% 0%;
+  /* Safari and Chrome */
+  width: 300px;
+}
+
+#content_ad {
+  background: #651554;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+#background_exit_dc {
+  background: url("data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7") 0 0 repeat;
+  cursor: pointer;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 400;
+}
+
+.default, #calendar-container, .calendar-color, #calendar-top,
+#calendar-bottom, #copy1, #copy2, #copy3, #liver, #cta,
+#cta-hover {
+  height: 250px;
+  opacity: 0;
+  position: absolute;
+  width: 300px;
+}
+
+#calendar-container {
+  height: 120px;
+  width: 298px;
+  left: 0;
+  opacity: 0;
+  overflow: hidden;
+  top: 53px;
+}
+
+.calendar-color, #calendar-top,
+#calendar-bottom {
+  height: 102px;
+  width: 94px;
+  bottom: 0;
+  left: 106px;
+  opacity: 1;
+}
+
+#calendar-top .calendar-color, #calendar-top #calendar-top, #calendar-top
+#calendar-bottom {
+  bottom: -185px;
+  left: 0;
+}
+
+#calendar-top,
+#calendar-bottom {
+  height: 101px;
+  opacity: 1;
+  width: 49.5%;
+}
+
+.calendar-numbers {
+  height: 102px;
+  width: 94px;
+  bottom: -185px;
+  left: -1px;
+  overflow: hidden;
+  position: absolute;
+}
+
+#calendar-bottom .calendar-numbers {
+  bottom: 0;
+}
+
+.calendar-numbers .spritesheet {
+  height: 102px;
+  width: 1128px;
+  left: 1px;
+  position: absolute;
+  top: 0;
+}
+
+#calendar-bottom .calendar-numbers .spritesheet {
+  left: -93px;
+}
+
+.static {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+#calendar-backface-mask {
+  border-top: 0;
+  bottom: 65px;
+  box-sizing: border-box;
+  height: 120px;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+}
+
+#calendar-backface {
+  background-color: #651554;
+  border-top-right-radius: 10px;
+  bottom: 0;
+  height: 84px;
+  left: -11px;
+  position: absolute;
+  width: 104px;
+}
+
+#copy1 {
+  height: 41px;
+  width: 275px;
+  left: 12px;
+  opacity: 1;
+  top: 22px;
+}
+
+#copy2 {
+  height: 41px;
+  width: 269px;
+  left: 12px;
+  top: 22px;
+}
+
+#copy3 {
+  height: 92px;
+  width: 253px;
+  left: 22px;
+  top: 58px;
+}
+
+#liver {
+  height: 150px;
+  width: 222px;
+  left: 40px;
+  top: 25px;
+}
+
+#cta,
+#cta-hover {
+  height: 34px;
+  width: 139px;
+  bottom: 9px;
+  cursor: pointer;
+  opacity: 1;
+  right: 9px;
+  z-index: 401;
+}
+
+#cta-hover {
+  display: none;
+  opacity: 0;
+}
+
+#logo {
+  height: 38px;
+  width: 111px;
+  bottom: 9px;
+  left: 7px;
+  position: absolute;
+  z-index: 3;
+}
+
+.description {
+  position: absolute;
+  width: 300px;
+  height: 250px;
+  z-index: 700;
+  box-sizing: border-box;
+  padding: 1.5em;
+  background: linear-gradient(45deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.90) 85%, rgba(0,0,0,0.35) 85%, rgba(0,0,0,0.35) 100%);
+  color: #fff;
+  cursor: pointer;
+  opacity: 0;
+}
+.description-body {
+  font-family: 'Montserrat', Helvetica, sans-serif;
+  width: 80%;
+  font-size: 1em
+}
+.description .fa {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  padding: 1.5em;
+}

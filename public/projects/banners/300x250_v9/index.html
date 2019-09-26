@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1">
+    
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>An HTML banner</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <style>
+        html {
+            -webkit-tap-highlight-color: transparent;
+            -webkit-touch-callout: none;
+            text-rendering: optimizeLegibility
+        }
+        
+        body,
+        body * {
+            border: 0;
+            font: 100%/1.5 Arial, sans-serif;
+            margin: 0;
+            outline: 0;
+            padding: 0;
+            vertical-align: baseline
+        }
+        
+        #container-dc {
+            -moz-transform-origin: 0 0;
+            -ms-transform-origin: 0 0;
+            -o-transform-origin: 0 0;
+            -webkit-transform-origin: 0 0;
+            background-color: #fff;
+            border: 1px solid #666;
+            box-sizing: border-box;
+            height: 250px;
+            left: 0;
+            margin: auto;
+            opacity: 0;
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+            width: 300px
+        }
+        
+        #content-ad {
+            background: #3e3e3d;
+            height: 250px;
+            left: -1px;
+            position: absolute;
+            top: -1px;
+            width: 300px;
+            z-index: 100
+        }
+        
+        #background-exit {
+            background: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7) 0 0 repeat;
+            cursor: pointer;
+            height: 250px;
+            left: -1px;
+            position: absolute;
+            top: -1px;
+            width: 300px;
+            z-index: 400
+        }
+        
+        img {
+            position: absolute;
+            width: 300px;
+            height: 250px
+        }
+        
+        #cta {
+            transform-origin: 222px 223px
+        }
+        
+        #headline {
+            top: -5px
+        }
+        
+        #svg1 {
+            height: 130px;
+            right: -30%;
+            position: absolute;
+            top: 70px;
+            width: 3023px
+        }
+        
+        #svg1 path {
+            fill: none;
+            stroke: #fff;
+            stroke-width: 6px
+        }
+        
+        #svg2 {
+            height: 130px;
+            right: -30%;
+            position: absolute;
+            top: 75px;
+            width: 2705px
+        }
+        
+        #svg2 path {
+            fill: none;
+            stroke: #e08899;
+            stroke-width: 5px
+        }
+        .description {
+            position: absolute;
+            width: 300px;
+            height: 250px;
+            z-index: 700;
+            box-sizing: border-box;
+            padding: 1.5em;
+            background: linear-gradient(45deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.90) 85%, rgba(0,0,0,0.35) 85%, rgba(0,0,0,0.35) 100%);
+            color: #fff;
+            cursor: pointer;
+            opacity: 0;
+        }
+        .description-body {
+            font-family: 'Montserrat', Helvetica, sans-serif;
+            width: 80%;
+            font-size: 1em;
+        }
+        .description .fa {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            padding: 1.5em;
+        }
+    </style>
+    <script>
+        var clickTag = "https://www.google.com/"
+    </script>
+</head>
+
+<body>
+    <div id="container-dc">
+        <div id="content-ad"><div class="description">
+                <p class="description-body">Complex SVG morph on a loop.</p>
+                <i class="fa fa-redo"></i>
+            </div><img id="logo" src="./logo.png" alt=""> <img id="headline" src="./headline.png" alt=""> <img id="cta" src="./cta.png" alt="">
+            <svg id="svg2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8322 400">
+                <path></path>
+            </svg>
+            <svg id="svg1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9300 400">
+                <path></path>
+            </svg>
+        </div>
+        <a href="javascript:window.open(window.clickTag); void(0);" id="background-exit"></a>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
+    <script>
+        ! function(e) {
+            "use strict";
+            TimelineMax.defaultEase = e.Linear.easeNone;
+            var n = e.document,
+                t = new TimelineMax,
+                a = n.getElementById("container-dc"),
+                s = {
+                    tension: 1.075,
+                    sharpness: 4.5
+                };
+
+            function o(e, n) {
+                null == n && (n = 1);
+                for (var t = e.length, a = t - 4, o = "M" + [e[0], e[1]], i = 0; i < t - 2; i += 2) {
+                    var c = i ? e[i - 2] : e[0],
+                        r = i ? e[i - 1] : e[1],
+                        l = e[i + 0],
+                        u = e[i + 1],
+                        v = e[i + 2],
+                        d = e[i + 3],
+                        f = i !== a ? e[i + 4] : v,
+                        h = i !== a ? e[i + 5] : d;
+                    o += "C" + [l + (v - c) / s.sharpness * n, u + (d - r) / s.sharpness * n, v - (f - l) / s.sharpness * n, d - (h - u) / s.sharpness * n, v, d]
+                }
+                return o
+            }
+            e.init = function() {
+                a.style.opacity = 1,
+                    function() {
+                        a.addEventListener("mouseover", function() {
+                            TweenMax.to("#cta", .25, {
+                                scale: 1.1,
+                                yoyo: !0,
+                                repeat: -1
+                            })
+                        }), a.addEventListener("mouseout", function() {
+                            TweenMax.to("#cta", .3, {
+                                scale: 1
+                            })
+                        });
+                        var e = n.querySelector("#svg1 path"),
+                            t = n.querySelector("#svg2 path"),
+                            i = [0, 192, 43, 192, 83, 192, 113, 192, 143, 192, 173, 192, 203, 190, 245, 220, 268, 153, 292, 247, 320, 130, 342, 286, 365, 110, 392, 287, 417, 109, 439, 261, 467, 153, 492, 240, 515, 177, 565, 203, 675, 132, 820, 266, 926, 199, 969, 215, 989, 175, 1012, 226, 1040, 156, 1065, 262, 1084, 125, 1106, 270, 1133, 116, 1155, 273, 1176, 126, 1196, 242, 1224, 167, 1249, 228, 1285, 173, 1315, 192, 1345, 192, 1375, 192, 1405, 192, 1435, 192, 1465, 192, 1495, 192, 1525, 192, 1550, 192, 1593, 192, 1633, 192, 1663, 192, 1693, 192, 1723, 192, 1753, 190, 1795, 220, 1818, 153, 1842, 247, 1870, 130, 1892, 286, 1915, 110, 1942, 287, 1967, 109, 1989, 261, 2017, 153, 2042, 240, 2065, 177, 2115, 203, 2225, 132, 2370, 266, 2476, 199, 2519, 215, 2539, 175, 2562, 226, 2590, 156, 2615, 262, 2634, 125, 2656, 270, 2683, 116, 2705, 273, 2726, 126, 2746, 242, 2774, 167, 2799, 228, 2835, 173, 2865, 192, 2895, 192, 2925, 192, 2955, 192, 2985, 192, 3015, 192, 3045, 192, 3075, 192, 3100, 192, 3143, 192, 3183, 192, 3213, 192, 3243, 192, 3273, 192, 3303, 190, 3345, 220, 3368, 153, 3392, 247, 3420, 130, 3442, 286, 3465, 110, 3492, 287, 3517, 109, 3539, 261, 3567, 153, 3592, 240, 3615, 177, 3665, 203, 3775, 132, 3920, 266, 4026, 199, 4069, 215, 4089, 175, 4112, 226, 4140, 156, 4165, 262, 4184, 125, 4206, 270, 4233, 116, 4255, 273, 4276, 126, 4296, 242, 4324, 167, 4349, 228, 4385, 173, 4415, 192, 4445, 192, 4475, 192, 4505, 192, 4535, 192, 4565, 192, 4595, 192, 4625, 192, 4650, 192, 4693, 192, 4733, 192, 4763, 192, 4793, 192, 4823, 192, 4853, 190, 4895, 220, 4918, 153, 4942, 247, 4970, 130, 4992, 286, 5015, 110, 5042, 287, 5067, 109, 5089, 261, 5117, 153, 5142, 240, 5165, 177, 5215, 203, 5325, 132, 5470, 266, 5576, 199, 5619, 215, 5639, 175, 5662, 226, 5690, 156, 5715, 262, 5734, 125, 5756, 270, 5783, 116, 5805, 273, 5826, 126, 5846, 242, 5874, 167, 5899, 228, 5935, 173, 5965, 192, 5995, 192, 6025, 192, 6055, 192, 6085, 192, 6115, 192, 6145, 192, 6175, 192, 6200, 192, 6243, 192, 6283, 192, 6313, 192, 6343, 192, 6373, 192, 6403, 190, 6445, 220, 6468, 153, 6492, 247, 6520, 130, 6542, 286, 6565, 110, 6592, 287, 6617, 109, 6639, 261, 6667, 153, 6692, 240, 6715, 177, 6765, 203, 6875, 132, 7020, 266, 7126, 199, 7169, 215, 7189, 175, 7212, 226, 7240, 156, 7265, 262, 7284, 125, 7306, 270, 7333, 116, 7355, 273, 7376, 126, 7396, 242, 7424, 167, 7449, 228, 7485, 173, 7515, 192, 7545, 192, 7575, 192, 7605, 192, 7635, 192, 7665, 192, 7695, 192, 7725, 192, 7750, 192, 7793, 192, 7833, 192, 7863, 192, 7893, 192, 7923, 192, 7953, 190, 7995, 220, 8018, 153, 8042, 247, 8070, 130, 8092, 286, 8115, 110, 8142, 287, 8167, 109, 8189, 261, 8217, 153, 8242, 240, 8265, 177, 8315, 203, 8425, 132, 8570, 266, 8676, 199, 8719, 215, 8739, 175, 8762, 226, 8790, 156, 8815, 262, 8834, 125, 8856, 270, 8883, 116, 8905, 273, 8926, 126, 8946, 242, 8974, 167, 8999, 228, 9035, 173, 9065, 192, 9095, 192, 9125, 192, 9155, 192, 9185, 192, 9215, 192, 9245, 192, 9275, 192, 9300, 192],
+                            c = [0, 172, 44, 304, 98, 3, 154, 393, 209, 96, 270, 227, 323, 192, 365, 220, 388, 153, 412, 247, 440, 130, 462, 286, 485, 105, 513, 288, 537, 109, 559, 261, 587, 147, 612, 240, 635, 176, 663, 203, 697, 208, 746, 224, 828, 9, 906, 387, 980, 175, 1037, 196, 1087, 190, 1137, 185, 1187, 185, 1240, 185, 1290, 190, 1340, 196, 1378, 172, 1431, 304, 1485, 3, 1541, 393, 1596, 96, 1657, 227, 1710, 192, 1752, 220, 1775, 153, 1799, 247, 1827, 130, 1849, 286, 1872, 105, 1900, 288, 1924, 109, 1946, 261, 1974, 147, 1999, 240, 2022, 176, 2050, 203, 2084, 208, 2133, 224, 2215, 9, 2293, 387, 2367, 175, 2424, 196, 2474, 190, 2524, 185, 2574, 185, 2627, 185, 2677, 190, 2727, 196, 2765, 172, 2818, 304, 2872, 3, 2928, 393, 2983, 96, 3044, 227, 3097, 192, 3139, 220, 3162, 153, 3186, 247, 3214, 130, 3236, 286, 3259, 105, 3287, 288, 3311, 109, 3333, 261, 3361, 147, 3386, 240, 3409, 176, 3437, 203, 3471, 208, 3520, 224, 3602, 9, 3680, 387, 3754, 175, 3811, 196, 3861, 190, 3911, 185, 3961, 185, 4014, 185, 4064, 190, 4114, 196, 4152, 172, 4205, 304, 4259, 3, 4315, 393, 4370, 96, 4431, 227, 4484, 192, 4526, 220, 4549, 153, 4573, 247, 4601, 130, 4623, 286, 4646, 105, 4674, 288, 4698, 109, 4720, 261, 4748, 147, 4773, 240, 4796, 176, 4824, 203, 4858, 208, 4907, 224, 4989, 9, 5067, 387, 5141, 175, 5198, 196, 5248, 190, 5298, 185, 5348, 185, 5401, 185, 5451, 190, 5501, 196, 5539, 172, 5592, 304, 5646, 3, 5702, 393, 5757, 96, 5818, 227, 5871, 192, 5913, 220, 5936, 153, 5960, 247, 5988, 130, 6010, 286, 6033, 105, 6061, 288, 6085, 109, 6107, 261, 6135, 147, 6160, 240, 6183, 176, 6211, 203, 6245, 208, 6294, 224, 6376, 9, 6454, 387, 6528, 175, 6585, 196, 6635, 190, 6685, 185, 6735, 185, 6788, 185, 6838, 190, 6888, 196, 6926, 172, 6979, 304, 7033, 3, 7089, 393, 7144, 96, 7205, 227, 7258, 192, 7300, 220, 7323, 153, 7347, 247, 7375, 130, 7397, 286, 7420, 105, 7448, 288, 7472, 109, 7494, 261, 7522, 147, 7547, 240, 7570, 176, 7598, 203, 7632, 208, 7681, 224, 7763, 9, 7841, 387, 7915, 175, 7972, 196, 8022, 190, 8072, 185, 8122, 185];
+
+                        function r(e) {
+                            return e.map(function(e, n) {
+                                return n % 2 == 1 ? (1 * e + 768) / 5 : e
+                            })
+                        }
+                        o(i, s.tension), o(c, s.tension);
+                        var l = r(i),
+                            u = (o(l, s.tension), r(c)),
+                            v = (o(u, s.tension), l.length / 2 - 14),
+                            d = 40,
+                            f = u.length / 2 - 38,
+                            h = 27,
+                            p = l.slice(0, -80).concat(i.slice(-80, -30).concat(l.slice(-30))),
+                            x = u.slice(0, -54).concat(c.slice(-54, -26).concat(u.slice(-26)));
+                        e.setAttribute("d", o(p, s.tension)), 
+                        t.setAttribute("d", o(x, s.tension)), 
+                        TweenMax.to("#svg1", 14.25, {
+                            x: "84.25%",
+                            ease: Linear.easeNone,
+                            onStart: function n() {
+                                if (d <= v) {
+                                    var t = l.slice(0, 2 * -d).concat(i.slice(2 * -d, 2 * -d + 30).concat(l.slice(2 * -d + 30)));
+                                    d++;
+                                    var a = o(t, s.tension);
+                                    TweenMax.to(e, .5, {
+                                        attr: {
+                                            d: a
+                                        },
+                                        delay: .0505,
+                                        rotation: .01,
+                                        ease: Linear.easeNone,
+                                        onStart: n
+                                    })
+                                }
+                            },
+                            onComplete: function(){
+                                TweenLite.to('.description', 1, {
+                                    autoAlpha: 1, ease: Power2.easeOut, delay: 2.5
+                                })
+                            }
+                        }), 
+                        TweenMax.to("#svg2", 14.25, {
+                            x: "68.5%",
+                            ease: Linear.easeNone,
+                            onStart: function e() {
+                                if (h <= f) {
+                                    var n = u.slice(0, 2 * -h).concat(c.slice(2 * -h, 2 * -h + 26).concat(u.slice(2 * -h + 26)));
+                                    h++;
+                                    var a = o(n, s.tension);
+                                    TweenMax.to(t, .5, {
+                                        attr: {
+                                            d: a
+                                        },
+                                        delay: .1,
+                                        rotation: .01,
+                                        ease: Linear.easeNone,
+                                        onStart: e
+                                    })
+                                }
+                            }
+                        })
+                    }()
+            }, e.tl = t
+        }(this)
+    </script>
+    <script>
+        window.onload = init
+    </script>
+</body>
+
+</html>
