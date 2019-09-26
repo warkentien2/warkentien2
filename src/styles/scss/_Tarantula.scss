@@ -65,7 +65,7 @@ $body-angle: 0;
   }
 
   &.tarantula-wrapper--mobile {
-    top: calc(100vh - 205vw);
+    top: calc(100vh - 200vw);
     left: -12.5vw;
     font-size: 1.2vw;
     width: 100vw;
@@ -97,12 +97,14 @@ $body-angle: 0;
     }
 
     @media screen and (min-aspect-ratio: 30/41) and (max-aspect-ratio: 100/101) {
-      top: calc(100vh - 190vw);
+      top: calc(100vh - 180vw);
+      font-size: 1vw;
+      left: -27.5vw;
 
       .tarantula__info {
         font-size: 4em;
-        top: -14%;
-        right: 20%;
+        top: -12.5%;
+        right: 25%;
 
         &__arrow {
           right: 69%;

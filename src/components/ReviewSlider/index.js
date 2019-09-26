@@ -131,7 +131,7 @@ function ReviewSlider({ windowSize }) {
       score: 8
     }, 
     {
-      review: "Best code review I had on Udacity! There were many excellent tips and you reinforced some core points that I hadn't even acknowledged how important they were! Plus, you added memes hhahahaha I'm still laughing! Thank you, keep it up!",
+      review: "Best code review I had on Udacity! There were many excellent tips and you reinforced some core points that I hadn't even acknowledged how important they were! Plus, you added memes, hhahahaha! I'm still laughing! Thank you, keep it up!",
       author: "",
       score: 8
     }, 

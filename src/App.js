@@ -41,18 +41,19 @@ function App() {
         <section id="home" className="section hero">
           <h1 className="hero__title">
             <span className="block left hero__title__block">
-              <span className="block font--tiny right"><a className="brand hero__title--highlight" href="#home" onClick={navigationHandler}>Philip D. Warkentien II</a></span>
+              <span className="block font--tiny right name"><a className="brand hero__title--highlight" href="#home" onClick={navigationHandler}>Philip D. Warkentien II</a></span>
               <span className="block right block--split-wrapper">
-                <span tabIndex="-1" className="block block--no-overflow split-1">
-                  <span className="block font--small right--overflow">Complex UI &</span>
+                <span className="block block--inline block--no-overflow split-1">
+                  <span className="block font--small left right--overflow">Complex UI</span>
                 </span>
-                <span className="block block--no-overflow split-2">
-                  <span className="block font--small left left--overflow">Complex UI &</span>
+                <span className="block block--inline ampersand hero__title--highlight">&</span>
+                <span tabIndex="-1" className="block block--inline block--no-overflow split-2">
+                  <span className="block font--small right left--overflow">Complex UI</span>
                 </span>
               </span>
-              <span className="block right font--regular">animation-focused</span>
-              <span className="block right font--tiny">front-end <span className="hero__title--highlight">developer</span></span>
-              <span className="block right font--tiny">& <span className="hero__title--highlight">mentor</span></span>
+              <span className="block right font--regular anchor">animation-<span className="block block--inline rotated">focused</span></span>
+              <span className="block right font--tiny role role--1">front-end <span className="hero__title--highlight">developer</span></span>
+              <span className="block right font--tiny role">& <span className="hero__title--highlight">mentor</span></span>
             </span>
           </h1>
           <React.Suspense fallback={<span />}>

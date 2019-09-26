@@ -175,23 +175,30 @@ h1 {
     width: 100%;
     margin: 0;
     left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 12.5vmin;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    top: 52.5%;
+    transform: translateY(-50%);
+    font-size: 12.5vmin;
+    display: flex;
+    justify-content: center;
+
+    &__block {
+      padding-right: 1.075em;
+      width: 4.75em;
+      transform: translateX(-42.5%);
+    }
 
     @media screen and (max-aspect-ratio: 100/101) {
-      top: 45%;
-      font-size: 11.5vmin;
-    }
-
-    @media screen and (min-aspect-ratio: 30/41) and (max-aspect-ratio: 100/101) {
-      font-size: 8vmin;
-    }
-
-    @media screen and (max-aspect-ratio: 41/30) and (min-aspect-ratio: 101/100) {
-      font-size: 10.5vmin;
+      top: 50%;
+      font-size: 17vmin;
+      
+      &__block {
+        transform: none;
+        padding-right: 0;
+        width: 6em !important;
+        margin-left: -1.375em;
+      }
     }
 
     span {
@@ -202,33 +209,117 @@ h1 {
     .block {
       display: block;
 
+      &--inline {
+        display: inline-block;
+      }
+
       &--no-overflow {
         overflow: hidden;
       }
 
       &--split-wrapper {
         position: relative;
-        left: calc(100% - 1.85em);
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-start;
+        right: -1.0375em;
       }
 
       &.split-1 {
         position: relative;
         width: 2.181em;
-        left: -2.181em;
+        text-align: left;
+        white-space: nowrap;
+        margin-right: 0.125em;
       }
 
       &.split-2 {
         position: relative;
-        width: 1.85em;
+        width: 1.2em;
+        white-space: nowrap;
+        margin-left: 0.027em;
+      }
+
+      .name {
+        margin-right: -2.1em;
+      }
+
+      .ampersand {
+        font-size: 2em;
+        line-height: 0.9875em;
+      }
+
+      .anchor {
+        position: relative;
+        right: -0.125em;
+      }
+
+      .rotated {
+        position: absolute;
+        transform: rotate(-90deg);
+        display: inline-block;
+        right: -2.1375em;
+        bottom: -0.1375em;
+      }
+
+      .role {
+        margin-right: 0.425em;
+      }
+
+      @media screen and (max-aspect-ratio: 100/101) {
+        .rotated {
+          position: relative;
+          display: block;
+          right: unset;
+          bottom: 0;
+          transform: rotate(0);
+        }
+
+        &.split-1,
+        &.split-2,
+        .name,
+        .role {
+          margin-right: 0;
+        }
+
+        .name {
+          margin-right: 0.025em;
+        }
+
+        &.split-1 {
+          margin-right: 0.25em;
+        }
+
+        &.split-2 {
+          width: 1.22em;
+          margin-left: 0.25em;
+
+          .left--overflow {
+            margin-left: -2.875em;
+          }
+        }
+
+        &--split-wrapper {
+          justify-content: center;
+          align-items: flex-start;
+          right: -0.8em;
+        }
+
+        .ampersand {
+          font-size: 0.8em;
+          line-height: 1.15em;
+        }
+
+        .anchor {
+          position: relative;
+          width: 4.125em;
+          right: -1.875em;
+        }
       }
     }
 
     .font--regular {
       font-size: 1em;
-
-      @media screen and (max-aspect-ratio: 100/101) {
-        font-size: 1.69em;
-      }
     }
 
     .font--small {
@@ -244,18 +335,6 @@ h1 {
 
       &--overflow {
         margin-left: -27vmin;
-
-        @media screen and (max-aspect-ratio: 100/101) {
-          margin-left: -24.75vmin;
-        }
-
-        @media screen and (min-aspect-ratio: 30/41) and (max-aspect-ratio: 100/101) {
-          margin-left: -17.25vmin;
-        }
-
-        @media screen and (max-aspect-ratio: 41/30) and (min-aspect-ratio: 101/100) {
-          margin-left: -22.75vmin;
-        }
       }
     }
 
@@ -264,41 +343,11 @@ h1 {
 
       &--overflow {
         margin-right: -22.75vmin;
-
-        @media screen and (max-aspect-ratio: 100/101) {
-          margin-right: -21vmin;
-        }
-
-        @media screen and (min-aspect-ratio: 30/41) and (max-aspect-ratio: 100/101) {
-          margin-right: -14.5vmin;
-        }
-
-        @media screen and (max-aspect-ratio: 41/30) and (min-aspect-ratio: 101/100) {
-          margin-right: -19.25vmin;
-        }
       }
     }
 
     &__block {
       width: 98vmin;
-
-      @media screen and (max-aspect-ratio: 100/101) {
-        display: block;
-        width: 80%;
-        max-width: 100%;
-        text-align: right;
-        margin: 0;
-        padding: 0 0 0 6.5%;
-      }
-      
-      @media screen and (min-aspect-ratio: 30/41) and (max-aspect-ratio: 100/101) {
-        width: 55.75%;
-        padding: 0 0 0 20.5%;
-      }
-
-      @media screen and (max-aspect-ratio: 41/30) and (min-aspect-ratio: 101/100) {
-        width: 44.5%;
-      }
     }
 
     .hero__title--highlight {
@@ -328,6 +377,10 @@ h1 {
 
 .section--third {
   z-index: 2;
+
+  .container {
+    padding-bottom: 2em;
+  }
 
   h2 {
     margin-bottom: 1.2em !important;
@@ -384,7 +437,7 @@ h1 {
       .highlight a {
         color: $highlighted;
       }
-      
+
       a {
         color: #0c0032;
         text-decoration: none;
