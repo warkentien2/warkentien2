@@ -3,25 +3,64 @@
   top: 0;
   width: 100%;
   min-height: 100vh;
-  background: #ddd;
-  font-family: Oswald, sans-serif;
+  background: black;
+  font-family: Montserrat, sans-serif;
+  font-size: 16px;
 }
 
-.main section {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-transform: capitalize;
+  font-family: Oswald, Helvetica, sans-serif;
+}
+
+h6 {
+  font-size: 1em;
+}
+
+h5 {
+  font-size: 1.2em;
+}
+
+h4 {
+  font-size: 1.6em;
+}
+
+h3 {
+  font-size: 2em;
+}
+
+h2 {
+  font-size: 2.6em;
+}
+
+h1 {
+  font-size: 3.4em;
+}
+
+.highlight {
+  color: #3500d3;
+}
+
+.main {
   position: relative;
+  overflow-x: hidden;
 }
 
 .main-header {
-  background: #333;
+  width: 100vw;
+  overflow-x: hidden;
+  background: linear-gradient(0deg, transparent 0%, black 57%);
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  overflow: hidden;
-}
-.main-header .brand {
-  text-decoration: none;
-  color: #fff;
-  margin: 10px 20px;
+  position: fixed;
+  z-index: 10;
+  padding-bottom: 0.75em;
 }
 .main-header .navbar {
   list-style: none;
@@ -32,21 +71,87 @@
   flex-wrap: nowrap;
 }
 .main-header .navbar li {
-  margin: 10px 20px;
+  margin: 10px 15px;
+}
+.main-header .navbar li .navigation {
+  text-decoration: none;
+  color: #fff;
+}
+.main-header .navbar li .navigation i {
+  font-size: 0.9em;
+  vertical-align: text-top;
+  line-height: 1.25em;
+}
+.main-header .navbar li .navigation:focus {
+  color: #3500d3;
+}
+
+.section {
+  position: relative;
+  min-height: 80vh;
+  box-shadow: 0 0.75vh 1vh rgba(0, 0, 0, 0.375);
+  color: #fff;
+  z-index: 4;
+}
+.section h2 {
+  margin-bottom: 1.4em;
+}
+.section p {
+  line-height: 1.6em;
+}
+.section::before {
+  position: absolute;
+  content: "";
+  width: 8vw;
+  height: 8vw;
+  left: 45.5vw;
+  bottom: -3.8vw;
+  background: #0c0032;
+  transform: rotateX(60deg) rotateZ(45deg);
+  box-shadow: 1vh 1vh 1.75vh rgba(0, 0, 0, 0.375);
+  z-index: -2;
+}
+.section::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(0deg, #0c0032 5%, black 100%);
+  z-index: -1;
+}
+@media screen and (max-aspect-ratio: 100/101) {
+  .section::before {
+    width: 40vw;
+    height: 40vw;
+    left: 30vw;
+    bottom: -19vw;
+  }
+}
+@media screen and (min-aspect-ratio: 30/41) and (max-aspect-ratio: 100/101) {
+  .section::before {
+    width: 20vw;
+    height: 20vw;
+    left: 40vw;
+    bottom: -9.5vw;
+    box-shadow: 1vh 1vh 1.75vh rgba(0, 0, 0, 0.375);
+  }
 }
 
 .hero {
-  background: #555;
-  height: 90vh;
-  overflow: hidden;
+  height: 85vh;
+  z-index: 4;
 }
-.hero::before {
-  position: absolute;
-  left: 0;
-  top: 0;
-  background: linear-gradient(90deg, transparent 25%, rgba(255, 100, 100, 0.33) 25%, rgba(255, 100, 100, 0.33) 42.5%, transparent 42.5%, transparent 63.5%, rgba(255, 100, 100, 0.33) 63.5%, rgba(255, 100, 100, 0.33) 81%, transparent 81%), linear-gradient(90deg, transparent 7.5%, rgba(100, 100, 255, 0.33) 7.5%, rgba(100, 100, 255, 0.33) 25%, transparent 25%, transparent 50%, rgba(100, 100, 255, 0.33) 50%, rgba(100, 100, 255, 0.33) 67.5%, transparent 67.5%);
-  width: 100%;
-  height: 100%;
+@media screen and (max-aspect-ratio: 100/101) {
+  .hero {
+    height: 80vh;
+  }
+}
+.hero .brand {
+  text-decoration: none;
+  white-space: nowrap;
+  color: #fff;
 }
 .hero__title {
   text-transform: uppercase;
@@ -54,72 +159,643 @@
   width: 100%;
   margin: 0;
   left: 0;
-  top: 50%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  top: 52.5%;
   transform: translateY(-50%);
+  font-size: 12.5vmin;
+  display: flex;
+  justify-content: center;
+}
+.hero__title__block {
+  padding-right: 1.075em;
+  width: 4.75em;
+  transform: translateX(-42.5%);
+}
+@media screen and (max-aspect-ratio: 100/101) {
+  .hero__title {
+    top: 50%;
+    font-size: 17vmin;
+  }
+  .hero__title__block {
+    transform: none;
+    padding-right: 0;
+    width: 6em !important;
+    margin-left: -1.375em;
+  }
 }
 .hero__title span {
-  font-size: 6.25vmax;
   line-height: 1.25em;
   color: #fff;
-}
-@media screen and (max-width: 700px) {
-  .hero__title span {
-    font-size: 1.75em;
-  }
 }
 .hero__title .block {
   display: block;
 }
-.hero__title .small {
+.hero__title .block--inline {
+  display: inline-block;
+}
+.hero__title .block--no-overflow {
+  overflow: hidden;
+}
+.hero__title .block--split-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  right: -1.0375em;
+}
+.hero__title .block.split-1 {
+  position: relative;
+  width: 2.181em;
+  text-align: left;
+  white-space: nowrap;
+  margin-right: 0.125em;
+}
+.hero__title .block.split-2 {
+  position: relative;
+  width: 1.2em;
+  white-space: nowrap;
+  margin-left: 0.027em;
+}
+.hero__title .block .name {
+  margin-right: -2.1em;
+}
+.hero__title .block .ampersand {
+  font-size: 2em;
+  line-height: 0.9875em;
+}
+.hero__title .block .anchor {
+  position: relative;
+  right: -0.125em;
+}
+.hero__title .block .rotated {
+  position: absolute;
+  transform: rotate(-90deg);
+  display: inline-block;
+  right: -2.1375em;
+  bottom: -0.1375em;
+}
+.hero__title .block .role {
+  margin-right: 0.425em;
+}
+@media screen and (max-aspect-ratio: 100/101) {
+  .hero__title .block .rotated {
+    position: relative;
+    display: block;
+    right: unset;
+    bottom: 0;
+    transform: rotate(0);
+  }
+  .hero__title .block.split-1, .hero__title .block.split-2,
+.hero__title .block .name,
+.hero__title .block .role {
+    margin-right: 0;
+  }
+  .hero__title .block .name {
+    margin-right: 0.025em;
+  }
+  .hero__title .block.split-1 {
+    margin-right: 0.25em;
+  }
+  .hero__title .block.split-2 {
+    width: 1.22em;
+    margin-left: 0.25em;
+  }
+  .hero__title .block.split-2 .left--overflow {
+    margin-left: -2.875em;
+  }
+  .hero__title .block--split-wrapper {
+    justify-content: center;
+    align-items: flex-start;
+    right: -0.8em;
+  }
+  .hero__title .block .ampersand {
+    font-size: 0.8em;
+    line-height: 1.15em;
+  }
+  .hero__title .block .anchor {
+    position: relative;
+    width: 4.125em;
+    right: -1.875em;
+  }
+}
+.hero__title .font--regular {
+  font-size: 1em;
+}
+.hero__title .font--small {
   font-size: 0.75em;
+}
+.hero__title .font--tiny {
+  font-size: 0.5em;
 }
 .hero__title .left {
   text-align: left;
 }
 .hero__title .left--overflow {
-  margin-left: -18vmax;
-}
-@media screen and (max-width: 700px) {
-  .hero__title .left--overflow {
-    margin-left: -15vmax;
-  }
+  margin-left: -27vmin;
 }
 .hero__title .right {
   text-align: right;
 }
 .hero__title .right--overflow {
-  margin-right: -15.25vmax;
-}
-@media screen and (max-width: 700px) {
-  .hero__title .right--overflow {
-    margin-right: -12.5vmax;
-  }
+  margin-right: -22.75vmin;
 }
 .hero__title__block {
-  width: 49vmax;
-}
-@media screen and (max-width: 700px) {
-  .hero__title__block {
-    display: block;
-    width: 87%;
-    max-width: 100%;
-    text-align: right;
-    margin: 0;
-    padding: 0;
-  }
+  width: 98vmin;
 }
 .hero__title .hero__title--highlight {
   font-size: inherit;
-  color: yellow;
+  color: #3500d3;
+}
+
+.section--second {
+  background: #282828;
+  z-index: 3;
+  box-shadow: inset 0 -0.75vh 1vh rgba(0, 0, 0, 0.25) !important;
+}
+.section--second::before {
+  background: #282828;
+  box-shadow: inset -1vh -1vh 1.75vh rgba(0, 0, 0, 0.25) !important;
+}
+.section--second::after {
+  background: none;
+}
+
+.section--third {
+  z-index: 2;
+}
+.section--third .container {
+  padding-bottom: 2em;
+}
+.section--third h2 {
+  margin-bottom: 1.2em !important;
+}
+.section--third::after {
+  background: linear-gradient(0deg, black 5%, #0c0032 100%);
+}
+.section--third::before {
+  background: black;
+}
+
+.footer {
+  position: relative;
+  min-height: 20vh;
+  background: #C9C8D0;
+  z-index: 1;
+}
+.footer .container {
+  padding-bottom: 1em;
+}
+.footer .container p.small {
+  padding-top: 2em;
+}
+.footer .contact-list h4,
+.footer .contact-list ul {
+  margin: 0;
+  width: 100%;
+}
+.footer .contact-list.col-6 {
+  box-sizing: border-box;
+}
+.footer .contact-list ul {
+  list-style: none;
+  padding: 0;
+}
+.footer .contact-list--left {
+  padding-right: 1.4em;
+}
+.footer .contact-list--right {
+  padding-left: 1.4em;
+}
+@media screen and (max-aspect-ratio: 100/101) {
+  .footer .contact-list--left {
+    padding-right: 1em;
+  }
+  .footer .contact-list--right {
+    padding-left: 1em;
+  }
+}
+.footer .contact-list .contact .highlight a {
+  color: #3500d3;
+}
+.footer .contact-list .contact a {
+  color: #0c0032;
+  text-decoration: none;
+}
+.footer .contact-list .contact svg {
+  width: 16px;
+  height: 16px;
+  vertical-align: text-top;
+}
+
+.handwritten {
+  font-family: "Nanum Pen Script", cursive;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 2.5em 0 4em;
+  width: 92%;
+  max-width: 1200px;
+}
+@media screen and (max-aspect-ratio: 100/101) {
+  .container {
+    padding: 4em 0 6em;
+  }
+}
+.container p,
+.container ul,
+.container h1,
+.container h2,
+.container h3,
+.container h4,
+.container h5,
+.container h6,
+.container .contain {
+  width: 94%;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 2.8em;
+}
+.container p {
+  line-height: 2.1em;
+  margin: 1.4em auto;
+}
+.container ul {
+  list-style-type: circle;
+  display: block;
+  padding-left: 2.1em;
+  line-height: 2.1em;
+}
+.container .art-direction {
+  position: relative;
+  margin: 0;
+  width: 100%;
+  overflow: hidden;
+  background: black;
+  padding: 0.5em 0;
+  box-sizing: border-box;
+}
+.container .art-direction img {
+  position: relative;
+  width: 100%;
+}
+.container .art-direction figcaption {
+  margin: 0.75em auto 0.5em;
+  max-width: 800px;
+  width: 90%;
+  font-size: 0.75em;
+  line-height: 1.4em;
+}
+.container .art-direction figcaption a {
+  text-decoration: none;
+}
+@media screen and (max-aspect-ratio: 100/101) {
+  .container .art-direction {
+    height: 18.5em;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+  }
+  .container .art-direction img {
+    height: 15em;
+    width: 31.35em;
+  }
+  .container .art-direction figcaption {
+    height: 3.5em;
+  }
+}
+@media screen and (min-aspect-ratio: 30/41) and (max-aspect-ratio: 100/101) {
+  .container .art-direction {
+    height: auto;
+  }
+  .container .art-direction img {
+    height: auto;
+    width: 100%;
+  }
+}
+@media screen and (max-aspect-ratio: 41/30) and (min-aspect-ratio: 101/100) {
+  .container .art-direction {
+    height: auto;
+  }
+  .container .art-direction img {
+    height: auto;
+    width: 100%;
+  }
+}
+
+.row {
+  padding: 1em 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+[class^=col] {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  order: 99;
+}
+[class^=col].col-wrap {
+  flex-wrap: wrap;
+}
+
+.col-3 {
+  width: calc(100%/4);
+}
+
+.col-4 {
+  width: calc(100%/3);
+}
+
+.col-6 {
+  width: calc(100%/2);
+}
+
+.col-12 {
+  width: 100%;
+}
+
+.col-order-1 {
+  order: 1;
+}
+
+@media screen and (max-aspect-ratio: 100/101) {
+  .col-sm-4 {
+    width: calc(100%/3);
+  }
+
+  .col-sm-6 {
+    width: calc(100%/2);
+  }
+
+  .col-sm-12 {
+    width: 100%;
+  }
+
+  .col-sm-order-1 {
+    order: 1;
+  }
+}
+.center {
+  text-align: center;
+}
+
+.right {
+  text-align: right;
+}
+
+.responsive-image {
+  width: 100%;
+  height: auto;
+}
+
+.stats {
+  margin: 3em 0 1.5em;
+}
+
+.statistics {
+  position: relative;
+  text-align: center;
+  margin: 2em 0;
+  font-family: Oswald, Helvetica, sans-serif;
+  text-transform: uppercase;
+}
+.statistics sup {
+  font-weight: 700;
+  font-size: 0.5em;
+  position: relative;
+  left: 0.05em;
+  width: 0;
+}
+.statistics .large {
+  font-size: 3em;
+  font-weight: 700;
+  margin-right: -0.15em;
+  line-height: 1.4em;
+}
+.statistics.statistics--large {
+  font-size: 1.5em;
+}
+.statistics.statistics--large .large {
+  line-height: 1em;
+}
+.statistics.statistics-2 {
+  margin-top: -2em;
+}
+.statistics.statistics-1, .statistics.statistics-3 {
+  margin-top: 3em;
+}
+.statistics.statistics-4 {
+  margin-top: -3em;
+}
+@media screen and (max-aspect-ratio: 100/101) {
+  .statistics.statistics--large {
+    font-size: 1.25em;
+  }
+  .statistics.statistics--large .large {
+    line-height: 1em;
+  }
+  .statistics.statistics-1 {
+    margin-top: 3em;
+    margin-left: 0.5em;
+  }
+  .statistics.statistics-2 {
+    margin-top: -3em;
+    margin-right: 0.5em;
+  }
+  .statistics.statistics-3 {
+    margin-top: 2em;
+    margin-left: 0.5em;
+  }
+  .statistics.statistics-4 {
+    margin-top: -3em;
+    margin-right: 0.5em;
+  }
+}
+@media screen and (min-aspect-ratio: 30/41) and (max-aspect-ratio: 100/101) {
+  .statistics.statistics-2 {
+    margin-top: -2em;
+    margin-right: 3em;
+  }
+  .statistics.statistics-1, .statistics.statistics-3 {
+    margin-top: 5em;
+    margin-left: 3em;
+  }
+  .statistics.statistics-4 {
+    margin-top: -3em;
+    margin-right: 3em;
+  }
+}
+
+.small {
+  font-size: 0.75em;
+}
+
+.horizontal-spacer {
+  display: inline-block;
+  width: 1.125em;
+}
+
+.no-wrap {
+  white-space: nowrap;
+}
+
+.quote__wrapper {
+  margin: 0;
+}
+
+.quote {
+  padding: 0 1em;
+  box-sizing: border-box;
+}
+.quote .big {
+  font-size: 1.75em;
+  line-height: 0.75em;
+  position: relative;
+  top: 0.25em;
+  color: #3500d3;
+}
+.quote .cite {
+  color: #3500d3;
+  white-space: nowrap;
+}
+.quote .cite::before {
+  content: " ";
+}
+
+.add-background {
+  background: #000;
+}
+
+.section--third .add-background {
+  background: rgba(53, 0, 211, 0.25);
+}
+
+.footer strong {
+  background: none;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.tarantula-wrapper {
+  position: absolute;
+  width: 90vh;
+  height: 90vh;
+  left: calc(100vw - 95vh);
+  top: auto;
+  bottom: -21vh;
+  font-size: 1.08vh;
+  box-sizing: border-box;
+  transform-origin: 0 100%;
+  z-index: 1;
+  visibility: hidden;
+}
+.tarantula-wrapper .tarantula__info {
+  position: absolute;
+  top: 35%;
+  right: 10%;
+  font-size: 3.5em;
+  text-align: center;
+  opacity: 0.75;
+}
+.tarantula-wrapper .tarantula__info__description {
+  color: #fff;
+  transform: rotate(30deg);
+  display: block;
+  line-height: 1.4em;
+  margin: 1em 0;
+}
+.tarantula-wrapper .tarantula__info__arrow {
+  position: absolute;
+  width: 1.5em;
+  height: 1.5em;
+  right: 59%;
+  top: 73%;
+}
+.tarantula-wrapper .tarantula__wait {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  color: #fff !important;
+  font-size: 3.5em;
+}
+.tarantula-wrapper .tarantula__wait span {
+  position: absolute;
+  left: 40%;
+  top: 50%;
+  visibility: hidden;
+  opacity: 0;
+}
+@media screen and (max-aspect-ratio: 41/30) and (min-aspect-ratio: 101/100) {
+  .tarantula-wrapper {
+    left: calc(100vw - 85vh);
+  }
+  .tarantula-wrapper .tarantula__info {
+    right: 12%;
+  }
+}
+.tarantula-wrapper.tarantula-wrapper--mobile {
+  top: calc(100vh - 200vw);
+  left: -12.5vw;
+  font-size: 1.2vw;
+  width: 100vw;
+  height: 100vw;
+}
+.tarantula-wrapper.tarantula-wrapper--mobile .tarantula__info {
+  top: -16%;
+  right: 10%;
+  font-size: 5.5em;
+}
+.tarantula-wrapper.tarantula-wrapper--mobile .tarantula__info__description {
+  transform: rotate(-130deg);
+}
+.tarantula-wrapper.tarantula-wrapper--mobile .tarantula__info__description br {
+  line-height: inherit;
+  font-size: inherit;
+}
+.tarantula-wrapper.tarantula-wrapper--mobile .tarantula__info__arrow {
+  right: 80%;
+  transform: rotateY(180deg) rotateZ(-90deg);
+  top: 45%;
+}
+.tarantula-wrapper.tarantula-wrapper--mobile .tarantula__wait {
+  transform: rotate(-90deg);
+}
+@media screen and (min-aspect-ratio: 30/41) and (max-aspect-ratio: 100/101) {
+  .tarantula-wrapper.tarantula-wrapper--mobile {
+    top: calc(100vh - 180vw);
+    font-size: 1vw;
+    left: -27.5vw;
+  }
+  .tarantula-wrapper.tarantula-wrapper--mobile .tarantula__info {
+    font-size: 4em;
+    top: -12.5%;
+    right: 25%;
+  }
+  .tarantula-wrapper.tarantula-wrapper--mobile .tarantula__info__arrow {
+    right: 69%;
+    top: 63%;
+  }
 }
 
 .tarantula {
-  position: relative;
-  width: 53.52vw;
-  height: 40vw;
-  left: 7.5vw;
-  top: 2.5vw;
-  font-size: 0.78vw;
+  position: absolute;
+  width: 88em;
+  overflow: hidden;
+  height: 72.25em;
+  left: 0;
+  top: 0;
+  font-size: inherit;
   box-sizing: border-box;
 }
 .tarantula * {
@@ -128,20 +804,36 @@
 }
 
 .x-body {
-  left: 42.75%;
-  top: 50%;
-  width: 100%;
-  height: 100%;
-  transform: rotate(0);
-  transform: rotate(0deg);
+  font-size: inherit;
+  left: 34%;
+  top: 70%;
+  width: 10%;
+  height: 10%;
+  will-change: transform;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  -moz-perspective: 1000;
+  -ms-perspective: 1000;
+  perspective: 1000;
+  -webkit-transform: rotate(0deg) translateZ(0);
+  -moz-transform: rotate(0deg) translateZ(0);
+  -ms-transform: rotate(0deg) translateZ(0);
+  -o-transform: rotate(0deg) translateZ(0);
+  transform: rotate(0deg) translateZ(0);
   transform-origin: 7.5% 8%;
 }
-.x-body::after,
+.x-body * {
+  font-size: inherit;
+}
 .x-body *::after {
+  content: "";
   position: absolute;
   width: 3px;
   height: 3px;
-  background: blue;
+  background: rgba(255, 255, 255, 0.625);
   border: 1px solid white;
   border-radius: 50%;
   left: calc(5% + 1px);
@@ -149,16 +841,115 @@
   top: calc(50% + 1px);
   transform: translate(-50%, -50%);
 }
-.x-body::after {
-  top: 32%;
-  left: 10.5%;
+.x-body .x-body-part::before,
+.x-body .x-body-part::after,
+.x-body .x-chelicera-pattern::before,
+.x-body .x-chelicera-pattern::after,
+.x-body .x-body-part .x-coxa-pattern,
+.x-body .x-body-part .x-chelicerae,
+.x-body .x-body-part .x-fang,
+.x-body .x-body-part .x-leg-parts,
+.x-body .x-body-part .x-spinnerets-parts,
+.x-body .x-body-part .x-leg--background .x-leg-parts::before,
+.x-body .x-body-part .x-leg--background .x-leg-parts::before {
+  transition: background 1s ease-out;
+}
+.x-body .x-body-part:hover::before,
+.x-body .x-body-part:hover::after,
+.x-body .x-cephalothorax:hover .x-chelicera-pattern::after,
+.x-body .x-chelicera-pattern:hover::before,
+.x-body .x-body-part .x-coxa-pattern:hover,
+.x-body .x-body-part .x-chelicerae:hover,
+.x-body .x-body-part .x-fang:hover,
+.x-body .x-body-part .x-leg-parts:hover,
+.x-body .x-body-part .x-spinnerets-parts:hover,
+.x-body .x-body-part .x-leg--background .x-leg-parts:hover::before,
+.x-body .x-body-part .x-spinnerets--background .x-spinnerets-parts:hover::before {
+  background: #3500d3 !important;
+  transition: background 0.125s ease-in;
+}
+.x-body.glow .x-coxa-pattern,
+.x-body.glow .x-abdomen::before,
+.x-body.glow .x-cephalothorax::after,
+.x-body.glow .x-chelicera-pattern::after,
+.x-body.glow .x-chelicera-pattern::before,
+.x-body.glow .x-chelicerae,
+.x-body.glow .x-fang,
+.x-body.glow .x-spinnerets-parts.x-coxa,
+.x-body.glow .x-spinnerets-parts.x-femur,
+.x-body.glow .x-spinnerets-parts.x-patella,
+.x-body.glow .x-spinnerets-parts.x-tibia,
+.x-body.glow .x-leg--foreground .x-coxa,
+.x-body.glow .x-leg--foreground .x-femur,
+.x-body.glow .x-leg--foreground .x-patella,
+.x-body.glow .x-leg--foreground .x-tibia,
+.x-body.glow .x-leg--foreground .x-metatarsus,
+.x-body.glow .x-leg--foreground .x-tarsus,
+.x-body.glow .x-leg--background .x-coxa::before,
+.x-body.glow .x-leg--background .x-femur::before,
+.x-body.glow .x-leg--background .x-patella::before,
+.x-body.glow .x-leg--background .x-tibia::before,
+.x-body.glow .x-leg--background .x-metatarsus::before,
+.x-body.glow .x-leg--background .x-tarsus::before {
+  will-change: background;
+  animation: pulse 1.375s ease-in-out;
+}
+.x-body.glow .x-abdomen::before,
+.x-body.glow .x-coxa-pattern,
+.x-body.glow .x-chelicera-pattern::before {
+  animation-delay: 0.125s;
+}
+.x-body.glow .x-leg--foreground .x-coxa,
+.x-body.glow .x-leg--background .x-coxa::before,
+.x-body.glow .x-spinnerets-parts.x-coxa,
+.x-body.glow .x-chelicerae {
+  animation-delay: 0.25s;
+}
+.x-body.glow .x-leg--foreground .x-femur,
+.x-body.glow .x-leg--background .x-femur::before,
+.x-body.glow .x-spinnerets-parts.x-femur,
+.x-body.glow .x-fang {
+  animation-delay: 0.375s;
+}
+.x-body.glow .x-leg--foreground .x-patella,
+.x-body.glow .x-leg--background .x-patella::before,
+.x-body.glow .x-spinnerets-parts.x-patella {
+  animation-delay: 0.5s;
+}
+.x-body.glow .x-leg--foreground .x-tibia,
+.x-body.glow .x-leg--background .x-tibia::before,
+.x-body.glow .x-spinnerets-parts.x-tibia {
+  animation-delay: 0.625s;
+}
+.x-body.glow .x-leg--foreground .x-metatarsus,
+.x-body.glow .x-leg--background .x-metatarsus::before {
+  animation-delay: 0.75s;
+}
+.x-body.glow .x-leg--foreground .x-tarsus,
+.x-body.glow .x-leg--background .x-tarsus::before {
+  animation-delay: 0.875s;
 }
 
+@keyframes pulse {
+  0% {
+    background: rgba(255, 255, 255, 0.625);
+  }
+  30% {
+    background: #3500d3;
+  }
+  40% {
+    background: #3500d3;
+  }
+  100% {
+    background: rgba(255, 255, 255, 0.625);
+  }
+}
 .x-body-part {
-  border: 1px dashed #e97100;
+  border: 1px dashed white;
   transform-origin: 5% 50%;
-  background: radial-gradient(circle at 25% -10%, #3c546d 10%, #1f1f37 35%, #050517 45%, #050517 62.5%, #040409 85%, #000003 100%) !important;
-  box-shadow: inset -3em -4.5em 0.75em -5.125em #3c546d, inset -4.625em -2.75em 1.5em -5.125em #3c546d, inset -4.625em -2.75em 0.5em -5em #484e56, inset -3em -4.5em 2.5em -5em #484e56, inset 2em -2.5em 0.75em -3em #484e56, inset -0.125em -0.175em 0.125em -0.125em #484e56, inset 0 -0.0525em 0.25em -0.0125em #484e56, inset -2em -5.25em 2.25em -5em #030c14, inset -3.8em -2.75em 1.5em -4em #030c14, inset 1.875em -2.375em 1em -2.5em #030c14, inset -2em 2.25em 1.25em -2.875em #030c14, inset 1.875em 3em 1.25em -3.25em #040409, inset -1.125em 2.125em 0.75em -2.5em #040409, 0.075em 0.175em 0.2em 0.0125em rgba(0, 0, 0, 0.75), 0.125em 0.1em 0.75em 0.175em rgba(0, 0, 0, 0.35), 0.5em 0.5em 1em 0.25em rgba(0, 0, 0, 0.25), -0.25em 0.5em 1.5em 0.5em rgba(0, 0, 0, 0.1), 0 0 3.5em rgba(238, 162, 66, 0.125), 0.125em 0.125em 0.25em -0.05em rgba(238, 162, 66, 0.75), 0.125em 0.125em 0.75em 0.125em rgba(0, 0, 0, 0.25), 0.125em 0.125em 0.5em -0.05em rgba(238, 162, 66, 0.25) !important;
+  background: rgba(255, 255, 255, 0.625);
+  box-shadow: none;
+  cursor: pointer;
 }
 .x-body-part.x-abdomen {
   left: -120.75%;
@@ -178,8 +969,7 @@
   width: 100%;
   height: 100%;
   border-radius: inherit;
-  background-image: radial-gradient(circle at 45% 135%, transparent 5%, #a0400060 7.5%, transparent 10%, transparent 15%, #a0400060 17.5%, transparent 20%, transparent 25%, #a0400060 27.5%, transparent 30%, transparent 35%, #a0400060 37.5%, transparent 40%, transparent 45%, #a0400060 47.5%, transparent 50%, transparent 55%, #a0400060 57.5%, transparent 60%, transparent 65%, #a0400060 67.5%, transparent 70%, transparent 75%, #a0400060 77.5%, transparent 80%, transparent 85%, #a0400060 87.5%, transparent 90%, transparent 95%, #a0400060 97.5%, transparent 100%), radial-gradient(ellipse at 52.5% 57.5%, transparent 5%, #000032b0 7.5%, transparent 15%, #000032b0 17.5%, transparent 25%, #000032b0 27.5%, transparent 35%, #000032b0 37.5%, transparent 45%, #000032b0 47.5%, transparent 55%, #000032b0 57.5%, transparent 65%, #000032b0 67.5%, transparent 75%, #000032b0 77.5%, transparent 85%, #000032b0 87.5%, transparent 95%, #000032b0 97.5%, transparent 100%), radial-gradient(circle at 115% 65%, transparent 5%, #a04000b0 7.5%, transparent 15%, #a04000b0 17.5%, transparent 25%, #a04000b0 27.5%, transparent 35%, #a04000b0 37.5%, transparent 45%, #a04000b0 47.5%, transparent 55%, #a04000b0 57.5%, transparent 65%, #a04000b0 67.5%, transparent 75%, #a04000b0 77.5%, transparent 85%, #a04000b0 87.5%, transparent 95%, #a04000b0 97.5%, transparent 100%);
-  box-shadow: inset -2px -8px 10px -10px #ff5d12, inset 1px 3px 25px -3px #ff5d12, inset -5px -17px 25px 5px #020d22, 3px -2px 12px #ff5d12;
+  background: rgba(255, 255, 255, 0.625);
   z-index: 2;
 }
 .x-body-part.x-abdomen::after {
@@ -189,7 +979,7 @@
 .x-body-part.x-cephalothorax {
   transform: rotate(0);
   width: calc(16em + 2px);
-  height: calc(9.33em + 2px);
+  height: calc(8.88em + 2px);
   border-radius: 20%;
   border-top-left-radius: 100%;
   border-bottom-right-radius: 30%;
@@ -207,8 +997,6 @@
   border: inherit;
   border-radius: inherit;
   z-index: 4;
-  background: linear-gradient(-20deg, #030c14 0%, #040409 65%, #3c546d 75%);
-  box-shadow: inset -3em -4.5em 0.75em -5.125em #3c546d, inset -4.625em -2.75em 1.5em -5.125em #3c546d, inset -4.625em -2.75em 0.5em -5em #484e56, inset -3em -4.5em 2.5em -5em #484e56, inset 2em -2.5em 0.75em -3em #484e56, inset -0.125em -0.175em 0.125em -0.125em #484e56, inset 0 -0.0525em 0.25em -0.0125em #484e56, inset -2em -5.25em 2.25em -5em #030c14, inset -3.8em -2.75em 1.5em -4em #030c14, inset 1.875em -2.375em 1em -2.5em #030c14, inset -2em 2.25em 1.25em -2.875em #030c14, inset 1.875em 3em 1.25em -3.25em #040409, inset -1.125em 2.125em 0.75em -2.5em #040409, 0.075em 0.175em 0.2em 0.0125em rgba(0, 0, 0, 0.75), 0.125em 0.1em 0.75em 0.175em rgba(0, 0, 0, 0.35), 0.5em 0.5em 1em 0.25em rgba(0, 0, 0, 0.25), -0.25em 0.5em 1.5em 0.5em rgba(0, 0, 0, 0.1), 0 0 3.5em rgba(238, 162, 66, 0.125), 0.125em 0.125em 0.25em -0.05em rgba(238, 162, 66, 0.75), 0.125em 0.125em 0.75em 0.125em rgba(0, 0, 0, 0.25), 0.125em 0.125em 0.5em -0.05em rgba(238, 162, 66, 0.25) !important;
 }
 .x-body-part.x-cephalothorax * {
   z-index: 3;
@@ -218,7 +1006,6 @@
   width: inherit;
   height: inherit;
   z-index: 4;
-  background: radial-gradient(ellipse at 40% 0, #47aafb, #484e56 35%, transparent 50%);
   top: 0;
   left: 0;
   border-radius: inherit;
@@ -226,58 +1013,18 @@
   border: none;
   opacity: 1;
 }
-.x-body-part.x-cephalothorax .x-eye {
-  z-index: 5;
-  right: -7.5%;
-  top: -7%;
-  width: calc(1.33em + 2px);
-  height: calc(1.07em + 2px);
-  border-radius: 50% 50% 45% 45%;
-  transform: rotate(30deg);
-  background-image: radial-gradient(circle at 68% 45%, #fff 2%, #899ac0 5%, rgba(101, 70, 145, 0.25) 15%, transparent 20%), radial-gradient(circle at 60% 30%, #fff 4%, #8799c0 10%, #434b96 20%, #332c68 30%, #000 50%);
-  box-shadow: inset 1px -1px 4px 0 #001, inset 1px -1px 2px -1px rgba(123, 112, 141, 0.5), -1px 2px 7px rgba(42, 48, 58, 0.5), 0 0 2px #b2d2fd;
-}
-.x-body-part.x-cephalothorax .x-eye::after {
-  content: none;
-}
-.x-body-part.x-cephalothorax .x-eye2 {
-  right: -0.5%;
-  top: 2.5%;
-  width: calc(1.07em + 2px);
-  height: calc(1.07em + 2px);
-  border-radius: 50%;
-}
-.x-body-part.x-cephalothorax .x-eye3 {
-  right: -5.5%;
-  top: 11%;
-  width: calc(0.6em + 2px);
-  height: calc(0.55em + 2px);
-  border-radius: 50%;
-  transform: rotate(35deg);
-}
-.x-body-part.x-cephalothorax .x-eye4 {
-  right: -10%;
-  top: 6.5%;
-  width: calc(0.55em + 2px);
-  height: calc(0.5em + 2px);
-  border-radius: 50%;
-  transform: rotate(25deg);
-}
 .x-body-part.x-cephalothorax .x-coxa-pattern {
-  background: linear-gradient(20deg, #8084a8 30%, #8084a8 60%, #a89B8B 100%);
+  background: rgba(255, 255, 255, 0.625);
   display: inline-block;
   left: 48%;
   top: 0;
   width: calc(24% + 2px);
   height: calc(80% + 2px);
   transform-origin: 50% 0;
-  box-shadow: inset 0 -2em 1.33em 0.67em rgba(20, 20, 10, 0.25);
   border-radius: 80% 80% 20% 20%;
-  background: linear-gradient(7deg, #030c14 0%, #1f1f37 55%, #484e56 85%, #3c546d 90%);
-  z-index: 4;
-  border-bottom: 1px dashed #e97100;
-  border-left: 1px dashed #e97100;
-  box-shadow: inset 1px -3px 9px -1px rgba(255, 93, 18, 0.875), 3px 3px 7px -1px #ff5d12;
+  z-index: 5;
+  border-bottom: 1px dashed white;
+  border-left: 1px dashed white;
 }
 .x-body-part.x-cephalothorax .x-coxa-pattern::after {
   content: none;
@@ -322,60 +1069,82 @@
   border-radius: inherit;
   z-index: 1;
   border: none;
-  border-right: 1px dashed #e97100;
-  border-bottom: 1px dashed #e97100;
+  border-right: 1px dashed white;
+  border-bottom: 1px dashed white;
   opacity: 1;
-  background: linear-gradient(77deg, #050517 40%, #484e56 75%, #3c546d 95%);
-  box-shadow: inset 1px -2px 7px -1px rgba(255, 93, 18, 0.75), 1px 3px 10px -1px rgba(255, 93, 18, 0.5);
 }
 .x-body-part.x-cephalothorax .x-chelicera-pattern::before {
   content: "";
   z-index: -1;
   position: absolute;
-  top: 75%;
-  left: -10%;
+  top: 77%;
+  left: -3.5%;
   width: 90%;
-  height: 30%;
+  height: 23%;
   border-radius: 0 0 0.5em 100%;
-  transform: rotate(10deg);
-  background: radial-gradient(circle at 25% -10%, #8c8a8a 10%, #f15c21 35%, #db6019 45%, #db6019 62.5%, #652000 85%, #5a2900 100%) !important;
-  border: 1px dashed #e97100;
-  box-shadow: 2px 2px 7px -1px rgba(255, 93, 18, 0.75), inset 4px 3px 7px -1px rgba(255, 116, 24, 0.625), inset -4px -3px 11px 3px rgba(0, 0, 0, 0.75), inset 3px 2px 7px rgba(33, 71, 141, 0.25), 0 0 4px rgba(101, 143, 210, 0.5);
+  transform: rotate(8deg);
+  background: rgba(255, 255, 255, 0.625);
+  border: 1px dashed white;
 }
 .x-body-part.x-chelicerae {
-  width: calc(9.25em + 2px);
+  width: calc(8.75em + 2px);
   height: calc(5.25em + 2px);
-  left: 97.5%;
-  top: 18%;
+  left: 97%;
+  top: 8%;
   transform-origin: 25% 50%;
-  transform: rotate(75deg);
+  will-change: transform;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  -moz-perspective: 1000;
+  -ms-perspective: 1000;
+  perspective: 1000;
+  -webkit-transform: rotate(60deg) translateZ(0);
+  -moz-transform: rotate(60deg) translateZ(0);
+  -ms-transform: rotate(60deg) translateZ(0);
+  -o-transform: rotate(60deg) translateZ(0);
+  transform: rotate(60deg) translateZ(0);
   border-radius: 30% 70% 10% 0%;
-  background: #000003 !important;
-  background-image: radial-gradient(circle at 55% 120%, transparent 5%, #a0400040 7.5%, transparent 15%, #a0400040 17.5%, transparent 25%, #a0400040 27.5%, transparent 35%, #a0400040 37.5%, transparent 45%, #a0400040 47.5%, transparent 55%, #a0400040 57.5%, transparent 65%, #a0400040 67.5%, transparent 75%, #a0400040 77.5%, transparent 85%, #a0400040 87.5%, transparent 95%, #a0400040 97.5%, transparent 100%), radial-gradient(ellipse at 30.5% 67.5%, transparent 5%, #000032b0 17.5%, transparent 35%, #000032b0 47.5%, transparent 65%, #000032b0 77.5%, transparent 95%), radial-gradient(circle at -25% 65%, transparent 0%, #a0400080 5%, transparent 20%, #a0400080 25%, transparent 40%, #a0400080 45%, transparent 60%, #a0400080 65%, transparent 80%, #a0400080 85%, transparent 100%) !important;
-  border: 1px dashed #e97100;
+  background: rgba(255, 255, 255, 0.625);
+  border: 1px dashed white;
   border-bottom: none;
-  box-shadow: inset 1px -2px 6px -1px rgba(255, 93, 18, 0.875), 1px 0 6px -1px #ff5d12 !important;
 }
 .x-body-part.x-chelicerae.x-chelicerae--background {
-  top: 15%;
-  left: 98%;
-  transform: scale(0.95) rotate(65deg);
+  top: 4%;
+  left: 99%;
+  transform: scale(0.95) rotate(50deg);
 }
 .x-body-part.x-chelicerae.x-chelicerae--background .x-fang {
-  transform: rotate(115deg);
+  transform: rotate(135deg);
   bottom: -7%;
 }
 .x-body-part.x-chelicerae .x-fang {
-  background: linear-gradient(3deg, #050505 0%, #151815 30%, #050505 80%);
+  background: rgba(255, 255, 255, 0.625);
   border-radius: 20% 250% 0 2em;
   width: calc(35.5% + 2px);
   height: calc(10.5% + 2px);
   right: -32%;
   bottom: -3.5%;
-  transform: rotate(118.5deg);
+  will-change: transform;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  -moz-perspective: 1000;
+  -ms-perspective: 1000;
+  perspective: 1000;
+  -webkit-transform: rotate(140.5deg) translateZ(0);
+  -moz-transform: rotate(140.5deg) translateZ(0);
+  -ms-transform: rotate(140.5deg) translateZ(0);
+  -o-transform: rotate(140.5deg) translateZ(0);
+  transform: rotate(140.5deg) translateZ(0);
   transform-origin: 5% 50%;
 }
 .x-body-part.x-chelicerae .x-fang::after {
+  content: none;
   left: 5%;
   top: 50%;
 }
@@ -384,10 +1153,10 @@
   top: 50%;
 }
 .x-body-part .x-leg {
-  width: calc(16.46em + 2px);
-  height: calc(3.54em + 2px);
+  width: calc(15.46em + 2px);
+  height: calc(3.04em + 2px);
   left: 70%;
-  top: 60%;
+  top: 55%;
   transform-origin: 10% 55%;
   z-index: 5;
 }
@@ -395,30 +1164,32 @@
   transform: rotateY(180deg);
 }
 .x-body-part .x-leg.x-leg--small .x-femur {
-  width: calc(310% + 2px);
+  width: calc(14.378em + 2px);
   transform: rotate(-67.5deg);
 }
 .x-body-part .x-leg.x-leg--small .x-patella {
+  width: calc(6.47em + 2px);
   transform: rotate(67.5deg);
 }
+.x-body-part .x-leg.x-leg--small .x-tibia {
+  width: calc(9.7em + 2px);
+}
 .x-body-part .x-leg.x-leg--small .x-metatarsus {
+  width: calc(9.22em + 2px);
   transform: rotate(30deg);
 }
-.x-body-part .x-leg.x-leg--background {
-  width: calc(16.41em + 2px);
-  height: calc(3.52em + 2px);
-  z-index: -1;
+.x-body-part .x-leg.x-leg--small .x-tarsus {
+  width: calc(5.53em + 2px);
 }
-.x-body-part .x-leg.x-leg--background.x-pedipalp {
-  width: calc(10.64em + 2px);
-  height: calc(2.92em + 2px);
+.x-body-part .x-leg.x-leg--background {
+  font-size: 0.9875em;
+  z-index: -1;
 }
 .x-body-part .x-leg.x-leg--background * {
   background: none !important;
   position: absolute !important;
   box-shadow: none !important;
   z-index: -1;
-  box-shadow: inset 2px -1px 7px 2px rgba(255, 93, 18, 0.75), -2px -1px 7px rgba(255, 93, 18, 0.75) !important;
 }
 .x-body-part .x-leg.x-leg--background *::before {
   content: "";
@@ -427,7 +1198,7 @@
   top: 0;
   width: 100%;
   height: 100%;
-  background: #000735;
+  background: rgba(255, 255, 255, 0.625);
   box-sizing: border-box;
   border-radius: inherit;
   border-bottom: none;
@@ -443,66 +1214,74 @@
   border-radius: inherit;
   border: none;
   background: transparent;
-  background-image: radial-gradient(circle at 5% 45%, transparent 5%, #a06200b0 10%, transparent 20%, #a06200b0 25%, transparent 35%, #a06200b0 40%, transparent 50%, #a06200b0 55%, transparent 65%, #a06200b0 70%, transparent 80%, #a06200b0 85%, transparent 95%, #a06200b0 100%), linear-gradient(2.5deg, transparent 5%, #a06200a0 10%, transparent 20%, #a06200a0 25%, transparent 35%, #a06200a0 40%, transparent 50%, #a06200a0 55%, transparent 65%, #a06200a0 70%, transparent 80%, #a06200a0 85%, transparent 95%, #a06200a0 100%);
 }
 .x-body-part .x-spinnerets {
   top: auto;
   bottom: 0;
   left: 22%;
-  width: 20%;
-  height: 10%;
+  width: 3.876em;
+  height: 1.368em;
   transform: rotate(-100deg);
   transform-origin: 20% 50%;
   z-index: 1;
 }
-.x-body-part .x-spinnerets .x-spinnerets-parts {
-  box-shadow: 1px 2px 4px 0 rgba(255, 93, 18, 0.5), 0 0 5px black, inset 4px 3px 7px -1px rgba(255, 116, 24, 0.625), inset -4px -3px 11px 3px rgba(0, 0, 0, 0.75), inset 3px 2px 7px rgba(33, 71, 141, 0.25), 0 0 4px rgba(101, 143, 210, 0.5);
+.x-body-part .x-spinnerets .x-coxa {
+  width: 0.75em !important;
+  height: 1.33em;
 }
 .x-body-part .x-spinnerets .x-femur {
+  width: 3.876em;
+  height: 1.3em;
   transform: rotate(-85deg);
 }
 .x-body-part .x-spinnerets .x-patella {
   transform: rotate(20deg);
-  width: 80%;
-  height: 90%;
+  width: 3.1em;
+  height: 1.17em;
 }
 .x-body-part .x-spinnerets .x-tibia {
   transform: rotate(20deg);
-  width: 80%;
-  height: 90%;
+  width: 2.48em;
+  height: 1.05em;
 }
 .x-body-part .x-spinnerets.x-spinnerets--background {
-  width: 19.5%;
-  height: 9.5%;
+  font-size: 0.974em;
+  z-index: 0;
 }
 .x-body-part .x-spinnerets.x-spinnerets--background .x-femur {
   transform: rotate(-70deg);
 }
 .x-body-part .x-leg-parts,
 .x-body-part .x-spinnerets-parts {
-  background: radial-gradient(circle at 0 0, #030c14 0%, #050517 65%, #3c546d 100%);
-  border: 1px dashed #e97100;
+  background: rgba(255, 255, 255, 0.625);
+  border: 1px dashed white;
   border-radius: 50% 60% 45% 1.75em;
-  box-shadow: 1px -1px 7px 1px rgba(255, 93, 18, 0.5), 0 0 7px black, inset 4px 3px 7px -1px rgba(255, 116, 24, 0.625), inset -4px -3px 11px 3px rgba(0, 0, 0, 0.75), inset 3px 2px 7px rgba(33, 71, 141, 0.25), 0 0 4px rgba(101, 143, 210, 0.5);
-  height: calc(97.5% + 2px);
-  width: calc(100% + 2px);
   left: 95%;
   top: 10%;
   transform-origin: 5% 50%;
   border-bottom: none;
+  will-change: transform;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  -moz-perspective: 1000;
+  -ms-perspective: 1000;
+  perspective: 1000;
 }
 .x-body-part .x-leg-parts::before,
 .x-body-part .x-spinnerets-parts::before {
-  background: radial-gradient(circle at 0 0, #030c14 0%, #050517 65%, #3c546d 100%);
-  border: 1px dashed #e97100;
-  box-shadow: inset 4px 3px 7px -1px rgba(255, 116, 24, 0.625), inset -4px -3px 11px 3px rgba(0, 0, 0, 0.75), inset 3px 2px 7px rgba(33, 71, 141, 0.25), 0 0 4px rgba(101, 143, 210, 0.5) !important;
+  background: rgba(255, 255, 255, 0.625);
+  border: 1px dashed white;
+  box-shadow: none !important;
   box-sizing: content-box;
   width: calc(100% - 2px);
   height: calc(100% - 2px);
 }
 .x-body-part .x-leg-parts *::after,
 .x-body-part .x-spinnerets-parts *::after {
-  content: "";
+  content: none;
   position: absolute;
   left: 0;
   top: 0;
@@ -512,244 +1291,760 @@
   border-radius: inherit;
   border: none;
   background: transparent;
-  background-image: radial-gradient(circle at 95% 85%, transparent 5%, #a0620070 10%, transparent 20%, #a0620070 25%, transparent 35%, #a0620070 40%, transparent 50%, #a0620070 55%, transparent 65%, #a0620070 70%, transparent 80%, #a0620070 85%, transparent 95%, #a0620070 100%), linear-gradient(2deg, transparent 5%, #a0620060 10%, transparent 20%, #a0620060 25%, transparent 35%, #a0620060 40%, transparent 50%, #a0620060 55%, transparent 65%, #a0620060 70%, transparent 80%, #a0620060 85%, transparent 95%, #a0620060 100%);
 }
 .x-body-part .x-coxa {
   left: 0;
   top: 0;
-  width: calc(30% + 2px);
+  width: calc(4.623em + 2px);
+  height: calc(3.76em + 2px);
   border-radius: 50% 30% 50% 60%;
-  box-shadow: 0 -5px 10px -1px rgba(0, 0, 0, 0.75);
-  background: radial-gradient(circle at 0 0, #030c14 0%, #050517 65%, #3c546d 100%) !important;
+  background: rgba(255, 255, 255, 0.625);
 }
-.x-body-part .x-coxa:before {
-  background: radial-gradient(circle at 0 0, #030c14 0%, #050517 65%, #3c546d 100%) !important;
+.x-body-part .x-coxa::before {
+  background: rgba(255, 255, 255, 0.625);
 }
 .x-body-part .x-coxa::after {
-  background-image: radial-gradient(circle at 100% 50%, transparent 5%, #a0620060 10%, transparent 20%, #a0620060 25%, transparent 35%, #a0620060 40%, transparent 50%, #a0620060 55%, transparent 65%, #a0620060 70%, transparent 80%, #a0620060 85%, transparent 95%, #a0620060 100%), linear-gradient(2deg, transparent 5%, #a0620060 10%, transparent 20%, #a0620060 25%, transparent 35%, #a0620060 40%, transparent 50%, #a0620060 55%, transparent 65%, #a0620060 70%, transparent 80%, #a0620060 85%, transparent 95%, #a0620060 100%);
-}
-.x-body-part .x-coxa {
-  box-shadow: inset 1px -3px 10px -1px rgba(255, 93, 18, 0.875), 2px 2px 5px -1px rgba(255, 93, 18, 0.5);
+  content: none;
 }
 .x-body-part .x-femur {
-  height: calc(100% + 2px);
+  height: calc(3.76em + 2px);
   left: 55%;
   top: 0;
-  transform: rotate(-80deg);
+  -webkit-transform: rotate(-80deg) translateZ(0);
+  -moz-transform: rotate(-80deg) translateZ(0);
+  -ms-transform: rotate(-80deg) translateZ(0);
+  -o-transform: rotate(-80deg) translateZ(0);
+  transform: rotate(-80deg) translateZ(0);
   transform-origin: 5% 50%;
-  width: calc(350% + 2px);
+  width: calc(16.18em + 2px);
   border-radius: 50% 60% 2em 3em;
+  will-change: width;
 }
 .x-body-part .x-patella {
-  transform: rotate(100deg);
-  width: calc(45% + 2px);
+  -webkit-transform: rotate(100deg) translateZ(0);
+  -moz-transform: rotate(100deg) translateZ(0);
+  -ms-transform: rotate(100deg) translateZ(0);
+  -o-transform: rotate(100deg) translateZ(0);
+  transform: rotate(100deg) translateZ(0);
+  width: calc(7.28em + 2px);
+  height: calc(3.668em + 2px);
+  will-change: width;
 }
 .x-body-part .x-tibia {
-  background: radial-gradient(circle at 0 0, #030c14 0%, #050517 65%, #3c546d 100%);
-  height: calc(100% + 2px);
+  background: rgba(255, 255, 255, 0.625);
+  height: calc(3.668em + 2px);
   top: 2.5%;
   left: 80%;
-  transform: rotate(15deg);
-  width: calc(150% + 2px);
+  -webkit-transform: rotate(15deg) translateZ(0);
+  -moz-transform: rotate(15deg) translateZ(0);
+  -ms-transform: rotate(15deg) translateZ(0);
+  -o-transform: rotate(15deg) translateZ(0);
+  transform: rotate(15deg) translateZ(0);
+  width: calc(10.92em + 2px);
+  will-change: width;
 }
 .x-body-part .x-metatarsus {
   left: 92.5%;
-  height: calc(80% + 2px);
-  transform: rotate(25deg);
-  width: calc(95% + 2px);
+  height: calc(2.972em + 2px);
+  -webkit-transform: rotate(25deg) translateZ(0);
+  -moz-transform: rotate(25deg) translateZ(0);
+  -ms-transform: rotate(25deg) translateZ(0);
+  -o-transform: rotate(25deg) translateZ(0);
+  transform: rotate(25deg) translateZ(0);
+  width: calc(10.38em + 2px);
 }
 .x-body-part .x-tarsus {
   border-radius: 2em 0.25em 100% 1em;
-  height: calc(62.5% + 2px);
+  height: calc(1.934em + 2px);
   left: 95%;
   top: 20%;
-  transform: rotate(-10deg);
-  width: calc(60% + 2px);
-  box-shadow: 1px -1px 5px 1px rgba(255, 93, 18, 0.5), 0 0 5px #000, inset 4px 3px 7px -1px rgba(255, 116, 24, 0.625), inset -4px -3px 11px 3px rgba(0, 0, 0, 0.75), inset 3px 2px 7px rgba(33, 71, 141, 0.25), 0 0 4px rgba(101, 143, 210, 0.5);
+  -webkit-transform: rotate(-10deg) translateZ(0);
+  -moz-transform: rotate(-10deg) translateZ(0);
+  -ms-transform: rotate(-10deg) translateZ(0);
+  -o-transform: rotate(-10deg) translateZ(0);
+  transform: rotate(-10deg) translateZ(0);
+  width: calc(6.22em + 2px);
 }
 .x-body-part .x-leg.leg-1,
 .x-body-part .x-leg.leg-5 {
-  transform: rotate(20deg);
+  -webkit-transform: rotate(20deg) translateZ(0);
+  -moz-transform: rotate(20deg) translateZ(0);
+  -ms-transform: rotate(20deg) translateZ(0);
+  -o-transform: rotate(20deg) translateZ(0);
+  transform: rotate(20deg) translateZ(0);
 }
 .x-body-part .x-leg.leg-1 .x-femur,
 .x-body-part .x-leg.leg-5 .x-femur {
-  transform: rotate(-80deg);
+  -webkit-transform: rotate(-80deg) translateZ(0);
+  -moz-transform: rotate(-80deg) translateZ(0);
+  -ms-transform: rotate(-80deg) translateZ(0);
+  -o-transform: rotate(-80deg) translateZ(0);
+  transform: rotate(-80deg) translateZ(0);
 }
 .x-body-part .x-leg.leg-1 .x-patella,
 .x-body-part .x-leg.leg-5 .x-patella {
-  transform: rotate(71deg);
+  -webkit-transform: rotate(71deg) translateZ(0);
+  -moz-transform: rotate(71deg) translateZ(0);
+  -ms-transform: rotate(71deg) translateZ(0);
+  -o-transform: rotate(71deg) translateZ(0);
+  transform: rotate(71deg) translateZ(0);
 }
 .x-body-part .x-leg.leg-1 .x-metatarsus,
 .x-body-part .x-leg.leg-5 .x-metatarsus {
-  transform: rotate(60deg);
+  -webkit-transform: rotate(60deg) translateZ(0);
+  -moz-transform: rotate(60deg) translateZ(0);
+  -ms-transform: rotate(60deg) translateZ(0);
+  -o-transform: rotate(60deg) translateZ(0);
+  transform: rotate(60deg) translateZ(0);
 }
 .x-body-part .x-leg.leg-1 .x-tarsus,
 .x-body-part .x-leg.leg-5 .x-tarsus {
-  transform: rotate(-20deg);
+  -webkit-transform: rotate(-20deg) translateZ(0);
+  -moz-transform: rotate(-20deg) translateZ(0);
+  -ms-transform: rotate(-20deg) translateZ(0);
+  -o-transform: rotate(-20deg) translateZ(0);
+  transform: rotate(-20deg) translateZ(0);
 }
 .x-body-part .x-leg.leg-5 {
-  transform: rotate(21.5deg);
+  -webkit-transform: rotate(21.5deg) translateZ(0);
+  -moz-transform: rotate(21.5deg) translateZ(0);
+  -ms-transform: rotate(21.5deg) translateZ(0);
+  -o-transform: rotate(21.5deg) translateZ(0);
+  transform: rotate(21.5deg) translateZ(0);
 }
 .x-body-part .x-leg.leg-5 .x-femur {
-  transform: rotate(-77.5deg);
+  -webkit-transform: rotate(-77.5deg) translateZ(0);
+  -moz-transform: rotate(-77.5deg) translateZ(0);
+  -ms-transform: rotate(-77.5deg) translateZ(0);
+  -o-transform: rotate(-77.5deg) translateZ(0);
+  transform: rotate(-77.5deg) translateZ(0);
 }
 .x-body-part .x-leg.leg-5 .x-patella {
-  transform: rotate(65deg);
+  -webkit-transform: rotate(65deg) translateZ(0);
+  -moz-transform: rotate(65deg) translateZ(0);
+  -ms-transform: rotate(65deg) translateZ(0);
+  -o-transform: rotate(65deg) translateZ(0);
+  transform: rotate(65deg) translateZ(0);
 }
 .x-body-part .x-leg.leg-5 .x-metatarsus {
-  transform: rotate(55deg);
+  -webkit-transform: rotate(55deg) translateZ(0);
+  -moz-transform: rotate(55deg) translateZ(0);
+  -ms-transform: rotate(55deg) translateZ(0);
+  -o-transform: rotate(55deg) translateZ(0);
+  transform: rotate(55deg) translateZ(0);
 }
 .x-body-part .x-leg.leg-5 .x-tarsus {
-  transform: rotate(-25deg);
+  -webkit-transform: rotate(-25deg) translateZ(0);
+  -moz-transform: rotate(-25deg) translateZ(0);
+  -ms-transform: rotate(-25deg) translateZ(0);
+  -o-transform: rotate(-25deg) translateZ(0);
+  transform: rotate(-25deg) translateZ(0);
 }
 .x-body-part .x-leg.leg-2,
 .x-body-part .x-leg.leg-6 {
-  top: 67.5%;
+  top: 62.5%;
   left: 45%;
-  transform: rotate(5deg);
+  -webkit-transform: rotate(5deg) translateZ(0);
+  -moz-transform: rotate(5deg) translateZ(0);
+  -ms-transform: rotate(5deg) translateZ(0);
+  -o-transform: rotate(5deg) translateZ(0);
+  transform: rotate(5deg) translateZ(0);
 }
 .x-body-part .x-leg.leg-2 .x-femur,
 .x-body-part .x-leg.leg-6 .x-femur {
-  transform: rotate(-80deg);
+  -webkit-transform: rotate(-80deg) translateZ(0);
+  -moz-transform: rotate(-80deg) translateZ(0);
+  -ms-transform: rotate(-80deg) translateZ(0);
+  -o-transform: rotate(-80deg) translateZ(0);
+  transform: rotate(-80deg) translateZ(0);
 }
 .x-body-part .x-leg.leg-2 .x-patella,
 .x-body-part .x-leg.leg-6 .x-patella {
-  transform: rotate(95deg);
+  -webkit-transform: rotate(95deg) translateZ(0);
+  -moz-transform: rotate(95deg) translateZ(0);
+  -ms-transform: rotate(95deg) translateZ(0);
+  -o-transform: rotate(95deg) translateZ(0);
+  transform: rotate(95deg) translateZ(0);
 }
 .x-body-part .x-leg.leg-2 .x-metatarsus,
 .x-body-part .x-leg.leg-6 .x-metatarsus {
-  transform: rotate(60deg);
+  -webkit-transform: rotate(60deg) translateZ(0);
+  -moz-transform: rotate(60deg) translateZ(0);
+  -ms-transform: rotate(60deg) translateZ(0);
+  -o-transform: rotate(60deg) translateZ(0);
+  transform: rotate(60deg) translateZ(0);
 }
 .x-body-part .x-leg.leg-2 .x-tarsus,
 .x-body-part .x-leg.leg-6 .x-tarsus {
-  transform: rotate(-30deg);
+  -webkit-transform: rotate(-30deg) translateZ(0);
+  -moz-transform: rotate(-30deg) translateZ(0);
+  -ms-transform: rotate(-30deg) translateZ(0);
+  -o-transform: rotate(-30deg) translateZ(0);
+  transform: rotate(-30deg) translateZ(0);
 }
 .x-body-part .x-leg.leg-6 {
-  transform: rotate(5deg);
+  -webkit-transform: rotate(5deg) translateZ(0);
+  -moz-transform: rotate(5deg) translateZ(0);
+  -ms-transform: rotate(5deg) translateZ(0);
+  -o-transform: rotate(5deg) translateZ(0);
+  transform: rotate(5deg) translateZ(0);
 }
 .x-body-part .x-leg.leg-6 .x-femur {
-  transform: rotate(-75.5deg);
+  -webkit-transform: rotate(-75.5deg) translateZ(0);
+  -moz-transform: rotate(-75.5deg) translateZ(0);
+  -ms-transform: rotate(-75.5deg) translateZ(0);
+  -o-transform: rotate(-75.5deg) translateZ(0);
+  transform: rotate(-75.5deg) translateZ(0);
 }
 .x-body-part .x-leg.leg-6 .x-patella {
-  transform: rotate(80.5deg);
+  -webkit-transform: rotate(80.5deg) translateZ(0);
+  -moz-transform: rotate(80.5deg) translateZ(0);
+  -ms-transform: rotate(80.5deg) translateZ(0);
+  -o-transform: rotate(80.5deg) translateZ(0);
+  transform: rotate(80.5deg) translateZ(0);
 }
 .x-body-part .x-leg.leg-6 .x-metatarsus {
-  transform: rotate(65deg);
+  -webkit-transform: rotate(65deg) translateZ(0);
+  -moz-transform: rotate(65deg) translateZ(0);
+  -ms-transform: rotate(65deg) translateZ(0);
+  -o-transform: rotate(65deg) translateZ(0);
+  transform: rotate(65deg) translateZ(0);
 }
 .x-body-part .x-leg.leg-6 .x-tarsus {
-  transform: rotate(-25deg);
+  -webkit-transform: rotate(-25deg) translateZ(0);
+  -moz-transform: rotate(-25deg) translateZ(0);
+  -ms-transform: rotate(-25deg) translateZ(0);
+  -o-transform: rotate(-25deg) translateZ(0);
+  transform: rotate(-25deg) translateZ(0);
 }
 .x-body-part .x-leg.leg-3,
 .x-body-part .x-leg.leg-7 {
-  top: 70%;
+  top: 65%;
   left: 22.5%;
-  transform: rotateY(180deg) rotateZ(20deg);
+  -webkit-transform: rotateY(180deg) rotateZ(20deg) translateZ(0);
+  -moz-transform: rotateY(180deg) rotateZ(20deg) translateZ(0);
+  -ms-transform: rotateY(180deg) rotateZ(20deg) translateZ(0);
+  -o-transform: rotateY(180deg) rotateZ(20deg) translateZ(0);
+  transform: rotateY(180deg) rotateZ(20deg) translateZ(0);
 }
 .x-body-part .x-leg.leg-3 .x-femur,
 .x-body-part .x-leg.leg-7 .x-femur {
-  transform: rotate(-115deg);
+  -webkit-transform: rotate(-115deg) translateZ(0);
+  -moz-transform: rotate(-115deg) translateZ(0);
+  -ms-transform: rotate(-115deg) translateZ(0);
+  -o-transform: rotate(-115deg) translateZ(0);
+  transform: rotate(-115deg) translateZ(0);
 }
 .x-body-part .x-leg.leg-3 .x-patella,
 .x-body-part .x-leg.leg-7 .x-patella {
-  transform: rotate(120deg);
+  -webkit-transform: rotate(120deg) translateZ(0);
+  -moz-transform: rotate(120deg) translateZ(0);
+  -ms-transform: rotate(120deg) translateZ(0);
+  -o-transform: rotate(120deg) translateZ(0);
+  transform: rotate(120deg) translateZ(0);
 }
 .x-body-part .x-leg.leg-3 .x-metatarsus,
 .x-body-part .x-leg.leg-7 .x-metatarsus {
-  transform: rotate(60deg);
+  -webkit-transform: rotate(60deg) translateZ(0);
+  -moz-transform: rotate(60deg) translateZ(0);
+  -ms-transform: rotate(60deg) translateZ(0);
+  -o-transform: rotate(60deg) translateZ(0);
+  transform: rotate(60deg) translateZ(0);
 }
 .x-body-part .x-leg.leg-3 .x-tarsus,
 .x-body-part .x-leg.leg-7 .x-tarsus {
-  transform: rotate(-35deg);
+  -webkit-transform: rotate(-35deg) translateZ(0);
+  -moz-transform: rotate(-35deg) translateZ(0);
+  -ms-transform: rotate(-35deg) translateZ(0);
+  -o-transform: rotate(-35deg) translateZ(0);
+  transform: rotate(-35deg) translateZ(0);
 }
 .x-body-part .x-leg.leg-7 {
-  transform: rotateY(180deg) rotateZ(15deg);
+  -webkit-transform: rotateY(180deg) rotateZ(15deg) translateZ(0);
+  -moz-transform: rotateY(180deg) rotateZ(15deg) translateZ(0);
+  -ms-transform: rotateY(180deg) rotateZ(15deg) translateZ(0);
+  -o-transform: rotateY(180deg) rotateZ(15deg) translateZ(0);
+  transform: rotateY(180deg) rotateZ(15deg) translateZ(0);
 }
 .x-body-part .x-leg.leg-7 .x-femur {
-  transform: rotate(-124deg);
+  -webkit-transform: rotate(-124deg) translateZ(0);
+  -moz-transform: rotate(-124deg) translateZ(0);
+  -ms-transform: rotate(-124deg) translateZ(0);
+  -o-transform: rotate(-124deg) translateZ(0);
+  transform: rotate(-124deg) translateZ(0);
 }
 .x-body-part .x-leg.leg-7 .x-patella {
-  transform: rotate(122deg);
+  -webkit-transform: rotate(122deg) translateZ(0);
+  -moz-transform: rotate(122deg) translateZ(0);
+  -ms-transform: rotate(122deg) translateZ(0);
+  -o-transform: rotate(122deg) translateZ(0);
+  transform: rotate(122deg) translateZ(0);
 }
 .x-body-part .x-leg.leg-7 .x-metatarsus {
-  transform: rotate(75deg);
+  -webkit-transform: rotate(75deg) translateZ(0);
+  -moz-transform: rotate(75deg) translateZ(0);
+  -ms-transform: rotate(75deg) translateZ(0);
+  -o-transform: rotate(75deg) translateZ(0);
+  transform: rotate(75deg) translateZ(0);
 }
 .x-body-part .x-leg.leg-7 .x-tarsus {
-  transform: rotate(-40deg);
+  -webkit-transform: rotate(-40deg) translateZ(0);
+  -moz-transform: rotate(-40deg) translateZ(0);
+  -ms-transform: rotate(-40deg) translateZ(0);
+  -o-transform: rotate(-40deg) translateZ(0);
+  transform: rotate(-40deg) translateZ(0);
 }
 .x-body-part .x-leg.leg-4,
 .x-body-part .x-leg.leg-8 {
-  top: 75%;
+  top: 70%;
   left: 5%;
-  transform: rotateY(180deg) rotateZ(2deg);
+  -webkit-transform: rotateY(180deg) rotateZ(2deg) translateZ(0);
+  -moz-transform: rotateY(180deg) rotateZ(2deg) translateZ(0);
+  -ms-transform: rotateY(180deg) rotateZ(2deg) translateZ(0);
+  -o-transform: rotateY(180deg) rotateZ(2deg) translateZ(0);
+  transform: rotateY(180deg) rotateZ(2deg) translateZ(0);
 }
 .x-body-part .x-leg.leg-4 .x-patella,
 .x-body-part .x-leg.leg-8 .x-patella {
-  transform: rotate(82.5deg);
+  -webkit-transform: rotate(82.5deg) translateZ(0);
+  -moz-transform: rotate(82.5deg) translateZ(0);
+  -ms-transform: rotate(82.5deg) translateZ(0);
+  -o-transform: rotate(82.5deg) translateZ(0);
+  transform: rotate(82.5deg) translateZ(0);
 }
 .x-body-part .x-leg.leg-4 .x-metatarsus,
 .x-body-part .x-leg.leg-8 .x-metatarsus {
-  transform: rotate(50.5deg);
+  -webkit-transform: rotate(50.5deg) translateZ(0);
+  -moz-transform: rotate(50.5deg) translateZ(0);
+  -ms-transform: rotate(50.5deg) translateZ(0);
+  -o-transform: rotate(50.5deg) translateZ(0);
+  transform: rotate(50.5deg) translateZ(0);
 }
 .x-body-part .x-leg.leg-4 .x-tarsus,
 .x-body-part .x-leg.leg-8 .x-tarsus {
-  transform: rotate(-22.5deg);
+  -webkit-transform: rotate(-22.5deg) translateZ(0);
+  -moz-transform: rotate(-22.5deg) translateZ(0);
+  -ms-transform: rotate(-22.5deg) translateZ(0);
+  -o-transform: rotate(-22.5deg) translateZ(0);
+  transform: rotate(-22.5deg) translateZ(0);
+}
+.x-body-part .x-leg.leg-8 {
+  -webkit-transform: rotateY(180deg) rotate(0deg) translateZ(0);
+  -moz-transform: rotateY(180deg) rotate(0deg) translateZ(0);
+  -ms-transform: rotateY(180deg) rotate(0deg) translateZ(0);
+  -o-transform: rotateY(180deg) rotate(0deg) translateZ(0);
+  transform: rotateY(180deg) rotate(0deg) translateZ(0);
 }
 .x-body-part .x-leg.leg-8 .x-femur {
-  transform: rotate(-75deg);
+  -webkit-transform: rotate(-75deg) translateZ(0);
+  -moz-transform: rotate(-75deg) translateZ(0);
+  -ms-transform: rotate(-75deg) translateZ(0);
+  -o-transform: rotate(-75deg) translateZ(0);
+  transform: rotate(-75deg) translateZ(0);
 }
 .x-body-part .x-leg.leg-8 .x-patella {
-  transform: rotate(87.5deg);
+  -webkit-transform: rotate(87.5deg) translateZ(0);
+  -moz-transform: rotate(87.5deg) translateZ(0);
+  -ms-transform: rotate(87.5deg) translateZ(0);
+  -o-transform: rotate(87.5deg) translateZ(0);
+  transform: rotate(87.5deg) translateZ(0);
 }
 .x-body-part .x-leg.leg-8 .x-metatarsus {
-  transform: rotate(70.5deg);
+  -webkit-transform: rotate(70.5deg) translateZ(0);
+  -moz-transform: rotate(70.5deg) translateZ(0);
+  -ms-transform: rotate(70.5deg) translateZ(0);
+  -o-transform: rotate(70.5deg) translateZ(0);
+  transform: rotate(70.5deg) translateZ(0);
 }
 .x-body-part .x-leg.leg-8 .x-tarsus {
-  transform: rotate(-30deg);
+  -webkit-transform: rotate(-30deg) translateZ(0);
+  -moz-transform: rotate(-30deg) translateZ(0);
+  -ms-transform: rotate(-30deg) translateZ(0);
+  -o-transform: rotate(-30deg) translateZ(0);
+  transform: rotate(-30deg) translateZ(0);
 }
 .x-body-part .x-pedipalp {
   left: 92%;
-  top: 60%;
-  transform: rotate(-12deg);
-  width: calc(10.14em + 2px);
+  top: 55%;
+  -webkit-transform: rotate(-17deg) translateZ(0);
+  -moz-transform: rotate(-17deg) translateZ(0);
+  -ms-transform: rotate(-17deg) translateZ(0);
+  -o-transform: rotate(-17deg) translateZ(0);
+  transform: rotate(-17deg) translateZ(0);
+  width: calc(12.14em + 2px);
   height: calc(2.78em + 2px);
-  z-index: 4;
+  z-index: 5;
 }
 .x-body-part .x-pedipalp .x-leg-parts {
   border-radius: 40% 50% 35% 25%;
 }
 .x-body-part .x-pedipalp .x-coxa {
+  width: calc(3.642em + 2px);
+  height: calc(2.723em + 2px);
   border-radius: 50%;
 }
 .x-body-part .x-pedipalp .x-femur {
-  transform: rotate(-15deg);
+  width: calc(12.747em + 2px);
+  height: calc(2.723em + 2px);
+  -webkit-transform: rotate(-15deg) translateZ(0);
+  -moz-transform: rotate(-15deg) translateZ(0);
+  -ms-transform: rotate(-15deg) translateZ(0);
+  -o-transform: rotate(-15deg) translateZ(0);
+  transform: rotate(-15deg) translateZ(0);
 }
 .x-body-part .x-pedipalp .x-patella {
-  transform: rotate(100.5deg);
-  height: 95%;
+  width: calc(5.636em + 2px);
+  -webkit-transform: rotate(100.5deg) translateZ(0);
+  -moz-transform: rotate(100.5deg) translateZ(0);
+  -ms-transform: rotate(100.5deg) translateZ(0);
+  -o-transform: rotate(100.5deg) translateZ(0);
+  transform: rotate(100.5deg) translateZ(0);
+  height: calc(2.612em + 2px);
 }
 .x-body-part .x-pedipalp .x-tibia {
-  transform: rotate(11.5deg);
+  width: calc(8.4em + 2px);
+  height: calc(2.512em + 2px);
+  -webkit-transform: rotate(11.5deg) translateZ(0);
+  -moz-transform: rotate(11.5deg) translateZ(0);
+  -ms-transform: rotate(11.5deg) translateZ(0);
+  -o-transform: rotate(11.5deg) translateZ(0);
+  transform: rotate(11.5deg) translateZ(0);
   top: -5%;
 }
 .x-body-part .x-pedipalp .x-metatarsus {
-  transform: rotate(-30deg);
-  width: calc(65% + 2px);
-  height: calc(70% + 2px);
+  -webkit-transform: rotate(-30deg) translateZ(0);
+  -moz-transform: rotate(-30deg) translateZ(0);
+  -ms-transform: rotate(-30deg) translateZ(0);
+  -o-transform: rotate(-30deg) translateZ(0);
+  transform: rotate(-30deg) translateZ(0);
+  width: calc(5.29em + 2px);
+  height: calc(1.778em + 2px);
   border-radius: 1em 50% 80% 30%;
 }
 .x-body-part .x-pedipalp.pedipalp-2 {
-  width: calc(10.04em + 2px) !important;
-  height: calc(2.76em + 2px) !important;
+  font-size: 0.99em;
   left: 100%;
+  -webkit-transform: rotate(-17deg) translateZ(0);
+  -moz-transform: rotate(-17deg) translateZ(0);
+  -ms-transform: rotate(-17deg) translateZ(0);
+  -o-transform: rotate(-17deg) translateZ(0);
+  transform: rotate(-17deg) translateZ(0);
 }
 .x-body-part .x-pedipalp.pedipalp-2 .x-femur {
-  transform: rotate(-22.5deg);
+  -webkit-transform: rotate(-22.5deg) translateZ(0);
+  -moz-transform: rotate(-22.5deg) translateZ(0);
+  -ms-transform: rotate(-22.5deg) translateZ(0);
+  -o-transform: rotate(-22.5deg) translateZ(0);
+  transform: rotate(-22.5deg) translateZ(0);
 }
 .x-body-part .x-pedipalp.pedipalp-2 .x-patella {
-  transform: rotate(120deg);
+  -webkit-transform: rotate(120deg) translateZ(0);
+  -moz-transform: rotate(120deg) translateZ(0);
+  -ms-transform: rotate(120deg) translateZ(0);
+  -o-transform: rotate(120deg) translateZ(0);
+  transform: rotate(120deg) translateZ(0);
 }
 .x-body-part .x-pedipalp.pedipalp-2 .x-metatarsus {
-  transform: rotate(-30deg);
+  -webkit-transform: rotate(-30deg) translateZ(0);
+  -moz-transform: rotate(-30deg) translateZ(0);
+  -ms-transform: rotate(-30deg) translateZ(0);
+  -o-transform: rotate(-30deg) translateZ(0);
+  transform: rotate(-30deg) translateZ(0);
+}
+
+.moth-wrapper {
+  font-size: 1.25vw;
+  right: -13vw;
+  bottom: -29vh;
+  position: absolute;
+  width: 44vw;
+  height: 29.425vw;
+  transform-origin: 50% 50%;
+  transform: rotateZ(-20deg) scale(0.3375, 0.375);
+}
+@media screen and (max-aspect-ratio: 100/101) {
+  .moth-wrapper {
+    right: -5vw;
+    bottom: -6vh;
+    transform: rotateZ(-20deg) scale(0.9, 1);
+  }
+  .moth-wrapper .m-antennae div {
+    width: 3em;
+    height: 0.375em;
+  }
+}
+@media screen and (min-aspect-ratio: 30/41) and (max-aspect-ratio: 100/101) {
+  .moth-wrapper {
+    right: -10vw;
+    bottom: -10vh;
+    transform: rotateZ(-20deg) scale(0.45, 0.5);
+  }
+}
+@media screen and (max-aspect-ratio: 41/30) and (min-aspect-ratio: 101/100) {
+  .moth-wrapper {
+    bottom: -19vh;
+    transform: rotateZ(-20deg) scale(0.3375, 0.375);
+  }
+}
+
+.moth {
+  position: absolute;
+  left: 45%;
+  top: 49%;
+  width: 10%;
+  height: 13%;
+  cursor: pointer;
+}
+.moth * {
+  position: absolute;
+}
+.moth .m-thorax div,
+.moth .m-abdomen,
+.moth .m-fore-wing div,
+.moth .m-hind-wing div {
+  transition: background 1.5s ease-out;
+}
+.moth .m-thorax:hover div,
+.moth .m-abdomen:hover,
+.moth .m-fore-wing:hover div,
+.moth .m-hind-wing:hover div {
+  background: #3500d3 !important;
+  transition: background 0.125s ease;
+}
+
+.m-thorax {
+  left: 5%;
+  width: 90%;
+  height: 100%;
+  border-radius: 20% 40% 50% 40%;
+  background: rgba(255, 255, 255, 0.75);
+  transform: rotateZ(45deg);
+  box-sizing: border-box;
+  border: 3px dashed white;
+}
+.m-thorax .pattern {
+  height: 2em;
+  width: 2em;
+  left: 0;
+  top: 2%;
+  border-radius: 40% 20% 80% 20%;
+  background: rgba(255, 255, 255, 0.75);
+}
+
+.m-antennae {
+  width: 100%;
+  height: 100%;
+}
+.m-antennae div {
+  width: 2.5em;
+  height: 0.2em;
+  background: rgba(255, 255, 255, 0.75);
+  transform: rotate(22deg);
+  left: -57%;
+  top: 2%;
+  border-radius: 10%;
+}
+.m-antennae div::before {
+  content: "";
+  position: absolute;
+  width: 70%;
+  height: 120%;
+  right: -60%;
+  top: 0;
+  background: rgba(255, 255, 255, 0.75);
+  transform-origin: 5% 50%;
+  transform: rotate(-20deg);
+}
+.m-antennae div::after {
+  content: "";
+  position: absolute;
+  width: 80%;
+  height: 70%;
+  left: -70%;
+  top: 0;
+  background: rgba(255, 255, 255, 0.75);
+  transform-origin: 95% 50%;
+  transform: rotate(20deg);
+}
+
+.m-abdomen {
+  width: 60%;
+  left: 20%;
+  height: 150%;
+  bottom: -125%;
+  border-radius: 70% 70% 70% 70%;
+  background: rgba(255, 255, 255, 0.75);
+  border: 3px dashed white;
+  box-sizing: border-box;
+}
+
+.m-fore-wing {
+  width: 100%;
+  height: 100%;
+  transform-origin: 50% -10%;
+  opacity: 0.75;
+  transform: rotate(-85deg);
+}
+
+.apex {
+  width: 200%;
+  height: 300%;
+  left: -290%;
+  top: -260%;
+  border-radius: 35% 0 0 0;
+  border-top-right-radius: 120% 100%;
+  transform: rotateX(20deg) rotateY(22.5deg) rotateZ(-20deg);
+  background: #fff;
+}
+
+.costal-margin {
+  width: 160%;
+  height: 250%;
+  left: -182%;
+  top: -130%;
+  border-radius: 10% 0 20% 10em;
+  background: #fff;
+  transform: rotate(-45deg);
+}
+
+.outer-margin {
+  width: 220%;
+  height: 180%;
+  left: -290%;
+  top: -110%;
+  border-radius: 25% 20% 0 20%;
+  border-bottom-left-radius: 45% 90%;
+  background: #fff;
+  transform: rotate(5deg);
+}
+
+.m-hind-wing {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  backface-visibility: visible;
+  perspective-origin: -200% 200%;
+  transform-style: preserve-3d;
+  perspective: 2.75em;
+  transform-origin: 50% 0%;
+  transform: rotate(-40deg);
+}
+.m-hind-wing div {
+  width: 435%;
+  height: 145%;
+  top: 0;
+  left: -257%;
+  border-radius: 0 100% 30% 0;
+  border-top-left-radius: 15% 45%;
+  border-bottom-left-radius: 25% 90%;
+  background: rgba(255, 255, 255, 0.75);
+  transform: rotateX(6deg) rotateY(10deg) rotateZ(-39deg);
+}
+
+.m-antennae-2 {
+  transform: rotateY(180deg) rotateZ(82deg);
+}
+
+.m-fore-wing-2 {
+  transform: rotateY(180deg) rotateZ(-88deg);
+}
+
+.m-hind-wing-2 {
+  transform: rotateY(180deg) rotateZ(-42deg);
+}
+
+.student-feedback__slider {
+  margin-bottom: 4em !important;
+}
+.student-feedback__slider.contain {
+  width: 100%;
+}
+.student-feedback__slider p {
+  max-width: unset;
+}
+.student-feedback__slider + p {
+  margin-bottom: 4em;
+}
+.student-feedback__slider .slick-slider {
+  width: calc(100% + 80px) !important;
+  left: -40px !important;
+}
+.student-feedback__slider .slick-arrow.slick-prev {
+  left: -15px !important;
+  z-index: 100;
+}
+.student-feedback__slider .slick-arrow.slick-next {
+  right: -15px !important;
+  z-index: 100;
+}
+.student-feedback__slider.small-screen .slick-arrow.slick-prev {
+  left: 35px !important;
+}
+.student-feedback__slider.small-screen .slick-arrow.slick-next {
+  right: 35px !important;
+}
+.student-feedback__slider .slick-list {
+  padding-bottom: 10px;
+}
+.student-feedback__slider .slick-dots {
+  display: block !important;
+  width: 60% !important;
+  padding: 0 !important;
+  right: 0 !important;
+  left: 0 !important;
+  height: 40px;
+}
+.student-feedback__slider .slick-dots li,
+.student-feedback__slider .slick-dots button {
+  width: 10px !important;
+  height: 10px !important;
+}
+.student-feedback__slider .slick-dots button {
+  padding: 1px !important;
+  box-sizing: border-box;
+}
+.student-feedback__slider .slick-dots button::before {
+  content: "" !important;
+  border-radius: 50%;
+  opacity: 0.5 !important;
+  background-color: #3500d3;
+  width: 8px !important;
+  height: 8px !important;
+}
+.student-feedback__slider .slick-dots .slick-active button::before {
+  background-color: white !important;
+  opacity: 1 !important;
+  box-shadow: 0 0 3px 1px #3500d3;
+}
+.student-feedback__slider .student-feedback__wrapper {
+  margin: 10px 60px;
+  width: calc(100% - 120px) !important;
+  outline: none !important;
+}
+.student-feedback__slider .student-feedback__wrapper .big {
+  font-size: 1.75em;
+  line-height: 0.75em;
+  position: relative;
+  top: 0.25em;
+  color: #3500d3;
+}
+.student-feedback__slider .student-feedback__wrapper .faint {
+  opacity: 0.5;
+}
+.student-feedback__slider .student-feedback__wrapper .student-feedback {
+  width: 100%;
+  text-align: center;
+  margin: 0;
+  padding: 10px 0;
+  box-sizing: border-box;
+}
+.student-feedback__slider .student-feedback__wrapper .student-name {
+  color: #3500d3;
+  white-space: nowrap;
+}
+.student-feedback__slider .student-feedback__wrapper .student-name::before {
+  content: " ";
 }
 
 body {
