@@ -1,0 +1,77 @@
+<!--
+ nortonCoreBanners - An HTML banner
+ @version v1.0.0
+ @date 11-9-2017 at 4:15:43
+ -->
+<!DOCTYPE html><html lang="en-us" dir="ltr"><head><meta charset="utf-8"><meta name="viewport" content="initial-scale=1"><meta http-equiv="x-ua-compatible" content="ie=edge"><title>nortonCoreBanners</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <style>html{-webkit-tap-highlight-color:transparent;text-rendering:optimizeLegibility;-webkit-touch-callout:none}body,body *{border:0;font:100%/1.5 Arial,sans-serif;margin:0;outline:0;padding:0;vertical-align:baseline}#container-dc{background-color:#fff;border:1px solid #666;box-sizing:border-box;height:250px;left:0;margin:auto;opacity:0;overflow:hidden;position:absolute;top:0;-moz-transform-origin:0 0;-ms-transform-origin:0 0;-o-transform-origin:0 0;-webkit-transform-origin:0 0;width:300px}#content-ad{background:#fff;height:250px;left:-1px;position:absolute;top:-1px;width:300px;z-index:100}#background-exit{background:url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7) 0 0 repeat;cursor:pointer;height:100%;left:0;position:absolute;top:0;width:100%;z-index:400}.abs{height:100%;left:0;position:absolute;top:0;width:100%}#filmstrip-wrapper{height:170px;left:-1px;overflow:hidden;position:absolute;top:37px;width:302px}#filmstrip{height:2550px;left:0;position:absolute;top:0;width:906px}#shine-wrapper{height:22px;left:180px;overflow:hidden;position:absolute;top:218px;width:104px}#shine{height:25px;left:-150px;opacity:.8;position:absolute;top:0;width:150px}#copy1,#copy2,#ribbon{visibility:hidden}
+.description {
+            position: absolute;
+            width: 300px;
+            height: 250px;
+            z-index: 700;
+            box-sizing: border-box;
+            padding: 1.5em;
+            background: linear-gradient(45deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.90) 85%, rgba(0,0,0,0.35) 85%, rgba(0,0,0,0.35) 100%);
+            color: #fff;
+            cursor: pointer;
+            opacity: 0;
+        }
+        .description-body {
+            font-family: 'Montserrat', Helvetica, sans-serif;
+            width: 80%;
+            font-size: 1em
+        }
+        .description .fa {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            padding: 1.5em;
+        }
+        </style><script>var clickTag="https://www.google.com/"</script></head><body><div id="container-dc"><div id="content-ad"><div class="description">
+                <p class="description-body">Created the filmstrip from a video campaign.</p>
+                <i class="fa fa-redo"></i>
+            </div><div id="filmstrip-wrapper"><img id="filmstrip" src="./filmstrip.jpg" alt=""></div><img id="partial-shadow-mask" class="abs" src="./partial-shadow-mask.png" alt=""> <img class="abs" src="./winter-mask.png" alt=""> <img id="blur" class="abs" src="./background-mask.jpg" alt=""> <img id="ribbon" class="abs" src="./ribbon.jpg" alt=""> <img id="copy1" class="abs" src="./copy1.png" alt=""> <img id="copy2" class="abs" src="./copy2.png" alt=""><div id="shine-wrapper"><img id="shine" src="./shine.png" alt=""></div></div><a href="javascript:window.open(window.clickTag); void(0);" id="background-exit"></a></div><script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
+            <script>!function(e,t){
+              "use strict";
+              function a(){
+                TweenMax.set(filmstrip,{y:-(p%m*d),x:-(l*Math.floor(p/m))}),
+                p++,
+                c>p&&TweenMax.delayedCall(.04167,a)
+              }
+              function o(){
+                TweenLite.set("#shine",{x:0}),
+                TweenLite.to("#shine",1.25,{x:235,ease:Power1.easeOut,rotation:.01})
+              }
+              function n(){
+                o(),
+                f.addEventListener("mouseenter",o,!1)
+              }
+              function r(){
+                u.addLabel("start")
+                .addLabel("frame01","start")
+                .to("#copy1",2.25,{autoAlpha:1,ease:Power2.easeOut},"frame01+=0.75")
+                .staggerTo(["#copy1","#blur"],1.75,{autoAlpha:0,ease:Power2.easeInOut,rotation:.01},.25,"frame01+=2.5")
+                .add(a,"frame01+=4").to("#filmstrip-wrapper",3,{y:-10,ease:Power2.easeInOut,rotation:.01},"frame01+=3.75")
+                .addLabel("frame02","frame01+=4.25").to(["#copy2","#ribbon"],1.75,{autoAlpha:1,ease:Power2.easeOut},"frame02+=2")
+                .add(n,"frame02+=2.5")
+                .to('.description', 1, {
+                    autoAlpha: 1, ease: Power2.easeOut
+                }, '+=2.5')
+              }
+              function i(){
+                f.style.opacity=1,r()
+              }
+              var s=e.document,
+              f=s.getElementById("container-dc"),
+              u=new TimelineLite,
+              d=170,
+              l=302,
+              m=15,
+              c=45,
+              p=0;
+              e.init=i,
+              e.tl=u
+            }(this)
+            </script><script>window.onload=init</script></body></html>

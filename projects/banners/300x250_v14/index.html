@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en-us" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Standard Template</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <meta name="viewport" content="initial-scale=1">
+  
+  <link rel="stylesheet" href="./style.css">
+
+  <script>
+    var clickTag = 'https://www.google.com/';
+  </script>
+</head>
+
+<body>
+
+<div id="container_dc" class="abs">
+    <div class="description">
+        <p class="description-body">Developed a helper function to visualize and select the order in which background characters would fade away.</p>
+        <i class="fa fa-redo"></i>
+    </div>
+  <img src="./copy1.png" id="copy1" alt="More than 15000"/>
+  <img src="./copy2.png" id="copy2" alt="Only 5000"/>
+
+  <img src="./cta.png" id="cta" alt="Register now"/>
+  <img src="./cta-hover.png" id="cta-hover" alt="Register now"/>
+  <img src="./logo.png" id="logo" alt="UPMC Life changing medicine"/>
+
+  <img src="./copy3.png" id="copy3" alt="Save a life become a living liver donor"/>
+  <img src="./liver.png" id="liver" alt="Liver"/>
+
+  <div class="background" id="background">
+    <!--this block is filled with people by js function-->
+    <img class="highlighted-person" src="./highlighted-person.svg" id="highlighted-person" alt="Highlighted Person"/>
+  </div>
+
+  <a href="javascript:window.open(window.clickTag); void(0);" id="background_exit_dc" class="abs"></a>
+  <img src="./person.svg" style="opacity: 0" alt="Person"/>
+</div>
+
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
+<script src="./script.js"></script>
+
+<script>
+  window.onload = init;
+</script>
+</body>
+</html>

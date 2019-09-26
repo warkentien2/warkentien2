@@ -1,0 +1,483 @@
+<!doctype html>
+<html lang="en-us" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1">
+  
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>canon-print-without-problems-banners</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <style>
+    html {
+      -webkit-tap-highlight-color: transparent;
+      -webkit-touch-callout: none;
+      text-rendering: optimizeLegibility
+    }
+
+    body,
+    body * {
+      border: 0;
+      font: 100%/1.5 Arial, sans-serif;
+      margin: 0;
+      outline: 0;
+      padding: 0;
+      vertical-align: baseline
+    }
+
+    #container-dc {
+      background-color: #fff;
+      border: 1px solid #666;
+      box-sizing: border-box;
+      height: 250px;
+      left: 0;
+      margin: auto;
+      opacity: 0;
+      overflow: hidden;
+      position: absolute;
+      top: 0;
+      transform-origin: 0 0;
+      width: 300px
+    }
+
+    #content-ad {
+      background: #fff;
+      height: 250px;
+      left: -1px;
+      position: absolute;
+      top: -1px;
+      width: 300px;
+      z-index: 100
+    }
+
+    #background-exit {
+      background: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7) 0 0 repeat;
+      cursor: pointer;
+      height: 250px;
+      left: -1px;
+      position: absolute;
+      top: -1px;
+      width: 300px;
+      z-index: 400
+    }
+
+    .abs {
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%
+    }
+
+    .mask {
+      overflow: hidden
+    }
+
+    .abs-banner {
+      height: 250px;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 300px
+    }
+
+    #printer-top {
+      height: 50px
+    }
+
+    .page {
+      background-color: #f3f3f3;
+      box-shadow: 0 1px 3px 1px rgba(0, 0, 0, .1);
+      height: 219px;
+      left: 73px;
+      position: absolute;
+      top: 44px;
+      transform-origin: 50% 0;
+      width: 154px
+    }
+
+    .page .page-img {
+      height: 3066px
+    }
+
+    .page.page-interpolation {
+      box-shadow: none;
+      left: 0;
+      top: 0
+    }
+
+    #page-2-0 .page-2 {
+      top: -30%
+    }
+
+    #page-2 .page-img,
+    .page-2 .page-img {
+      top: -219px
+    }
+
+    #page-3-0 .page-3 {
+      top: 30%
+    }
+
+    #page-3 .page-img,
+    .page-3 .page-img {
+      top: -438px
+    }
+
+    #page-4-0 .page-4 {
+      top: 25%
+    }
+
+    #page-4-1 .page-4 {
+      top: 12%
+    }
+
+    #page-4 .page-img,
+    .page-4 .page-img {
+      top: -657px
+    }
+
+    #page-5 .page-img {
+      top: -876px
+    }
+
+    #page-6 .page-img {
+      top: -1095px
+    }
+
+    #page-7 .page-img {
+      top: -1314px
+    }
+
+    #page-8 .page-img {
+      top: -1095px
+    }
+
+    #page-9 .page-img {
+      top: -1533px
+    }
+
+    #page-10 .page-img {
+      top: -1752px
+    }
+
+    #page-11 .page-img {
+      top: -1971px
+    }
+
+    #page-12 .page-img {
+      top: -2190px
+    }
+
+    #page-13 .page-img {
+      top: -2409px
+    }
+
+    #page-14 .page-img {
+      top: -2628px
+    }
+
+    #page-15 .page-img {
+      top: -2847px
+    }
+
+    #final-page {
+      background-color: #020202;
+      box-shadow: none
+    }
+
+    #final-page #final-frame {
+      left: -73px;
+      top: -44px
+    }
+
+    #cta-glow {
+      opacity: 0
+    }
+
+    .spritesheet {
+      height: 750px
+    }
+
+    #canon-logo .spritesheet {
+      top: -250px
+    }
+
+    #final-copy .spritesheet {
+      top: -500px
+    }
+
+    .description {
+            position: absolute;
+            width: 300px;
+            height: 250px;
+            z-index: 700;
+            box-sizing: border-box;
+            padding: 1.5em;
+            background: linear-gradient(45deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.90) 85%, rgba(0,0,0,0.35) 85%, rgba(0,0,0,0.35) 100%);
+            color: #fff;
+            cursor: pointer;
+            opacity: 0;
+        }
+        .description-body {
+            font-family: 'Montserrat', Helvetica, sans-serif;
+            width: 80%;
+            font-size: 1em
+        }
+        .description .fa {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            padding: 1.5em;
+        }
+  </style>
+  <script>
+    var clickTag = "https://www.google.com/"
+  </script>
+</head>
+
+<body>
+  <div id="container-dc">
+    <div id="content-ad"><div class="description">
+        <p class="description-body">Asset magic: 20 high-density frames and project under 150 KB file size. Purposeful use of jank and rotation to mimic pages being printed.</p>
+        <i class="fa fa-redo"></i>
+    </div><img id="printer-bottom" class="abs" src="./printer.jpg" alt="">
+      <div id="page-1" class="page mask"><img class="abs page-img" src="./pages-10q.jpg" alt=""></div>
+      <div id="page-2-0" class="page mask">
+        <div class="page-2 page page-interpolation mask"><img class="abs page-img" src="./pages-10q.jpg" alt=""></div>
+      </div>
+      <div id="page-2" class="page mask"><img class="abs page-img" src="./pages-10q.jpg" alt=""></div>
+      <div id="page-3" class="page mask"><img class="abs page-img" src="./pages-10q.jpg" alt=""></div>
+      <div id="page-3-0" class="page mask">
+        <div class="page-3 page page-interpolation mask"><img class="abs page-img" src="./pages-10q.jpg" alt=""></div>
+      </div>
+      <div id="page-4-0" class="page mask">
+        <div class="page-4 page page-interpolation mask"><img class="abs page-img" src="./pages-10q.jpg" alt=""></div>
+      </div>
+      <div id="page-4-1" class="page mask">
+        <div class="page-4 page page-interpolation mask"><img class="abs page-img" src="./pages-10q.jpg" alt=""></div>
+      </div>
+      <div id="page-4" class="page mask"><img class="abs page-img" src="./pages-10q.jpg" alt=""></div>
+      <div id="page-5" class="page mask"><img class="abs page-img" src="./pages-10q.jpg" alt=""></div>
+      <div id="page-6" class="page mask"><img class="abs page-img" src="./pages-10q.jpg" alt=""></div>
+      <div id="page-7" class="page mask"><img class="abs page-img" src="./pages-10q.jpg" alt=""></div>
+      <div id="page-8" class="page mask"><img class="abs page-img" src="./pages-10q.jpg" alt=""></div>
+      <div id="page-9" class="page mask"><img class="abs page-img" src="./pages-10q.jpg" alt=""></div>
+      <div id="page-10" class="page mask"><img class="abs page-img" src="./pages-10q.jpg" alt=""></div>
+      <div id="page-11" class="page mask"><img class="abs page-img" src="./pages-10q.jpg" alt=""></div>
+      <div id="page-12" class="page mask"><img class="abs page-img" src="./pages-10q.jpg" alt=""></div>
+      <div id="page-13" class="page mask"><img class="abs page-img" src="./pages-10q.jpg" alt=""></div>
+      <div id="page-14" class="page mask"><img class="abs page-img" src="./pages-10q.jpg" alt=""> <img class="copy abs"
+          src="./page14-copy.png" alt=""></div>
+      <div id="page-15" class="page mask"><img class="abs page-img" src="./pages-10q.jpg" alt=""> <img class="copy abs"
+          src="./page15-copy.png" alt=""></div>
+      <div id="final-page" class="page mask">
+        <div id="final-frame" class="abs-banner"><img id="final-image" class="abs" src="./final-page.jpg" alt="">
+          <div id="cta-glow" class="abs">
+            <img class="abs" src="././cta-glow.png" alt="">
+          </div>
+          <div id="cta" class="abs">
+            <img class="abs" src="././cta.png" alt="">
+          </div>
+          <div id="final-copy" class="abs mask"><img class="abs spritesheet" src="./spritesheet.png" alt=""></div>
+        </div>
+      </div>
+      <div id="printer-shadow" class="abs mask"><img class="abs spritesheet" src="./spritesheet.png" alt=""></div>
+      <div id="printer-top" class="abs mask"><img class="abs-banner" src="./printer.jpg" alt="">
+        <div id="canon-logo" class="abs mask"><img class="abs spritesheet" src="./spritesheet.png" alt=""></div>
+      </div>
+    </div><a href="javascript:window.open(window.clickTag); void(0);" id="background-exit"></a>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
+  <script>
+    "use strict";
+    var tl = new TimelineLite,
+      printTl = new TimelineLite({
+        paused: !0
+      }),
+      bannerContainer = window.document.getElementById("container-dc"),
+      cta = window.document.getElementById("cta"),
+      ctaGlow = window.document.getElementById("cta-glow"),
+      pageOffsetX = 73,
+      pageOffsetY = 44;
+
+    function handleHover() {
+      bannerContainer.addEventListener("mouseenter", function () {
+        TweenMax.to(cta, .25, {
+          scale: 1.05,
+          rotation: .01
+        }), TweenMax.to(ctaGlow, .25, {
+          scale: 1.05,
+          rotation: .01,
+          autoAlpha: .1
+        })
+      }), bannerContainer.addEventListener("mouseleave", function () {
+        TweenMax.to(cta, .25, {
+          scale: 1
+        }), TweenMax.to(ctaGlow, .25, {
+          scale: 1,
+          autoAlpha: 0
+        })
+      })
+    }
+
+    function print() {
+      return printTl.to("#page-2-0", .12, {
+        yPercent: -93,
+        ease: Power1.easeIn
+      }).to("#page-2-0", .12, {
+        yPercent: -85,
+        ease: Power1.easeIn
+      }, "+=0.12").to("#page-2-0", .5, {
+        yPercent: 1.5,
+        rotation: -.25,
+        ease: SlowMo.ease.config(.5, .2, !1)
+      }).to("#page-2", .12, {
+        yPercent: -94,
+        ease: Power1.easeIn
+      }).to("#page-2", .12, {
+        yPercent: -85,
+        ease: Power1.easeIn
+      }, "+=0.12").to("#page-2", .5, {
+        yPercent: 1.5,
+        rotation: .5,
+        ease: SlowMo.ease.config(.5, .2, !1)
+      }).to("#page-3", .125, {
+        yPercent: -95,
+        ease: Power1.easeIn
+      }).to("#page-3", .25, {
+        yPercent: 1.5,
+        ease: SlowMo.ease.config(.5, .2, !1)
+      }).to("#page-3-0", .1, {
+        yPercent: -97,
+        ease: Power1.easeIn
+      }, "+=0.12").to("#page-3-0", .2, {
+        yPercent: 1.5,
+        ease: SlowMo.ease.config(.5, .2, !1)
+      }, "+=0.1").to("#page-4-0", .12, {
+        yPercent: 1.5,
+        rotation: -.25,
+        ease: SlowMo.ease.config(.5, .2, !1)
+      }, "+=0.12").to("#page-4-1", .12, {
+        yPercent: 1.5,
+        rotation: .25,
+        ease: SlowMo.ease.config(.5, .2, !1)
+      }, "+=0.12").to("#page-4", .12, {
+        yPercent: 1.5,
+        rotation: -.5,
+        ease: SlowMo.ease.config(.5, .2, !1)
+      }, "+=0.12").to("#page-5", .12, {
+        yPercent: 1.5,
+        ease: SlowMo.ease.config(.5, .2, !1)
+      }, "+=0.12").to("#page-6", .12, {
+        yPercent: 1.5,
+        rotation: .5,
+        ease: SlowMo.ease.config(.5, .2, !1)
+      }, "+=0.12").to("#page-7", .12, {
+        yPercent: 1.5,
+        ease: SlowMo.ease.config(.5, .2, !1)
+      }, "+=0.12").to("#page-8", .12, {
+        yPercent: 1.5,
+        rotation: -.5,
+        ease: Power2.easeIn
+      }, "+=0.62").to("#page-9", .12, {
+        yPercent: 1.5,
+        ease: SlowMo.ease.config(.5, .2, !1)
+      }, "+=0.12").to("#page-10", .12, {
+        yPercent: 1.5,
+        rotation: .5,
+        ease: SlowMo.ease.config(.5, .2, !1)
+      }, "+=0.12").to("#page-11", .12, {
+        yPercent: 1.5,
+        ease: SlowMo.ease.config(.5, .2, !1)
+      }, "+=0.12").to("#page-12", .12, {
+        yPercent: 1.5,
+        ease: Power2.easeIn
+      }, "+=0.12").to("#page-13", .2, {
+        yPercent: 1.5,
+        ease: SlowMo.ease.config(.5, .2, !1)
+      }, "+=0.12").to(["#page-1", "#page-2", "#page-2-0", "#page-3", "#page-3-0", "#page-4", "#page-4-0", "#page-4-1",
+        "#page-5", "#page-6", "#page-7", "#page-8", "#page-9", "#page-10", "#page-11", "#page-12", "#page-13"
+      ], .5, {
+        rotation: 0,
+        ease: Power1.easeOut
+      }, "-=0.375").to("#page-14", .125, {
+        yPercent: -93,
+        ease: Power1.easeIn
+      }, "-=0.125").to("#page-14", .125, {
+        yPercent: -85,
+        ease: Power1.easeIn
+      }, "+=0.125"), printTl
+    }
+
+    function startAnimation() {
+      tl.addLabel("setup").set(["#page-1", "#page-2-0", "#page-2", "#page-3-0", "#page-3", "#page-4-0", "#page-4-1",
+        "#page-4", "#page-5", "#page-6", "#page-7", "#page-8", "#page-9", "#page-10", "#page-11", "#page-12",
+        "#page-13", "#page-14", "#page-15", "#final-page"
+      ], {
+        yPercent: -98
+      }, "setup").set([cta, ctaGlow], {
+        transformOrigin: "66px 217px"
+      }, "setup").addLabel("frame01", "setup").to("#page-1", .12, {
+        yPercent: -90,
+        ease: Power1.easeIn
+      }, "frame01").to("#page-1", .2, {
+        yPercent: -83,
+        ease: Power1.easeIn
+      }, "+=0.12").to("#page-1", .7, {
+        yPercent: 1.5,
+        ease: SlowMo.ease.config(.5, .2, !1)
+      }).add(print().timeScale(1.5).play()).to("#page-14", .2, {
+        yPercent: 1.5,
+        ease: SlowMo.ease.config(.5, .2, !1)
+      }).to("#page-15", .125, {
+        yPercent: -90,
+        ease: Power1.easeIn
+      }, "+=0.75").to("#page-15", .25, {
+        yPercent: -83,
+        ease: Power1.easeIn
+      }, "+=0.125").to("#page-15", .5, {
+        yPercent: 1.5,
+        ease: SlowMo.ease.config(.5, .2, !1)
+      }).to("#final-page", .125, {
+        yPercent: -92,
+        ease: Power1.easeIn
+      }, "+=0.75").to("#final-page", .25, {
+        yPercent: -85,
+        ease: Power1.easeIn
+      }, "+=0.125").to("#final-page", .5, {
+        yPercent: 0,
+        ease: SlowMo.ease.config(.5, .2, !1)
+      }).set("#final-page", {
+        zIndex: 100
+      }).addLabel("frame02").set(["#page-1", "#page-2-0", "#page-2", "#page-3-0", "#page-3", "#page-4-0", "#page-4-1",
+        "#page-4", "#page-5", "#page-6", "#page-7", "#page-8", "#page-9", "#page-10", "#page-11", "#page-12",
+        "#page-13", "#page-14", "#page-15"
+      ], {
+        autoAlpha: 0
+      }, "frame02").add(handleHover, "frame02").to("#final-page", 1, {
+        x: -pageOffsetX,
+        y: -pageOffsetY,
+        width: "300px",
+        height: "250px",
+        ease: Power2.easeInOut,
+        rotation: .01
+      }, "frame02").to("#final-frame", 1, {
+        x: pageOffsetX,
+        y: pageOffsetY,
+        ease: Power2.easeInOut,
+        rotation: .01
+      }, "frame02")
+      .to('.description', 1, {
+                    autoAlpha: 1, ease: Power2.easeOut
+                }, '+=2.5')
+    }
+
+    function init() {
+      bannerContainer.style.opacity = 1, startAnimation()
+    }
+    window.onload = init
+  </script>
+</body>
+
+</html>

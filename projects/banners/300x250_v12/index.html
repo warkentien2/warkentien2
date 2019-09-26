@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1">
+    
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Elizabeth Arden</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <style>
+        html {
+            -webkit-tap-highlight-color: transparent;
+            -webkit-touch-callout: none;
+            text-rendering: optimizeLegibility
+        }
+        
+        body,
+        body * {
+            border: 0;
+            font: 100%/1.5 Arial, sans-serif;
+            margin: 0;
+            outline: 0;
+            padding: 0;
+            vertical-align: baseline
+        }
+        
+        #container-dc {
+            -moz-transform-origin: 0 0;
+            -ms-transform-origin: 0 0;
+            -o-transform-origin: 0 0;
+            -webkit-transform-origin: 0 0;
+            background-color: #fff;
+            border: 1px solid #666;
+            box-sizing: border-box;
+            height: 250px;
+            left: 0;
+            margin: auto;
+            opacity: 0;
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+            width: 300px
+        }
+        
+        #content-ad {
+            background: #fff;
+            height: 250px;
+            left: -1px;
+            position: absolute;
+            top: -1px;
+            width: 300px;
+            z-index: 100
+        }
+        
+        #background-exit {
+            background: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7) 0 0 repeat;
+            cursor: pointer;
+            height: 250px;
+            left: -1px;
+            position: absolute;
+            top: -1px;
+            width: 300px;
+            z-index: 400
+        }
+        
+        .mask {
+            overflow: hidden
+        }
+        
+        .full {
+            left: 0;
+            height: 100%;
+            position: absolute;
+            width: 100%;
+            top: 0
+        }
+        
+        .half {
+            left: 0;
+            height: 50%;
+            position: absolute;
+            width: 100%;
+            top: 0
+        }
+        
+        #images {
+            left: 50%;
+            width: 50%
+        }
+        
+        #images .half {
+            left: -100%;
+            width: 200%
+        }
+        
+        .copy-spritesheet-img {
+            height: 1000px
+        }
+        
+        #copy2 img {
+            top: -250px
+        }
+        
+        #copy3 img {
+            top: -500px
+        }
+        
+        #copy4 img {
+            top: -750px
+        }
+        
+        .lips-spritesheet-img,
+        .lipstick-spritesheet-img {
+            height: 500px
+        }
+        
+        .bottom-half {
+            top: 125px
+        }
+        
+        #lips2 img,
+        #lipstick2 img {
+            top: -125px
+        }
+        
+        #lips3 img,
+        #lipstick3 img {
+            top: -250px
+        }
+        
+        #lips4 img,
+        #lipstick4 img {
+            top: -375px
+        }
+        
+        #sheen-wrapper {
+            background-color: #d31145;
+            bottom: 49px;
+            height: 35px;
+            left: 18px;
+            position: absolute;
+            width: 134px
+        }
+        
+        #copy1,
+        #copy2,
+        #copy3 {
+            top: 38px
+        }
+        
+        #copy2,
+        #copy3,
+        #copy4,
+        #cta,
+        #final-bg,
+        #images,
+        #sheen-wrapper {
+            visibility: hidden
+        }
+
+        .description {
+            position: absolute;
+            width: 300px;
+            height: 250px;
+            z-index: 700;
+            box-sizing: border-box;
+            padding: 1.5em;
+            background: linear-gradient(45deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.90) 85%, rgba(0,0,0,0.35) 85%, rgba(0,0,0,0.35) 100%);
+            color: #fff;
+            cursor: pointer;
+            opacity: 0;
+        }
+        .description-body {
+            font-family: 'Montserrat', Helvetica, sans-serif;
+            width: 80%;
+            font-size: 1.25em;
+        }
+        .description .fa {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            padding: 1.5em;
+        }
+    </style>
+    <script>
+        var clickTag = "https://www.google.com/"
+    </script>
+</head>
+
+<body>
+    <div id="container-dc">
+        <div id="content-ad">
+                <div class="description">
+                        <p class="description-body">Layering.</p>
+                        <i class="fa fa-redo"></i>
+                    </div>
+            <div id="images" class="full mask">
+                <div id="lips4" class="half bottom-half mask"><img class="lips-spritesheet-img full" src="./lips-spritesheet.jpg" alt=""></div>
+                <div id="lipstick3" class="half bottom-half mask"><img class="lipstick-spritesheet-img full" src="./lipstick-spritesheet.jpg" alt=""></div>
+                <div id="lips2" class="half bottom-half mask"><img class="lips-spritesheet-img full" src="./lips-spritesheet.jpg" alt=""></div>
+                <div id="lipstick1" class="half bottom-half mask"><img class="lipstick-spritesheet-img full" src="./lipstick-spritesheet.jpg" alt=""></div>
+                <div id="lipstick4" class="half mask"><img class="lipstick-spritesheet-img full" src="./lipstick-spritesheet.jpg" alt=""></div>
+                <div id="lips3" class="half mask"><img class="lips-spritesheet-img full" src="./lips-spritesheet.jpg" alt=""></div>
+                <div id="lipstick2" class="half mask"><img class="lipstick-spritesheet-img full" src="./lipstick-spritesheet.jpg" alt=""></div>
+                <div id="lips1" class="half mask"><img class="lips-spritesheet-img full" src="./lips-spritesheet.jpg" alt=""></div>
+            </div><img id="bg" class="full" src="./bg.jpg" alt=""> <img id="final-bg" class="full" src="./final-bg.jpg" alt=""> <img id="logo" class="full" src="./logo.png" alt="">
+            <div id="copy1" class="full"><img class="copy-spritesheet-img full" src="./copy-spritesheet.png" alt=""></div>
+            <div id="copy2" class="full"><img class="copy-spritesheet-img full" src="./copy-spritesheet.png" alt=""></div>
+            <div id="copy3" class="full"><img class="copy-spritesheet-img full" src="./copy-spritesheet.png" alt=""></div>
+            <div id="copy4" class="full"><img class="copy-spritesheet-img full" src="./copy-spritesheet.png" alt=""></div>
+            <div id="sheen-wrapper" class="mask"><img id="sheen" class="full" src="./sheen.jpg" alt=""></div><img id="cta" class="full" src="./cta.png" alt=""></div>
+        <a href="javascript:window.open(window.clickTag); void(0);" id="background-exit"></a>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
+    <script>
+        ! function(e) {
+            "use strict";
+            var a = e.document,
+                t = new TimelineLite,
+                s = a.getElementById("container-dc"),
+                o = 250,
+                r = 125;
+            e.init = function() {
+                s.style.opacity = 1, t.addLabel("setup").set("#sheen", {
+                    x: "-100%",
+                    autoAlpha: .75
+                }, "setup").to(["#lips2", "#lipstick3", "#lips4"], .5, {
+                    y: -r
+                }, "setup").addLabel("frame1", "setup").to("#bg", 1, {
+                    autoAlpha: 0,
+                    ease: Power2.easeOut
+                }, "frame1+=2.25").to("#copy1", .5, {
+                    autoAlpha: 0,
+                    ease: Power2.easeOut
+                }, "frame1+=2.25").to("#images", .75, {
+                    autoAlpha: 1,
+                    ease: Power2.easeInOut
+                }, "frame1+=2.5").to("#copy2", .75, {
+                    autoAlpha: 1,
+                    ease: Power2.easeInOut
+                }, "frame1+=2.5").addLabel("frame2", "frame1+=3.25").to("#lips1", .5, {
+                    y: r,
+                    ease: Power2.easeIn
+                }, "frame2+=0.75").to(["#lips1", "#lipstick1"], .5, {
+                    y: o,
+                    ease: Power2.easeOut
+                }, "frame2+=1.25").to("#lips2", .5, {
+                    y: 0,
+                    ease: Power2.easeOut
+                }, "frame2+=1.25").addLabel("frame3", "frame2+=2.25").to("#lipstick2", .5, {
+                    y: r,
+                    ease: Power2.easeIn
+                }, "frame3+=0.5").to("#copy2", .5, {
+                    autoAlpha: 0,
+                    ease: Power2.easeInOut
+                }, "frame3+=0.5").to("#copy3", .75, {
+                    autoAlpha: 1,
+                    ease: Power2.easeInOut
+                }, "frame3+=0.875").to(["#lips2", "#lipstick2"], .5, {
+                    y: o,
+                    ease: Power2.easeOut
+                }, "frame3+=1").to("#lipstick3", .5, {
+                    y: 0,
+                    ease: Power2.easeOut
+                }, "frame3+=1").addLabel("frame4", "frame3+=2.25").to("#lips3", .5, {
+                    y: r,
+                    ease: Power2.easeIn
+                }, "frame4+=0.5").to(["#lips3", "#lipstick3"], .5, {
+                    y: o,
+                    ease: Power2.easeOut
+                }, "frame4+=1").to("#lips4", .5, {
+                    y: 0,
+                    ease: Power2.easeOut
+                }, "frame4+=1").to("#copy3", .5, {
+                    autoAlpha: 0,
+                    ease: Power2.easeInOut
+                }, "frame4+=1.75").addLabel("frame5", "frame4+=2").to(["#lips1", "#lips2", "#lips3", "#lips4", "#lipstick1", "#lipstick2", "#lipstick3", "#lipstick4"], .5, {
+                    autoAlpha: 0,
+                    ease: Power2.easeOut
+                }, "frame5").to(["#final-bg", "#copy4", "#cta", "#sheen-wrapper"], .625, {
+                    autoAlpha: 1,
+                    ease: Power2.easeInOut
+                }, "frame5+=0.125").add(function() {
+                    s.addEventListener("mouseenter", function() {
+                        TweenMax.to("#sheen", .75, {
+                            x: "100%",
+                            rotation: .01,
+                            ease: Linear.easeNone
+                        })
+                    }), s.addEventListener("mouseleave", function() {
+                        TweenMax.set("#sheen", {
+                            x: "-100%"
+                        })
+                    })
+                }, "frame5+=0.625").to("#sheen", .75, {
+                    x: "100%",
+                    rotation: .01,
+                    ease: Linear.easeNone,
+                    onComplete: function() {
+                        TweenMax.set("#sheen", {
+                            x: "-100%"
+                        })
+                    }
+                }, "frame5+=0.75")
+                .to('.description', 1, {
+                    autoAlpha: 1, ease: Power2.easeOut
+                }, '+=2.5')
+            }, e.tl = t
+        }(this)
+    </script>
+    <script>
+        window.onload = init
+    </script>
+</body>
+
+</html>

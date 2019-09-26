@@ -1,0 +1,167 @@
+@charset 'UTF-8';
+
+$backColor: #651554;
+$borderColor: #999;
+
+html {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  text-rendering: optimizeLegibility;
+  -webkit-touch-callout: none;
+}
+
+// Default style, feel free to remove if not needed.
+body,
+body * {
+  border: 0;
+  font: 100%/1.5 Arial, sans-serif;
+  margin: 0;
+  outline: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+
+// Div layer for the entire banner.
+#container_dc {
+  background-color: #fff;
+  border: 1px solid $borderColor;
+  box-sizing: border-box;
+  height: 250px;
+  left: 0;
+  margin: auto;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  -moz-transform-origin: 0% 0%; /* Firefox */
+  -ms-transform-origin: 0% 0%; /* IE 9 */
+  -o-transform-origin: 0% 0%; /* Opera */
+  -webkit-transform-origin: 0% 0%; /* Safari and Chrome */
+  width: 300px;
+}
+
+#content_ad {
+  background: $backColor; // url('background.jpg');
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+#background_exit_dc {
+  background: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7') 0 0 repeat;
+  cursor: pointer;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 400;
+}
+
+// Banner styles
+
+@mixin half-size($width, $height) {
+  height: unquote($height / 2 + 'px');
+  width: unquote($width / 2 + 'px');
+}
+
+.background {
+  background: $backColor;
+  height: 1237px;
+  left: -471px;
+  position: absolute;
+  top: -348px;
+  width: 1240px;
+
+  .person {
+    display: inline-block;
+    height: 117px;
+    position: relative;
+    width: 62px;
+
+    .color {
+      background-color: #785186;
+      height: 90%;
+      margin: 5%;
+      position: absolute;
+      width: 90%;
+    }
+
+    .background-mask {
+      background-image: url('person.svg');
+      background-size: 62px 117px;
+      height: 100%;
+      position: absolute;
+      width: 100%;
+      z-index: 2;
+    }
+  }
+
+  .highlighted-person {
+    height: 117px;
+    position: absolute;
+    visibility: hidden;
+    width: 62px;
+    z-index: 10;
+  }
+}
+
+#copy1 {
+  @include half-size(474, 138);
+  left: 30px;
+  position: absolute;
+  top: 66px;
+  z-index: 3;
+}
+
+#copy2 {
+  @include half-size(356, 132);
+  left: 60px;
+  position: absolute;
+  top: 66px;
+  visibility: hidden;
+  z-index: 3;
+}
+
+#copy3 {
+  @include half-size(534, 94);
+  left: 16px;
+  position: absolute;
+  top: 20px;
+  visibility: hidden;
+  z-index: 2;
+}
+
+#liver {
+  @include half-size(32, 20);
+  left: 137px;
+  position: absolute;
+  top: 110px;
+  visibility: hidden;
+  z-index: 2;
+}
+
+#cta,
+#cta-hover {
+  @include half-size(276, 68);
+  bottom: 15px;
+  cursor: pointer;
+  position: absolute;
+  right: 9px;
+  z-index: 401;
+}
+
+#cta-hover {
+  display: none;
+  opacity: 0;
+}
+
+#logo {
+  @include half-size(248, 100);
+  bottom: 9px;
+  left: 9px;
+  position: absolute;
+  z-index: 3;
+}
