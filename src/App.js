@@ -34,7 +34,7 @@ function App() {
         <nav className="navbar">
           <li><a className="navigation" href="#home" onClick={navigationHandler}><i class="fas fa-home"></i></a></li>
           <li><a className="navigation" href="#about-me" onClick={navigationHandler}>About Me</a></li>
-          <li><a className="navigation" href="#projects" onClick={navigationHandler}>Mentoring</a></li>
+          <li><a className="navigation" href="#mentoring" onClick={navigationHandler}>Mentoring</a></li>
           <li><a className="navigation" href="#contact" onClick={navigationHandler}>Contact</a></li>
         </nav>
       </header>
@@ -103,7 +103,7 @@ function App() {
             <p>
               Most all-purpose developers will “simplify” your ideas, cut corners, remove micro-interactions, and, if pressured, say that 
               the desired outcome is impossible or that it simply can't be done.<br /><br />
-              If you ever heard “this is impossible!” or “this <em>cannot</em> be done!”, <span className="add-background">bring those projects to me! 
+              If you ever heard “this is impossible!” or “this <em>cannot</em> be done!”, <span className="add-background">bring those mentoring to me! 
               They <em>can</em> be done!</span> After all, we tell the computer what to do, not the other way around.<br /><br />
             </p>
             <p>
@@ -144,7 +144,7 @@ function App() {
           </div>
           <Moth bottomAnchorSection={mentoringSection} scrollTop={scroll.position} windowSize={windowSize} />
         </section>
-        <section ref={mentoringSection} id="projects" className="section section--third">
+        <section ref={mentoringSection} id="mentoring" className="section section--third">
           <div className="container">
             <h2>Helping others</h2>
             <div className="row stats">

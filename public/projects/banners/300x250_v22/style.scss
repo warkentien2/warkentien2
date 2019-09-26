@@ -1,0 +1,112 @@
+@charset 'UTF-8';
+@import 'mixins';
+
+$backColor: #fff;
+$borderColor: #999;
+$width: 300px;
+$height: 250px;
+
+html {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  text-rendering: optimizeLegibility;
+  -webkit-touch-callout: none;
+}
+
+body,
+body * {
+  border: 0;
+  font: 100%/1.5 Arial, sans-serif;
+  margin: 0;
+  outline: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+
+#container-dc {
+  background-color: #fff;
+  border: 1px solid $borderColor;
+  box-sizing: border-box;
+  height: $height;
+  left: 0;
+  margin: auto;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  -moz-transform-origin: 0 0;
+  -ms-transform-origin: 0 0;
+  -o-transform-origin: 0 0;
+  -webkit-transform-origin: 0 0;
+  width: $width;
+}
+
+#content-ad {
+  background: $backColor; // url('background.jpg');
+  height: $height;
+  left: -1px;
+  position: absolute;
+  top: -1px;
+  width: $width;
+  z-index: 100;
+}
+
+#background-exit {
+  background: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7') 0 0 repeat;
+  cursor: pointer;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 400;
+}
+
+img {
+  height: $height;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: $width;
+}
+
+#copy1 {
+  left: 138px - $width;
+}
+
+#wrapper-band {
+  height: $height;
+  left: 300px;
+  overflow: hidden;
+  position: absolute;
+  width: 138px;
+}
+
+.band {
+  left: -$width;
+  transform-origin: 50% 50%;
+}
+
+#person {
+  transform-origin: 50% 50%;
+}
+
+#pink-band {
+  background: #e76698;
+  height: $height;
+  // left: 0;
+  position: absolute;
+  width: $width;
+}
+
+#white-band {
+  background: #fff;
+  bottom: 0;
+  height: 59px;
+  left: 0;
+  position: absolute;
+  width: $width;
+}
+
+#logo-bottom {
+  z-index: 2;
+}

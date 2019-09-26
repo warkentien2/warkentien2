@@ -1,0 +1,29 @@
+/**
+ * venusWinterImediaBannersPgnVenL70046 - An HTML banner
+ * @version v1.0.0
+ * @date 9-13-2017 at 17:41:15
+ */
+html{-webkit-tap-highlight-color:transparent;text-rendering:optimizeLegibility;-webkit-touch-callout:none}body,body *{border:0;font:100%/1.5 Arial, sans-serif;margin:0;outline:0;padding:0;vertical-align:baseline}#container-dc{background-color:#fff;border:1px solid #666;box-sizing:border-box;height:250px;left:0;margin:auto;opacity:0;overflow:hidden;position:absolute;top:0;-moz-transform-origin:0 0;-ms-transform-origin:0 0;-o-transform-origin:0 0;-webkit-transform-origin:0 0;width:300px}#content-ad{background:#69c;height:250px;left:-1px;position:absolute;top:-1px;width:300px;z-index:100}#background-exit-dc{background:url("data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7") 0 0 repeat;cursor:pointer;height:100%;left:0;position:absolute;top:0;width:100%;z-index:400}.abs{height:250px;left:0;position:absolute;top:0;width:300px}.aloe{height:65px;width:185px;top:-9px}#drop-wrapper{height:69px;width:27px;border-radius:0 50% 45% 45%;left:169px;overflow:hidden;position:absolute;top:30px}#drop{height:45px;width:27px;left:0;position:absolute;top:2px}#filmstrip-wrapper{height:41px;width:191px;left:87px;overflow:hidden;position:absolute;top:66px}#filmstrip{height:756px;width:191px;left:0;position:absolute;top:-1px}#cta{top:1px}#copy1,#copy2,#copy3,#logo,#bg2{visibility:hidden}
+.description {
+  position: absolute;
+  width: 300px;
+  height: 250px;
+  z-index: 700;
+  box-sizing: border-box;
+  padding: 1.5em;
+  background: linear-gradient(45deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.90) 85%, rgba(0,0,0,0.35) 85%, rgba(0,0,0,0.35) 100%);
+  color: #fff;
+  cursor: pointer;
+  opacity: 0;
+}
+.description-body {
+  font-family: 'Montserrat', Helvetica, sans-serif;
+  width: 80%;
+  font-size: 1em
+}
+.description .fa {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  padding: 1.5em;
+}

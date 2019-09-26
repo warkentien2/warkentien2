@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en-us" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1">
+  
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>walgreens-pr-holiday-banners</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <style>
+    html {
+      -webkit-tap-highlight-color: transparent;
+      -webkit-touch-callout: none;
+      text-rendering: optimizeLegibility
+    }
+
+    body,
+    body * {
+      border: 0;
+      font: 100%/1.5 Arial, sans-serif;
+      margin: 0;
+      outline: 0;
+      padding: 0;
+      vertical-align: baseline
+    }
+
+    #container-dc {
+      background-color: #fff;
+      border: 1px solid #666;
+      box-sizing: border-box;
+      cursor: pointer;
+      height: 250px;
+      left: 0;
+      margin: auto;
+      opacity: 0;
+      overflow: hidden;
+      position: absolute;
+      top: 0;
+      transform-origin: 0 0;
+      width: 300px
+    }
+
+    #content-ad {
+      background: #fff;
+      height: 250px;
+      left: -1px;
+      position: absolute;
+      top: -1px;
+      width: 300px;
+      z-index: 100
+    }
+
+    .full-banner {
+      height: 250px;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 300px
+    }
+
+    .full-container {
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%
+    }
+
+    .mask {
+      overflow: hidden
+    }
+
+    #bottom-lid img {
+      transform: rotate(180deg)
+    }
+
+    .ribbon {
+      height: 400px
+    }
+
+    .top-mask {
+      height: 50%
+    }
+
+    .bottom-mask {
+      bottom: 0;
+      height: 50%;
+      top: auto
+    }
+
+    #bottom-v-ribbon img {
+      top: -275px;
+      transform: rotate(180deg)
+    }
+
+    .left-mask {
+      width: 50%
+    }
+
+    #left-h-ribbon {
+      left: -100px
+    }
+
+    #left-h-ribbon img {
+      transform: rotate(90deg) translateX(-75px)
+    }
+
+    .right-mask {
+      left: auto;
+      right: 0;
+      width: 50%
+    }
+
+    #right-h-ribbon {
+      left: -50px
+    }
+
+    #right-h-ribbon img {
+      transform: rotate(-90deg) translateX(75px)
+    }
+
+    #bow-knot {
+      height: 46px;
+      left: 127px;
+      top: 102px;
+      width: 46px
+    }
+
+    #bow-knot img {
+      left: -127px;
+      top: -102px;
+      transform: rotate(5deg)
+    }
+    .description {
+            position: absolute;
+            width: 300px;
+            height: 250px;
+            z-index: 700;
+            box-sizing: border-box;
+            padding: 1.5em;
+            background: linear-gradient(45deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.90) 85%, rgba(0,0,0,0.35) 85%, rgba(0,0,0,0.35) 100%);
+            color: #fff;
+            cursor: pointer;
+            opacity: 0;
+        }
+        .description-body {
+            font-family: 'Montserrat', Helvetica, sans-serif;
+            width: 80%;
+            font-size: 1em
+        }
+        .description .fa {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            padding: 1.5em;
+        }
+  </style>
+  <script>
+    var clickTag = "https://www.google.com/"
+  </script>
+</head>
+
+<body>
+  <div id="container-dc">
+    <div id="content-ad"><div class="description">
+        <p class="description-body">I was given a static PNG asset of a ribbon with the request: Can you make the ribbon untie?</p>
+        <i class="fa fa-redo"></i>
+    </div><img class="full-banner" src="./bg.png" alt="">
+      <div id="bottom-lid" class="full-banner"><img class="full-container" src="./lid.png" alt=""></div>
+      <div id="top-lid" class="full-banner"><img class="full-container" src="./lid.png" alt=""></div>
+      <div class="full-banner left-mask mask">
+        <div id="left-h-ribbon" class="full-banner ribbon"><img class="full-container" src="./ribbon.png" alt=""></div>
+      </div>
+      <div class="full-banner right-mask mask">
+        <div id="right-h-ribbon" class="full-banner ribbon"><img class="full-container" src="./ribbon.png" alt=""></div>
+      </div>
+      <div class="full-banner top-mask mask">
+        <div id="top-v-ribbon" class="full-banner ribbon"><img class="full-container" src="./ribbon.png" alt=""></div>
+      </div>
+      <div class="full-banner bottom-mask mask">
+        <div id="bottom-v-ribbon" class="full-banner ribbon"><img class="full-container" src="./ribbon.png" alt=""></div>
+      </div><img id="bow-loop-tr-under" class="full-banner loop top-right" src="./bow-loop-tr-under.png" alt=""> <img id="bow-loop-tl-under"
+        class="full-banner loop top-left" src="./bow-loop-tl-under.png" alt=""> <img id="bow-loop-bottom-right" class="full-banner loop"
+        src="./bow-loop-br.png" alt=""> <img id="bow-loop-bottom-left" class="full-banner loop" src="./bow-loop-bl.png" alt="">
+      <img id="bow-loop-tr-over" class="full-banner loop top-right" src="./bow-loop-tr-over.png" alt=""> <img id="bow-loop-tl-over"
+        class="full-banner loop top-left" src="./bow-loop-tl-over.png" alt="">
+      <div id="bow-knot" class="full-container mask"><img class="full-banner" src="./bow-knot.png" alt=""></div>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
+  <script>
+    "use strict";
+    var tl = new TimelineLite,
+      bannerContainer = window.document.getElementById("container-dc");
+
+    function pausedAnimation() {
+      var e = new TimelineLite,
+        o = new TimelineLite({
+          paused: 0
+        });
+      return e.addLabel("setup").set("#bow", {
+        autoAlpha: .5
+      }, "setup").set("#bow-loop-bottom-left", {
+        rotation: -8
+      }, "setup").set("#bow-loop-bottom-right", {
+        rotation: -3.5
+      }, "setup").set(["#bow-loop-tl-over", "#bow-loop-tl-under"], {
+        rotation: 7
+      }, "setup").set(["#bow-loop-tr-over", "#bow-loop-tr-under"], {
+        rotation: -22.2
+      }, "setup").set("#bow-knot", {
+        rotation: -5
+      }, "setup").addLabel("frame1", "setup+=0.25").to(["#bow-loop-bottom-left", "#bow-loop-bottom-right"], 1, {
+        scaleX: .15,
+        ease: Linear.easeNone,
+        rotation: 0
+      }, "frame1+=0.25").to(["#bow-loop-tl-over", "#bow-loop-tl-under"], 1, {
+        scaleX: .175,
+        ease: Linear.easeNone,
+        rotation: -12
+      }, "frame1+=0.5").to(["#bow-loop-tr-over", "#bow-loop-tr-under"], 1, {
+        scaleX: .175,
+        ease: Linear.easeNone,
+        rotation: 0
+      }, "frame1+=0.5").to(["#bow-loop-bottom-left", "#bow-loop-bottom-right"], .5, {
+        scaleY: .65,
+        ease: Linear.easeNone
+      }, "frame1+=0.75").to(["#bow-loop-tl-over", "#bow-loop-tl-under"], .5, {
+        scaleY: .6,
+        rotation: -12,
+        ease: Linear.easeNone
+      }, "frame1+=1").to(["#bow-loop-tr-over", "#bow-loop-tr-under"], .5, {
+        scaleY: .6,
+        rotation: 1,
+        ease: Linear.easeNone
+      }, "frame1+=1").to("#bow-knot", .875, {
+        rotation: 5,
+        ease: Linear.easeNone
+      }, "frame1+=0.625").set(".loop", {
+        autoAlpha: 0
+      }, "frame1+=1.5").to("#bow-knot", .25, {
+        xPercent: -25,
+        yPercent: -100,
+        autoAlpha: 0,
+        ease: Linear.easeNone
+      }, "frame1+=1.5").to("#bow-knot img", .25, {
+        yPercent: -100,
+        ease: Linear.easeNone
+      }, "frame1+=1.5").to("#left-h-ribbon", 2, {
+        xPercent: 133,
+        ease: Linear.easeNone
+      }, "frame1").to("#right-h-ribbon", 2, {
+        xPercent: -133,
+        ease: Linear.easeNone
+      }, "frame1").to("#top-v-ribbon", 2.25, {
+        yPercent: -100,
+        ease: Linear.easeNone
+      }, "frame1").to("#bottom-v-ribbon", 2.25, {
+        yPercent: 100,
+        ease: Linear.easeNone
+      }, "frame1").addLabel("frame2", "frame1+=2").to("#bottom-lid", 2.25, {
+        xPercent: -85,
+        ease: Power1.easeOut,
+        rotation: .01
+      }, "frame2").to("#top-lid", 2.25, {
+        xPercent: 85,
+        ease: Power1.easeOut,
+        rotation: .01
+      }, "frame2").to('.description', 1, {
+                    autoAlpha: 1, ease: Power2.easeOut
+                }, '+=2.5'), o.to(e, 3, {
+        progress: 1,
+        ease: Power1.easeIn
+      }), o
+    }
+
+    function startAnimation() {
+      var e = pausedAnimation();
+      tl.append(e.play())
+    }
+
+    function init() {
+      bannerContainer.style.opacity = 1, bannerContainer.addEventListener("click", handleClickTag), startAnimation()
+    }
+
+    function handleClickTag() {
+      window.open(window.clickTag)
+    }
+    window.onload = init
+  </script>
+</body>
+
+</html>

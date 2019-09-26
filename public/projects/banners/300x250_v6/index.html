@@ -1,0 +1,560 @@
+<!doctype html>
+<html lang="en-us" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1">
+    
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>An HTML banner</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <style>
+        html {
+            -webkit-tap-highlight-color: transparent;
+            -webkit-touch-callout: none;
+            text-rendering: optimizeLegibility
+        }
+        
+        body,
+        body * {
+            border: 0;
+            font: 100%/1.5 Arial, sans-serif;
+            margin: 0;
+            outline: 0;
+            padding: 0;
+            vertical-align: baseline
+        }
+        
+        #container-dc {
+            background-color: #fff;
+            border: 1px solid #666;
+            box-sizing: border-box;
+            height: 250px;
+            left: 0;
+            margin: auto;
+            opacity: 0;
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+            transform-origin: 0 0;
+            width: 300px
+        }
+        
+        #content-ad {
+            background: #fff;
+            cursor: pointer;
+            height: 250px;
+            left: -1px;
+            position: absolute;
+            top: -1px;
+            width: 300px;
+            z-index: 400
+        }
+        
+        .abs {
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 100%
+        }
+        
+        .mask {
+            overflow: hidden
+        }
+        
+        .banner-abs {
+            height: 250px;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 300px
+        }
+        
+        #man {
+            height: 775px;
+            left: -165px;
+            top: 31px;
+            width: 750px
+        }
+        
+        #arrow {
+            height: 795px;
+            left: -383px;
+            top: -28px;
+            -ms-transform: scale(.9125);
+            -moz-transform: scale(.9125);
+            -webkit-transform: scale(.9125);
+            transform: scale(.9125);
+            width: 1920px
+        }
+        
+        #arrow #arrow-path {
+            height: 100%;
+            position: absolute;
+            stroke-dasharray: 1301;
+            stroke-dashoffset: 1301;
+            width: 100%
+        }
+        
+        #copy2 {
+            left: -165px;
+            top: 556px
+        }
+        
+        #copy3 {
+            left: 25px;
+            top: 17px
+        }
+        
+        #logo-bar {
+            background: #fff;
+            height: 57px
+        }
+        
+        #copy5,
+        #logo-bar {
+            bottom: 0;
+            top: auto
+        }
+        
+        #copy5 {
+            height: 250px
+        }
+        
+        .spritesheet img {
+            height: 1500px
+        }
+        
+        #copy2-img {
+            top: -250px
+        }
+        
+        #copy2-legal-img {
+            top: -500px
+        }
+        
+        #copy3-img {
+            top: -750px
+        }
+        
+        #copy4-img {
+            top: -1000px
+        }
+        
+        #copy5-img {
+            top: -1250px
+        }
+        
+        #arrow-head,
+        #copy1,
+        #copy2,
+        #copy2-legal,
+        #copy3,
+        #copy4,
+        #cta {
+            visibility: hidden
+        }
+        
+        .cinemagraph__hand-pulse,
+        .cinemagraph__head-pulse {
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 100%
+        }
+        
+        #arrow-fallback,
+        .cinemagraph {
+            height: 1142.768px;
+            width: 880px
+        }
+        
+        #arrow-fallback-wrapper {
+            height: 1142.768px;
+            width: 880px;
+            overflow: hidden;
+            transform-origin: '0 100%'
+        }
+        
+        #arrow-fallback-wrapper .mask {
+            height: 2362px;
+            left: -741px;
+            top: -610px;
+            width: 2362px
+        }
+        
+        #arrow-fallback-wrapper img {
+            left: 741px;
+            top: 610px
+        }
+        
+        #arrow-fallback-wrapper #arrow-fallback {
+            transform-origin: '0 100%'
+        }
+        
+        .cinemagraph__hand-pulse .hand-last-pulse,
+        .cinemagraph__hand-pulse .hand-pain-source,
+        .cinemagraph__hand-pulse .hand-pulse,
+        .cinemagraph__hand-pulse .hand-pulse-stay,
+        .cinemagraph__hand-pulse .head-last-pulse,
+        .cinemagraph__hand-pulse .head-pulse,
+        .cinemagraph__hand-pulse .head-pulse-stay,
+        .cinemagraph__head-pulse .hand-last-pulse,
+        .cinemagraph__head-pulse .hand-pulse,
+        .cinemagraph__head-pulse .hand-pulse-stay,
+        .cinemagraph__head-pulse .head-last-pulse,
+        .cinemagraph__head-pulse .head-pain-source,
+        .cinemagraph__head-pulse .head-pulse,
+        .cinemagraph__head-pulse .head-pulse-stay {
+            visibility: hidden
+        }
+        
+        .cinemagraph__head-pulse {
+            height: 37.5%;
+            left: 9.1%;
+            top: -9.875%;
+            -ms-transform: scale(.9);
+            -moz-transform: scale(.9);
+            -webkit-transform: scale(.9);
+            transform: scale(.9);
+            width: 37.5%
+        }
+        
+        .cinemagraph__hand-pulse {
+            height: 37.5%;
+            left: -11.32%;
+            top: 40.25%;
+            -ms-transform: scale(.72);
+            -moz-transform: scale(.72);
+            -webkit-transform: scale(.72);
+            transform: scale(.72);
+            width: 37.5%
+        }
+        
+        #pfizer-logo {
+            left: 141px;
+            width: 81px
+        }
+        
+        #lilly-logo {
+            left: 223px;
+            width: 77px
+        }
+        .description {
+            position: absolute;
+            width: 300px;
+            height: 250px;
+            z-index: 700;
+            box-sizing: border-box;
+            padding: 1.5em;
+            background: linear-gradient(45deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.90) 85%, rgba(0,0,0,0.35) 85%, rgba(0,0,0,0.35) 100%);
+            color: #fff;
+            cursor: pointer;
+            opacity: 0;
+        }
+        .description-body {
+            font-family: 'Montserrat', Helvetica, sans-serif;
+            width: 80%;
+            font-size: 1em
+        }
+        .description .fa {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            padding: 1.5em;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container-dc">
+        <div id="content-ad" class="abs"><div class="description">
+                <p class="description-body">SVG path and camera motion.</p>
+                <i class="fa fa-redo"></i>
+            </div><img id="bg" class="abs" src="./bg.jpg" alt="">
+            <div id="cinemagraph" class="cinemagraph abs"><img id="man" class="abs" src="./man.png" alt="">
+                <div id="arrow-fallback-wrapper" class="abs">
+                    <div class="mask abs"><img id="arrow-fallback" class="abs" src="./arrow-fallback.png" alt=""></div>
+                </div>
+                <div id="arrow" class="abs">
+                    <svg class="abs" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3840 1590" width="3800" height="1590">
+                        <path id="arrow-path" d="M805.84 1414.58c36.52-359.86 56.83-583.18 68.14-689.56 6.64-62.47 19.37-75.48 64.94-94.68 20.91-8.81 171-53.36 192.37-61.12 57.11-20.71 63-44.2 61.88-117.09-.51-33.44.22-76 0-134.8" fill="none" stroke="#ec1c23" stroke-width="30" />
+                        <path id="arrow-head" fill="#ec1c23" d="M1155 317.33l38.3-62.58 38.24 62.58H1155z" />
+                    </svg>
+                </div>
+                <svg id="cinemagraph__hand-pulse" class="cinemagraph__svg cinemagraph__hand-pulse" viewBox="0 0 300 300">
+                    <circle class="hand-pulse" cx="150" cy="150" r="2" stroke="#fff" stroke-width="4px" fill="none" />
+                    <circle class="hand-pulse" cx="150" cy="150" r="2" stroke="#fff" stroke-width="4px" fill="none" />
+                    <circle class="hand-pulse" cx="150" cy="150" r="2" stroke="#fff" stroke-width="4px" fill="none" />
+                    <circle class="hand-pulse" cx="150" cy="150" r="2" stroke="#fff" stroke-width="4px" fill="none" />
+                    <circle class="hand-pulse" cx="150" cy="150" r="2" stroke="#fff" stroke-width="4px" fill="none" />
+                    <circle class="hand-pulse-stay" cx="150" cy="150" r="2" stroke="#fff" stroke-width="4px" fill="none" />
+                    <g>
+                        <circle class="hand-last-pulse" cx="150" cy="150" r="80" stroke="#fff" stroke-width="3px" fill="none" />
+                        <circle class="hand-last-pulse" cx="150" cy="150" r="75" stroke="#fff" stroke-width="2px" fill="none" />
+                        <circle class="hand-last-pulse" cx="150" cy="150" r="70" stroke="#fff" stroke-width="3px" fill="none" />
+                        <circle class="hand-last-pulse" cx="150" cy="150" r="65" stroke="#fff" stroke-width="1px" fill="none" />
+                        <circle class="hand-last-pulse" cx="150" cy="150" r="60" stroke="#fff" stroke-width="1px" fill="none" />
+                        <circle class="hand-last-pulse" cx="150" cy="150" r="55" stroke="#fff" stroke-width="2px" fill="none" />
+                        <circle class="hand-last-pulse" cx="150" cy="150" r="50" stroke="#fff" stroke-width="1px" fill="none" />
+                        <circle class="hand-last-pulse" cx="150" cy="150" r="45" stroke="#fff" stroke-width="2px" fill="none" />
+                        <circle class="hand-last-pulse" cx="150" cy="150" r="40" stroke="#fff" stroke-width="1px" fill="none" />
+                        <circle class="hand-pain-source" cx="150" cy="150" r="15" fill="#ec1c23" />
+                    </g>
+                </svg>
+                <svg id="cinemagraph__head-pulse" class="cinemagraph__svg cinemagraph__head-pulse" viewBox="0 0 300 300">
+                    <circle class="head-pulse" cx="150" cy="150" r="2" stroke="#fff" stroke-width="4px" fill="none" />
+                    <circle class="head-pulse" cx="150" cy="150" r="2" stroke="#fff" stroke-width="4px" fill="none" />
+                    <circle class="head-pulse" cx="150" cy="150" r="2" stroke="#fff" stroke-width="4px" fill="none" />
+                    <circle class="head-pulse" cx="150" cy="150" r="2" stroke="#fff" stroke-width="4px" fill="none" />
+                    <circle class="head-pulse" cx="150" cy="150" r="2" stroke="#fff" stroke-width="4px" fill="none" />
+                    <circle class="head-pulse-stay" cx="150" cy="150" r="2" stroke="#fff" stroke-width="4px" fill="none" />
+                    <g>
+                        <circle class="head-last-pulse" cx="150" cy="150" r="90" stroke="#fff" stroke-width="3px" fill="none" />
+                        <circle class="head-last-pulse" cx="150" cy="150" r="85" stroke="#fff" stroke-width="2px" fill="none" />
+                        <circle class="head-last-pulse" cx="150" cy="150" r="80" stroke="#fff" stroke-width="3px" fill="none" />
+                        <circle class="head-last-pulse" cx="150" cy="150" r="75" stroke="#fff" stroke-width="1px" fill="none" />
+                        <circle class="head-last-pulse" cx="150" cy="150" r="70" stroke="#fff" stroke-width="1px" fill="none" />
+                        <circle class="head-last-pulse" cx="150" cy="150" r="65" stroke="#fff" stroke-width="2px" fill="none" />
+                        <circle class="head-last-pulse" cx="150" cy="150" r="60" stroke="#fff" stroke-width="1px" fill="none" />
+                        <circle class="head-last-pulse" cx="150" cy="150" r="55" stroke="#fff" stroke-width="2px" fill="none" />
+                        <circle class="head-last-pulse" cx="150" cy="150" r="50" stroke="#fff" stroke-width="1px" fill="none" />
+                        <circle class="head-pain-source" cx="150" cy="150" r="12" fill="#ec1c23" />
+                    </g>
+                </svg>
+                <div id="copy2" class="spritesheet abs"><img id="copy2-img" class="banner-abs" src="./copy.png" alt=""></div>
+                <div id="copy3" class="spritesheet abs"><img id="copy3-img" class="banner-abs" src="./copy.png" alt=""></div>
+            </div>
+            <div id="copy1" class="spritesheet abs"><img id="copy1-img" class="abs" src="./copy.png" alt=""></div>
+            <div id="copy2-legal" class="spritesheet abs"><img id="copy2-legal-img" class="abs" src="./copy.png" alt=""></div>
+            <div id="copy4" class="spritesheet abs"><img id="copy4-img" class="abs" src="./copy.png" alt=""></div><img id="cta" class="abs" src="./cta.png" alt="">
+            <div id="logo-bar" class="abs">
+                <div id="copy5" class="spritesheet abs"><img id="copy5-img" class="abs" src="./copy.png" alt=""></div>
+                <div id="pfizer-logo" class="abs"></div>
+                <div id="lilly-logo" class="abs"></div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
+    <script>
+        "use strict";
+        ! function(o) {
+            var s = o.document,
+                r = new TimelineMax,
+                n = s.getElementById("container-dc"),
+                l = s.getElementById("cinemagraph"),
+                u = s.querySelector("#arrow-fallback-wrapper .mask"),
+                p = s.getElementById("arrow-path"),
+                a = s.getElementById("arrow-head"),
+                d = e(0, 0, 225, 1505),
+                t = e(0, 0, 225, 1005);
+
+            function e(e, a, t, o) {
+                return o = o || 10, t *= -Math.PI / 180, [e + o * Math.cos(t), a + o * Math.sin(t)]
+            }
+
+            function i() {
+                var e = new TimelineMax;
+                return e.addLabel("draw").to(p, 1.25, {
+                    strokeDashoffset: 0,
+                    ease: Power1.easeOut,
+                    rotation: .01
+                }, "draw").to(u, 1.31, {
+                    x: t[0] + "px",
+                    y: t[1] + "px",
+                    ease: Power1.easeOut
+                }, "draw").to("#arrow-fallback", 1.31, {
+                    x: -1005,
+                    y: 0,
+                    ease: Power1.easeOut
+                }, "draw"), e.timeScale(1).play(0), e
+            }
+
+            function w() {
+                var e = new TimelineMax;
+                return e.addLabel("setup").set(a, {
+                    x: -380,
+                    y: 1095,
+                    rotation: 6.5,
+                    transformOrigin: "50% 100%",
+                    autoAlpha: 1
+                }, "setup").addLabel("animateArrowHead").to(a, .75, {
+                    x: -270,
+                    ease: Linear.easeNone
+                }, "animateArrowHead").to(a, .425, {
+                    x: 0,
+                    ease: Power1.easeInOut
+                }, "animateArrowHead+=0.375").to(a, .61, {
+                    y: 460
+                }, "animateArrowHead").to(a, .49, {
+                    y: 253,
+                    ease: Power1.easeOut
+                }, "animateArrowHead+=0.18").to(a, .26, {
+                    y: 225,
+                    ease: Linear.easeNone
+                }, "animateArrowHead+=0.5").to(a, .5, {
+                    y: 2,
+                    ease: Power1.easeOut
+                }, "animateArrowHead+=0.75").to(a, .12, {
+                    rotation: 70
+                }, "animateArrowHead+=0.42").to(a, .1, {
+                    rotation: 0
+                }, "animateArrowHead+=0.7"), e.timeScale(1).play(0), e
+            }
+
+            function h() {
+                var e = new TimelineMax({
+                    paused: !0
+                });
+                return e.addLabel("pulseHand").to(".hand-pain-source", .5, {
+                    scale: 1,
+                    autoAlpha: 1,
+                    ease: Elastic.easeOut.config(.25, .5)
+                }, "pulseHand-=0.5").staggerTo(".hand-pulse, .hand-pulse-stay", 3, {
+                    attr: {
+                        r: "81",
+                        "stroke-width": 1
+                    },
+                    rotation: .01,
+                    ease: o.Power2.easeOut
+                }, .15, "pulseHand").staggerTo(".hand-pulse, .hand-pulse-stay", .5, {
+                    autoAlpha: .5,
+                    ease: o.Power1.easeIn
+                }, .15, "pulseHand").staggerTo(".hand-pulse", 2.5, {
+                    autoAlpha: 0,
+                    ease: o.Power1.easeOut
+                }, .15, "pulseHand+=0.5").from(".hand-last-pulse", 3, {
+                    attr: {
+                        r: "1"
+                    },
+                    rotation: .01,
+                    ease: o.Power2.easeOut
+                }, "pulseHand+=0.25").to(".hand-last-pulse", .5, {
+                    autoAlpha: .5,
+                    ease: o.Power1.easeIn
+                }, "pulseHand+=0.25").to(".hand-last-pulse", 2.5, {
+                    autoAlpha: 0,
+                    ease: o.Power1.easeOut
+                }, "pulseHand+=0.75").to(".hand-pulse-stay", 2.5, {
+                    autoAlpha: 1,
+                    ease: o.Power1.easeOut
+                }, "pulseHand+=0.75").addLabel("pulseHead", "pulseHand+=4.625").to(".head-pain-source", .25, {
+                    scale: 1,
+                    autoAlpha: 1,
+                    ease: Elastic.easeOut.config(.25, .5)
+                }, "pulseHead").staggerTo(".head-pulse, .head-pulse-stay", 3, {
+                    attr: {
+                        r: "92",
+                        "stroke-width": 1
+                    },
+                    rotation: .01,
+                    ease: o.Power2.easeOut
+                }, .15, "pulseHead").staggerTo(".head-pulse, .head-pulse-stay", .5, {
+                    autoAlpha: .5,
+                    ease: o.Power1.easeIn
+                }, .15, "pulseHead").staggerTo(".head-pulse", 2.5, {
+                    autoAlpha: 0,
+                    ease: o.Power1.easeOut
+                }, .15, "pulseHead+=0.5").from(".head-last-pulse", 3, {
+                    attr: {
+                        r: "1"
+                    },
+                    rotation: .01,
+                    ease: o.Power2.easeOut
+                }, "pulseHead+=0.25").to(".head-last-pulse", .5, {
+                    autoAlpha: .5,
+                    ease: o.Power1.easeIn
+                }, "pulseHead+=0.25").to(".head-last-pulse", 2.5, {
+                    autoAlpha: 0,
+                    ease: o.Power1.easeOut
+                }, "pulseHead+=0.75")
+                .to(".head-pulse-stay", 2.5, {
+                    autoAlpha: 1,
+                    ease: o.Power1.easeOut
+                }, "pulseHead+=0.75"), e.play(0)
+            }
+            o.init = function() {
+                var e, a, t;
+                n.style.opacity = 1, 
+                e = s.getElementById("content-ad"), 
+                a = s.getElementById("pfizer-logo"), 
+                t = s.getElementById("lilly-logo"), 
+                r.addLabel("setup").set(u, {
+                    rotation: -225,
+                    x: "+= " + d[0] + "px",
+                    y: "+= " + d[1] + "px",
+                    transformOrigin: "50% 50% 0"
+                }, "setup").set("#arrow-fallback", {
+                    rotation: 225,
+                    x: -1505
+                }, "setup").set([".hand-pain-source", ".head-pain-source"], {
+                    scale: .5,
+                    transformOrigin: "50% 50%"
+                }, "setup").set(p, {
+                    strokeDasharray: 1301,
+                    strokeDashoffset: 1301
+                }, "setup").set("#logo-bar", {
+                    yPercent: 100
+                }, "setup").set(l, {
+                    x: 275,
+                    y: -571,
+                    transformOrigin: "3% 0"
+                }, "setup").addLabel("frame01", "setup").to("#copy1", 1.25, {
+                    autoAlpha: 1,
+                    ease: Power2.easeInOut
+                }, "frame01").to(l, 1.25, {
+                    x: 165,
+                    y: -556,
+                    ease: Power1.easeOut,
+                    rotation: .01
+                }, "frame01+=1.75").to("#copy1", .5, {
+                    autoAlpha: 0,
+                    ease: Power2.easeOut
+                }, "frame01+=1.75").addLabel("frame02", "frame01+=2.375").to(["#copy2", "#copy2-legal"], 1, {
+                    autoAlpha: 1,
+                    ease: Power1.easeInOut
+                }, "frame02").to("#copy2-legal", .375, {
+                    autoAlpha: 0,
+                    ease: Power2.easeOut
+                }, "frame02+=3.25").to("#copy2", .5, {
+                    autoAlpha: 0,
+                    ease: Power2.easeOut
+                }, "frame02+=3.375").addLabel("pulse", "frame02+=0.125").add(h, "pulse").to(l, 1.375, {
+                    x: -25,
+                    y: -17,
+                    ease: Linear.easeNone,
+                    rotation: .01
+                }, "pulse+=3.25").add(i, "pulse+=3.5").add(w, "pulse+=3.5").addLabel("frame03", "pulse+=4.625").to("#copy3", 1, {
+                    autoAlpha: 1,
+                    ease: Power1.easeInOut
+                }, "frame03").to("#copy3", .5, {
+                    autoAlpha: 0,
+                    ease: Power2.easeOut
+                }, "frame03+=3.375").to(l, 1, {
+                    scale: .26,
+                    x: 3,
+                    y: 3,
+                    ease: Power1.easeInOut,
+                    rotation: .01
+                }, "frame03+=3.5").to("#logo-bar", 1, {
+                    yPercent: 0,
+                    ease: Power1.easeInOut,
+                    rotation: .01
+                }, "frame03+=3.5").addLabel("frame04", "frame03+=4.5").to(["#copy4", "#cta"], 1, {
+                    autoAlpha: 1,
+                    ease: Power1.easeInOut
+                }, "frame04")
+                .to('.description', 1, {
+                    autoAlpha: 1, ease: Power2.easeOut
+                }, '+=2.5')
+            }, o.tl = r
+        }(this)
+    </script>
+    <script>
+        window.onload = init
+    </script>
+</body>
+
+</html>

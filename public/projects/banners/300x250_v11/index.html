@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en-us" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1">
+    
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>ab_captaincola_jan_banners</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <style>
+        html {
+            -webkit-tap-highlight-color: transparent;
+            -webkit-touch-callout: none;
+            text-rendering: optimizeLegibility
+        }
+        
+        body,
+        body * {
+            border: 0;
+            font: 100%/1.5 Arial, sans-serif;
+            margin: 0;
+            outline: 0;
+            padding: 0;
+            vertical-align: baseline
+        }
+        
+        #container-dc {
+            background-color: #fff;
+            border: 1px solid #666;
+            box-sizing: border-box;
+            cursor: pointer;
+            height: 250px;
+            left: 0;
+            margin: auto;
+            opacity: 0;
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+            transform-origin: 0 0;
+            width: 300px
+        }
+        
+        #content-ad {
+            background: #fff;
+            height: 250px;
+            left: -1px;
+            position: absolute;
+            top: -1px;
+            width: 300px;
+            z-index: 100
+        }
+        
+        .full-banner {
+            height: 250px;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 300px
+        }
+        
+        .full-container {
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 100%
+        }
+        
+        .mask {
+            overflow: hidden
+        }
+        
+        #mask-wrapper {
+            height: 145px;
+            left: 38px;
+            top: 63px;
+            width: 90px
+        }
+        
+        #bubbles {
+            height: 424px
+        }
+        
+        #coin {
+            height: 46px;
+            left: 114px;
+            top: 74px;
+            width: 45px
+        }
+        .description {
+            position: absolute;
+            width: 300px;
+            height: 250px;
+            z-index: 700;
+            box-sizing: border-box;
+            padding: 1.5em;
+            background: linear-gradient(45deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.90) 85%, rgba(0,0,0,0.35) 85%, rgba(0,0,0,0.35) 100%);
+            color: #fff;
+            cursor: pointer;
+            opacity: 0;
+        }
+        .description-body {
+            font-family: 'Montserrat', Helvetica, sans-serif;
+            width: 80%;
+            font-size: 1em
+        }
+        .description .fa {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            padding: 1.5em;
+        }
+    </style>
+    <script>
+        var clickTag = "https://www.google.com/"
+    </script>
+</head>
+
+<body>
+    <div id="container-dc">
+        <div id="content-ad"><div class="description">
+                <p class="description-body">Notice the water droplets.</p>
+                <i class="fa fa-redo"></i>
+            </div><img id="bg" src="./bg.jpg" alt="" class="full-banner">
+            <div id="mask-wrapper" class="full-banner mask"><img id="bubbles" class="full-container" src="./bubbles.png" alt=""> <img class="full-container" src="./mask.png" alt=""></div><img id="logo" src="./logo.png" alt="" class="full-banner">
+            <div id="coin-compass" class="full-banner"><img id="coin" src="./coin.png" alt="" class="full-banner"></div><img id="capncola" src="./capncola.png" alt="" class="full-banner"> <img id="capmorgan" src="./capmorgan.png" alt="" class="full-banner"> <img id="new" src="./new.png" alt="" class="full-banner"> <img id="cta" src="./cta.png" alt="" class="full-banner"></div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
+    <script>
+        "use strict";
+        var tl = new TimelineLite,
+            bannerContainer = window.document.getElementById("container-dc");
+
+        function startAnimation() {
+            tl.addLabel("setup").set("#coin-compass", {
+                transformOrigin: "240px 60px",
+                rotation: 75
+            }, "setup").set("#coin", {
+                rotation: 250
+            }, "setup").set("#new", {
+                transformOrigin: "137px 43px",
+                scale: 1.75,
+                autoAlpha: 0
+            }, "setup").set("#capncola", {
+                xPercent: 60
+            }, "setup").set("#capmorgan", {
+                yPercent: 50
+            }, "setup").set("#cta", {
+                yPercent: 50
+            }, "setup").addLabel("frame1", "setup+=1").to("#bubbles", 10, {
+                y: -186,
+                ease: Power1.easeOut
+            }, "setup").to("#capncola", .75, {
+                xPercent: 0,
+                ease: Power2.easeOut
+            }, "frame1").to("#coin-compass", 1, {
+                rotation: 0,
+                ease: Power1.easeOut
+            }, "frame1+=0.25").to("#coin", 1, {
+                rotation: 0
+            }, "frame1+=0.25").to("#new", .25, {
+                scale: 1,
+                autoAlpha: 1,
+                ease: Elastic.easeOut.config(1.5, 1)
+            }, "frame1+=1.25")
+            .staggerTo(["#capmorgan", "#cta"], .75, {
+                yPercent: 0,
+                ease: Power2.easeOut
+            }, .25, "frame1+=1.375")
+            .to('.description', 1, {
+                    autoAlpha: 1, ease: Power2.easeOut
+                }, '+=2.5')
+        }
+
+        function init() {
+            bannerContainer.style.opacity = 1, bannerContainer.addEventListener("click", handleClickTag), startAnimation()
+        }
+
+        function handleClickTag() {
+            window.open(window.clickTag)
+        }
+        window.onload = init
+    </script>
+</body>
+
+</html>

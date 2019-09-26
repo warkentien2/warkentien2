@@ -1,0 +1,335 @@
+@charset 'UTF-8';
+
+$backColor: #e8edf0;
+$borderColor: #0f560c;
+$green: #47aa42;
+$fontColor: #6b7a85;
+
+@mixin half-size($width, $height) {
+  height: unquote($height / 2 + 'px');
+  width: unquote($width / 2 + 'px');
+}
+
+html {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  text-rendering: optimizeLegibility;
+  -webkit-touch-callout: none;
+}
+
+body,
+body * {
+  border: 0;
+  font-family: 'News Cycle', sans-serif;
+  font-weight: 400;
+  margin: 0;
+  outline: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+
+#container-dc {
+  background-color: #fff;
+  border: 1px solid $borderColor;
+  box-sizing: border-box;
+  height: 250px;
+  left: 0;
+  margin: auto;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  -moz-transform-origin: 0 0;
+  -ms-transform-origin: 0 0;
+  -o-transform-origin: 0 0;
+  -webkit-transform-origin: 0 0;
+  width: 300px;
+}
+
+#content-ad {
+  background: $backColor;
+  height: 250px;
+  left: -1px;
+  position: absolute;
+  top: -1px;
+  width: 300px;
+  z-index: 100;
+}
+
+#background-exit-dc {
+  background: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7') 0 0 repeat;
+  cursor: pointer;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 400;
+}
+
+.abs {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.spritesheet {
+  overflow: hidden;
+
+  img {
+    height: 250px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 300px;
+  }
+}
+
+#couple {
+  @include half-size(600, 500);
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.panel {
+  background-color: #fff;
+}
+
+#panel-b {
+  left: -12px;
+}
+
+#panel-c {
+  left: -24px;
+}
+
+#copy1-a-wrapper {
+  height: 135px;
+  left: 8px;
+
+  #copy1-a {
+    top: -3px;
+  }
+}
+
+#copy1-b-wrapper {
+  height: 115px;
+  left: 8px;
+  top: 135px;
+
+  #copy1-b {
+    top: -130px;
+  }
+}
+
+#copy2-a-wrapper {
+  height: 95px;
+
+  #copy2-a {
+    top: 3px;
+  }
+}
+
+#copy2-b-wrapper {
+  height: 152px;
+  top: 95px;
+
+  #copy2-b {
+    top: -93px;
+  }
+}
+
+#copy3-a-wrapper {
+  height: 98px;
+}
+
+#copy3-b-wrapper {
+  height: 152px;
+  top: 98px;
+
+  #copy3-b {
+    top: -102px;
+  }
+}
+
+#lever-stem {
+  height: 30px;
+  left: 0;
+  position: absolute;
+  top: 121px;
+  width: 123px;
+}
+
+#lever-head {
+  height: 30px;
+  left: 121px;
+  position: absolute;
+  top: 121px;
+  width: 30px;
+}
+
+#taltz-logo {
+  cursor: pointer;
+  height: 47px;
+  left: 4px;
+  top: 6px;
+  width: 88px;
+  z-index: 500;
+
+  img {
+    left: -4px;
+    top: -6px;
+  }
+}
+
+#cta-mask {
+  background-color: $green;
+  height: 19px;
+  left: 87px;
+  top: 110px;
+  width: 126px;
+}
+
+#isi-container {
+  background: $backColor;
+  bottom: 0;
+  box-sizing: border-box;
+  color: $fontColor;
+  font-size: 10px;
+  height: 91px;
+  left: 0;
+  line-height: 10px;
+  position: absolute;
+  width: 100%;
+  z-index: 500;
+
+  h1 {
+    font-size: 9px;
+    padding-top: 6px;
+  }
+
+  a {
+    cursor: pointer;
+  }
+}
+
+#isi-head {
+  height: 31px;
+  left: 0;
+  padding: 1px 3px 2px;
+  position: relative;
+  top: 0;
+}
+
+#isi-body {
+  height: 30px;
+  left: 0;
+  overflow: scroll;
+  overflow-x: hidden;
+  padding: 3px 10px 3px 3px;
+  position: relative;
+}
+
+#isi-buttons {
+  background: #fff;
+  bottom: 0;
+  box-sizing: border-box;
+  left: 0;
+  padding: 2px 3px 3px;
+  position: absolute;
+  width: 100%;
+
+  button {
+    background: $green;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    float: left;
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 16px;
+    text-align: center;
+    text-transform: uppercase;
+    width: calc(50% - 1px);
+  }
+
+  button:first-child {
+    margin-right: 2px;
+  }
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.green {
+  color: $green;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.space {
+  height: 13px;
+  width: 100%;
+}
+
+.super {
+  position: relative;
+  top: -1px;
+}
+
+.big {
+  font-size: 1.5em;
+  vertical-align: bottom;
+}
+
+.isi-list,
+.isi-sublist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    padding-left: 7px;
+    text-indent: -7px;
+
+    &::before {
+      color: $green;
+      content: '•';
+      font-size: 18px;
+      line-height: 5px;
+      position: relative;
+      top: 3px;
+    }
+  }
+}
+
+.isi-sublist li::before {
+  content: '- ';
+  font-size: 10px;
+  top: 0;
+}
+
+#lilly-logo {
+  float: right;
+  padding: 12px 8px 0 0;
+}
+
+:focus {
+  outline: none;
+}
+
+::-moz-focus-inner {
+  border: 0;
+}
+
+#cta,
+#taltz-logo,
+#copy4,
+#copy2-3-mask {
+  visibility: hidden;
+}

@@ -1,0 +1,187 @@
+html {
+  -webkit-tap-highlight-color: transparent;
+  text-rendering: optimizeLegibility;
+  -webkit-touch-callout: none;
+}
+
+body,
+body * {
+  border: 0;
+  font: 100%/1.5 Arial, sans-serif;
+  margin: 0;
+  outline: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+
+#container_dc {
+  background-color: #fff;
+  border: 1px solid #666;
+  box-sizing: border-box;
+  height: 250px;
+  left: 0;
+  margin: auto;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  -moz-transform-origin: 0% 0%;
+  /* Firefox */
+  -ms-transform-origin: 0% 0%;
+  /* IE 9 */
+  -o-transform-origin: 0% 0%;
+  /* Opera */
+  -webkit-transform-origin: 0% 0%;
+  /* Safari and Chrome */
+  width: 300px;
+}
+
+#content_ad {
+  background: #651554;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+#background_exit_dc {
+  background: url("data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7") 0 0 repeat;
+  cursor: pointer;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 400;
+}
+
+.background {
+  background: #651554;
+  height: 1237px;
+  left: -471px;
+  position: absolute;
+  top: -348px;
+  width: 1240px;
+}
+
+.background .person {
+  display: inline-block;
+  height: 117px;
+  position: relative;
+  width: 62px;
+}
+
+.background .person .color {
+  background-color: #785186;
+  height: 90%;
+  margin: 5%;
+  position: absolute;
+  width: 90%;
+}
+
+.background .person .background-mask {
+  background-image: url("person.svg");
+  background-size: 62px 117px;
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  z-index: 2;
+}
+
+.background .highlighted-person {
+  height: 117px;
+  position: absolute;
+  visibility: hidden;
+  width: 62px;
+  z-index: 10;
+}
+
+#copy1 {
+  height: 69px;
+  width: 237px;
+  left: 30px;
+  position: absolute;
+  top: 66px;
+  z-index: 3;
+}
+
+#copy2 {
+  height: 66px;
+  width: 178px;
+  left: 60px;
+  position: absolute;
+  top: 66px;
+  visibility: hidden;
+  z-index: 3;
+}
+
+#copy3 {
+  height: 47px;
+  width: 267px;
+  left: 16px;
+  position: absolute;
+  top: 20px;
+  visibility: hidden;
+  z-index: 2;
+}
+
+#liver {
+  height: 10px;
+  width: 16px;
+  left: 137px;
+  position: absolute;
+  top: 110px;
+  visibility: hidden;
+  z-index: 2;
+}
+
+#cta,
+#cta-hover {
+  height: 34px;
+  width: 138px;
+  bottom: 15px;
+  cursor: pointer;
+  position: absolute;
+  right: 9px;
+  z-index: 401;
+}
+
+#cta-hover {
+  display: none;
+  opacity: 0;
+}
+
+#logo {
+  height: 50px;
+  width: 124px;
+  bottom: 9px;
+  left: 9px;
+  position: absolute;
+  z-index: 3;
+}
+
+.description {
+  position: absolute;
+  width: 300px;
+  height: 250px;
+  z-index: 700;
+  box-sizing: border-box;
+  padding: 1.5em;
+  background: linear-gradient(45deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.90) 85%, rgba(0,0,0,0.35) 85%, rgba(0,0,0,0.35) 100%);
+  color: #fff;
+  cursor: pointer;
+  opacity: 0;
+}
+.description-body {
+  font-family: 'Montserrat', Helvetica, sans-serif;
+  width: 80%;
+  font-size: 1em;
+}
+.description .fa {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  padding: 1.5em;
+}

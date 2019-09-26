@@ -1,0 +1,79 @@
+<!--
+ walgreensChronicPain2BannersWlgCorL70035 - An HTML banner
+ @version v1.0.0
+ @date 12-8-2017 at 17:8:8
+ -->
+<!DOCTYPE html><html lang="en-us" dir="ltr"><head><meta charset="utf-8"><meta name="viewport" content="initial-scale=1"><meta http-equiv="x-ua-compatible" content="ie=edge"><title>chronicPain2</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <style>html{-webkit-tap-highlight-color:transparent;text-rendering:optimizeLegibility;-webkit-touch-callout:none}body,body *{border:0;font:100%/1.5 Arial,sans-serif;margin:0;outline:0;padding:0;vertical-align:baseline}#container-dc{background-color:#fff;border:1px solid #666;box-sizing:border-box;height:250px;left:0;margin:auto;opacity:0;overflow:hidden;position:absolute;top:0;-moz-transform-origin:0 0;-ms-transform-origin:0 0;-o-transform-origin:0 0;-webkit-transform-origin:0 0;width:300px}#content-ad{background:#fff;height:250px;left:-1px;position:absolute;top:-1px;width:300px;z-index:100}#background-exit-dc{background:url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7) 0 0 repeat;cursor:pointer;height:100%;left:0;position:absolute;top:0;width:100%;z-index:400}.full{height:250px;left:0;position:absolute;top:0;width:300px}.mask{overflow:hidden}#img1{height:185px;position:absolute;width:300px}#white-screen{background-color:#fff;height:33px;top:217px;width:100%}#colored-screen{background-color:rgba(46,194,193,.65);top:149px}#colored-screen #opaque-screen{background-color:#2ec2c1;top:14px}.copy2{height:500px;left:0;position:absolute;top:0;width:300px}#copy2-b-img{top:-250px}#cta{background-color:#fff;height:28px;left:195px;position:absolute;top:176px;transition:all .5s ease-out;visibility:hidden;width:90px}#cta-txt{height:13px;left:13px;position:absolute;top:8px;width:64px}#container-dc:hover #cta{background-color:#f7f3ef}
+.description {
+            position: absolute;
+            width: 300px;
+            height: 250px;
+            z-index: 700;
+            box-sizing: border-box;
+            padding: 1.5em;
+            background: linear-gradient(45deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.90) 85%, rgba(0,0,0,0.35) 85%, rgba(0,0,0,0.35) 100%);
+            color: #fff;
+            cursor: pointer;
+            opacity: 0;
+        }
+        .description-body {
+            font-family: 'Montserrat', Helvetica, sans-serif;
+            width: 80%;
+            font-size: 1em
+        }
+        .description .fa {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            padding: 1.5em;
+        }
+        </style><script>var clickTag="https://www.google.com/"</script></head><body><div id="container-dc"><div id="content-ad"><div class="description">
+                <p class="description-body">Staggered JavaScript animation.</p>
+                <i class="fa fa-redo"></i>
+            </div><img id="img1" src="./img1.jpg" alt=""> <img id="corner-logo" class="full" src="./cornerW.png" alt=""><div id="colored-screen" class="full"><div id="opaque-screen" class="full"></div></div><div id="white-screen" class="full"></div>
+            <img id="product1" class="full" src="./product1.png" alt=""> 
+            <img id="product2" class="full" src="./product2.png" alt=""> <img id="product3" class="full" src="./product3.png" alt=""><div id="copy2-a" class="full mask"><img id="copy2-a-img" class="copy2" src="./copy2.png" alt=""></div>
+            <div id="copy2-b" class="full mask"><img id="copy2-b-img" class="copy2" src="./copy2.png" alt=""></div><img id="legal" class="full" src="./legal.png" alt=""> <img id="copy1" class="full" src="./copy1.png" alt=""> 
+            <img id="logo" class="full" src="./wagLogo.png" alt=""><div id="cta"><img id="cta-txt" src="./ctaTxt.png" alt=""></div></div><a href="javascript:window.open(window.clickTag); void(0);" id="background-exit-dc"></a></div>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
+            <script>
+              !function(e,t){
+                "use strict";
+                function a(){
+                  n.addLabel("start")
+                  .set([i,u],{y:20,autoAlpha:0},"start")
+                  .set(c,{autoAlpha:0},"start")
+                  .addLabel("frame01","start")
+                  .to(m,4,{scale:1.15,z:.1,transformOrigin:"50% 75%",ease:Linear.easeNone,rotation:.01},"frame01")
+                  .to(l,1,{y:-163,ease:Power3.easeInOut,rotation:.01},"frame01+=2.5")
+                  .to(d,1,{autoAlpha:0,ease:Power3.easeInOut},"frame01+=2.5")
+                  .addLabel("frame02","frame01+=3")
+                  .from(product3,.5,{x:-300,ease:Power3.easeOut,rotation:.01},"frame02+=0.5")
+                  .from(product2,.5,{x:-250,ease:Power3.easeOut,rotation:.01},"frame02+=0.65")
+                  .from(product1,.5,{x:-200,ease:Power3.easeOut,rotation:.01},"frame02+=0.75")
+                  .from(f,.5,{alpha:0,ease:Power3.easeOut},"frame02+=0.75")
+                  .staggerTo([i,u],.5,{autoAlpha:1,y:0,ease:Power1.easeOut},.125,"frame02+=0.75")
+                  .to(c,.75,{autoAlpha:1,ease:Power3.easeOut},"frame02+=1.75")
+                  .to('.description', 1, {
+                    autoAlpha: 1, ease: Power2.easeOut
+                }, '+=2.5')
+                }
+                function o(){
+                  s.style.opacity=1,a()
+                }
+                var r=e.document,
+                n=new TimelineLite,
+                s=r.getElementById("container-dc"),
+                m=(r.getElementById("logo"),
+                r.getElementById("img1")),
+                l=r.getElementById("colored-screen"),
+                d=r.getElementById("copy1"),
+                i=r.getElementById("copy2-a"),
+                u=r.getElementById("copy2-b"),
+                f=r.getElementById("legal"),
+                c=r.getElementById("cta");
+                e.init=o,e.tl=n
+              }(this)</script>
+              <script>window.onload=init</script></body></html>

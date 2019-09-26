@@ -1,0 +1,351 @@
+<!--
+ elizabethArdenCeramideAndVisibleDifferenceBanners - An HTML banner
+ @version v1.0.0
+ @date 3-6-2018 at 12:15:47
+ -->
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1">
+  
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>elizabethArdenCeramideAndVisibleDifferenceBanners</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <style>
+/**
+ * elizabethArdenCeramideAndVisibleDifferenceBanners - An HTML banner
+ * @version v1.0.0
+ * @date 3-6-2018 at 12:15:47
+ */
+html {
+  -webkit-tap-highlight-color: transparent;
+  text-rendering: optimizeLegibility;
+  -webkit-touch-callout: none;
+}
+
+body,
+body * {
+  border: 0;
+  font: 100%/1.5 Arial, sans-serif;
+  margin: 0;
+  outline: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+
+#container-dc {
+  background-color: #fff;
+  border: 1px solid #666;
+  box-sizing: border-box;
+  height: 250px;
+  left: 0;
+  margin: auto;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  -moz-transform-origin: 0 0;
+  -ms-transform-origin: 0 0;
+  -o-transform-origin: 0 0;
+  -webkit-transform-origin: 0 0;
+  width: 300px;
+}
+
+#content-ad {
+  background: #f6f2ed;
+  height: 250px;
+  left: -1px;
+  position: absolute;
+  top: -1px;
+  width: 300px;
+  z-index: 100;
+}
+
+#background-exit {
+  background: url("data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7") 0 0 repeat;
+  cursor: pointer;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 400;
+}
+
+.full {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.mask {
+  overflow: hidden;
+}
+
+.spritesheet img {
+  height: 750px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+#logo-bottom {
+  top: -250px;
+}
+
+#cta {
+  top: -500px;
+}
+
+.copy2-spritesheet img {
+  height: 500px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+#copy2b {
+  top: -250px;
+}
+
+.copy3-spritesheet img {
+  height: 1000px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+#copy3b {
+  top: -250px;
+}
+
+#copy3c {
+  top: -500px;
+}
+
+#copy3d {
+  top: -750px;
+}
+
+#sheen-wrapper {
+  bottom: 15px;
+  height: 27px;
+  overflow: hidden;
+  position: absolute;
+  right: 12px;
+  width: 274px;
+}
+
+#sheen {
+  height: 152%;
+  left: -32%;
+  opacity: 0.3;
+  position: absolute;
+  top: -2%;
+  width: 30%;
+}
+
+#copy1,
+#copy2a,
+#copy2b,
+#copy3a,
+#copy3b,
+#copy3c,
+#copy3d,
+#product1,
+#product2,
+#final-bg,
+#final-copy,
+#cta,
+#sheen-wrapper {
+  visibility: hidden;
+}
+
+.description {
+            position: absolute;
+            width: 300px;
+            height: 250px;
+            z-index: 700;
+            box-sizing: border-box;
+            padding: 1.5em;
+            background: linear-gradient(45deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.90) 85%, rgba(0,0,0,0.35) 85%, rgba(0,0,0,0.35) 100%);
+            color: #fff;
+            cursor: pointer;
+            opacity: 0;
+        }
+        .description-body {
+            font-family: 'Montserrat', Helvetica, sans-serif;
+            width: 80%;
+            font-size: 1em;
+        }
+        .description .fa {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            padding: 1.5em;
+        }
+  </style>
+  <script>
+    var clickTag = 'https://www.google.com/';
+  </script>
+</head>
+
+<body>
+
+<div id="container-dc">
+  <div id="content-ad">
+      <div class="description">
+          <p class="description-body">High-quality file compression: multiple highly-detailed images, even for the 970x250 banner. Project size under 200 KB.</p>
+          <i class="fa fa-redo"></i>
+      </div>
+    <img id="bg" class="full" src="./bg.jpg" alt="">
+    <div id="copy1-wrapper" class="full mask spritesheet">
+      <img id="copy1" src="./spritesheet.png" alt="">
+    </div>
+    <div id="logo-bottom-wrapper" class="full mask spritesheet">
+      <img id="logo-bottom" src="./spritesheet.png" alt="">
+    </div>
+    <div id="copy2a-wrapper" class="full mask copy2-spritesheet">
+      <img id="copy2a" src="./copy2.png" alt="">
+    </div>
+    <div id="copy2b-wrapper" class="full mask copy2-spritesheet">
+      <img id="copy2b" src="./copy2.png" alt="">
+    </div>
+    <img id="capsule" class="full" src="./capsule.png" alt="">
+    <img id="product1" class="full" src="./product1.jpg" alt="">
+    <img id="product2" class="full" src="./product2.png" alt="">
+    <div id="copy3a-wrapper" class="full mask copy3-spritesheet">
+      <img id="copy3a" src="./copy3.png" alt="">
+    </div>
+    <div id="copy3b-wrapper" class="full mask copy3-spritesheet">
+      <img id="copy3b" src="./copy3.png" alt="">
+    </div>
+    <div id="copy3c-wrapper" class="full mask copy3-spritesheet">
+      <img id="copy3c" src="./copy3.png" alt="">
+    </div>
+    <div id="copy3d-wrapper" class="full mask copy3-spritesheet">
+      <img id="copy3d" src="./copy3.png" alt="">
+    </div>
+    <img id="final-bg" class="full" src="./final-bg.jpg" alt="">
+    <img id="final-copy" class="full" src="./final-copy.png" alt="">
+    <div id="cta-wrapper" class="full mask spritesheet">
+      <img id="cta" src="./spritesheet.png" alt="">
+    </div>
+    <div id="sheen-wrapper">
+      <img id="sheen" src="./sheen.png" alt="">
+    </div>
+  </div>
+  <a href="javascript:window.open(window.clickTag); void(0);" id="background-exit"></a>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
+
+<script>
+/**
+ * elizabethArdenCeramideAndVisibleDifferenceBanners - An HTML banner
+ * @version v1.0.0
+ * @date 3-6-2018 at 12:15:47
+ */
+!function(window, undefined) {
+    "use strict";
+    function startAnimation() {
+        function ctaHandler() {
+            bannerContainer.addEventListener("mouseenter", function() {
+                TweenMax.to("#sheen", .5, {
+                    x: 400,
+                    rotation: .01,
+                    ease: Linear.easeNone
+                });
+            }), bannerContainer.addEventListener("mouseleave", function() {
+                TweenMax.set("#sheen", {
+                    x: 0
+                });
+            });
+        }
+        tl.addLabel("start").set("#capsule", {
+            y: -150,
+            autoAlpha: 1,
+            transformOrigin: "49.25% 37.25%",
+            rotation: -120
+        }, "start").set("#product2", {
+            x: 75
+        }, "start").set("#product1", {
+            x: -75
+        }, "start").addLabel("frame01", "start").to("#bg", 2, {
+            autoAlpha: 0,
+            ease: Power1.easeInOut
+        }, "frame01").to("#copy1", .625, {
+            autoAlpha: 1,
+            ease: Power2.easeIn
+        }, "frame01+=1.25").to("#copy1", .5, {
+            autoAlpha: 0,
+            ease: Power1.easeIn
+        }, "frame01+=4").addLabel("frame02", "frame01+=4.5").staggerTo([ "#copy2a", "#copy2b" ], .5, {
+            autoAlpha: 1,
+            ease: Power2.easeIn
+        }, .5, "frame02").to("#capsule", 1.25, {
+            y: 0,
+            ease: Bounce.easeOut
+        }, "frame02+=0.5").to("#capsule", .75, {
+            rotation: 0,
+            ease: Power2.easeOut
+        }, "frame02+=1").addLabel("frame03", "frame02+=2").to([ "#logo-bottom", "#capsule", "#copy2a", "#copy2b" ], .75, {
+            autoAlpha: 0,
+            ease: Power2.easeIn
+        }, "frame03").to([ "#product2", "#product1" ], 1, {
+            x: 0,
+            autoAlpha: 1,
+            ease: Power2.easeOut,
+            rotation: .01
+        }, "frame03+=0.625").to("#copy3a", .625, {
+            autoAlpha: 1,
+            scale: 1,
+            ease: Power2.easeInOut
+        }, "frame03+=0.875").staggerTo([ "#copy3b", "#copy3c", "#copy3d" ], .625, {
+            autoAlpha: 1,
+            scale: 1,
+            ease: Power2.easeInOut
+        }, .625, "frame03+=1.5").addLabel("frame04", "frame03+=3.75").to([ "#copy3a", "#copy3b", "#copy3c", "#copy3d", "#product1", "#product2" ], .75, {
+            autoAlpha: 0,
+            ease: Power2.easeIn
+        }, "frame04").to([ "#final-bg", "#final-copy", "#sheen-wrapper" ], 1, {
+            autoAlpha: 1,
+            ease: Power2.easeIn
+        }, "frame04+=0.5").to("#cta", .75, {
+            autoAlpha: 1,
+            ease: Power2.easeInOut,
+            onComplete: ctaHandler
+        }, "frame04+=0.75")
+        .to("#sheen", .5, {
+            x: 400,
+            rotation: .01,
+            ease: Linear.easeNone,
+            onComplete: function() {
+                TweenMax.set("#sheen", {
+                    x: 0
+                });
+            }
+        }, "frame04+=1.5")
+        .to('.description', 1, {
+                    autoAlpha: 1, ease: Power2.easeOut
+                }, '+=2.5');
+    }
+    function init() {
+        bannerContainer.style.opacity = 1, startAnimation();
+    }
+    var document = window.document, tl = new TimelineLite(), bannerContainer = document.getElementById("container-dc");
+    window.init = init, window.tl = tl;
+}(this);</script>
+
+<script>
+  window.onload = init;
+</script>
+</body>
+</html>
