@@ -1955,16 +1955,13 @@ h1 {
 }
 
 .student-feedback__slider {
-  margin-bottom: 4em !important;
+  margin-bottom: 6em !important;
 }
 .student-feedback__slider.contain {
   width: 100%;
 }
 .student-feedback__slider p {
   max-width: unset;
-}
-.student-feedback__slider + p {
-  margin-bottom: 4em;
 }
 .student-feedback__slider .slick-slider {
   width: calc(100% + 80px) !important;

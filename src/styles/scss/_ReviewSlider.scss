@@ -1,5 +1,5 @@
 .student-feedback__slider {
-  margin-bottom: 4em !important;
+  margin-bottom: 6em !important;
 
   &.contain {
     width: 100%;
@@ -7,10 +7,6 @@
 
   p {
     max-width: unset;
-  }
-
-  + p {
-    margin-bottom: 4em;
   }
 
   .slick-slider {

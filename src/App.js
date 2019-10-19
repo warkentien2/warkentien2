@@ -53,7 +53,7 @@ function App() {
                 </span>
               </span>
               <span className="block right font--regular anchor">animation-<span className="block block--inline rotated">focused</span></span>
-              <span className="block right font--tiny role role--1">front-end <span className="hero__title--highlight">developer</span></span>
+              <span className="block right font--tiny role role--1">front-end <span className="hero__title--highlight">engineer</span></span>
               <span className="block right font--tiny role">& <span className="hero__title--highlight">mentor</span></span>
             </span>
           </h1>
@@ -66,7 +66,7 @@ function App() {
           <div className="container">
             <h2>About Me</h2>
             <p>
-              I'm a (USA/Brazil) dual-citizen Front-End Developer with a <span className="add-background">lifelong passion for arts and math</span>!<br /><br />
+              I'm a (USA/Brazil) dual-citizen Front-End Engineer with a <span className="add-background">lifelong passion for arts and math</span>!<br /><br />
               My passions led me from high school math mentoring and comic book drawing,
               to computer engineering and 3D-character modeling. My heart then found a home 
               in Front-End Development. Where, while working at Grey,
@@ -114,7 +114,7 @@ function App() {
             <p>
               There's an ever-growing need for Visual Web Developers. If we go back a decade, when tasks became too big for a WebMaster, the field was 
               split between Front and Backend. Once again, with Webpack, Docker, cross-platform programming, and 
-              EverythingElse.js, most Front-End Developers are specializing in a full-stack role. So, <span className="add-background">who will specialize in</span>:
+              EverythingElse.js, most Front-End Engineers are specializing in a full-stack role. So, <span className="add-background">who will specialize in</span>:
               complex CSS and JavaScript animations,
               SVG filters and animations,
               canvas games and animations,
@@ -122,24 +122,22 @@ function App() {
               data visualization,
               web-based 3D rendering, virtual reality, and augmented reality?
               There's simply too much ground to cover. 
-              Hiring a Front-End Developer no longer guarantees that you'll have a Visual Developer.<br /><br />
+              Hiring a Front-End Engineer no longer guarantees that you'll have a Visual Developer.<br /><br />
               For this reason, new job descriptions are popping up:
             </p>
             <ul>
-              <li>UI-Focused Front-End Developer</li>
+              <li>UI-Focused Front-End Engineer</li>
               <li>Front-End Animation Developer</li>
               <li>3D Rendering Front-End Developer</li>
               <li>Rich Media Developer</li>
-              <li>UI Developer</li>
+              <li>UI Engineer</li>
               <li>UX/UI Designer & Engineer</li>
             </ul>
             <p>
               All looking for this <span className="add-background">specialized Visual Web Developer.</span>
               <br /><br />
-              If you are now having that <em>Eureka</em> Moment: “This is what my UX team has been pleading for all along!”<br />
-              Call me; I'll ramp up your team's problem-solving arsenal while at it.
-              <br /><br />
-              Before you commit a large budget to a 3D-rendered animation or Video project, <strong className="add-background"><a className="highlight" href="#contact" onClick={navigationHandler}>reach out</a></strong>.
+              If your design and development teams aren't seeing eye-to-eye, or if you ran into a visually complex project,
+              call me. Before you commit a large budget to a 3D-rendered animation or Video project, <strong className="add-background"><a className="highlight" href="#contact" onClick={navigationHandler}>reach out</a></strong>.
             </p>
           </div>
           <Moth bottomAnchorSection={mentoringSection} scrollTop={scroll.position} windowSize={windowSize} />
@@ -169,9 +167,6 @@ function App() {
               This mindset of maintaining a high technical quality played a big part in my professional growth.
             </p>
             <ReviewSlider windowSize={windowSize} />
-            <p>
-              As the feedback shows, I operate on making people's lives easier!
-            </p>
           </div>
         </section>
         <footer id="contact" className="footer">
