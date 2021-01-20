@@ -6,7 +6,7 @@
   "homepage": "https://warkentien2.com",
   "dependencies": {
     "gh-pages": "^2.1.1",
-    "gsap": "^2.1.3",
+    "gsap": "^3.6.0",
     "json-loader": "^0.5.7",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
