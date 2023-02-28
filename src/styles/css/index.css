@@ -247,8 +247,8 @@ h1 {
     transform: rotate(0);
   }
   .hero__title .block.split-1, .hero__title .block.split-2,
-.hero__title .block .name,
-.hero__title .block .role {
+  .hero__title .block .name,
+  .hero__title .block .role {
     margin-right: 0;
   }
   .hero__title .block .name {
@@ -504,15 +504,15 @@ h1 {
 }
 
 .col-3 {
-  width: calc(100%/4);
+  width: 25%;
 }
 
 .col-4 {
-  width: calc(100%/3);
+  width: 33.3333333333%;
 }
 
 .col-6 {
-  width: calc(100%/2);
+  width: 50%;
 }
 
 .col-12 {
@@ -525,17 +525,14 @@ h1 {
 
 @media screen and (max-aspect-ratio: 100/101) {
   .col-sm-4 {
-    width: calc(100%/3);
+    width: 33.3333333333%;
   }
-
   .col-sm-6 {
-    width: calc(100%/2);
+    width: 50%;
   }
-
   .col-sm-12 {
     width: 100%;
   }
-
   .col-sm-order-1 {
     order: 1;
   }
@@ -935,20 +932,20 @@ h1 {
     background: rgba(255, 255, 255, 0.625);
   }
   30% {
-    background: #3500d3;
+    background: rgb(53, 0, 211);
   }
   40% {
-    background: #3500d3;
+    background: rgb(53, 0, 211);
   }
   100% {
     background: rgba(255, 255, 255, 0.625);
   }
 }
 .x-body-part {
-  border: 1px dashed white;
+  border: 1px dashed rgb(233, 113, 0);
   transform-origin: 5% 50%;
-  background: rgba(255, 255, 255, 0.625);
-  box-shadow: none;
+  background: radial-gradient(circle at 25% -10%, rgb(60, 84, 109) 10%, rgb(31, 31, 55) 35%, rgb(5, 5, 23) 45%, rgb(5, 5, 23) 62.5%, rgb(4, 4, 9) 85%, rgb(0, 0, 3) 100%) !important;
+  box-shadow: inset -3em -4.5em 0.75em -5.125em rgb(60, 84, 109), inset -4.625em -2.75em 1.5em -5.125em rgb(60, 84, 109), inset -4.625em -2.75em 0.5em -5em rgb(72, 78, 86), inset -3em -4.5em 2.5em -5em rgb(72, 78, 86), inset 2em -2.5em 0.75em -3em rgb(72, 78, 86), inset -0.125em -0.175em 0.125em -0.125em rgb(72, 78, 86), inset 0 -0.0525em 0.25em -0.0125em rgb(72, 78, 86), inset -2em -5.25em 2.25em -5em #030c14, inset -3.8em -2.75em 1.5em -4em #030c14, inset 1.875em -2.375em 1em -2.5em #030c14, inset -2em 2.25em 1.25em -2.875em #030c14, inset 1.875em 3em 1.25em -3.25em rgb(4, 4, 9), inset -1.125em 2.125em 0.75em -2.5em rgb(4, 4, 9), 0.075em 0.175em 0.2em 0.0125em rgba(0, 0, 0, 0.75), 0.125em 0.1em 0.75em 0.175em rgba(0, 0, 0, 0.35), 0.5em 0.5em 1em 0.25em rgba(0, 0, 0, 0.25), -0.25em 0.5em 1.5em 0.5em rgba(0, 0, 0, 0.1), 0 0 3.5em rgba(238, 162, 66, 0.125), 0.125em 0.125em 0.25em -0.05em rgba(238, 162, 66, 0.75), 0.125em 0.125em 0.75em 0.125em rgba(0, 0, 0, 0.25), 0.125em 0.125em 0.5em -0.05em rgba(238, 162, 66, 0.25) !important;
   cursor: pointer;
 }
 .x-body-part.x-abdomen {
@@ -969,7 +966,8 @@ h1 {
   width: 100%;
   height: 100%;
   border-radius: inherit;
-  background: rgba(255, 255, 255, 0.625);
+  background-image: radial-gradient(circle at 45% 135%, transparent 5%, rgba(160, 64, 0, 0.3764705882) 7.5%, transparent 10%, transparent 15%, rgba(160, 64, 0, 0.3764705882) 17.5%, transparent 20%, transparent 25%, rgba(160, 64, 0, 0.3764705882) 27.5%, transparent 30%, transparent 35%, rgba(160, 64, 0, 0.3764705882) 37.5%, transparent 40%, transparent 45%, rgba(160, 64, 0, 0.3764705882) 47.5%, transparent 50%, transparent 55%, rgba(160, 64, 0, 0.3764705882) 57.5%, transparent 60%, transparent 65%, rgba(160, 64, 0, 0.3764705882) 67.5%, transparent 70%, transparent 75%, rgba(160, 64, 0, 0.3764705882) 77.5%, transparent 80%, transparent 85%, rgba(160, 64, 0, 0.3764705882) 87.5%, transparent 90%, transparent 95%, rgba(160, 64, 0, 0.3764705882) 97.5%, transparent 100%), radial-gradient(ellipse at 52.5% 57.5%, transparent 5%, rgba(0, 0, 50, 0.6901960784) 7.5%, transparent 15%, rgba(0, 0, 50, 0.6901960784) 17.5%, transparent 25%, rgba(0, 0, 50, 0.6901960784) 27.5%, transparent 35%, rgba(0, 0, 50, 0.6901960784) 37.5%, transparent 45%, rgba(0, 0, 50, 0.6901960784) 47.5%, transparent 55%, rgba(0, 0, 50, 0.6901960784) 57.5%, transparent 65%, rgba(0, 0, 50, 0.6901960784) 67.5%, transparent 75%, rgba(0, 0, 50, 0.6901960784) 77.5%, transparent 85%, rgba(0, 0, 50, 0.6901960784) 87.5%, transparent 95%, rgba(0, 0, 50, 0.6901960784) 97.5%, transparent 100%), radial-gradient(circle at 115% 65%, transparent 5%, rgba(160, 64, 0, 0.6901960784) 7.5%, transparent 15%, rgba(160, 64, 0, 0.6901960784) 17.5%, transparent 25%, rgba(160, 64, 0, 0.6901960784) 27.5%, transparent 35%, rgba(160, 64, 0, 0.6901960784) 37.5%, transparent 45%, rgba(160, 64, 0, 0.6901960784) 47.5%, transparent 55%, rgba(160, 64, 0, 0.6901960784) 57.5%, transparent 65%, rgba(160, 64, 0, 0.6901960784) 67.5%, transparent 75%, rgba(160, 64, 0, 0.6901960784) 77.5%, transparent 85%, rgba(160, 64, 0, 0.6901960784) 87.5%, transparent 95%, rgba(160, 64, 0, 0.6901960784) 97.5%, transparent 100%);
+  box-shadow: inset -2px -8px 10px -10px rgb(255, 93, 18), inset 1px 3px 25px -3px rgb(255, 93, 18), inset -5px -17px 25px 5px rgb(2, 13, 34), 3px -2px 12px rgb(255, 93, 18);
   z-index: 2;
 }
 .x-body-part.x-abdomen::after {
@@ -997,6 +995,8 @@ h1 {
   border: inherit;
   border-radius: inherit;
   z-index: 4;
+  background: linear-gradient(-20deg, #030c14 0%, rgb(4, 4, 9) 65%, rgb(60, 84, 109) 75%);
+  box-shadow: inset -3em -4.5em 0.75em -5.125em rgb(60, 84, 109), inset -4.625em -2.75em 1.5em -5.125em rgb(60, 84, 109), inset -4.625em -2.75em 0.5em -5em rgb(72, 78, 86), inset -3em -4.5em 2.5em -5em rgb(72, 78, 86), inset 2em -2.5em 0.75em -3em rgb(72, 78, 86), inset -0.125em -0.175em 0.125em -0.125em rgb(72, 78, 86), inset 0 -0.0525em 0.25em -0.0125em rgb(72, 78, 86), inset -2em -5.25em 2.25em -5em #030c14, inset -3.8em -2.75em 1.5em -4em #030c14, inset 1.875em -2.375em 1em -2.5em #030c14, inset -2em 2.25em 1.25em -2.875em #030c14, inset 1.875em 3em 1.25em -3.25em rgb(4, 4, 9), inset -1.125em 2.125em 0.75em -2.5em rgb(4, 4, 9), 0.075em 0.175em 0.2em 0.0125em rgba(0, 0, 0, 0.75), 0.125em 0.1em 0.75em 0.175em rgba(0, 0, 0, 0.35), 0.5em 0.5em 1em 0.25em rgba(0, 0, 0, 0.25), -0.25em 0.5em 1.5em 0.5em rgba(0, 0, 0, 0.1), 0 0 3.5em rgba(238, 162, 66, 0.125), 0.125em 0.125em 0.25em -0.05em rgba(238, 162, 66, 0.75), 0.125em 0.125em 0.75em 0.125em rgba(0, 0, 0, 0.25), 0.125em 0.125em 0.5em -0.05em rgba(238, 162, 66, 0.25) !important;
 }
 .x-body-part.x-cephalothorax * {
   z-index: 3;
@@ -1012,9 +1012,47 @@ h1 {
   transform: none;
   border: none;
   opacity: 1;
+  background: radial-gradient(ellipse at 40% 0, rgb(71, 170, 251), rgb(72, 78, 86) 35%, transparent 50%);
+}
+.x-body-part.x-cephalothorax .x-eye {
+  z-index: 5;
+  right: -7.5%;
+  top: -7%;
+  width: calc(1.33em + 2px);
+  height: calc(1.07em + 2px);
+  border-radius: 50% 50% 45% 45%;
+  transform: rotate(30deg);
+  background-image: radial-gradient(circle at 68% 45%, #fff 2%, #899ac0 5%, rgba(101, 70, 145, 0.25) 15%, transparent 20%), radial-gradient(circle at 60% 30%, #fff 4%, #8799c0 10%, #434b96 20%, #332c68 30%, #000 50%);
+  box-shadow: inset 1px -1px 4px 0 #001, inset 1px -1px 2px -1px rgba(123, 112, 141, 0.5), -1px 2px 7px rgba(42, 48, 58, 0.5), 0 0 2px #b2d2fd;
+}
+.x-body-part.x-cephalothorax .x-eye::after {
+  content: none;
+}
+.x-body-part.x-cephalothorax .x-eye2 {
+  right: -0.5%;
+  top: 2.5%;
+  width: calc(1.07em + 2px);
+  height: calc(1.07em + 2px);
+  border-radius: 50%;
+}
+.x-body-part.x-cephalothorax .x-eye3 {
+  right: -5.5%;
+  top: 11%;
+  width: calc(0.6em + 2px);
+  height: calc(0.55em + 2px);
+  border-radius: 50%;
+  transform: rotate(35deg);
+}
+.x-body-part.x-cephalothorax .x-eye4 {
+  right: -10%;
+  top: 6.5%;
+  width: calc(0.55em + 2px);
+  height: calc(0.5em + 2px);
+  border-radius: 50%;
+  transform: rotate(25deg);
 }
 .x-body-part.x-cephalothorax .x-coxa-pattern {
-  background: rgba(255, 255, 255, 0.625);
+  background: linear-gradient(7deg, #030c14 0%, rgb(31, 31, 55) 55%, rgb(72, 78, 86) 85%, rgb(60, 84, 109) 90%);
   display: inline-block;
   left: 48%;
   top: 0;
@@ -1023,8 +1061,9 @@ h1 {
   transform-origin: 50% 0;
   border-radius: 80% 80% 20% 20%;
   z-index: 5;
-  border-bottom: 1px dashed white;
-  border-left: 1px dashed white;
+  border-bottom: 1px dashed rgb(233, 113, 0);
+  border-left: 1px dashed rgb(233, 113, 0);
+  box-shadow: inset 1px -3px 9px -1px rgba(255, 93, 18, 0.875), 3px 3px 7px -1px rgb(255, 93, 18);
 }
 .x-body-part.x-cephalothorax .x-coxa-pattern::after {
   content: none;
@@ -1069,9 +1108,11 @@ h1 {
   border-radius: inherit;
   z-index: 1;
   border: none;
-  border-right: 1px dashed white;
-  border-bottom: 1px dashed white;
+  border-right: 1px dashed rgb(233, 113, 0);
+  border-bottom: 1px dashed rgb(233, 113, 0);
   opacity: 1;
+  background: linear-gradient(77deg, rgb(5, 5, 23) 40%, rgb(72, 78, 86) 75%, rgb(60, 84, 109) 95%);
+  box-shadow: inset 1px -2px 7px -1px rgba(255, 93, 18, 0.75), 1px 3px 10px -1px rgba(255, 93, 18, 0.5);
 }
 .x-body-part.x-cephalothorax .x-chelicera-pattern::before {
   content: "";
@@ -1083,8 +1124,9 @@ h1 {
   height: 23%;
   border-radius: 0 0 0.5em 100%;
   transform: rotate(8deg);
-  background: rgba(255, 255, 255, 0.625);
-  border: 1px dashed white;
+  background: radial-gradient(circle at 25% -10%, rgb(140, 138, 138) 10%, rgb(241, 92, 33) 35%, rgb(219, 96, 25) 45%, rgb(219, 96, 25) 62.5%, rgb(101, 32, 0) 85%, rgb(90, 41, 0) 100%) !important;
+  border: 1px dashed rgb(233, 113, 0);
+  box-shadow: 2px 2px 7px -1px rgba(255, 93, 18, 0.75), inset 4px 3px 7px -1px rgba(255, 116, 24, 0.625), inset -4px -3px 11px 3px rgba(0, 0, 0, 0.75), inset 3px 2px 7px rgba(33, 71, 141, 0.25), 0 0 4px rgba(101, 143, 210, 0.5);
 }
 .x-body-part.x-chelicerae {
   width: calc(8.75em + 2px);
@@ -1107,9 +1149,11 @@ h1 {
   -o-transform: rotate(60deg) translateZ(0);
   transform: rotate(60deg) translateZ(0);
   border-radius: 30% 70% 10% 0%;
-  background: rgba(255, 255, 255, 0.625);
-  border: 1px dashed white;
+  background: rgb(0, 0, 3) !important;
+  background-image: radial-gradient(circle at 55% 120%, transparent 5%, rgba(160, 64, 0, 0.2509803922) 7.5%, transparent 15%, rgba(160, 64, 0, 0.2509803922) 17.5%, transparent 25%, rgba(160, 64, 0, 0.2509803922) 27.5%, transparent 35%, rgba(160, 64, 0, 0.2509803922) 37.5%, transparent 45%, rgba(160, 64, 0, 0.2509803922) 47.5%, transparent 55%, rgba(160, 64, 0, 0.2509803922) 57.5%, transparent 65%, rgba(160, 64, 0, 0.2509803922) 67.5%, transparent 75%, rgba(160, 64, 0, 0.2509803922) 77.5%, transparent 85%, rgba(160, 64, 0, 0.2509803922) 87.5%, transparent 95%, rgba(160, 64, 0, 0.2509803922) 97.5%, transparent 100%), radial-gradient(ellipse at 30.5% 67.5%, transparent 5%, rgba(0, 0, 50, 0.6901960784) 17.5%, transparent 35%, rgba(0, 0, 50, 0.6901960784) 47.5%, transparent 65%, rgba(0, 0, 50, 0.6901960784) 77.5%, transparent 95%), radial-gradient(circle at -25% 65%, transparent 0%, rgba(160, 64, 0, 0.5019607843) 5%, transparent 20%, rgba(160, 64, 0, 0.5019607843) 25%, transparent 40%, rgba(160, 64, 0, 0.5019607843) 45%, transparent 60%, rgba(160, 64, 0, 0.5019607843) 65%, transparent 80%, rgba(160, 64, 0, 0.5019607843) 85%, transparent 100%) !important;
+  border: 1px dashed rgb(233, 113, 0);
   border-bottom: none;
+  box-shadow: inset 1px -2px 6px -1px rgba(255, 93, 18, 0.875), 1px 0 6px -1px rgb(255, 93, 18) !important;
 }
 .x-body-part.x-chelicerae.x-chelicerae--background {
   top: 4%;
@@ -1121,7 +1165,7 @@ h1 {
   bottom: -7%;
 }
 .x-body-part.x-chelicerae .x-fang {
-  background: rgba(255, 255, 255, 0.625);
+  background: linear-gradient(3deg, #050505 0%, #151815 30%, #050505 80%);
   border-radius: 20% 250% 0 2em;
   width: calc(35.5% + 2px);
   height: calc(10.5% + 2px);
@@ -1188,8 +1232,8 @@ h1 {
 .x-body-part .x-leg.x-leg--background * {
   background: none !important;
   position: absolute !important;
-  box-shadow: none !important;
   z-index: -1;
+  box-shadow: inset 2px -1px 7px 2px rgba(255, 93, 18, 0.75), -2px -1px 7px rgba(255, 93, 18, 0.75) !important;
 }
 .x-body-part .x-leg.x-leg--background *::before {
   content: "";
@@ -1198,7 +1242,7 @@ h1 {
   top: 0;
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.625);
+  background: #000735;
   box-sizing: border-box;
   border-radius: inherit;
   border-bottom: none;
@@ -1214,6 +1258,7 @@ h1 {
   border-radius: inherit;
   border: none;
   background: transparent;
+  background-image: radial-gradient(circle at 5% 45%, transparent 5%, rgba(160, 98, 0, 0.6901960784) 10%, transparent 20%, rgba(160, 98, 0, 0.6901960784) 25%, transparent 35%, rgba(160, 98, 0, 0.6901960784) 40%, transparent 50%, rgba(160, 98, 0, 0.6901960784) 55%, transparent 65%, rgba(160, 98, 0, 0.6901960784) 70%, transparent 80%, rgba(160, 98, 0, 0.6901960784) 85%, transparent 95%, rgba(160, 98, 0, 0.6901960784) 100%), linear-gradient(2.5deg, transparent 5%, rgba(160, 98, 0, 0.6274509804) 10%, transparent 20%, rgba(160, 98, 0, 0.6274509804) 25%, transparent 35%, rgba(160, 98, 0, 0.6274509804) 40%, transparent 50%, rgba(160, 98, 0, 0.6274509804) 55%, transparent 65%, rgba(160, 98, 0, 0.6274509804) 70%, transparent 80%, rgba(160, 98, 0, 0.6274509804) 85%, transparent 95%, rgba(160, 98, 0, 0.6274509804) 100%);
 }
 .x-body-part .x-spinnerets {
   top: auto;
@@ -1224,6 +1269,9 @@ h1 {
   transform: rotate(-100deg);
   transform-origin: 20% 50%;
   z-index: 1;
+}
+.x-body-part .x-spinnerets > * {
+  box-shadow: 1px 2px 4px 0 rgba(255, 93, 18, 0.5), 0 0 5px black, inset 4px 3px 7px -1px rgba(255, 116, 24, 0.625), inset -4px -3px 11px 3px rgba(0, 0, 0, 0.75), inset 3px 2px 7px rgba(33, 71, 141, 0.25), 0 0 4px rgba(101, 143, 210, 0.5);
 }
 .x-body-part .x-spinnerets .x-coxa {
   width: 0.75em !important;
@@ -1253,9 +1301,10 @@ h1 {
 }
 .x-body-part .x-leg-parts,
 .x-body-part .x-spinnerets-parts {
-  background: rgba(255, 255, 255, 0.625);
-  border: 1px dashed white;
+  background: radial-gradient(circle at 0 0, #030c14 0%, rgb(5, 5, 23) 65%, rgb(60, 84, 109) 100%);
+  border: 1px dashed rgb(233, 113, 0);
   border-radius: 50% 60% 45% 1.75em;
+  box-shadow: 1px -1px 7px 1px rgba(255, 93, 18, 0.5), 0 0 7px black, inset 4px 3px 7px -1px rgba(255, 116, 24, 0.625), inset -4px -3px 11px 3px rgba(0, 0, 0, 0.75), inset 3px 2px 7px rgba(33, 71, 141, 0.25), 0 0 4px rgba(101, 143, 210, 0.5);
   left: 95%;
   top: 10%;
   transform-origin: 5% 50%;
@@ -1272,9 +1321,9 @@ h1 {
 }
 .x-body-part .x-leg-parts::before,
 .x-body-part .x-spinnerets-parts::before {
-  background: rgba(255, 255, 255, 0.625);
-  border: 1px dashed white;
-  box-shadow: none !important;
+  background: radial-gradient(circle at 0 0, #030c14 0%, rgb(5, 5, 23) 65%, rgb(60, 84, 109) 100%);
+  border: 1px dashed rgb(233, 113, 0);
+  box-shadow: inset 4px 3px 7px -1px rgba(255, 116, 24, 0.625), inset -4px -3px 11px 3px rgba(0, 0, 0, 0.75), inset 3px 2px 7px rgba(33, 71, 141, 0.25), 0 0 4px rgba(101, 143, 210, 0.5) !important;
   box-sizing: content-box;
   width: calc(100% - 2px);
   height: calc(100% - 2px);
@@ -1291,6 +1340,7 @@ h1 {
   border-radius: inherit;
   border: none;
   background: transparent;
+  background-image: radial-gradient(circle at 95% 85%, transparent 5%, rgba(160, 98, 0, 0.4392156863) 10%, transparent 20%, rgba(160, 98, 0, 0.4392156863) 25%, transparent 35%, rgba(160, 98, 0, 0.4392156863) 40%, transparent 50%, rgba(160, 98, 0, 0.4392156863) 55%, transparent 65%, rgba(160, 98, 0, 0.4392156863) 70%, transparent 80%, rgba(160, 98, 0, 0.4392156863) 85%, transparent 95%, rgba(160, 98, 0, 0.4392156863) 100%), linear-gradient(2deg, transparent 5%, rgba(160, 98, 0, 0.3764705882) 10%, transparent 20%, rgba(160, 98, 0, 0.3764705882) 25%, transparent 35%, rgba(160, 98, 0, 0.3764705882) 40%, transparent 50%, rgba(160, 98, 0, 0.3764705882) 55%, transparent 65%, rgba(160, 98, 0, 0.3764705882) 70%, transparent 80%, rgba(160, 98, 0, 0.3764705882) 85%, transparent 95%, rgba(160, 98, 0, 0.3764705882) 100%);
 }
 .x-body-part .x-coxa {
   left: 0;
@@ -1298,13 +1348,14 @@ h1 {
   width: calc(4.623em + 2px);
   height: calc(3.76em + 2px);
   border-radius: 50% 30% 50% 60%;
-  background: rgba(255, 255, 255, 0.625);
+  background: radial-gradient(circle at 0 0, #030c14 0%, rgb(5, 5, 23) 65%, rgb(60, 84, 109) 100%) !important;
+  box-shadow: inset 1px -3px 10px -1px rgba(255, 93, 18, 0.875), 2px 2px 5px -1px rgba(255, 93, 18, 0.5);
 }
-.x-body-part .x-coxa::before {
-  background: rgba(255, 255, 255, 0.625);
+.x-body-part .x-coxa:before {
+  background: radial-gradient(circle at 0 0, #030c14 0%, rgb(5, 5, 23) 65%, rgb(60, 84, 109) 100%) !important;
 }
 .x-body-part .x-coxa::after {
-  content: none;
+  background-image: radial-gradient(circle at 100% 50%, transparent 5%, rgba(160, 98, 0, 0.3764705882) 10%, transparent 20%, rgba(160, 98, 0, 0.3764705882) 25%, transparent 35%, rgba(160, 98, 0, 0.3764705882) 40%, transparent 50%, rgba(160, 98, 0, 0.3764705882) 55%, transparent 65%, rgba(160, 98, 0, 0.3764705882) 70%, transparent 80%, rgba(160, 98, 0, 0.3764705882) 85%, transparent 95%, rgba(160, 98, 0, 0.3764705882) 100%), linear-gradient(2deg, transparent 5%, rgba(160, 98, 0, 0.3764705882) 10%, transparent 20%, rgba(160, 98, 0, 0.3764705882) 25%, transparent 35%, rgba(160, 98, 0, 0.3764705882) 40%, transparent 50%, rgba(160, 98, 0, 0.3764705882) 55%, transparent 65%, rgba(160, 98, 0, 0.3764705882) 70%, transparent 80%, rgba(160, 98, 0, 0.3764705882) 85%, transparent 95%, rgba(160, 98, 0, 0.3764705882) 100%);
 }
 .x-body-part .x-femur {
   height: calc(3.76em + 2px);
@@ -1331,7 +1382,7 @@ h1 {
   will-change: width;
 }
 .x-body-part .x-tibia {
-  background: rgba(255, 255, 255, 0.625);
+  background: radial-gradient(circle at 0 0, #030c14 0%, rgb(5, 5, 23) 65%, rgb(60, 84, 109) 100%);
   height: calc(3.668em + 2px);
   top: 2.5%;
   left: 80%;
@@ -1364,6 +1415,7 @@ h1 {
   -o-transform: rotate(-10deg) translateZ(0);
   transform: rotate(-10deg) translateZ(0);
   width: calc(6.22em + 2px);
+  box-shadow: 1px -1px 5px 1px rgba(255, 93, 18, 0.5), 0 0 5px #000, inset 4px 3px 7px -1px rgba(255, 116, 24, 0.625), inset -4px -3px 11px 3px rgba(0, 0, 0, 0.75), inset 3px 2px 7px rgba(33, 71, 141, 0.25), 0 0 4px rgba(101, 143, 210, 0.5);
 }
 .x-body-part .x-leg.leg-1,
 .x-body-part .x-leg.leg-5 {
