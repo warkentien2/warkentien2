@@ -5,7 +5,7 @@
   "author": "Philip D. Warkentien II",
   "homepage": "https://warkentien2.com",
   "dependencies": {
-    "gh-pages": "^2.1.1",
+    "gh-pages": "^5.0.0",
     "gsap": "^3.6.0",
     "json-loader": "^0.5.7",
     "react": "^16.9.0",
