@@ -1,0 +1,13 @@
+{
+  "name": "warkentien2.com \u2014 archive",
+  "short_name": "Archive",
+  "icons": [
+    {
+      "src": "logo.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone"
+}

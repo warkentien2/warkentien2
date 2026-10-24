@@ -1,5 +1,7 @@
 import React from "react"
-import Slider from "react-slick"
+import SliderModule from "react-slick"
+// This archived Babel/CommonJS package exposes its component under default.
+const Slider = SliderModule.default || SliderModule
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 
