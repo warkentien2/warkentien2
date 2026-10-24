@@ -51,6 +51,8 @@ Public assets are public even when no page links to them. Never put credentials 
 
 All routes have physical HTML files for direct visits and refreshes on static hosts. Archive links use normal anchors to cross app boundaries. The original root and projects URLs keep serving their existing content even when this artifact is published. All new UI is temporarily mounted at `https://warkentien2.com/2026/`; promoting it to the domain root is a separate future decision. This path requires no subdomain or DNS changes.
 
+For live publishing, Pages must use **GitHub Actions**, followed by a manual run of **Deploy static portfolio** on `master`. Publishing `master` directly as a branch serves the repository README instead of building these routes. See the [publishing-source troubleshooting steps](docs/deployment.md#if-the-domain-shows-readme-text-and-projects-or-2026-return-404).
+
 ## Further reading
 
 - [Owner preferences and PR workflow](docs/preferences.md)

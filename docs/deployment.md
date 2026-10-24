@@ -1,8 +1,22 @@
 # Publish and operate
 
-## Existing setup (inspected October 23, 2026)
+## Publishing source
 
-GitHub Pages serves the `gh-pages` branch at its root. The custom domain is `warkentien2.com`, and HTTPS is enforced. `master` is the source branch. GoDaddy is the domain registrar/DNS provider; it does not need to run the application. This cleanup does not change Pages settings, DNS, the published branch, or the live site.
+GitHub Pages must use **GitHub Actions** to publish the assembled `dist/` artifact. `master` contains application source, not a ready-to-serve website. The custom domain is `warkentien2.com`, with HTTPS enabled; GoDaddy manages DNS and does not need to run the application. The old `gh-pages` branch is retained as a rollback source.
+
+## If the domain shows README text and /projects or /2026 return 404
+
+On October 24, 2026, Pages was found configured as **Deploy from a branch → master → /(root)**. GitHub's branch/Jekyll build rendered README.md because the source branch has no root index.html. It also did not run either app build, so neither expected route was published. Adding a CNAME file or redirects cannot fix this build-source mismatch.
+
+1. Open [repository Settings → Pages](https://github.com/warkentien2/warkentien2/settings/pages).
+2. Under **Build and deployment → Source**, select **GitHub Actions**. Do not select `master` under **Deploy from a branch**. Keep the custom domain and HTTPS settings.
+3. Open [Deploy static portfolio](https://github.com/warkentien2/warkentien2/actions/workflows/deploy.yml), select **Run workflow**, choose **master**, and run it. Changing the Pages source alone does not run this manual workflow.
+4. Wait for the **Deploy static portfolio** run's build and deploy jobs to succeed. A green **Validate** check or **pages build and deployment** Jekyll run is not this deployment.
+5. Verify `/`, `/projects/`, `/2026/`, and a `/2026/en/work/` refresh on the actual domain. If a browser still shows an old response, use a private window or disable cache before diagnosing another code issue.
+
+The deployment workflow checks that Pages uses the Actions publishing source before building. Only `dist/` is uploaded; never select the repository source root for publication.
+
+For CLI verification, `gh api repos/warkentien2/warkentien2/pages --jq .build_type` must return `workflow`, not `legacy`. An authorized operator can set the source with `gh api --method PUT repos/warkentien2/warkentien2/pages -f build_type=workflow`, then dispatch `gh workflow run deploy.yml --repo warkentien2/warkentien2 --ref master`. These commands change the live publishing configuration and start a deployment; use them when publishing is requested.
 
 ## Review locally
 
