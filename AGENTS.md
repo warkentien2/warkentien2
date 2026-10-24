@@ -2,6 +2,8 @@
 
 The source branch is `master`. Read `README.md` and the relevant document in `docs/` before changing build boundaries or publishing behavior.
 
+Read [owner preferences](docs/preferences.md) for product priorities, autonomy, PR updates, screenshots, and review handling. Continue authorized work without routine confirmation prompts; keep changes on the task's existing PR when one is open.
+
 - New portfolio: `apps/web` (Next.js static export, React, strict TypeScript).
 - Archive: `apps/legacy` (React 16 + Vite); retain its content and asset paths unless the task explicitly changes them.
 - Publish only assembled `dist/`. Development docs, tests, and `.agents/` must stay out of it.

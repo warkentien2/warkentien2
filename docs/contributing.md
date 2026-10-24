@@ -6,6 +6,8 @@
 
 New sections belong under `apps/web/src/app/[locale]/`. Keep semantic heading levels, descriptive route titles, and translated controls. Add each locale's strings together. For new pages add route-level canonical/alternate metadata using the actual translated URLs. The initial language switcher returns to each locale home; preserve equivalent subpage paths when extending it for real content. Ensure localized changes fit narrow and zoomed viewports.
 
+Mark passages in another language with their own `lang` attribute, even on the language chooser. A Portuguese phrase inside an English document needs `lang="pt-BR"` so assistive technology can choose the appropriate pronunciation. Keep this language information in the exported HTML, before JavaScript runs.
+
 ## Articles and projects
 
 The journal is intentionally empty. Start with hand-authored localized TSX pages under `[locale]/journal/<slug>/page.tsx`, add links to the journal index, and author translated titles/descriptions. This keeps all content in Git without a CMS. Extract a typed local article catalog when there are multiple entries. If slugs become data-driven, enumerate every route with `generateStaticParams` and keep `dynamicParams = false`; include each emitted route in artifact/browser checks. Add MDX only when its authoring benefits justify the dependency.

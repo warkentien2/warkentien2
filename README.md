@@ -54,6 +54,7 @@ All routes have physical HTML files for direct visits and refreshes on static ho
 
 ## Further reading
 
+- [Owner preferences and PR workflow](docs/preferences.md)
 - [Architecture and technology decision](docs/architecture.md)
 - [Publishing, GoDaddy DNS, and rollback](docs/deployment.md)
 - [Content, localization, accessibility, and motion](docs/contributing.md)

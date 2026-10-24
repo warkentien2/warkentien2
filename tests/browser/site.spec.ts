@@ -52,6 +52,8 @@ test('language chooser is accessible and content works without JavaScript', asyn
   const context = await browser.newContext({ javaScriptEnabled: false });
   const page = await context.newPage();
   await page.goto('/');
+  const portuguesePrompt = page.getByRole('heading', { level: 1 }).getByText('Escolha seu idioma', { exact: true });
+  expect(await portuguesePrompt.evaluate((element) => element.closest('[lang]')?.getAttribute('lang'))).toBe('pt-BR');
   await expect(page.getByRole('link', { name: 'English', exact: true })).toBeVisible();
   await page.getByRole('link', { name: 'English', exact: true }).click();
   await expect(page.getByRole('heading', { level: 1 })).toContainText('UI engineering');
