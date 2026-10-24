@@ -11,8 +11,20 @@ jobs:
   build:
     if: github.ref == 'refs/heads/master'
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: read
     steps:
       - uses: actions/checkout@v7.0.1
+      - name: Verify Pages publishes the built artifact
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          pages_build_type="$(gh api "repos/${GITHUB_REPOSITORY}/pages" --jq .build_type)"
+          if [ "$pages_build_type" != "workflow" ]; then
+            echo "::error::Pages must use GitHub Actions. Open Settings > Pages > Build and deployment > Source and select GitHub Actions. Do not publish master from /(root): that serves README.md instead of the built site."
+            exit 1
+          fi
       - uses: actions/setup-node@v7.1.0
         with:
           node-version-file: .nvmrc
