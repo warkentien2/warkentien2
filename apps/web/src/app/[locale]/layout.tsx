@@ -8,7 +8,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
   return {
-    metadataBase: new URL('https://warkentien2.com'),
+    metadataBase: new URL('https://warkentien2.com/2026/'),
     title: { default: 'Philip Warkentien II · Staff UI Engineer', template: '%s · Philip Warkentien II' },
     description: copy[locale].description,
   };
@@ -29,6 +29,6 @@ export default async function Layout({ children, params }: { children: React.Rea
         <Link href="/pt-BR/" lang="pt-BR" hrefLang="pt-BR">Português</Link></nav>
     </header>
     <main id="main" tabIndex={-1}>{children}</main>
-    <footer><a href="/legacy/">{t.archive}</a><a href="/legacy/projects/">{t.projects}</a></footer>
+    <footer><a href="/">{t.archive}</a><a href="/projects/">{t.projects}</a></footer>
   </body></html>;
 }

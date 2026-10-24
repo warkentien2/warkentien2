@@ -1,2 +1,2 @@
 import { defineConfig } from 'vite';
-export default defineConfig({ base: '/legacy/', esbuild: { jsx: 'transform' } });
+export default defineConfig({ base: '/', esbuild: { jsx: 'transform' } });

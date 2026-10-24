@@ -6,14 +6,18 @@ GitHub Pages serves the `gh-pages` branch at its root. The custom domain is `war
 
 ## Review locally
 
-Run `npm ci`, `npx playwright install chromium`, `npm run check`, then `npm run preview`. Inspect `/`, both locale home pages and subpages, `/legacy/`, `/legacy/projects/`, `/projects/`, and an unknown URL. Browser automation includes Chromium desktop/mobile viewport checks and axe scans for new pages, plus archive smoke tests. Manual screen-reader, other-browser, real-device, reduced-motion, zoom, and visual regression reviews are still needed for the finished design.
+Run `npm ci`, `npx playwright install chromium`, `npm run check`, then `npm run preview`. Inspect the original `/` and `/projects/`, the new `/2026/` chooser, both `/2026/{locale}/` home pages and subpages, and unknown URLs. Refresh a modern deep link and confirm its scripts/styles load from `/2026/_next/`. Browser automation includes Chromium desktop/mobile viewport checks and axe scans for new pages, plus archive smoke tests. Manual screen-reader, other-browser, real-device, reduced-motion, zoom, and visual regression reviews are still needed for the finished design.
 
-## Recommended launch: GitHub Actions
+## Publish the preview without replacing the original routes
 
-1. Finish the design and content, merge the reviewed PRs to `master`, and save the current deployed `gh-pages` SHA as a rollback reference.
+The artifact preserves the original `/` and `/projects/`. New UI is temporarily mounted at `/2026/`, including localized pages and Next assets. Publishing this preview does not promote the new design to the root. No `me.warkentien2.com` subdomain or DNS change is needed. Keep this boundary until the owner explicitly requests a route cutover.
+
+## Manual publishing: GitHub Actions
+
+1. Review and merge the intended preview changes to `master`, and save the current deployed `gh-pages` SHA as a rollback reference. The modern design may remain unfinished under `/2026/`; keep the original root routes.
 2. In repository Settings → Pages, select **GitHub Actions** as the publishing source. Retain custom domain `warkentien2.com` and HTTPS.
 3. Run **Deploy static portfolio** from Actions on **master**. It builds and tests before uploading only `dist/` and deploying through the `github-pages` environment. Restrict that environment to `master` if desired. The workflow itself refuses builds from other refs.
-4. Verify direct deep links and archive links on the custom domain, and check network failures and HTTPS.
+4. Verify the original root/projects pages, `/2026/` deep links, and footer links on the custom domain, and check network failures and HTTPS.
 
 The workflow is intentionally `workflow_dispatch` only. PR validation and merges do not publish. Once ready for continuous delivery, add a push-to-master trigger in a reviewed change. The deployment permissions use the built-in GitHub token/OIDC; no hosting credential or domain secret belongs in application code.
 

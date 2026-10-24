@@ -2,7 +2,9 @@
 
 ## Localized pages
 
-`apps/web/src/content/site.ts` owns the supported locale list, its type guard, and typed dictionaries. Initial locales are English and Brazilian Portuguese, inferred from the existing portfolio's USA/Brazil background; change this list if the intended audience differs. The generated `/{locale}/` pages set the document language in their HTML. No runtime locale negotiation, cookies, or server redirects are needed. `/` is an explicit language chooser.
+`apps/web/src/content/site.ts` owns the supported locale list, its type guard, and typed dictionaries. Initial locales are English and Brazilian Portuguese, inferred from the existing portfolio's USA/Brazil background; change this list if the intended audience differs. The generated `/2026/{locale}/` pages set the document language in their HTML. No runtime locale negotiation, cookies, or server redirects are needed. `/2026/` is an explicit language chooser; `/` remains the original portfolio.
+
+Next Link hrefs remain app-relative, such as `/en/work/`; Next adds the configured `/2026` basePath. Plain anchors to the original `/` and `/projects/` intentionally cross the app boundary. For new public asset URLs, include `/2026/` explicitly. Do not move the new UI to the root without an owner-requested cutover.
 
 New sections belong under `apps/web/src/app/[locale]/`. Keep semantic heading levels, descriptive route titles, and translated controls. Add each locale's strings together. For new pages add route-level canonical/alternate metadata using the actual translated URLs. The initial language switcher returns to each locale home; preserve equivalent subpage paths when extending it for real content. Ensure localized changes fit narrow and zoomed viewports.
 

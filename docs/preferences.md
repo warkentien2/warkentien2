@@ -8,7 +8,7 @@ These preferences come from the portfolio cleanup and PR requests. They apply to
 - Keep content static, including manually authored blog entries. No accounts, credentials, database, or dynamic data service is needed.
 - React and TypeScript are the owner's familiar tools. Next.js is welcome when its benefits justify it; the current foundation uses static export for localized pages and subpages.
 - Plan a landing page with multiple sections that open dedicated subpages. The foundation scaffold is not the final visual design.
-- Preserve the original 2019 portfolio and projects as navigable archives, linked from the new footer. Avoid requiring a full rewrite of archived components to develop the new portfolio.
+- Keep `warkentien2.com/` and `warkentien2.com/projects/` serving the original 2019 pages for now. Place all new UI temporarily under `warkentien2.com/2026/`, with footer links to those original paths. A subdomain was acceptable if simpler; the shared `/2026/` path was chosen to avoid DNS and separate hosting configuration. Promoting the new UI to the root requires a later owner request. Avoid requiring a full rewrite of archived components to develop the new portfolio.
 - Keep hosting compatible with static publishing. GoDaddy manages the domain; GitHub Pages is the existing host. Domain registration and application hosting are separate concerns.
 - Separate production assets from development documentation, tests, and AI guidance. Publish only `dist/`.
 

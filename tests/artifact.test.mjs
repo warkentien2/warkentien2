@@ -9,27 +9,25 @@ async function walk(dir) {
 test('all modern routes have static HTML and the correct language', async () => {
   for (const locale of ['en', 'pt-BR']) {
     for (const route of ['', 'work/', 'about/', 'journal/']) {
-      const html = await readFile(`dist/${locale}/${route}index.html`, 'utf8');
+      const html = await readFile(`dist/2026/${locale}/${route}index.html`, 'utf8');
       assert.ok(html.includes(`lang="${locale}"`));
       assert.match(html, /<h1[ >]/);
-      assert.match(html, /href="\/legacy\/"/);
-      assert.match(html, /href="\/legacy\/projects\/"/);
+      assert.match(html, /href="\/"/);
+      assert.match(html, /href="\/projects\/"/);
     }
   }
 });
 test('legacy entry bundles resolve at their deployed URL', async () => {
-  const html = await readFile('dist/legacy/index.html', 'utf8');
-  const bundles = [...html.matchAll(/(?:src|href)="(\/legacy\/assets\/[^"]+)"/g)];
+  const html = await readFile('dist/index.html', 'utf8');
+  const bundles = [...html.matchAll(/(?:src|href)="(\/assets\/[^"]+)"/g)];
   assert.ok(bundles.length >= 2);
   for (const [, url] of bundles) await readFile(`dist${url}`);
-  await readFile('dist/legacy/awwwards.png');
+  await readFile('dist/awwwards.png');
 });
-test('both archive projects paths preserve every original file byte for byte', async () => {
+test('original projects path preserves every file byte for byte', async () => {
   const source = 'apps/legacy/public/projects';
   for (const file of await walk(source)) {
-    for (const prefix of ['dist/projects', 'dist/legacy/projects']) {
-      assert.deepEqual(await readFile(path.join(prefix, path.relative(source, file))), await readFile(file), file);
-    }
+    assert.deepEqual(await readFile(path.join('dist/projects', path.relative(source, file))), await readFile(file), file);
   }
 });
 test('deployment contains no development instructions, sources, or dependencies', async () => {
@@ -43,4 +41,19 @@ test('deployment contains no development instructions, sources, or dependencies'
     // Archive banner source maps are historical public assets; new app maps stay private.
     if (!file.includes('/projects/')) assert.ok(!file.endsWith('.map'), file);
   }
+});
+
+test('modern assets and navigation stay under /2026 while original routes remain at root', async () => {
+  const legacy = await readFile('dist/index.html', 'utf8');
+  assert.match(legacy, /id="root"/);
+  assert.doesNotMatch(legacy, /Choose your language/);
+  const modern = await readFile('dist/2026/index.html', 'utf8');
+  assert.match(modern, /Choose your language/);
+  assert.match(modern, /href="\/2026\/en\/"/);
+  assert.match(modern, /href="\/2026\/pt-BR\/"/);
+  const assets = [...modern.matchAll(/(?:src|href)="(\/2026\/_next\/[^"]+)"/g)];
+  assert.ok(assets.length > 0);
+  for (const [, url] of assets) await readFile(`dist${url}`);
+  const files = await readdir('dist');
+  for (const misplaced of ['en', 'pt-BR', '_next']) assert.ok(!files.includes(misplaced));
 });

@@ -10,8 +10,8 @@ Use Node.js 22.13+ (Node 22 is pinned for CI) and npm. With nvm: `nvm install &&
 
 ```sh
 npm ci
-npm run dev          # new portfolio, http://localhost:3000
-npm run dev:legacy   # old portfolio, http://127.0.0.1:5173/legacy/
+npm run dev          # new portfolio, http://localhost:3000/2026/
+npm run dev:legacy   # old portfolio, http://127.0.0.1:5173/
 ```
 
 The new app's archive links work in the combined production preview. During app development, use the separate legacy server to view archives.
@@ -43,14 +43,13 @@ Public assets are public even when no page links to them. Never put credentials 
 
 | URL | Content |
 | --- | --- |
-| `/` | Language chooser |
-| `/en/`, `/pt-BR/` | Localized landing sections |
-| `/{locale}/work/`, `about/`, `journal/` | Statically generated section pages |
-| `/legacy/` | Original 2019 React portfolio |
-| `/legacy/projects/` | Original standalone projects |
-| `/projects/` | Historical projects URL, retained as real files |
+| `/` | Original 2019 React portfolio, unchanged URL |
+| `/projects/` | Original standalone projects, unchanged URL |
+| `/2026/` | New portfolio language chooser |
+| `/2026/en/`, `/2026/pt-BR/` | Localized landing sections |
+| `/2026/{locale}/work/`, `about/`, `journal/` | New statically generated section pages |
 
-All routes have physical HTML files for direct visits and refreshes on static hosts. Archive links use normal anchors to cross app boundaries. The original root URL will show the new portfolio after launch; its historical content moves to `/legacy/`.
+All routes have physical HTML files for direct visits and refreshes on static hosts. Archive links use normal anchors to cross app boundaries. The original root and projects URLs keep serving their existing content even when this artifact is published. All new UI is temporarily mounted at `https://warkentien2.com/2026/`; promoting it to the domain root is a separate future decision. This path requires no subdomain or DNS changes.
 
 ## Further reading
 
