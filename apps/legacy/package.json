@@ -1,0 +1,21 @@
+{
+  "name": "@portfolio/legacy",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "react": "16.14.0",
+    "react-dom": "16.14.0",
+    "gsap": "^3.6.0",
+    "react-slick": "0.25.2",
+    "slick-carousel": "1.8.1"
+  },
+  "devDependencies": {
+    "vite": "^8.3.5",
+    "sass": "^1.106.1"
+  }
+}

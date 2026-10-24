@@ -1,40 +1,30 @@
 {
-  "name": "warkentien2",
-  "version": "0.1.0",
-  "license": "GNU GPLv2",
-  "author": "Philip D. Warkentien II",
-  "homepage": "https://warkentien2.com",
-  "dependencies": {
-    "gh-pages": "^5.0.0",
-    "gsap": "^3.6.0",
-    "json-loader": "^0.5.7",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0",
-    "react-scripts": "5.0.1",
-    "react-slick": "^0.25.2",
-    "slick-carousel": "^1.8.1"
+  "name": "warkentien2-portfolio",
+  "private": true,
+  "version": "1.0.0",
+  "license": "GPL-2.0-only",
+  "workspaces": [
+    "apps/*"
+  ],
+  "engines": {
+    "node": ">=22.13.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "sass src/styles/scss:src/styles/css && react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "sass": "sass --watch src/styles/scss:src/styles/css",
-    "deploy": "sass src/styles/scss:src/styles/css && react-scripts build && gh-pages -d build"
+    "dev": "npm run dev -w @portfolio/web",
+    "dev:legacy": "npm run dev -w @portfolio/legacy",
+    "build": "npm run build -w @portfolio/web && npm run build -w @portfolio/legacy && node scripts/assemble.mjs",
+    "typecheck": "npm run typecheck -w @portfolio/web",
+    "test": "node --test tests/*.test.mjs",
+    "test:e2e": "playwright test",
+    "check": "npm run typecheck && npm run build && npm test && npm run test:e2e",
+    "preview": "serve dist -l tcp://127.0.0.1:4173"
   },
-  "eslintConfig": {
-    "extends": "react-app"
+  "devDependencies": {
+    "@playwright/test": "^1.64.1",
+    "@axe-core/playwright": "^4.14.0",
+    "serve": "^14.2.6"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "overrides": {
+    "compression": "^1.8.2"
   }
 }
