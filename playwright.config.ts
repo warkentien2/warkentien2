@@ -7,7 +7,7 @@ const captureUI = process.env.PORTFOLIO_EVIDENCE_MODE === 'ui';
 export default defineConfig({
   testDir: './tests/browser',
   forbidOnly: Boolean(process.env.CI),
-  testMatch: captureUI ? '**/*.evidence.ts' : '**/*.spec.ts',
+  ...(captureUI ? { testMatch: '**/*.evidence.ts' } : {}),
   outputDir: evidenceDir ? path.join(evidenceDir, 'test-results') : 'test-results',
   reporter: evidenceDir ? [
     ['list'],
