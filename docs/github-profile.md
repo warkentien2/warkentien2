@@ -4,6 +4,8 @@ Reviewed October 24, 2026. Scope: public GitHub repositories, public profile set
 
 ## Two audiences, two READMEs
 
+Post-merge check, October 25, 2026: the live GitHub profile displays `.github/README.md` as well as the repository homepage. The arrangement below did not separate the two introductions in practice. Explicitly opening the root file renders the personal text, but that preview is not evidence of what the profile selects. A follow-up decision is needed: rename the engineering guide so GitHub selects the root README, or separate the portfolio and profile repositories. Neither repository nor documentation path has been renamed in this link-only follow-up.
+
 - [Root README](../README.md): personal introduction displayed on the GitHub profile.
 - [Repository README](../.github/README.md): the existing engineering documentation, with its relative links adjusted for the move.
 
@@ -17,7 +19,7 @@ The profile links four examples rather than listing employers or every repositor
 
 | Example | Why it earns a place | Evidence and age |
 | --- | --- | --- |
-| [Desert Racer build journal](https://dev.to/warkentien2/desert-racer-worlds-first-css-only-swipe-aware-game-4j0h) | Creative CSS input and collision logic, explained with code and illustrations | Published March 2024; article edited April 2025. Its old deployed CodePen project redirects to a 404, so the profile deliberately links the readable article rather than promising a playable game. |
+| [Desert Racer](https://000699350.deployed.codepen.website/pages/home/home.html#color-1) | Creative CSS input and collision logic | [Implementation notes](https://dev.to/warkentien2/desert-racer-worlds-first-css-only-swipe-aware-game-4j0h) published March 2024; article edited April 2025. The owner is repairing the deployment and requested keeping the playable link. It is retained without requiring the repair to finish first. |
 | [Curious Geckos](https://codepen.io/warkentien2/pen/jOJJwEp) | A playful use of CSS position awareness | [Author's implementation notes](https://dev.to/warkentien2/curious-geckos-the-most-precise-css-only-position-aware-mini-game-16i2), published March 2024 and edited April 2025, link this exact Pen. Both the Pen's published source and article were inspected. |
 | [React gooey menu](https://github.com/warkentien2/react-gooey-fab) | A small component where React, SVG filters, and animation meet | Last pushed June 2019. [FAB.js](https://github.com/warkentien2/react-gooey-fab/blob/master/src/FAB.js) implements the SVG filter and GSAP timelines; the profile links source, not a maintained package. |
 | [CSS creatures](https://warkentien2.com/) | Character drawing and motion give the portfolio a distinctive identity | The original 2019 portfolio, preserved inside this actively developed repository. [Tarantula source](../apps/legacy/src/components/Tarantula/index.jsx) and [moth source](../apps/legacy/src/components/Moth/index.jsx) use CSS shapes with React/GSAP animation. The live page rendered in Chromium. |
@@ -79,6 +81,6 @@ Captures show the rendered Markdown article on the same root-file view, without 
 
 ### Limits
 
-GitHub rendered Markdown and the live portfolio can be reviewed in Chromium. CodePen and CodeSandbox returned anti-bot challenges to the automated browser, so full gameplay and sandbox execution are not reported as passed. The articles and published source verify the project identity and implementation; Curious Geckos has an adjacent article link as a readable alternative. Desert Racer's stale deployment is intentionally absent from the profile.
+GitHub rendered Markdown and the live portfolio can be reviewed in Chromium. CodePen and CodeSandbox returned anti-bot challenges to the automated browser, so full gameplay and sandbox execution are not reported as passed. The articles and published source verify the project identity and implementation; Curious Geckos has an adjacent article link as a readable alternative. Desert Racer's playable link is retained at the owner's request while they repair its deployment; this is not a claim that the repaired deployment was verified.
 
 No private repositories were inspected for this audit. No credentials, employer-confidential code, testimonials, or unverifiable metrics were added. Application performance and interaction behavior are unchanged; the repository's existing build, artifact, Playwright, and axe checks remain the application validation.
