@@ -17,4 +17,4 @@ My enterprise work includes frontend architecture and design systems. I also enj
 
 **[Explore my portfolio →](https://warkentien2.com)**
 
-[Repository documentation](https://github.com/warkentien2/warkentien2/blob/master/.github/README.md)
+[Repository documentation](https://github.com/warkentien2/warkentien2/blob/master/.github/PORTFOLIO.md)
