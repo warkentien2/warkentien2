@@ -63,7 +63,7 @@ These cannot be applied by merging README files. No account or repository settin
 ## Verification
 
 - Full prescribed suite passed using Node 22: `ASDF_NODEJS_VERSION=24.21.0 npx --yes --package=node@22 --call 'npm run check'`. Typecheck and both production builds succeeded; all 15 native Node tests and 30 desktop/mobile Playwright tests passed, including existing axe and navigation coverage. The legacy build still emits its existing Sass `@import` deprecation warnings.
-- A preservation comparison confirmed that the engineering README matches the original except for `../` link corrections. All 21 relative Markdown paths/fragments in changed text files resolve. `git diff --check` passed.
+- A preservation comparison confirmed that the engineering README matches the original except for `../` link corrections. All 25 relative Markdown paths/fragments in changed text files resolve. `git diff --check` passed.
 - Actual GitHub branch rendering confirmed that the repository page displays `.github/README.md`, while explicitly viewing the root file displays the profile. The moved engineering links resolve to the branch's `docs/` directory.
 - HTTP checks returned 200 for the portfolio, both DEV articles, the React menu source, and the new engineering README on the task branch. The profile's permanent engineering link targets `master` and becomes available when this PR merges.
 - The generated artifact excludes both READMEs and development documentation. Application sources, dependencies, scripts, and workflow files are unchanged.
