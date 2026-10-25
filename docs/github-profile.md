@@ -66,9 +66,16 @@ These cannot be applied by merging README files. No account or repository settin
 
 - Full prescribed suite passed using Node 22: `ASDF_NODEJS_VERSION=24.21.0 npx --yes --package=node@22 --call 'npm run check'`. Typecheck and both production builds succeeded; all 15 native Node tests and 30 desktop/mobile Playwright tests passed, including existing axe and navigation coverage. The legacy build still emits its existing Sass `@import` deprecation warnings.
 - A preservation comparison confirms that `.github/PORTFOLIO.md` matches the former `.github/README.md` byte for byte. Relative Markdown paths/fragments resolve; `git diff --check` passes.
-- Verify GitHub's selected README through the repository README API and branch homepage, not just an explicit root-file preview. The branch must select `README.md`; the engineering guide remains accessible as `.github/PORTFOLIO.md`. The permanent engineering link targets `master` and becomes available when the rename merges.
+- GitHub's README API returned `.github/README.md` for `master` and `README.md` for `fix/github-profile-readme-selection`. This checks the selected file rather than an explicit root-file preview. The engineering guide remains accessible as `.github/PORTFOLIO.md`; its permanent link targets `master` and becomes available when the rename merges.
 - The live profile remains on the default branch. A branch preview cannot prove a live profile update before merging; recheck `https://github.com/warkentien2` after the fix reaches `master`.
 - The generated artifact excludes the personal README, engineering guide, and development documentation. Application sources, dependencies, scripts, and workflow files are unchanged.
+
+Selection-fix evidence captures the repository homepage's rendered README at the same route and viewport on both sides, using source refs `de4a8d6` (BEFORE) and `16ff763` (AFTER). The homepage changes from the engineering guide to the personal introduction; the renamed engineering guide also renders with working relative links.
+
+| View | Before | After |
+| --- | --- | --- |
+| Desktop, 1280 × 1000 | [Engineering guide selected](review/github-profile-selection/before-desktop.png) | [Personal README selected](review/github-profile-selection/after-desktop.png) |
+| Mobile, 375 × 812 | [Engineering guide selected](review/github-profile-selection/before-mobile.png) | [Personal README selected](review/github-profile-selection/after-mobile.png) |
 
 Historical root-file Markdown captures from the initial curation, at 1280 × 1000 and 375 × 812 viewports:
 
