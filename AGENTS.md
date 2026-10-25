@@ -1,6 +1,6 @@
 # Repository guidance
 
-The source branch is `master`. Read `.github/README.md` (repository engineering guide) and the relevant document in `docs/` before changing build boundaries or publishing behavior. The root `README.md` is the personal GitHub profile.
+The source branch is `master`. Read `.github/PORTFOLIO.md` (repository engineering guide) and the relevant document in `docs/` before changing build boundaries or publishing behavior. The root `README.md` is the personal GitHub profile. Keep the engineering guide under its distinct filename: a `.github/README.md` overrides the personal introduction on the live GitHub profile as well as the repository homepage.
 
 Read [owner preferences](docs/preferences.md) for product priorities, autonomy, PR updates, screenshots, and review handling. Continue authorized work without routine confirmation prompts; keep changes on the task's existing PR when one is open.
 

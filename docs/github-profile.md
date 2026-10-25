@@ -2,16 +2,16 @@
 
 Reviewed October 24, 2026. Scope: public GitHub repositories, public profile settings, the live portfolio, and the owner's published CSS experiments. Account settings and other repositories are recommendations only.
 
-## Two audiences, two READMEs
+## Profile and engineering documentation
 
-Post-merge check, October 25, 2026: the live GitHub profile displays `.github/README.md` as well as the repository homepage. The arrangement below did not separate the two introductions in practice. Explicitly opening the root file renders the personal text, but that preview is not evidence of what the profile selects. A follow-up decision is needed: rename the engineering guide so GitHub selects the root README, or separate the portfolio and profile repositories. Neither repository nor documentation path has been renamed in this link-only follow-up.
+Post-merge check, October 25, 2026: the live GitHub profile selected `.github/README.md` as well as the repository homepage. The original two-README arrangement did not separate the introductions in practice. The engineering guide is now renamed to `.github/PORTFOLIO.md`, leaving the root README as GitHub's selected introduction. Its contents and relative links are preserved because the guide stays in the same directory. The repository keeps its username-matching name.
 
-- [Root README](../README.md): personal introduction displayed on the GitHub profile.
-- [Repository README](../.github/README.md): the existing engineering documentation, with its relative links adjusted for the move.
+- [Root README](../README.md): personal introduction for both the GitHub profile and repository homepage.
+- [Portfolio engineering guide](../.github/PORTFOLIO.md): existing engineering documentation, accessible from the personal introduction and contributor entrypoints.
 
-[GitHub's README documentation](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes) specifies repository precedence as `.github`, root, then `docs`. Its [profile README documentation](https://docs.github.com/en/account-and-profile/how-tos/profile-customization/managing-your-profile-readme) requires a nonempty root `README.md` in the public username repository. The current profile already displays that root file, so the older-repository “Share to profile” step is already satisfied.
+[GitHub's README documentation](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes) specifies repository precedence as `.github`, root, then `docs`. Its [profile README documentation](https://docs.github.com/en/account-and-profile/how-tos/profile-customization/managing-your-profile-readme) requires a nonempty root `README.md` in the public username repository. Explicitly previewing that root file did not establish what the live profile would select; verification must also check GitHub's selected README. Keep the engineering guide under its distinct filename to avoid overriding the personal introduction again.
 
-The existing deployment workflow uploads only the assembled `dist/`; neither README is copied there. A read-only Pages API check returned `build_type: workflow`, custom domain `warkentien2.com`, and status `built`. No workflow, application, asset, Pages, or DNS setting changes are needed. Contributor entrypoints now point to the engineering README.
+The existing deployment workflow uploads only the assembled `dist/`; neither the personal README nor engineering guide is copied there. A read-only Pages API check returned `build_type: workflow`, custom domain `warkentien2.com`, and status `built`. No workflow, application, asset, Pages, or DNS setting changes are needed. Contributor entrypoints point to the engineering guide.
 
 ## Selection and source checks
 
@@ -19,7 +19,7 @@ The profile links four examples rather than listing employers or every repositor
 
 | Example | Why it earns a place | Evidence and age |
 | --- | --- | --- |
-| [Desert Racer](https://000699350.deployed.codepen.website/pages/home/home.html#color-1) | Creative CSS input and collision logic | [Implementation notes](https://dev.to/warkentien2/desert-racer-worlds-first-css-only-swipe-aware-game-4j0h) published March 2024; article edited April 2025. The owner is repairing the deployment and requested keeping the playable link. It is retained without requiring the repair to finish first. |
+| [Desert Racer](https://000699350.deployed.codepen.website/pages/home/home.html#color-1) | Creative CSS input and collision logic | [Implementation notes](https://dev.to/warkentien2/desert-racer-worlds-first-css-only-swipe-aware-game-4j0h) published March 2024; article edited April 2025. The owner reported the deployment repaired on October 25, 2026. The playable URL and adjacent article link are retained. |
 | [Curious Geckos](https://codepen.io/warkentien2/pen/jOJJwEp) | A playful use of CSS position awareness | [Author's implementation notes](https://dev.to/warkentien2/curious-geckos-the-most-precise-css-only-position-aware-mini-game-16i2), published March 2024 and edited April 2025, link this exact Pen. Both the Pen's published source and article were inspected. |
 | [React gooey menu](https://github.com/warkentien2/react-gooey-fab) | A small component where React, SVG filters, and animation meet | Last pushed June 2019. [FAB.js](https://github.com/warkentien2/react-gooey-fab/blob/master/src/FAB.js) implements the SVG filter and GSAP timelines; the profile links source, not a maintained package. |
 | [CSS creatures](https://warkentien2.com/) | Character drawing and motion give the portfolio a distinctive identity | The original 2019 portfolio, preserved inside this actively developed repository. [Tarantula source](../apps/legacy/src/components/Tarantula/index.jsx) and [moth source](../apps/legacy/src/components/Moth/index.jsx) use CSS shapes with React/GSAP animation. The live page rendered in Chromium. |
@@ -65,12 +65,12 @@ These cannot be applied by merging README files. No account or repository settin
 ## Verification
 
 - Full prescribed suite passed using Node 22: `ASDF_NODEJS_VERSION=24.21.0 npx --yes --package=node@22 --call 'npm run check'`. Typecheck and both production builds succeeded; all 15 native Node tests and 30 desktop/mobile Playwright tests passed, including existing axe and navigation coverage. The legacy build still emits its existing Sass `@import` deprecation warnings.
-- A preservation comparison confirmed that the engineering README matches the original except for `../` link corrections. All 25 relative Markdown paths/fragments in changed text files resolve. `git diff --check` passed.
-- Actual GitHub branch rendering confirmed that the repository page displays `.github/README.md`, while explicitly viewing the root file displays the profile. The moved engineering links resolve to the branch's `docs/` directory.
-- HTTP checks returned 200 for the portfolio, both DEV articles, the React menu source, and the new engineering README on the task branch. The profile's permanent engineering link targets `master` and becomes available when this PR merges.
-- The generated artifact excludes both READMEs and development documentation. Application sources, dependencies, scripts, and workflow files are unchanged.
+- A preservation comparison confirms that `.github/PORTFOLIO.md` matches the former `.github/README.md` byte for byte. Relative Markdown paths/fragments resolve; `git diff --check` passes.
+- Verify GitHub's selected README through the repository README API and branch homepage, not just an explicit root-file preview. The branch must select `README.md`; the engineering guide remains accessible as `.github/PORTFOLIO.md`. The permanent engineering link targets `master` and becomes available when the rename merges.
+- The live profile remains on the default branch. A branch preview cannot prove a live profile update before merging; recheck `https://github.com/warkentien2` after the fix reaches `master`.
+- The generated artifact excludes the personal README, engineering guide, and development documentation. Application sources, dependencies, scripts, and workflow files are unchanged.
 
-Actual GitHub Markdown captures at 1280 × 1000 and 375 × 812 viewports:
+Historical root-file Markdown captures from the initial curation, at 1280 × 1000 and 375 × 812 viewports:
 
 | View | Before | After |
 | --- | --- | --- |
@@ -81,6 +81,6 @@ Captures show the rendered Markdown article on the same root-file view, without 
 
 ### Limits
 
-GitHub rendered Markdown and the live portfolio can be reviewed in Chromium. CodePen and CodeSandbox returned anti-bot challenges to the automated browser, so full gameplay and sandbox execution are not reported as passed. The articles and published source verify the project identity and implementation; Curious Geckos has an adjacent article link as a readable alternative. Desert Racer's playable link is retained at the owner's request while they repair its deployment; this is not a claim that the repaired deployment was verified.
+GitHub rendered Markdown and the live portfolio can be reviewed in Chromium. CodePen and CodeSandbox previously returned anti-bot challenges to the automated browser, so full gameplay and sandbox execution are not reported as passed. The articles and published source verify the project identity and implementation; Curious Geckos has an adjacent article link as a readable alternative. Desert Racer's playable link is retained following the owner's reported repair.
 
 No private repositories were inspected for this audit. No credentials, employer-confidential code, testimonials, or unverifiable metrics were added. Application performance and interaction behavior are unchanged; the repository's existing build, artifact, Playwright, and axe checks remain the application validation.
