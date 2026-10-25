@@ -36,7 +36,7 @@ test('deployment contains no development instructions, sources, or dependencies'
   await readFile('dist/.nojekyll');
   await readFile('dist/404.html');
   for (const file of files) {
-    assert.doesNotMatch(file, /(?:^|\/)(?:node_modules|docs|scripts|tests|\.agents|\.github)(?:\/|$)/);
+    assert.doesNotMatch(file, /(?:^|\/)(?:node_modules|docs|scripts|tests|artifacts|playwright-report|test-results|\.codex|\.agents|\.github)(?:\/|$)/);
     assert.doesNotMatch(file, /(?:AGENTS|SKILL|README)\.md$/);
     // Archive banner source maps are historical public assets; new app maps stay private.
     if (!file.includes('/projects/')) assert.ok(!file.endsWith('.map'), file);

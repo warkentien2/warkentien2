@@ -18,8 +18,14 @@ jobs:
       - run: npm ci
       - run: npx playwright install --with-deps chromium
       - run: npm run check
+      - name: Record navigation evidence with existing Playwright stories
+        run: npm run evidence:ux -- --name ci-navigation
       - uses: actions/upload-artifact@v7.0.2
-        if: failure()
+        if: always()
         with:
           name: playwright-report
-          path: playwright-report/
+          path: |
+            playwright-report/
+            test-results/
+            artifacts/evidence/
+          retention-days: 14
