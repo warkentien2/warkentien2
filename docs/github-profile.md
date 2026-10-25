@@ -60,7 +60,24 @@ These cannot be applied by merging README files. No account or repository settin
 5. On [the profile](https://github.com/warkentien2), choose **Customize your pins**, select the four repositories above, and drag them into priority order.
 6. On each recommended repository, use the gear beside **About** to apply its suggested description. For this portfolio, also set Website to **https://warkentien2.com** (currently no repository homepage is set). Keep the existing CodeSandbox homepage for `react-gooey-fab` only if it works in a normal signed-in browser; the profile uses its reliable source link.
 
-## Verification limits
+## Verification
+
+- Full prescribed suite passed using Node 22: `ASDF_NODEJS_VERSION=24.21.0 npx --yes --package=node@22 --call 'npm run check'`. Typecheck and both production builds succeeded; all 15 native Node tests and 30 desktop/mobile Playwright tests passed, including existing axe and navigation coverage. The legacy build still emits its existing Sass `@import` deprecation warnings.
+- A preservation comparison confirmed that the engineering README matches the original except for `../` link corrections. All 21 relative Markdown paths/fragments in changed text files resolve. `git diff --check` passed.
+- Actual GitHub branch rendering confirmed that the repository page displays `.github/README.md`, while explicitly viewing the root file displays the profile. The moved engineering links resolve to the branch's `docs/` directory.
+- HTTP checks returned 200 for the portfolio, both DEV articles, the React menu source, and the new engineering README on the task branch. The profile's permanent engineering link targets `master` and becomes available when this PR merges.
+- The generated artifact excludes both READMEs and development documentation. Application sources, dependencies, scripts, and workflow files are unchanged.
+
+Actual GitHub Markdown captures at 1280 × 1000 and 375 × 812 viewports:
+
+| View | Before | After |
+| --- | --- | --- |
+| Desktop | [Engineering introduction](review/github-profile/before-desktop.png) | [Personal introduction](review/github-profile/after-desktop.png) |
+| Mobile | [Engineering introduction](review/github-profile/before-mobile.png) | [Personal introduction](review/github-profile/after-mobile.png) |
+
+Captures show the rendered Markdown article on the same root-file view, without GitHub's surrounding navigation. BEFORE uses `bb6d75958173dd82c0379a125eb28b0269588371`; AFTER uses `05cb2e34462c4186e2b3b101d59a521fe2497278`. The profile has no horizontal overflow at either viewport. These are Markdown previews, not a claim that the live profile has changed before merging.
+
+### Limits
 
 GitHub rendered Markdown and the live portfolio can be reviewed in Chromium. CodePen and CodeSandbox returned anti-bot challenges to the automated browser, so full gameplay and sandbox execution are not reported as passed. The articles and published source verify the project identity and implementation; Curious Geckos has an adjacent article link as a readable alternative. Desert Racer's stale deployment is intentionally absent from the profile.
 
