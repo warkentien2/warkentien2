@@ -18,7 +18,7 @@ npm run build
 npm run evidence:ui -- --name hero-layout --phase after --route /2026/en/
 ```
 
-Both commands use the existing desktop (1440 × 900) and mobile (375 × 812) projects. Use `--project desktop` or `--project mobile` on both sides to select one. Their route and selected viewports must match; an AFTER run cannot silently invent BEFORE. Capture labels are lowercase slugs. Existing run directories are never overwritten: use a new name for a retry/comparison.
+Both commands use the existing desktop (1440 × 900) and mobile (375 × 812) projects. Use `--project desktop` or `--project mobile` on both sides to select one. Protocol-relative and external routes are rejected against the configured preview origin. Their route and selected viewports must match; an AFTER run cannot silently invent BEFORE or trust a manifest without every selected project’s nonempty screenshot file. Capture labels are lowercase slugs. Existing run directories are never overwritten: use a new name for a retry/comparison.
 
 Open `artifacts/evidence/hero-layout/index.html` for a side-by-side comparison, and `report.md` for links. Each phase keeps its own manifest, Playwright HTML/JSON results, screenshots, and trace. Manifests record the route, viewports, commit, dirty-tree flag, note, and status. `--note "..."` can explain fixture/state or an unchanged-UI workflow demonstration. A failed/skipped/empty or media-less run exits nonzero and is not reported as passing evidence.
 

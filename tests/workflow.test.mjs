@@ -1,10 +1,10 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { mkdtemp, readFile, rm } from 'node:fs/promises';
+import { mkdtemp, readFile, rm, mkdir, writeFile } from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
 import { browserAddress } from '../scripts/browser-settings.mjs';
-import { evidenceOptions, reportTests, evidencePassed, validateCapture, evidenceReport, runEvidence, persistAttachments } from '../scripts/evidence.mjs';
+import { evidenceOptions, reportTests, evidencePassed, validateCapture, validateBaseline, evidenceReport, runEvidence, persistAttachments } from '../scripts/evidence.mjs';
 
 test('preview and browser tests can share an isolated worktree port', () => {
   assert.equal(browserAddress({}).baseURL, 'http://127.0.0.1:4173');
@@ -21,7 +21,7 @@ test('evidence labels cannot escape the generated artifact directory', () => {
 });
 
 test('screenshots stay on the local server and recordings select real tests', () => {
-  for (const route of ['https://example.com', '//example.com', '/\\example.com']) {
+  for (const route of ['https://example.com', '//example.com', '/\\example.com', '//127.0.0.1/2026/en/', '//127.0.0.1:4173/2026/en/']) {
     assert.throws(() => evidenceOptions(['ui', '--name', 'hero', '--phase', 'before', '--route', route]), /local/);
   }
   assert.equal(evidenceOptions(['ux', '--name', 'keyboard']).grep, '@journey');
@@ -41,6 +41,25 @@ test('comparison refuses different routes, viewports, or a failed baseline', () 
 
 test('after cannot manufacture a before capture from the changed app', async () => {
   await assert.rejects(runEvidence(['ui', '--name', `missing-${Date.now()}`, '--phase', 'after']), /Capture --phase before first/);
+});
+
+test('baseline validation checks every project screenshot, rejecting missing or empty files', async (t) => {
+  const root = await mkdtemp(path.join(os.tmpdir(), 'portfolio-baseline-'));
+  t.after(() => rm(root, { recursive: true, force: true }));
+  const capture = {
+    ...before,
+    projects: [...projects, { name: 'mobile', viewport: { width: 375, height: 812 } }],
+    tests: ['desktop', 'mobile'].map((project) => ({ project, status: 'passed', attachments: [{ name: 'ui-state', contentType: 'image/png', path: `before/${project}.png` }] })),
+  };
+  await mkdir(path.join(root, 'before'));
+  await writeFile(path.join(root, 'before/desktop.png'), 'nonempty baseline');
+  await assert.rejects(validateBaseline(capture, root, capture), /mobile.*unavailable/);
+  await writeFile(path.join(root, 'before/mobile.png'), '');
+  await assert.rejects(validateBaseline(capture, root, capture), /mobile.*empty/);
+  await writeFile(path.join(root, 'before/mobile.png'), 'nonempty baseline');
+  await validateBaseline(capture, root, capture);
+  capture.tests[0].attachments[0].path = '../unrelated.png';
+  await assert.rejects(validateBaseline(capture, root, capture), /outside/);
 });
 
 test('empty, skipped, failed, or media-less runs cannot claim passing evidence', () => {

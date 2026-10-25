@@ -1,7 +1,7 @@
 import { parseArgs } from 'node:util';
 import { createRequire } from 'node:module';
 import { spawnSync, execFileSync } from 'node:child_process';
-import { mkdir, readFile, writeFile, access } from 'node:fs/promises';
+import { mkdir, readFile, writeFile, access, stat } from 'node:fs/promises';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { browserAddress, browserProjects } from './browser-settings.mjs';
@@ -19,7 +19,8 @@ export function evidenceOptions(args) {
   if (mode === 'ux' && (values.phase || values.route)) throw new Error('UX evidence runs a story test: use --grep, not --phase or --route');
   if (mode === 'ui' && values.grep) throw new Error('Use --route for UI capture; --grep is for UX stories');
   const route = values.route ?? '/2026/en/';
-  if (!route.startsWith('/') || new URL(route, 'http://127.0.0.1').origin !== 'http://127.0.0.1') throw new Error('--route must stay on the local preview server');
+  const { baseURL } = browserAddress();
+  if (!route.startsWith('/') || route.startsWith('//') || route.includes('\\') || new URL(route, baseURL).origin !== baseURL) throw new Error('--route must stay on the local preview server');
   return { mode, ...values, route, grep: values.grep ?? '@journey' };
 }
 
@@ -63,6 +64,19 @@ export function validateCapture(before, after) {
   if (before.status !== 'passed') throw new Error('The before capture failed; create a fresh evidence name and capture a passing baseline');
   if (before.route !== after.route || JSON.stringify(before.projects) !== JSON.stringify(after.projects)) {
     throw new Error('Before/after must use the same route, projects, and viewports');
+  }
+}
+
+export async function validateBaseline(before, root, after) {
+  validateCapture(before, after);
+  const baselineDir = path.resolve(root, 'before');
+  for (const project of before.projects) {
+    const image = before.tests?.find((test) => test.project === project.name && test.status === 'passed')?.attachments.find((asset) => asset.name === 'ui-state' && asset.contentType === 'image/png');
+    const file = image?.path ? path.resolve(root, image.path) : '';
+    if (!file.startsWith(baselineDir + path.sep)) throw new Error(`Before screenshot for ${project.name} is missing or outside the baseline capture`);
+    let info;
+    try { info = await stat(file); } catch (error) { throw new Error(`Before screenshot for ${project.name} is unavailable (${error.code}); copy the complete baseline capture`); }
+    if (!info.isFile() || info.size === 0) throw new Error(`Before screenshot for ${project.name} is empty or not a file; recapture the base revision`);
   }
 }
 
@@ -125,7 +139,7 @@ export async function runEvidence(args) {
   if (phase === 'after') {
     const before = await readOptional(path.join(root, 'before/manifest.json'));
     if (!before) throw new Error('Capture --phase before first; use the base revision/worktree if implementation is already underway');
-    validateCapture(before, { route: options.route, projects });
+    await validateBaseline(before, root, { route: options.route, projects });
   }
   const commit = execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).trim();
   const dirty = Boolean(execFileSync('git', ['status', '--porcelain'], { encoding: 'utf8' }).trim());

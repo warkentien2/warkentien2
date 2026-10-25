@@ -7,7 +7,7 @@ This change upgrades developer tooling; it does not redesign or change the portf
 Verified with Node 22.23.4:
 
 - `npm ci` and `npx playwright install chromium` complete; npm reports zero dependency advisories.
-- `npm run check`: TypeScript, both builds, 14 native tests, and all 30 existing Playwright desktop/mobile tests pass, including the existing axe and keyboard checks.
+- `npm run check`: TypeScript, both builds, 15 native tests, and all 30 existing Playwright desktop/mobile tests pass, including the existing axe and keyboard checks.
 - `PORTFOLIO_PORT=4175 npm run evidence:ui -- --name workflow-verification --phase before --route /2026/en/ --note "Workflow verification; application UI unchanged"`, then the same command with `--phase after`: four screenshots with matching route/viewports, separate traces/reports, and a paired HTML/Markdown report.
 - `PORTFOLIO_PORT=4175 npm run evidence:ux -- --name workflow-verification-fixed`: four passing existing keyboard/routing story tests, four WebM videos, four traces, and state images from the actual interactions. Videos were loaded and decoded in Chromium for playback review.
 - A fresh isolated Git worktree with its own `npm ci` and generated outputs passes the full check on port 4177, then records both desktop/mobile keyboard stories. This verifies the documented worktree setup and port isolation.
