@@ -1,7 +1,10 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import { mkdtemp, readFile, rm } from 'node:fs/promises';
+import os from 'node:os';
+import path from 'node:path';
 import { browserAddress } from '../scripts/browser-settings.mjs';
-import { evidenceOptions, reportTests, evidencePassed, validateCapture, evidenceReport, runEvidence } from '../scripts/evidence.mjs';
+import { evidenceOptions, reportTests, evidencePassed, validateCapture, evidenceReport, runEvidence, persistAttachments } from '../scripts/evidence.mjs';
 
 test('preview and browser tests can share an isolated worktree port', () => {
   assert.equal(browserAddress({}).baseURL, 'http://127.0.0.1:4173');
@@ -60,6 +63,21 @@ test('nested Playwright suites retain final retry outcomes and attachment paths'
   assert.equal(tests[0].status, 'passed');
   assert.equal(tests[0].project, 'mobile');
   assert.equal(tests[0].attachments[0].path, '/tmp/story.webm');
+});
+
+test('inline Playwright screenshot bodies become reviewable files without losing video links', async (t) => {
+  const root = await mkdtemp(path.join(os.tmpdir(), 'portfolio-attachments-'));
+  t.after(() => rm(root, { recursive: true, force: true }));
+  const image = Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]);
+  const tests = [{ attachments: [
+    { name: 'Locale switched', contentType: 'image/png', body: image.toString('base64') },
+    { name: 'video', contentType: 'video/webm', path: path.join(root, 'ux/story.webm') },
+  ] }];
+  await persistAttachments(tests, root, path.join(root, 'ux'));
+  assert.equal(tests[0].attachments.length, 2);
+  assert.deepEqual(await readFile(path.join(root, tests[0].attachments[0].path)), image);
+  assert.equal(tests[0].attachments[1].path, path.join('ux', 'story.webm'));
+  assert.equal(tests[0].attachments[0].body, undefined);
 });
 
 test('review report links both screenshot states and a playable story with provenance', () => {

@@ -40,6 +40,25 @@ export function reportTests(report) {
   return tests;
 }
 
+export async function persistAttachments(tests, root, output) {
+  // Playwright JSON uses base64 bodies for testInfo.attach({ body }) screenshots.
+  // Keep those review states alongside the file-backed video and trace assets.
+  for (const [testIndex, test] of tests.entries()) {
+    const attachments = [];
+    for (const [assetIndex, asset] of test.attachments.entries()) {
+      let file = asset.path;
+      if (!file && typeof asset.body === 'string') {
+        const extension = { 'image/png': '.png', 'image/jpeg': '.jpg', 'text/plain': '.txt', 'application/json': '.json' }[asset.contentType] ?? '.bin';
+        file = path.join(output, 'attachments', `${testIndex}-${assetIndex}${extension}`);
+        await mkdir(path.dirname(file), { recursive: true });
+        await writeFile(file, Buffer.from(asset.body, 'base64'));
+      }
+      if (file) attachments.push({ name: asset.name, contentType: asset.contentType, path: path.relative(root, file) });
+    }
+    test.attachments = attachments;
+  }
+}
+
 export function validateCapture(before, after) {
   if (before.status !== 'passed') throw new Error('The before capture failed; create a fresh evidence name and capture a passing baseline');
   if (before.route !== after.route || JSON.stringify(before.projects) !== JSON.stringify(after.projects)) {
@@ -87,6 +106,7 @@ export function evidenceReport(records) {
         const href = link(asset.path);
         html += `<p><a href="${href}">${escape(asset.name)}</a></p>`;
         if (asset.contentType === 'video/webm') html += `<video controls preload="metadata" src="${href}"></video>`;
+        if (record.mode === 'ux' && asset.contentType === 'image/png') html += `<img src="${href}" alt="${escape(asset.name)}">`;
         markdown += `  - [${asset.name}](${href})\n`;
       }
     }
@@ -120,9 +140,7 @@ export async function runEvidence(args) {
   } });
   const result = await readOptional(path.join(output, 'results.json'));
   const tests = reportTests(result ?? {});
-  for (const test of tests) {
-    test.attachments = test.attachments.filter((a) => a.path).map((a) => ({ ...a, path: path.relative(root, a.path) }));
-  }
+  await persistAttachments(tests, root, output);
   const passed = evidencePassed(tests, child.status, options.mode);
   const record = { ...options, phase, projects, commit, dirty, createdAt: new Date().toISOString(), status: passed ? 'passed' : 'failed', tests, error: child.error?.message ?? result?.errors?.map((e) => e.message).join('\n') };
   await writeFile(path.join(output, 'manifest.json'), JSON.stringify(record, null, 2) + '\n');
