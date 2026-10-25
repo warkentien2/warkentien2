@@ -14,7 +14,7 @@
 
 Classify the whole request semantically. “Can you fix…” usually authorizes implementation; “what would you change?” usually asks for analysis. Repository facts take precedence over guessing from a keyword.
 
-Before meaningful work, read relevant AGENTS files, README, architecture/content/deployment docs, package scripts, tests, CI configuration, and related implementation. READY means enough is known about the observable outcome, affected subsystem/flow, acceptance criteria, validation, useful evidence, and important non-goals. Keep a short working summary for complex tasks; a small obvious change can be READY immediately after inspection.
+Before meaningful work, read relevant AGENTS files, the [repository engineering guide](../.github/README.md), architecture/content/deployment docs, package scripts, tests, CI configuration, and related implementation. READY means enough is known about the observable outcome, affected subsystem/flow, acceptance criteria, validation, useful evidence, and important non-goals. Keep a short working summary for complex tasks; a small obvious change can be READY immediately after inspection.
 
 Infer answers from existing code and conventions. Ask focused product/architecture questions only when a wrong assumption would materially change the result. Ordinary reversible choices consistent with the architecture are already authorized. Once READY, proceed through implementation, debugging, verification, evidence, commit, push, and one coherent PR. Fix a normal failing test and retry the affected checks; don't present it as a reason to stop.
 

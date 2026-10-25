@@ -1,68 +1,20 @@
-# Philip Warkentien II — portfolio
+# Philip Warkentien II
 
-A static portfolio with two independent React generations. The new portfolio foundation uses **Next.js, React, and TypeScript**; the 2019 portfolio retains React 16, GSAP, and its original content. No database, login, API, or production Node.js server is required.
+I'm a Frontend/UI Engineer working with React, TypeScript, and CSS. I build interfaces people can feel: thoughtful motion, expressive details, and complex interactions that make sense.
 
-This is the engineering foundation, not the finished redesign. Project details, articles, imagery, and the final motion system are future work. English and Brazilian Portuguese are the initial locales. Deployment is manual so merging this foundation does not replace the live portfolio.
+I enjoy the space where visual ideas meet engineering constraints. That might mean drawing a creature in CSS, exploring what a browser can do without JavaScript, or shaping a design system that stays coherent as a product grows. I care about the architecture behind the interface as much as the way it moves.
 
-## Develop
+## A few things to explore
 
-Use Node.js 22.13+ (Node 22 is pinned for CI) and npm. With nvm: `nvm install && nvm use`.
+These experiments span 2019–2024; each explores a different part of interface craft.
 
-```sh
-npm ci
-npm run dev          # new portfolio, http://localhost:3000/2026/
-npm run dev:legacy   # old portfolio, http://127.0.0.1:5173/
-```
+- **[Desert Racer](https://dev.to/warkentien2/desert-racer-worlds-first-css-only-swipe-aware-game-4j0h)** — An illustrated build journal for a CSS-only driving game, exploring scroll-driven swipe input and collision detection.
+- **[Curious Geckos](https://codepen.io/warkentien2/pen/jOJJwEp)** — A miniature gecko playground that responds to pointer position using HTML and CSS, without JavaScript. [Build notes](https://dev.to/warkentien2/curious-geckos-the-most-precise-css-only-position-aware-mini-game-16i2).
+- **[Gooey React menu](https://github.com/warkentien2/react-gooey-fab)** — A floating action menu experiment combining React, SVG filters, and GSAP to make buttons stretch and separate like liquid.
+- **[CSS creatures](https://warkentien2.com/)** — A tarantula and moth drawn in CSS and brought to life with React and GSAP in my original portfolio.
 
-The new app's archive links work in the combined production preview. During app development, use the separate legacy server to view archives.
+My enterprise work includes frontend architecture and design systems. I also enjoy mentoring and helping teams build a shared understanding of their craft. I'm interested in Staff-level Frontend, UI Engineering, and Design Engineering opportunities.
 
-```sh
-npx playwright install chromium
-npm run check        # TypeScript, both builds, artifact tests, browser + axe tests
-npm run preview      # combined output, http://localhost:4173
-```
+**[Explore my portfolio →](https://warkentien2.com)**
 
-Linux browser setup may require `npx playwright install --with-deps chromium` (CI does this).
-
-## Structure and delivery boundary
-
-| Path | Purpose | Published? |
-| --- | --- | --- |
-| `apps/web/src/` | New portfolio routes, components, static content | Compiled HTML/CSS/JS only |
-| `apps/web/public/` | New portfolio public assets | Yes, copied verbatim |
-| `apps/legacy/src/` | Archived React implementation | Compiled bundles only |
-| `apps/legacy/public/` | Archived images and standalone projects | Yes, copied verbatim |
-| `dist/` | Assembled hosting artifact | **The only directory to publish** |
-| `docs/` | Architecture, content, deployment, original package manifest | No |
-| `.agents/skills/`, `AGENTS.md` | AI contributor instructions | No |
-| `scripts/`, `tests/`, `.github/` | Build, validation, automation | No |
-| `artifacts/evidence/` | Ignored screenshots, recordings, traces, review reports | No |
-
-Public assets are public even when no page links to them. Never put credentials or development documentation in either `public/` directory. Original banner HTML/JS remains intentionally public as part of the archive. Existing external font, icon, animation, and Bootstrap CDN dependencies in the archive are preserved; it is not an offline archive.
-
-## Routes
-
-| URL | Content |
-| --- | --- |
-| `/` | Original 2019 React portfolio, unchanged URL |
-| `/projects/` | Original standalone projects, unchanged URL |
-| `/2026/` | New portfolio language chooser |
-| `/2026/en/`, `/2026/pt-BR/` | Localized landing sections |
-| `/2026/{locale}/work/`, `about/`, `journal/` | New statically generated section pages |
-
-All routes have physical HTML files for direct visits and refreshes on static hosts. Archive links use normal anchors to cross app boundaries. The original root and projects URLs keep serving their existing content even when this artifact is published. All new UI is temporarily mounted at `https://warkentien2.com/2026/`; promoting it to the domain root is a separate future decision. This path requires no subdomain or DNS changes.
-
-For live publishing, Pages must use **GitHub Actions**, followed by a manual run of **Deploy static portfolio** on `master`. Publishing `master` directly as a branch serves the repository README instead of building these routes. See the [publishing-source troubleshooting steps](docs/deployment.md#if-the-domain-shows-readme-text-and-projects-or-2026-return-404).
-
-## Further reading
-
-- [AI task readiness, autonomy, and definition of done](docs/ai-development.md)
-- [Before/after and interactive PR evidence](docs/evidence.md)
-- [Isolated worktrees](docs/worktrees.md)
-- [Owner preferences and PR workflow](docs/preferences.md)
-- [Architecture and technology decision](docs/architecture.md)
-- [Publishing, GoDaddy DNS, and rollback](docs/deployment.md)
-- [Content, localization, accessibility, and motion](docs/contributing.md)
-- [AI contributor guidance](AGENTS.md)
-
-GNU GPLv2; see [License.md](License.md).
+[Repository documentation](https://github.com/warkentien2/warkentien2/blob/master/.github/README.md)
