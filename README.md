@@ -36,6 +36,7 @@ Linux browser setup may require `npx playwright install --with-deps chromium` (C
 | `docs/` | Architecture, content, deployment, original package manifest | No |
 | `.agents/skills/`, `AGENTS.md` | AI contributor instructions | No |
 | `scripts/`, `tests/`, `.github/` | Build, validation, automation | No |
+| `artifacts/evidence/` | Ignored screenshots, recordings, traces, review reports | No |
 
 Public assets are public even when no page links to them. Never put credentials or development documentation in either `public/` directory. Original banner HTML/JS remains intentionally public as part of the archive. Existing external font, icon, animation, and Bootstrap CDN dependencies in the archive are preserved; it is not an offline archive.
 
@@ -55,6 +56,9 @@ For live publishing, Pages must use **GitHub Actions**, followed by a manual run
 
 ## Further reading
 
+- [AI task readiness, autonomy, and definition of done](docs/ai-development.md)
+- [Before/after and interactive PR evidence](docs/evidence.md)
+- [Isolated worktrees](docs/worktrees.md)
 - [Owner preferences and PR workflow](docs/preferences.md)
 - [Architecture and technology decision](docs/architecture.md)
 - [Publishing, GoDaddy DNS, and rollback](docs/deployment.md)

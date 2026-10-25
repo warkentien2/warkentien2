@@ -8,3 +8,5 @@ Read `docs/contributing.md` for locale and authoring conventions. Work in `apps/
 Use build-time components for content and small client components for interaction. Preserve semantic navigation, keyboard focus, and reduced-motion alternatives. Do not seed fabricated work history or blog entries. Keep development notes outside public assets.
 
 For new routes or interactions, extend the artifact/browser tests with observable behavior. Run `npm run check` against the combined output; both archive links must still resolve. Language changes currently go to locale home pages; account for this when implementing equivalent-page switching.
+
+Follow the shared READY-to-PR process in `AGENTS.md` and `docs/ai-development.md`. For relevant visual or interactive changes, use the existing Playwright capture/recording commands in `docs/evidence.md`; do not add a competing test framework.

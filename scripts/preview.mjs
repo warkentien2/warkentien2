@@ -1,0 +1,11 @@
+import { spawn } from 'node:child_process';
+import { createRequire } from 'node:module';
+import path from 'node:path';
+import { browserAddress } from './browser-settings.mjs';
+const require = createRequire(import.meta.url);
+const bin = path.join(path.dirname(require.resolve('serve/package.json')), 'build/main.js');
+const { baseURL } = browserAddress();
+const child = spawn(process.execPath, [bin, 'dist', '-l', baseURL.replace('http:', 'tcp:')], { stdio: 'inherit' });
+for (const signal of ['SIGINT', 'SIGTERM']) process.on(signal, () => child.kill(signal));
+child.on('error', (error) => { console.error(error.message); process.exitCode = 1; });
+child.on('exit', (code, signal) => { process.exitCode = code ?? (signal ? 1 : 0); });

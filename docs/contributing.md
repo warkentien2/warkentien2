@@ -27,3 +27,7 @@ Before launch, review at 320px and up, 200–400% zoom, touch and keyboard input
 ## Checks
 
 `npm run check` runs TypeScript, production builds, byte-preservation and delivery-boundary tests, then browser tests against the assembled static output. Browser tests cover localized direct loads, overflow, WCAG A/AA axe rules, language navigation, skip-link focus, archive rendering/assets, all 27 banner entry points, and missing-route status. Add behavior tests for new interactions rather than mirroring component implementation. CI runs on PRs into `master` and pushes to `master`.
+
+## AI-assisted delivery and review evidence
+
+Use the [READY-to-PR process](ai-development.md), the existing [Playwright evidence commands](evidence.md), and [worktree conventions](worktrees.md). The same browser tests validate both ordinary changes and recorded stories; add assertions/steps for the actual changed behavior rather than building a second E2E suite. Evidence capture is separate from the production build and is never deployed.

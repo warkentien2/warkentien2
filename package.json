@@ -17,7 +17,9 @@
     "test": "node --test tests/*.test.mjs",
     "test:e2e": "playwright test",
     "check": "npm run typecheck && npm run build && npm test && npm run test:e2e",
-    "preview": "serve dist -l tcp://127.0.0.1:4173"
+    "preview": "node scripts/preview.mjs",
+    "evidence:ui": "node scripts/evidence.mjs ui",
+    "evidence:ux": "node scripts/evidence.mjs ux"
   },
   "devDependencies": {
     "@playwright/test": "^1.64.1",
