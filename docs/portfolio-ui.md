@@ -6,6 +6,8 @@ Everything shipped under `/2026/` is ordinary Next.js, React, TypeScript, and CS
 
 `apps/web/src/app/tokens.css` owns colors, font families, spacing, borders, geometry, hard shadows, motion, page width, and grid gaps. Fonts are self-hosted in `apps/web/public/fonts/`; `licenses.txt` contains their SIL Open Font Licenses.
 
+Keep layout and typography tokens on `:root`, separate from palette selectors. Responsive overrides in `styles/responsive.css` then apply to every palette without being shadowed by a palette wrapper.
+
 Four palettes (`swiss`, `paper`, `cobalt`, `night`) set the same semantic color variables. The default is Kinetic Swiss. To add another, add its ID to `palettes` in `content/portfolio.ts`, its localized label to `content/interface.ts`, and its token overrides in `tokens.css`. Each background needs its paired foreground. `--link` is separate from the cobalt surface color so text remains legible on dark themes.
 
 `components/Preferences.tsx` controls the palette on `.portfolio-app[data-palette]`. Selection persists in localStorage when available; storage is optional. No theme changes the card layout or order.

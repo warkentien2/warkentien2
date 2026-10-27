@@ -17,6 +17,14 @@ The application is implemented in the existing Next.js app, under `/2026/`. The 
 
 The paired homepage captures use the same route, state, and viewports (1440 × 900 and 375 × 812). The original baseline was captured before implementation at base commit `f2ade15`; the final UI and journey captures render implementation commit `22ce9ea`. Manifests retain the actual dirty-tree flag and source commit. Local raw reports, recordings, and traces are in ignored `artifacts/evidence/kinetic-portfolio-delivery/` and `kinetic-portfolio-delivery-story/`. The PR links reviewer-accessible CI artifacts for the final journeys.
 
+## Review follow-up: palette-independent spacing
+
+The review identified a mobile cascade issue: Swiss redeclared `--grid-gap` on its wrapper and shadowed the root's narrow-screen override. Layout and typography tokens now live only on `:root`, independently of palette colors. At 375px, every palette uses the same 0.9rem gap; switching palettes no longer shifts later tiles or the workbench by approximately 106px.
+
+The strengthened regression failed against the pre-fix export, then passed on desktop and mobile. It checks every tile's document position and dimensions, the workbench position and dimensions, and the gallery gap across all four palettes, alongside the existing color, persistence, control, and axe assertions.
+
+Fresh paired captures at `/2026/en/` use 1440 × 900 and 375 × 812. [Mobile before this fix](palette-before-mobile.png) and [updated mobile homepage](after-mobile.png) show the corrected Swiss spacing. Desktop before/after PNGs are byte-identical. The mobile image above is refreshed; other images retain their original capture provenance. Raw comparison reports are in `artifacts/evidence/palette-review/`; both palette-switching recordings, state images, and traces passed in `artifacts/evidence/palette-review-story/`. These ignored paths are local; the PR links downloadable CI evidence.
+
 ## Comparison with the design reference
 
 The supplied reference screens are preserved here for review only. Their fictional text and measurements are **not evidence of professional accomplishments**.

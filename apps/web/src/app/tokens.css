@@ -40,6 +40,9 @@
   --on-mist: #17171c;
   --acid: #e3ff6b;
   --link: var(--cobalt);
+}
+/* Layout and typography inherit independently of the selected color palette. */
+:root {
   --font-display: Syne, Arial, sans-serif;
   --font-body: "Hanken Grotesk", Arial, sans-serif;
   --font-mono: "JetBrains Mono", monospace;

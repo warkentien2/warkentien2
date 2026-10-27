@@ -164,8 +164,17 @@ test(
     await page.goto("/2026/en/");
     await page.evaluate(() => document.fonts.ready);
     const first = page.locator('[data-tile="identity"]');
-    const baseline = await first.evaluate(
-      (element) => element.getBoundingClientRect().width,
+    // Document coordinates also catch vertical shifts when a palette changes gaps.
+    const geometry = () =>
+      page.locator("[data-tile], #workbench").evaluateAll((elements) =>
+        elements.map((element) => {
+          const { x, y, width, height } = element.getBoundingClientRect();
+          return { x: x + scrollX, y: y + scrollY, width, height };
+        }),
+      );
+    const baseline = await geometry();
+    const baselineGap = await page.locator(".tile-grid").evaluate(
+      (element) => getComputedStyle(element).gap,
     );
     const backgrounds: string[] = [];
     for (const palette of ["swiss", "paper", "cobalt", "night"]) {
@@ -174,11 +183,8 @@ test(
         "data-palette",
         palette,
       );
-      expect(
-        await first.evaluate(
-          (element) => element.getBoundingClientRect().width,
-        ),
-      ).toBe(baseline);
+      expect(await geometry()).toEqual(baseline);
+      await expect(page.locator(".tile-grid")).toHaveCSS("gap", baselineGap);
       backgrounds.push(
         await first.evaluate(
           (element) => getComputedStyle(element).backgroundColor,
@@ -191,6 +197,13 @@ test(
             .analyze()
         ).violations,
       ).toEqual([]);
+      if (process.env.PORTFOLIO_EVIDENCE_MODE === "ux") {
+        await first.scrollIntoViewIfNeeded();
+        await testInfo.attach(`${palette} palette gallery spacing`, {
+          body: await page.screenshot({ animations: "disabled" }),
+          contentType: "image/png",
+        });
+      }
     }
     expect(new Set(backgrounds).size).toBe(4);
     await page.reload();
