@@ -1,0 +1,192 @@
+.case-study {
+  padding-block: 3rem 4rem;
+}
+.dialog-content > .case-study {
+  padding-top: 0;
+}
+.case-intro {
+  padding-block: 1rem 3rem;
+}
+.case-intro h1,
+.case-intro h2 {
+  font-size: clamp(2.7rem, 6.5vw, 6.5rem);
+  line-height: 0.98;
+  text-transform: uppercase;
+  margin-block: 1.5rem;
+  max-width: 20ch;
+}
+.case-summary {
+  max-width: 65ch;
+  font-size: 1.3rem;
+}
+.case-metrics {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+.case-metrics > div {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 0.75rem;
+  padding: 1.5rem;
+  background: var(--mist);
+  color: var(--on-mist);
+}
+.case-metrics dt {
+  font: 0.72rem/1.5 var(--font-mono);
+  max-width: 40ch;
+}
+.case-metrics dd {
+  margin: 0;
+  font: 700 clamp(1.5rem, 3vw, 3rem)/1.1 var(--font-display);
+  letter-spacing: -0.04em;
+}
+.case-study > .artwork {
+  height: clamp(220px, 36vw, 500px);
+  margin-bottom: 3rem;
+}
+.case-study > .race-art {
+  height: 340px;
+  margin-bottom: 3rem;
+}
+.case-section {
+  padding-block: 2.5rem;
+  border-top: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: 1fr 1.8fr;
+  gap: 3rem;
+  scroll-margin-top: 2rem;
+}
+.case-section h2,
+.case-section h3 {
+  font: 700 clamp(1.5rem, 2.5vw, 2.5rem)/1.1 var(--font-display);
+  text-transform: uppercase;
+  margin-top: 0.5rem;
+}
+.case-section > p {
+  max-width: 65ch;
+  line-height: 1.7;
+}
+.case-study .section-block {
+  padding-inline: 1.5rem;
+  width: 100%;
+}
+.case-study .section-heading {
+  display: block;
+}
+.case-study .section-heading > p {
+  margin-top: 1.5rem;
+  max-width: 60ch;
+}
+.experiment-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-block: 1.5rem 2rem;
+}
+.experiment-links a {
+  padding: 1rem;
+  border: 1px solid var(--line);
+  font: 0.8rem var(--font-mono);
+}
+.case-navigation {
+  border-top: 1px solid var(--line);
+  padding-top: 2rem;
+  margin-top: 3rem;
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.gauge-demo {
+  background: var(--dark);
+  color: var(--on-dark);
+  padding: 2rem;
+  margin-block: 2rem;
+}
+.section-caption {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+  border-bottom: 1px solid #777480;
+  padding-bottom: 1rem;
+}
+.section-caption h3 {
+  font: inherit;
+}
+.gauge-display {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 1rem;
+  align-items: center;
+}
+.gauge {
+  width: 100%;
+  max-height: 240px;
+}
+.gauge circle {
+  fill: none;
+  stroke-width: 7;
+}
+.gauge-track {
+  stroke: #777480;
+}
+.gauge-value {
+  stroke: #d9ff82;
+  transform: rotate(-90deg);
+  transform-origin: center;
+  transition: stroke-dasharray var(--motion-slow);
+}
+.gauge text {
+  fill: var(--on-dark);
+  font: 700 28px var(--font-display);
+}
+.gauge .gauge-label {
+  font: 12px var(--font-mono);
+}
+.sample-chart {
+  width: 100%;
+}
+.sample-chart polyline {
+  fill: none;
+  stroke: #d9ff82;
+  stroke-width: 3;
+}
+.sample-chart circle {
+  fill: #ffac76;
+}
+.chart-grid {
+  stroke: #777480;
+  stroke-width: 0.5;
+}
+.range-control {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font: 0.8rem var(--font-mono);
+}
+.range-control input {
+  width: 100%;
+}
+.gauge-demo .technical {
+  color: var(--on-dark);
+  margin-top: 1rem;
+}
+.data-table {
+  margin-top: 1rem;
+  font-size: 0.8rem;
+}
+.data-table table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+.data-table th,
+.data-table td {
+  border-bottom: 1px solid #777480;
+  padding: 0.5rem;
+  text-align: left;
+}

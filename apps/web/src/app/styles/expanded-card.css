@@ -1,0 +1,51 @@
+.card-dialog {
+  max-width: 1240px;
+  width: calc(100% - 4rem);
+  max-height: calc(100dvh - 4rem);
+  padding: 0;
+  background: var(--surface);
+  color: var(--ink);
+  border: 1px solid var(--ink);
+  box-shadow: 8px 8px 0 #17171c;
+  overflow-y: auto;
+}
+.card-dialog::backdrop {
+  background: #17171ca6;
+  backdrop-filter: blur(3px);
+}
+.dialog-toolbar {
+  display: flex;
+  position: sticky;
+  top: 0;
+  z-index: 4;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+}
+.dialog-toolbar > span {
+  max-width: 65%;
+}
+.dialog-toolbar button {
+  border: 1px solid var(--line);
+  background: var(--ink);
+  color: var(--surface);
+  padding: 0.6rem 0.9rem;
+  font-size: 0.75rem;
+}
+.dialog-content {
+  padding: 2rem 2.5rem 3rem;
+}
+.insight h2 {
+  font-size: clamp(2rem, 5vw, 5rem);
+  line-height: 1;
+  text-transform: uppercase;
+  margin-block: 1.5rem;
+}
+.insight > p:not(.technical) {
+  font-size: 1.25rem;
+  max-width: 60ch;
+  margin-bottom: 2rem;
+}

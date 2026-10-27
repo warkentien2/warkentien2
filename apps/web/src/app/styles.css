@@ -1,20 +1,9 @@
-:root { color-scheme: dark; font-family: system-ui, sans-serif; background: #101514; color: #eef4ef; }
-* { box-sizing: border-box; }
-body { margin: 0; }
-a { color: #b9f995; text-underline-offset: .25em; }
-a:hover { color: #fff; }
-:focus-visible { outline: 3px solid #f4c95d; outline-offset: 5px; }
-header, main, footer { max-width: 76rem; margin-inline: auto; padding: clamp(1.25rem, 5vw, 4rem); }
-header, nav, footer { display: flex; flex-wrap: wrap; gap: 1.5rem; }
-header { align-items: center; justify-content: space-between; }
-main { min-height: 65vh; }
-h1 { max-width: 16ch; font-size: clamp(2.5rem, 7vw, 6rem); line-height: 1.08; letter-spacing: -.04em; overflow-wrap: anywhere; }
-h2 { font-size: clamp(1.6rem, 3vw, 2.5rem); }
-p { max-width: 65ch; line-height: 1.7; }
-section { border-top: 1px solid #526158; margin-top: 3rem; padding-top: 1rem; }
-.eyebrow { color: #c8d5cd; }
-.skip-link { position: absolute; top: 1rem; left: 1rem; transform: translateY(-200%); padding: 1rem; background: #101514; }
-.skip-link:focus { transform: none; }
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
-}
+@import "./tokens.css";
+@import "./styles/base.css";
+@import "./styles/gallery.css";
+@import "./styles/workbench.css";
+@import "./styles/pages.css";
+@import "./styles/expanded-card.css";
+@import "./styles/case-study.css";
+@import "./styles/language.css";
+@import "./styles/responsive.css";

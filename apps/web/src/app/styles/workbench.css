@@ -1,0 +1,163 @@
+.section-block {
+  padding-block: 4.5rem;
+  border-top: 1px solid var(--line);
+}
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 3rem;
+  margin-bottom: 2rem;
+}
+.section-heading h2 {
+  font-size: clamp(2rem, 4.3vw, 4rem);
+  line-height: 0.98;
+  text-transform: uppercase;
+  max-width: 18ch;
+}
+.section-heading > p {
+  max-width: 36ch;
+}
+.section-heading .technical {
+  color: var(--link);
+  margin-bottom: 0.8rem;
+  max-width: 60ch;
+}
+.workbench {
+  background: color-mix(in srgb, var(--surface) 70%, var(--mist));
+}
+.workbench-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  border: 1px solid var(--line);
+  background: var(--surface-raised);
+}
+.workbench-controls {
+  padding: 1.5rem;
+  border-right: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+.workbench fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+.workbench legend,
+.check-control {
+  font: 0.7rem/1.5 var(--font-mono);
+}
+.workbench legend {
+  margin-bottom: 0.6rem;
+  text-transform: uppercase;
+}
+.segmented {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.segmented label {
+  position: relative;
+  font-size: 0.75rem;
+}
+.segmented input {
+  position: absolute;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+.segmented label span {
+  display: block;
+  border: 1px solid var(--line);
+  padding: 0.4rem 0.6rem;
+}
+.segmented input:checked + span {
+  background: var(--ink);
+  color: var(--surface);
+}
+.segmented input:focus-visible + span {
+  outline: 3px solid #ffbf00;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 6px #17171c;
+}
+.check-control {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+input[type="checkbox"],
+input[type="radio"],
+input[type="range"] {
+  accent-color: var(--cobalt);
+}
+.workbench-output {
+  padding: 1.5rem;
+  min-width: 0;
+}
+.demo-component {
+  margin-block: 1.5rem;
+  padding: var(--demo-space);
+  background: var(--mist);
+  color: var(--on-mist);
+  border: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+}
+.demo-mark {
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: var(--cobalt);
+  color: var(--on-cobalt);
+  font-size: 1.5rem;
+}
+.demo-component p {
+  font-size: 0.9rem;
+  margin-top: 0.4rem;
+}
+.demo-component h3 {
+  font-size: 1.25rem;
+}
+.demo-component .status-label,
+.demo-component button {
+  grid-column: 1 / -1;
+}
+.status-label {
+  font: 0.65rem/1.5 var(--font-mono);
+  text-transform: uppercase;
+}
+.action-button {
+  display: inline-flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 0.8rem 1rem;
+  background: var(--cobalt);
+  border: 1px solid var(--cobalt);
+  color: var(--on-cobalt);
+  text-decoration: none;
+}
+.action-button.outline {
+  background: transparent;
+  color: var(--on-mist);
+  border-color: currentColor;
+}
+.action-button:hover {
+  box-shadow: 3px 3px 0 var(--orange);
+}
+.show-focus .action-button {
+  outline: 3px solid #ffbf00;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 5px #17171c;
+}
+pre {
+  background: var(--dark);
+  color: var(--on-dark);
+  padding: 1.25rem;
+  overflow-x: auto;
+  font: 0.7rem/1.6 var(--font-mono);
+  margin: 0;
+}

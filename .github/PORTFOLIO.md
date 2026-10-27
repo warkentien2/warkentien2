@@ -2,7 +2,7 @@
 
 A static portfolio with two independent React generations. The new portfolio foundation uses **Next.js, React, and TypeScript**; the 2019 portfolio retains React 16, GSAP, and its original content. No database, login, API, or production Node.js server is required.
 
-This is the engineering foundation, not the finished redesign. Project details, articles, imagery, and the final motion system are future work. English and Brazilian Portuguese are the initial locales. Deployment is manual so merging this foundation does not replace the live portfolio.
+The modern portfolio uses an editorial tile grid, four interchangeable palettes, localized engineering case studies, and original interactive demonstrations. English and Brazilian Portuguese share the same typed content structure. See [customizing the UI](../docs/portfolio-ui.md) for tokens, tiles, themes, assets, and motion. Deployment remains manual; merging a UI PR does not publish it.
 
 ## Develop
 
@@ -49,6 +49,8 @@ Public assets are public even when no page links to them. Never put credentials 
 | `/2026/` | New portfolio language chooser |
 | `/2026/en/`, `/2026/pt-BR/` | Localized landing sections |
 | `/2026/{locale}/work/`, `about/`, `journal/` | New statically generated section pages |
+| `/2026/{locale}/work/{slug}/` | Four localized engineering case studies |
+| `/2026/{locale}/workbench/` | Interactive public Design System demonstration |
 
 All routes have physical HTML files for direct visits and refreshes on static hosts. Archive links use normal anchors to cross app boundaries. The original root and projects URLs keep serving their existing content even when this artifact is published. All new UI is temporarily mounted at `https://warkentien2.com/2026/`; promoting it to the domain root is a separate future decision. This path requires no subdomain or DNS changes.
 

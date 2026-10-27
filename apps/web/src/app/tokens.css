@@ -1,0 +1,122 @@
+@font-face {
+  font-family: Syne;
+  src: url("/2026/fonts/syne.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Hanken Grotesk";
+  src: url("/2026/fonts/hanken-grotesk.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400 900;
+  font-display: swap;
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/2026/fonts/jetbrains-mono.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+}
+
+:root,
+[data-palette="swiss"] {
+  color-scheme: light;
+  --surface: #faf8f2;
+  --surface-raised: #fffef9;
+  --ink: #17171c;
+  --muted: #51515c;
+  --line: #c5c2d0;
+  --cobalt: #123ae4;
+  --on-cobalt: #fff;
+  --orange: #ff5500;
+  --on-orange: #17171c;
+  --violet: #6b4c8c;
+  --on-violet: #fff;
+  --dark: #27272b;
+  --on-dark: #faf8f2;
+  --mist: #eae7ef;
+  --on-mist: #17171c;
+  --acid: #e3ff6b;
+  --link: var(--cobalt);
+}
+/* Layout and typography inherit independently of the selected color palette. */
+:root {
+  --font-display: Syne, Arial, sans-serif;
+  --font-body: "Hanken Grotesk", Arial, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2.5rem;
+  --space-2xl: 4rem;
+  --page-margin: clamp(1rem, 3.4vw, 3rem);
+  --grid-gap: 1.5rem;
+  --page-width: 1440px;
+  --border: 1px;
+  --radius: 0;
+  --hard-shadow: 4px 4px 0 var(--ink);
+  --motion-fast: 160ms;
+  --motion-slow: 450ms;
+  --motion-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+[data-palette="paper"] {
+  --link: var(--cobalt);
+  --surface: #f1eee5;
+  --surface-raised: #fffcf4;
+  --ink: #24231f;
+  --muted: #555047;
+  --line: #bab4a5;
+  --cobalt: #2c3e66;
+  --on-cobalt: #fff;
+  --orange: #ce683b;
+  --on-orange: #17171c;
+  --violet: #574c60;
+  --on-violet: #fff;
+  --dark: #24231f;
+  --on-dark: #fffcf4;
+  --mist: #e2ddcf;
+  --on-mist: #24231f;
+  --acid: #e5dbab;
+}
+[data-palette="cobalt"] {
+  --link: var(--cobalt);
+  --surface: #eaf0ff;
+  --surface-raised: #f9fbff;
+  --ink: #101c39;
+  --muted: #3e4d6c;
+  --line: #abb9db;
+  --cobalt: #072ac8;
+  --on-cobalt: #fff;
+  --orange: #ff9470;
+  --on-orange: #101c39;
+  --violet: #453a93;
+  --on-violet: #fff;
+  --dark: #111d3e;
+  --on-dark: #eef2ff;
+  --mist: #d4def5;
+  --on-mist: #101c39;
+  --acid: #d9ff82;
+}
+[data-palette="night"] {
+  color-scheme: dark;
+  --surface: #15151d;
+  --surface-raised: #242430;
+  --ink: #f7f3eb;
+  --muted: #c4c1cf;
+  --line: #5e5b70;
+  --cobalt: #243bd0;
+  --on-cobalt: #fff;
+  --orange: #ffa26d;
+  --on-orange: #15151d;
+  --violet: #594078;
+  --on-violet: #fff;
+  --dark: #090910;
+  --on-dark: #f7f3eb;
+  --mist: #d4cde2;
+  --on-mist: #15151d;
+  --acid: #e3ff6b;
+  --link: #bdc6ff;
+}

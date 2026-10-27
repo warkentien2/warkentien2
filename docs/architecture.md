@@ -35,4 +35,6 @@ Docs, tests, AI instructions, package metadata, and node_modules are never copie
 
 ## Delivery stages
 
-This PR establishes the build boundary, route skeleton, two initial locale dictionaries, and checks. Before launch: replace preview content, author actual project/article pages, add designed imagery and interactive components, review page-specific canonical/alternate metadata and social images, add sitemap entries for real content, and validate on real devices with keyboard and assistive technology. Keep deployment manual until the result is ready. No invented articles or achievements are seeded.
+The modern app now includes a localized editorial tile grid, four palettes, four engineering case studies, a workbench, and an SVG demonstration. Typed content, presentation variants, and design tokens remain separate; see [portfolio customization](portfolio-ui.md). Design-reference files are not application inputs. The journal links to actual published technical articles rather than seeding fictional local posts.
+
+Before launch, review on real devices and with assistive technology, and review social images and search indexing for the final published content. Deployment stays manual. The original portfolio and projects remain at their original URLs.

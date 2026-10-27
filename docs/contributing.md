@@ -12,7 +12,7 @@ Mark passages in another language with their own `lang` attribute, even on the l
 
 ## Articles and projects
 
-The journal is intentionally empty. Start with hand-authored localized TSX pages under `[locale]/journal/<slug>/page.tsx`, add links to the journal index, and author translated titles/descriptions. This keeps all content in Git without a CMS. Extract a typed local article catalog when there are multiple entries. If slugs become data-driven, enumerate every route with `generateStaticParams` and keep `dynamicParams = false`; include each emitted route in artifact/browser checks. Add MDX only when its authoring benefits justify the dependency.
+The journal currently links to the owner's published Dev.to series. For local articles, start with hand-authored localized TSX pages under `[locale]/journal/<slug>/page.tsx`, add links to the journal index, and author translated titles/descriptions. This keeps all content in Git without a CMS. Extract a typed local article catalog when there are multiple entries. If slugs become data-driven, enumerate every route with `generateStaticParams` and keep `dynamicParams = false`; include each emitted route in artifact/browser checks. Add MDX only when its authoring benefits justify the dependency.
 
 Use actual project details and permissions-cleared imagery. Files in `public/` are directly published; imported assets are compiled. Put developer notes in `docs/`, never beside public images.
 
