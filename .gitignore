@@ -11,3 +11,4 @@ test-results/
 !.env.example
 *.log
 artifacts/
+docs/design/stitch-2026/stitch-export.zip

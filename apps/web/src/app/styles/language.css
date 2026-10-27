@@ -1,0 +1,38 @@
+.language-page {
+  max-width: 1400px;
+  padding: var(--page-margin);
+  margin: auto;
+}
+.language-art {
+  font: 800 clamp(3rem, 10vw, 10rem)/0.95 var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: -0.05em;
+  margin-block: 5rem;
+  overflow-wrap: anywhere;
+}
+.language-art span {
+  color: var(--cobalt);
+}
+.language-page h1 {
+  font: 500 clamp(1.2rem, 3vw, 2rem)/1.4 var(--font-body);
+  margin-bottom: 2rem;
+}
+.language-page nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.language-page nav a {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  background: var(--cobalt);
+  color: var(--on-cobalt);
+  padding: 2rem;
+  font-size: 1.3rem;
+  text-decoration: none;
+}
+.language-page nav a:last-child {
+  background: var(--orange);
+  color: var(--on-orange);
+}

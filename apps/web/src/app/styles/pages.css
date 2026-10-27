@@ -1,0 +1,120 @@
+.practice-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+}
+.practice-section h2 {
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  text-transform: uppercase;
+  line-height: 1;
+  margin-block: 1rem 2rem;
+  max-width: 15ch;
+}
+.principle-list p {
+  border-bottom: 1px solid var(--line);
+  padding: 1.5rem 0;
+  font-size: 1.25rem;
+}
+.text-link {
+  display: inline-block;
+  padding-block: 0.6rem;
+}
+.contact-section {
+  background: var(--mist);
+  color: var(--on-mist);
+  padding-block: 4rem;
+  border-top: 1px solid var(--line);
+}
+.contact-section .technical {
+  color: inherit;
+}
+.contact-grid {
+  margin-top: 1.5rem;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 3rem;
+  align-items: end;
+}
+.contact-grid h2 {
+  font-size: clamp(3rem, 5.5vw, 6rem);
+  line-height: 0.95;
+  text-transform: uppercase;
+  max-width: 14ch;
+}
+.contact-grid p {
+  max-width: 35ch;
+}
+.contact-email {
+  font-size: clamp(1rem, 2vw, 1.6rem);
+  display: inline-block;
+  margin-block: 1.5rem;
+  overflow-wrap: anywhere;
+}
+.contact-socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+.site-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding-block: 2rem;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+}
+.archive-links {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.page-heading {
+  padding-block: 4rem;
+}
+.page-heading h1 {
+  font-size: clamp(3rem, 7vw, 7rem);
+  text-transform: uppercase;
+  line-height: 0.95;
+  max-width: 18ch;
+  margin-block: 1rem 2rem;
+}
+.page-heading > p:not(.technical) {
+  max-width: 58ch;
+  font-size: 1.2rem;
+}
+.career-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.career-list li {
+  display: grid;
+  grid-template-columns: 3rem 1fr 2fr;
+  gap: 1rem;
+  border-top: 1px solid var(--line);
+  padding: 1.5rem 0;
+}
+.career-list h3 {
+  font-size: 1.3rem;
+}
+.article-feature {
+  display: block;
+  background: var(--cobalt);
+  color: var(--on-cobalt);
+  padding: 3rem;
+  margin-top: 3rem;
+  text-decoration: none;
+}
+.article-feature h2 {
+  font-size: clamp(2rem, 5vw, 4rem);
+  text-transform: uppercase;
+  margin-block: 1.5rem;
+}
+.article-feature .technical {
+  color: inherit;
+}
+.journal-page > .technical:last-child {
+  margin-top: 1rem;
+}
