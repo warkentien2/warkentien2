@@ -1,5 +1,5 @@
 @media (min-width: 1041px) {
-  .tile--typography:first-child .tile-copy {
+  .tile[data-tile="identity"] .tile-copy {
     background-image: radial-gradient(#ffffff22 1px, transparent 1px);
     background-size: 16px 16px;
   }
