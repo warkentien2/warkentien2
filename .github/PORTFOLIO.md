@@ -24,6 +24,17 @@ npm run preview      # combined output, http://localhost:4173
 
 Linux browser setup may require `npx playwright install --with-deps chromium` (CI does this).
 
+## Publish
+
+With the [GitHub CLI](https://cli.github.com/) installed and authenticated:
+
+```sh
+npm run deploy:production  # queue the existing deployment workflow on remote master
+npm run deploy:status      # list recent production deployment runs
+```
+
+`npm run deploy` is an alias for `deploy:production`. This deploys committed remote `master`, not local edits. The workflow builds, validates, and publishes `dist/` to `warkentien2.com`; dispatching it does not mean deployment has finished. There is no separate staging host or automatic staging deployment. `/2026/` is a preview path on production. See [deployment commands and staging](../docs/deployment.md#deployment-commands-and-staging).
+
 ## Structure and delivery boundary
 
 | Path | Purpose | Published? |

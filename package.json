@@ -18,6 +18,9 @@
     "test:e2e": "playwright test",
     "check": "npm run typecheck && npm run build && npm test && npm run test:e2e",
     "preview": "node scripts/preview.mjs",
+    "deploy": "npm run deploy:production",
+    "deploy:production": "gh workflow run deploy.yml --repo warkentien2/warkentien2 --ref master",
+    "deploy:status": "gh run list --repo warkentien2/warkentien2 --workflow deploy.yml --branch master --limit 5",
     "evidence:ui": "node scripts/evidence.mjs ui",
     "evidence:ux": "node scripts/evidence.mjs ux"
   },

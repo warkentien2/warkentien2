@@ -26,18 +26,35 @@ Run `npm ci`, `npx playwright install chromium`, `npm run check`, then `npm run 
 
 The artifact preserves the original `/` and `/projects/`. New UI is temporarily mounted at `/2026/`, including localized pages and Next assets. Publishing this preview does not promote the new design to the root. No `me.warkentien2.com` subdomain or DNS change is needed. Keep this boundary until the owner explicitly requests a route cutover.
 
+## Deployment commands and staging
+
+Pushes to `master` automatically run **Validate**, which builds and tests but does not publish. There is currently no separate staging destination. `/2026/` is a preview path within the production Pages site, not an isolated staging environment.
+
+With [GitHub CLI](https://cli.github.com/) installed and authenticated (`gh auth login`), use:
+
+```sh
+npm run deploy:production  # dispatch Deploy static portfolio on remote master
+npm run deploy:status      # list the five latest deployment runs on master
+```
+
+`npm run deploy` is a convenience alias for `deploy:production`. It uses [`gh workflow run`](https://cli.github.com/manual/gh_workflow_run) with an explicit repository and `--ref master`. It queues the existing workflow, which builds, tests, and uploads only `dist/` before publishing. The command's success means the dispatch was accepted; use the status command or [Actions](https://github.com/warkentien2/warkentien2/actions/workflows/deploy.yml) to confirm the deployment succeeds.
+
+The remote `master` branch supplies the code. The command does not commit, push, merge, publish local files, or change Pages/DNS settings. Unmerged PRs and local edits are not included. This publishes the entire assembled site at `warkentien2.com`, including the original root/projects and the modern `/2026/` routes.
+
+For automatic staging, first configure a separate static hosting project or repository with its own URL. It must serve the assembled artifact at its domain root, retaining `/projects/` and `/2026/`. A master-triggered workflow can then validate and publish `dist/` to that destination while production stays manual. Simply adding a GitHub environment named `staging`, or adding a push trigger to `deploy.yml`, would not create a separate hosted site; the latter would automatically update production.
+
 ## Manual publishing: GitHub Actions
 
 1. Review and merge the intended preview changes to `master`, and save the current deployed `gh-pages` SHA as a rollback reference. The modern design may remain unfinished under `/2026/`; keep the original root routes.
 2. In repository Settings → Pages, select **GitHub Actions** as the publishing source. Retain custom domain `warkentien2.com` and HTTPS.
-3. Run **Deploy static portfolio** from Actions on **master**. It builds and tests before uploading only `dist/` and deploying through the `github-pages` environment. Restrict that environment to `master` if desired. The workflow itself refuses builds from other refs.
+3. Run `npm run deploy:production`, or **Deploy static portfolio** from Actions on **master**. It builds and tests before uploading only `dist/` and deploying through the `github-pages` environment. Restrict that environment to `master` if desired. The workflow itself refuses builds from other refs.
 4. Verify the original root/projects pages, `/2026/` deep links, and footer links on the custom domain, and check network failures and HTTPS.
 
 The workflow is intentionally `workflow_dispatch` only. PR validation and merges do not publish. Once ready for continuous delivery, add a push-to-master trigger in a reviewed change. The deployment permissions use the built-in GitHub token/OIDC; no hosting credential or domain secret belongs in application code.
 
 ## Keep branch publishing instead
 
-Build and validate locally or in CI, then publish **the contents of `dist/`** to the root of `gh-pages` using your chosen artifact-publishing tool. Keep CNAME and `.nojekyll`. Never publish the repository root. The former `npm run deploy` command is intentionally replaced by an explicit workflow. Do not mix branch publication with Actions deployment without choosing the Pages source first.
+Build and validate locally or in CI, then publish **the contents of `dist/`** to the root of `gh-pages` using your chosen artifact-publishing tool. Keep CNAME and `.nojekyll`. Never publish the repository root. `npm run deploy` triggers the Actions workflow; it does not push a `gh-pages` branch. Do not mix branch publication with Actions deployment without choosing the Pages source first.
 
 ## GoDaddy DNS
 
