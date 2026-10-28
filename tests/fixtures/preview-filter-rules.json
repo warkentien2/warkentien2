@@ -1,0 +1,8 @@
+{
+  "source": "https://easylist.to/easylist/easylist.txt",
+  "inspected": "2026-10-28",
+  "version": "202610281720",
+  "commit": "661e43cfab8e83d0db83150e56a77b7f5ab20584",
+  "networkSubstrings": ["/300x250_"],
+  "hiddenSelectors": ["#content-ad", "#content_ad", "#container_ad"]
+}

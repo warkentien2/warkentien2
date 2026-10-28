@@ -3,8 +3,8 @@
  * @version v1.0.0
  * @date 11-23-2016 at 15:21:36
  */
-var background_exit_ad=document.getElementById("background_exit_ad"),circleIsh=document.getElementById("circle-ish"),shineWrapper=document.getElementById("shine-wrapper"),tt,tf,ts,td,bannerInit=function(){
-  container_ad.style.opacity="1",
+var study_exit=document.getElementById("study_exit"),circleIsh=document.getElementById("circle-ish"),shineWrapper=document.getElementById("shine-wrapper"),tt,tf,ts,td,bannerInit=function(){
+  study_container.style.opacity="1",
   tt=TweenLite.to,
   tf=TweenLite.from,
   ts=TweenLite.set,
@@ -25,6 +25,6 @@ shineFx=function(){
   }})
 },
 addShine=function(){
-  background_exit_ad.addEventListener("mouseenter",function(){shineFx()},!1),
+  study_exit.addEventListener("mouseenter",function(){shineFx()},!1),
   td(.35,shineFx)
 };

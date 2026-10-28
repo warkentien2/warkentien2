@@ -30,6 +30,19 @@ test('original projects path preserves every file byte for byte', async () => {
     assert.deepEqual(await readFile(path.join('dist/projects', path.relative(source, file))), await readFile(file), file);
   }
 });
+test('neutral motion study paths preserve all original artwork assets', async () => {
+  for (let index = 1; index <= 27; index++) {
+    const source = `apps/legacy/public/projects/banners/300x250_v${index}`;
+    for (const file of await walk(source)) {
+      const relative = path.relative(source, file);
+      assert.deepEqual(await readFile(path.join(`dist/projects/studies/${index}`, relative)), await readFile(file), file);
+    }
+    const html = await readFile(`dist/projects/studies/${index}/index.html`, 'utf8');
+    assert.doesNotMatch(html, /(?:content-ad|content_ad|container_ad|background_exit_ad)/);
+  }
+  const gallery = await readFile('dist/projects/index.html', 'utf8');
+  assert.doesNotMatch(gallery, /disable any ad blocker|banners\/300x250_/i);
+});
 test('deployment contains no development instructions, sources, or dependencies', async () => {
   const files = await walk('dist');
   assert.equal((await readFile('dist/CNAME', 'utf8')).trim(), 'warkentien2.com');
