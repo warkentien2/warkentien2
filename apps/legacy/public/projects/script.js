@@ -1,34 +1,24 @@
-((function() {
-  var bannerWrapper = document.getElementsByClassName('banners')[0];
-  var banners = Array.prototype.slice.call(document.getElementsByClassName('banner'));
+(function () {
+  var gallery = document.querySelector('.motion-studies');
+  var studies = Array.prototype.slice.call(gallery.querySelectorAll('.motion-study'));
 
-  function loadBanners() {
-    var i = 0;                   
-  
-    function myLoop () {
-       setTimeout(function () {
-          banners[i].querySelector('iframe').setAttribute('src', banners[i].dataset.banner);
-          banners[i+1].querySelector('iframe').setAttribute('src', banners[i+1].dataset.banner);
-          banners[i+2].querySelector('iframe').setAttribute('src', banners[i+2].dataset.banner);
-          i+=3;
-          if (i < banners.length) {
-             myLoop();
-          }   
-       }, 250)
-    }
-    
-    myLoop();  
+  function loadStudy(study) {
+    study.querySelector('iframe').setAttribute('src', study.dataset.study);
   }
 
-  bannerWrapper.addEventListener('click', function(e) {
-    var target = e.target;
+  // Preserve staggered loading rather than starting 27 animations at once.
+  function loadBatch(start) {
+    setTimeout(function () {
+      studies.slice(start, start + 3).forEach(loadStudy);
+      if (start + 3 < studies.length) loadBatch(start + 3);
+    }, 250);
+  }
 
-    if(target.classList.contains('banner-refresh')) {
-      var parent = target.parentNode;
-      parent.querySelector('iframe').removeAttribute('src');
-      parent.querySelector('iframe').setAttribute('src', parent.dataset.banner);
+  gallery.addEventListener('click', function (event) {
+    if (event.target.classList.contains('study-replay')) {
+      loadStudy(event.target.parentNode);
     }
   });
 
-  window.init = loadBanners();
-})())
+  loadBatch(0);
+})();

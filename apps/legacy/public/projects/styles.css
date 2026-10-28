@@ -42,19 +42,19 @@ h3 {
   margin: auto;
 }
 
-.banner-section-summary {
+.study-summary {
   width: 100%;
   padding: 2.5em 0 3.5em;
   max-width: 900px;
   margin: auto;
 }
 
-.banner-section-summary ul {
+.study-summary ul {
   list-style: square;
   padding-left: 20px;
 }
 
-.banner-section-summary p:nth-child(2) {
+.study-summary p:nth-child(2) {
   margin-bottom: 0.5em;
 }
 
@@ -62,13 +62,7 @@ h3 {
   margin: auto;
 }
 
-.note {
-  display: block;
-  width: 100%;
-  text-align: center;
-}
-
-.banners {
+.motion-studies {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -76,13 +70,16 @@ h3 {
   margin-bottom: 5em;
 }
 
-.banner {
+.motion-study {
   position: relative;
   width: 300px;
   height: 250px;
 }
 
-.banner-refresh {
+.study-replay {
+  padding: 0;
+  border: 0;
+  background: transparent;
   position: absolute;
   z-index: 500;
   width: 300px;
@@ -90,8 +87,12 @@ h3 {
   cursor: pointer;
 }
 
-.banner iframe {
+.motion-study iframe {
   position: absolute;
   width: 300px;
   height: 250px;
+}
+.study-replay:focus-visible {
+  outline: 3px solid #123ae4;
+  outline-offset: -3px;
 }

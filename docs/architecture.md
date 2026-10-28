@@ -20,6 +20,10 @@ The old `react-scripts`, `gh-pages`, and unused JSON loader are removed; npm now
 
 This is a preservation boundary, not a claim that the 2019 implementation meets current accessibility or dependency standards. Validate it separately and review any future archive fixes explicitly. CDN libraries and remotely linked resources may age independently.
 
+The `/projects/` gallery uses neutral `/projects/studies/{number}/` preview URLs. Vite copies each original `public/projects/banners/300x250_v{number}/` directory to that static alias at build time and internally maps the same paths during legacy development. Historical URLs remain available. This avoids EasyList's `/300x250_` network rule; artwork IDs formerly matching `#content-ad`, `#content_ad`, and `#container_ad` use neutral study names, with their CSS/JavaScript references updated together. No advertising metadata, ad-serving SDK, blocker detection, or allowlisting is needed. The compatibility aliases add approximately 4.9 MB to the static artifact, not to a page's requested assets.
+
+`tests/fixtures/preview-filter-rules.json` records the inspected EasyList version and specific matching rules. The browser regression applies those network and cosmetic rules, proves filtering remains active, loads all 27 previews, and exercises keyboard replay and direct refresh. It is a focused regression, not a claim that every extension or custom filter configuration has been tested. Third-party archive font, icon, and GSAP dependencies remain unchanged.
+
 ## Build composition
 
 1. Next exports to `apps/web/out/`.
