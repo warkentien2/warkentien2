@@ -7,7 +7,7 @@ Read [owner preferences](docs/preferences.md) for product priorities, autonomy, 
 - New portfolio: `apps/web` (Next.js static export, React, strict TypeScript).
 - Archive: `apps/legacy` (React 16 + Vite); retain its content and asset paths unless the task explicitly changes them.
 - Publish only assembled `dist/`. Development docs, tests, and `.agents/` must stay out of it.
-- Keep the original portfolio at `/` and its original projects at `/projects/`. Mount all new UI and its assets under `/2026/` until the owner requests a cutover. Use plain anchors to cross between apps; Next Link adds the modern basePath automatically.
+- Keep the original portfolio at `/` and its original projects at `/projects/`. The Next.js portfolio and its assets stay under `/2026/`; the owner-approved compact static portfolio is under `/me/` in `apps/legacy/public/me`. Use plain anchors to cross between these pages; Next Link adds the modern basePath automatically.
 - Modern routes must export without a production server. Enumerate dynamic params; don't add request-time services to solve static routing.
 - Keep public assets free of credentials and developer instructions. No credentials are required by this application.
 - Use npm workspaces and the root package-lock.json. Keep old/new React runtimes isolated.

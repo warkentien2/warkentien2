@@ -24,6 +24,12 @@ The `/projects/` gallery uses neutral `/projects/studies/{number}/` preview URLs
 
 `tests/fixtures/preview-filter-rules.json` records the inspected EasyList version and specific matching rules. The browser regression applies those network and cosmetic rules, proves filtering remains active, loads all 27 previews, and exercises keyboard replay and direct refresh. It is a focused regression, not a claim that every extension or custom filter configuration has been tested. Third-party archive font, icon, and GSAP dependencies remain unchanged.
 
+## Compact portfolio at `/me/`
+
+The compact landing page is ordinary semantic HTML, scoped CSS, and one small JavaScript module in `apps/legacy/public/me/`. Vite copies this public directory into the legacy output; the existing assembler therefore produces `dist/me/index.html` without another build tool, framework, or changes to Next's `/2026` base path. All page assets and self-hosted fonts live under `/me/`. Its styles are scoped to `.me-page` and are only linked by that document.
+
+The approved design export is a reference, not a build input. The page implements its typography, palette, composition, and SVG artwork with local source. Illustrative charts use public sample values, never employer data. Native anchors and a native mobile disclosure menu work without JavaScript; a small module synchronizes the demonstration chart/table scroll positions and closes the menu after navigation. See [editing the compact portfolio](me-portfolio.md).
+
 ## Build composition
 
 1. Next exports to `apps/web/out/`.
@@ -31,7 +37,7 @@ The `/projects/` gallery uses neutral `/projects/studies/{number}/` preview URLs
 3. `scripts/assemble.mjs` creates a clean `dist/`, copies the legacy output to its root (including `/projects/`), and mounts the modern output under `dist/2026/`. It copies the modern 404 document to `dist/404.html` for host-level errors.
 4. `dist/.nojekyll` prevents underscore-prefixed Next assets from being filtered by Jekyll in branch hosting.
 
-The artifact works on GitHub Pages or another host that serves directory `index.html` files. The original site stays at `warkentien2.com/` and `warkentien2.com/projects/`. The new UI is temporarily served only under `warkentien2.com/2026/`. A subdomain such as `me.warkentien2.com` is unnecessary for this arrangement and would require separate domain/hosting configuration. The artifact targets the domain root, not an additional GitHub repository prefix.
+The artifact works on GitHub Pages or another host that serves directory `index.html` files. The original site stays at `warkentien2.com/` and `warkentien2.com/projects/`. The Next.js portfolio remains under `warkentien2.com/2026/`; the compact static landing page is independently served at `warkentien2.com/me/`. A subdomain such as `me.warkentien2.com` is unnecessary for this arrangement and would require separate domain/hosting configuration. The artifact targets the domain root, not an additional GitHub repository prefix.
 
 Next Link automatically adds the build-time `/2026` basePath to app routes; do not prepend it again to Link hrefs. Plain anchors to `/` and `/projects/` intentionally leave the modern app. For public images and plain app links, include `/2026/` explicitly; the exported files physically live under that mount. See [Next basePath documentation](https://nextjs.org/docs/app/api-reference/config/next-config-js/basePath). The host-level CNAME belongs to the legacy public directory because its output owns the domain root.
 

@@ -1,0 +1,94 @@
+@font-face {
+  font-family: 'Space Grotesk';
+  src: url('/me/fonts/spacegrotesk.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Inter;
+  src: url('/me/fonts/inter.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('/me/fonts/jetbrainsmono.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+}
+
+.me-page {
+  color-scheme: dark;
+  --surface: #121315;
+  --surface-lowest: #0d0e10;
+  --surface-low: #1b1c1e;
+  --surface-container: #1f2022;
+  --surface-high: #292a2c;
+  --surface-highest: #343537;
+  --surface-bright: #38393b;
+  --on-surface: #e3e2e5;
+  --on-surface-variant: #e7bdb2;
+  --outline: #ad887e;
+  --outline-variant: #5d4038;
+  --primary: #ffb5a0;
+  --primary-container: #ff5625;
+  --on-primary: #601400;
+  --on-primary-container: #541100;
+  --secondary: #b7c4ff;
+  --secondary-container: #0052fe;
+  --tertiary: #ffba20;
+  --error: #ffb4ab;
+  --line: #23272f;
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body: Inter, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --hero-size: 5.5rem;
+  --hero-leading: 1;
+  --heading-size: 3.5rem;
+  --heading-leading: 3.75rem;
+  --title-size: 2rem;
+  --title-leading: 2.25rem;
+  --metric-size: 2.25rem;
+  --body-size: .9375rem;
+  --body-leading: 1.5rem;
+  --label-size: .75rem;
+  --space-xs: .25rem;
+  --space-sm: .5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2.5rem;
+  --space-2xl: 4rem;
+  --space-3xl: 6rem;
+  --margin: 4rem;
+  --gutter: 2rem;
+  --content-width: 1680px;
+  --header-height: 4rem;
+  --radius: 0;
+  --border-width: 1px;
+  --hard-shadow: 4px 4px 0 #000d;
+  --motion-duration: 180ms;
+  --motion-easing: cubic-bezier(.2, .8, .2, 1);
+}
+
+@media (max-width: 1279px) {
+  .me-page {
+    --margin: 2.5rem;
+    --gutter: 1.5rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .me-page {
+    --margin: 1.25rem;
+    --gutter: 1rem;
+    --hero-size: 2.75rem;
+    --hero-leading: 3rem;
+    --heading-size: 2rem;
+    --heading-leading: 2.25rem;
+  }
+}
