@@ -12,3 +12,4 @@ test-results/
 *.log
 artifacts/
 docs/design/stitch-2026/stitch-export.zip
+docs/design/stitch-me-2026/*.zip

@@ -62,8 +62,9 @@ Public assets are public even when no page links to them. Never put credentials 
 | `/2026/{locale}/work/`, `about/`, `journal/` | New statically generated section pages |
 | `/2026/{locale}/work/{slug}/` | Four localized engineering case studies |
 | `/2026/{locale}/workbench/` | Interactive public Design System demonstration |
+| `/me/` | Compact standalone portfolio, with its own scoped styles and local assets |
 
-All routes have physical HTML files for direct visits and refreshes on static hosts. Archive links use normal anchors to cross app boundaries. The original root and projects URLs keep serving their existing content even when this artifact is published. All new UI is temporarily mounted at `https://warkentien2.com/2026/`; promoting it to the domain root is a separate future decision. This path requires no subdomain or DNS changes.
+All routes have physical HTML files for direct visits and refreshes on static hosts. Archive links use normal anchors to cross app boundaries. The original root and projects URLs keep serving their existing content even when this artifact is published. The Next.js UI remains at `https://warkentien2.com/2026/`; the compact landing page lives at `https://warkentien2.com/me/`. Promoting either to the domain root is a separate future decision. This path requires no subdomain or DNS changes.
 
 For live publishing, Pages must use **GitHub Actions**, followed by a manual run of **Deploy static portfolio** on `master`. Publishing `master` directly as a branch serves the repository README instead of building these routes. See the [publishing-source troubleshooting steps](../docs/deployment.md#if-the-domain-shows-readme-text-and-projects-or-2026-return-404).
 

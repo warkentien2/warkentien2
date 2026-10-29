@@ -12,7 +12,7 @@ On October 24, 2026, Pages was found configured as **Deploy from a branch → ma
 2. Under **Build and deployment → Source**, select **GitHub Actions**. Do not select `master` under **Deploy from a branch**. Keep the custom domain and HTTPS settings.
 3. Open [Deploy static portfolio](https://github.com/warkentien2/warkentien2/actions/workflows/deploy.yml), select **Run workflow**, choose **master**, and run it. Changing the Pages source alone does not run this manual workflow.
 4. Wait for the **Deploy static portfolio** run's build and deploy jobs to succeed. A green **Validate** check or **pages build and deployment** Jekyll run is not this deployment.
-5. Verify `/`, `/projects/`, `/2026/`, and a `/2026/en/work/` refresh on the actual domain. If a browser still shows an old response, use a private window or disable cache before diagnosing another code issue.
+5. Verify `/`, `/projects/`, `/2026/`, `/me/`, and a `/2026/en/work/` refresh on the actual domain. If a browser still shows an old response, use a private window or disable cache before diagnosing another code issue.
 
 The deployment workflow checks that Pages uses the Actions publishing source before building. Only `dist/` is uploaded; never select the repository source root for publication.
 
@@ -24,7 +24,7 @@ Run `npm ci`, `npx playwright install chromium`, `npm run check`, then `npm run 
 
 ## Publish the preview without replacing the original routes
 
-The artifact preserves the original `/` and `/projects/`. New UI is temporarily mounted at `/2026/`, including localized pages and Next assets. Publishing this preview does not promote the new design to the root. No `me.warkentien2.com` subdomain or DNS change is needed. Keep this boundary until the owner explicitly requests a route cutover.
+The artifact preserves the original `/` and `/projects/`. The Next.js UI stays at `/2026/`, including localized pages and Next assets. The compact static portfolio is mounted separately at `/me/`, with its own local assets. Publishing this preview does not promote the new design to the root. No `me.warkentien2.com` subdomain or DNS change is needed. Keep this boundary until the owner explicitly requests a route cutover.
 
 ## Deployment commands and staging
 
@@ -39,7 +39,7 @@ npm run deploy:status      # list the five latest deployment runs on master
 
 `npm run deploy` is a convenience alias for `deploy:production`. It uses [`gh workflow run`](https://cli.github.com/manual/gh_workflow_run) with an explicit repository and `--ref master`. It queues the existing workflow, which builds, tests, and uploads only `dist/` before publishing. The command's success means the dispatch was accepted; use the status command or [Actions](https://github.com/warkentien2/warkentien2/actions/workflows/deploy.yml) to confirm the deployment succeeds.
 
-The remote `master` branch supplies the code. The command does not commit, push, merge, publish local files, or change Pages/DNS settings. Unmerged PRs and local edits are not included. This publishes the entire assembled site at `warkentien2.com`, including the original root/projects and the modern `/2026/` routes.
+The remote `master` branch supplies the code. The command does not commit, push, merge, publish local files, or change Pages/DNS settings. Unmerged PRs and local edits are not included. This publishes the entire assembled site at `warkentien2.com`, including the original root/projects, the modern `/2026/` routes, and the compact `/me/` page.
 
 For automatic staging, first configure a separate static hosting project or repository with its own URL. It must serve the assembled artifact at its domain root, retaining `/projects/` and `/2026/`. A master-triggered workflow can then validate and publish `dist/` to that destination while production stays manual. Simply adding a GitHub environment named `staging`, or adding a push trigger to `deploy.yml`, would not create a separate hosted site; the latter would automatically update production.
 
