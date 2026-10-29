@@ -42,8 +42,9 @@ See [editing `/me/`](../../me-portfolio.md) for source organization, tokens, res
 - `npm run check` passed: TypeScript, both static builds, **20 Node tests**, and **72 desktop/mobile Playwright tests**. Existing tests remain intact.
 - `/me/` loads directly and refreshes with HTTP 200; metadata, canonical URL, sharing image, local assets, and anchor targets resolve. Static artifact tests exclude reference files and external design/font runtimes.
 - Responsive and axe WCAG A/AA checks pass at **320, 390, 768, 1440, and 1920px**, without unwanted page overflow, missing assets, or browser page errors.
+- The initial Linux CI run caught the hero grid's intrinsic minimum width at 320px. Its children now explicitly permit shrinking within the column; an additional assertion verifies they fit inside the grid. The fix retains the specified mobile type size and leaves 390px/desktop composition unchanged.
 - Both recorded stories passed using the existing evidence infrastructure: skip link, keyboard disclosure navigation, Escape/focus restoration, section anchors, and bidirectional keyboard-driven chart/table scroll synchronization. Reduced-motion state is exercised; content/native links remain usable with JavaScript disabled.
-- Raw final recordings, state images, reports, and traces are in ignored `artifacts/evidence/me-portfolio-final/`. The PR links reviewer-accessible CI artifacts; curated states above remain in nonpublished documentation.
+- Raw final recordings, state images, reports, and traces are in ignored `artifacts/evidence/me-portfolio-grid-fix/`. The PR links reviewer-accessible CI artifacts; curated states above remain in nonpublished documentation.
 - External articles, GitHub, DeviantArt, the animation archive, CSS Day slides, Pablo Stanley's talk, and LinkedIn (GET) responded successfully. CodePen rejects automated requests with HTTP 403; its owner-supplied profile URL is retained. The production canonical `/me/` URL is not live until merge and manual deployment.
 - Existing legacy Sass `@import` deprecation warnings remain. `git diff --check` passes.
 

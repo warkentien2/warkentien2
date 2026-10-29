@@ -15,7 +15,23 @@ for (const width of [320, 390, 768, 1440, 1920]) {
     await expect(page).toHaveTitle('Philip Warkentien II — Staff UI Engineer');
     await expect(page.getByRole('heading', { level: 1 })).toHaveText('Bridging Design& Engineering.');
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', 'https://warkentien2.com/me/');
-    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    const heroFits = await page.locator('.hero-grid').evaluate(grid => {
+      const bounds = grid.getBoundingClientRect();
+      return [...grid.children].every(child => {
+        const box = child.getBoundingClientRect();
+        return box.left >= bounds.left - 1 && box.right <= bounds.right + 1;
+      });
+    });
+    expect(heroFits).toBe(true);
+    const layout = await page.evaluate(() => ({
+      width: innerWidth,
+      scrollWidth: document.documentElement.scrollWidth,
+      overflowing: [...document.querySelectorAll('body *')].filter(element => {
+        const rect = element.getBoundingClientRect();
+        return rect.right > innerWidth || rect.left < 0;
+      }).slice(0, 12).map(element => ({ tag: element.tagName, class: element.getAttribute('class'), right: element.getBoundingClientRect().right })),
+    }));
+    expect(layout.scrollWidth, JSON.stringify(layout)).toBeLessThanOrEqual(layout.width);
     const image = page.getByRole('img', { name: /Pablo Stanley at Awwwards/ });
     await image.scrollIntoViewIfNeeded();
     await expect.poll(() => image.evaluate((element: HTMLImageElement) => element.complete && element.naturalWidth > 0)).toBe(true);

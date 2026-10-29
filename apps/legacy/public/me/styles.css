@@ -291,6 +291,10 @@
   gap: var(--gutter);
 }
 
+.me-page .hero-grid > * {
+  min-width: 0;
+}
+
 .me-page .hero-copy {
   display: flex;
   flex-direction: column;
