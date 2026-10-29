@@ -233,6 +233,9 @@
   left: var(--margin);
   right: var(--margin);
   top: var(--header-height);
+  max-height: calc(100vh - var(--header-height) - 1rem);
+  max-height: calc(100dvh - var(--header-height) - 1rem);
+  overflow-y: auto;
   background: var(--surface-high);
   border: 1px solid var(--outline);
   padding: 1rem;
@@ -1007,6 +1010,14 @@
   }
   .me-page .footer {
     margin-top: 4rem;
+  }
+}
+
+@media (forced-colors: active) {
+  .me-page .hero h1 span {
+    background: none;
+    color: CanvasText;
+    -webkit-text-fill-color: currentColor;
   }
 }
 

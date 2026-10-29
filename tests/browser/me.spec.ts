@@ -115,3 +115,38 @@ test('compact portfolio remains readable with JavaScript disabled', async ({ bro
     expect(await page.locator('table tbody tr').count()).toBe(3);
   } finally { await context.close(); }
 });
+
+test('compact portfolio menu stays reachable in a short zoom-equivalent viewport', { tag: '@journey' }, async ({ page }, testInfo) => {
+  await page.setViewportSize({ width: 320, height: 180 });
+  await page.goto('/me/');
+  await page.locator('.mobile-menu summary').click();
+  const navigation = page.getByRole('navigation', { name: 'Mobile navigation' });
+  expect(await navigation.evaluate(element => element.getBoundingClientRect().bottom)).toBeLessThanOrEqual(180);
+  const contact = navigation.getByRole('link', { name: '05 / Contact' });
+  await contact.scrollIntoViewIfNeeded();
+  const bounds = await contact.boundingBox();
+  expect(bounds!.y).toBeGreaterThanOrEqual(64);
+  expect(bounds!.y + bounds!.height).toBeLessThanOrEqual(180);
+  if (process.env.PORTFOLIO_EVIDENCE_MODE === 'ux') await testInfo.attach('Scrollable menu at 320 by 180 CSS pixels', { body: await page.screenshot(), contentType: 'image/png' });
+  await contact.click();
+  await expect(page).toHaveURL(/#contact$/);
+  await expect(page.locator('.mobile-menu')).not.toHaveAttribute('open', '');
+});
+
+test('compact portfolio headline remains legible when forced colors change', { tag: '@journey' }, async ({ page }, testInfo) => {
+  await page.setViewportSize({ width: testInfo.project.name === 'mobile' ? 390 : 1440, height: 900 });
+  await page.goto('/me/');
+  await page.emulateMedia({ forcedColors: 'active' });
+  const text = page.locator('.hero h1 span');
+  const colors = await text.evaluate(element => {
+    const style = getComputedStyle(element);
+    return { color: style.color, fill: style.getPropertyValue('-webkit-text-fill-color'), background: style.backgroundImage };
+  });
+  expect(colors.fill).not.toBe('rgba(0, 0, 0, 0)');
+  expect(colors.fill).toBe(colors.color);
+  expect(colors.background).toBe('none');
+  if (process.env.PORTFOLIO_EVIDENCE_MODE === 'ux') await testInfo.attach('Legible headline in forced colors', { body: await page.screenshot(), contentType: 'image/png' });
+  await page.emulateMedia({ forcedColors: 'none' });
+  await expect(text).toHaveCSS('-webkit-text-fill-color', 'rgba(0, 0, 0, 0)');
+  await expect(text).not.toHaveCSS('background-image', 'none');
+});

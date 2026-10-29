@@ -39,14 +39,20 @@ See [editing `/me/`](../../me-portfolio.md) for source organization, tokens, res
 
 ## Validation
 
-- `npm run check` passed: TypeScript, both static builds, **20 Node tests**, and **72 desktop/mobile Playwright tests**. Existing tests remain intact.
+- `npm run check` passed: TypeScript, both static builds, **20 Node tests**, and **76 desktop/mobile Playwright tests**. Existing tests remain intact.
 - `/me/` loads directly and refreshes with HTTP 200; metadata, canonical URL, sharing image, local assets, and anchor targets resolve. Static artifact tests exclude reference files and external design/font runtimes.
 - Responsive and axe WCAG A/AA checks pass at **320, 390, 768, 1440, and 1920px**, without unwanted page overflow, missing assets, or browser page errors.
 - The initial Linux CI run caught the hero grid's intrinsic minimum width at 320px. Its children now explicitly permit shrinking within the column; an additional assertion verifies they fit inside the grid. The fix retains the specified mobile type size and leaves 390px/desktop composition unchanged.
-- Both recorded stories passed using the existing evidence infrastructure: skip link, keyboard disclosure navigation, Escape/focus restoration, section anchors, and bidirectional keyboard-driven chart/table scroll synchronization. Reduced-motion state is exercised; content/native links remain usable with JavaScript disabled.
+- Both main recorded stories passed using the existing evidence infrastructure: skip link, keyboard disclosure navigation, Escape/focus restoration, section anchors, and bidirectional keyboard-driven chart/table scroll synchronization. Reduced-motion state is exercised; content/native links remain usable with JavaScript disabled.
 - Raw final recordings, state images, reports, and traces are in ignored `artifacts/evidence/me-portfolio-grid-fix/`. The PR links reviewer-accessible CI artifacts; curated states above remain in nonpublished documentation.
 - External articles, GitHub, DeviantArt, the animation archive, CSS Day slides, Pablo Stanley's talk, and LinkedIn (GET) responded successfully. CodePen rejects automated requests with HTTP 403; its owner-supplied profile URL is retained. The production canonical `/me/` URL is not live until merge and manual deployment.
 - Existing legacy Sass `@import` deprecation warnings remain. `git diff --check` passes.
+
+## Review follow-up
+
+Two review findings were reproduced with failing desktop/mobile regressions before fixing them. The native mobile dropdown now has a viewport-based maximum height and vertical scrolling, so its last link remains reachable at 320 × 180 CSS pixels (a 400%-zoom-equivalent viewport). In forced-colors mode the hero removes its gradient and restores `currentColor` text fill using the system `CanvasText` color. The default design remains unchanged.
+
+All four review recordings passed. [Short-viewport menu](zoom-menu-mobile.png) · [Forced colors, desktop](forced-colors-desktop.png) · [Forced colors, mobile](forced-colors-mobile.png). Raw videos, state images, and traces are in ignored `artifacts/evidence/me-portfolio-accessibility-review/` and the PR's CI artifact.
 
 ## Accessibility and performance
 
